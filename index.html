@@ -3,595 +3,980 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ragib Shikder — Data & Finance Analyst Portfolio</title>
+<title>Ragib Shikder — Financial & Data Analyst</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f2744;
+  --navy-mid:#1a3a5c;
+  --blue:#2563eb;
+  --blue-light:#3b82f6;
+  --green:#16a34a;
+  --red:#dc2626;
+  --amber:#d97706;
+  --text:#111827;
+  --text-2:#374151;
+  --text-3:#6b7280;
+  --bg:#f9fafb;
+  --bg-2:#f3f4f6;
+  --bg-3:#e5e7eb;
+  --white:#ffffff;
+  --border:#e5e7eb;
+  --border-2:#d1d5db;
+  --shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:0 4px 6px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg:0 10px 15px rgba(0,0,0,0.07),0 4px 6px rgba(0,0,0,0.04);
+  --radius:8px;
+  --radius-lg:12px;
+  --radius-xl:16px;
+}
 
-  :root {
-    --navy: #1a3a5c;
-    --blue: #378add;
-    --green: #639922;
-    --red: #e24b4a;
-    --text: #1a1a1a;
-    --text-muted: #6b7280;
-    --bg: #f9f8f6;
-    --bg-card: #ffffff;
-    --bg-surface: #f1f0ec;
-    --border: rgba(0,0,0,0.1);
-    --grid: rgba(0,0,0,0.06);
-    --insight-bg: #e6f1fb;
-    --insight-text: #185fa5;
-    --insight-border: #b5d4f4;
-  }
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
 
-  body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
+/* ══ TOPBAR ══ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;box-shadow:var(--shadow)}
+.topbar-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.topbar-brand{font-size:16px;font-weight:700;color:var(--navy);letter-spacing:-0.01em;cursor:pointer}
+.topbar-brand span{color:var(--blue)}
+.topnav{display:flex;gap:2px}
+.topnav-btn{padding:6px 14px;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--text-3);cursor:pointer;border-radius:var(--radius);transition:all 0.15s}
+.topnav-btn:hover{background:var(--bg-2);color:var(--text)}
+.topnav-btn.active{background:var(--navy);color:var(--white)}
+.topbar-contact{background:var(--blue);color:#fff;border:none;padding:7px 16px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:background 0.15s}
+.topbar-contact:hover{background:var(--blue-light)}
 
-  /* ── HEADER ── */
-  .site-header {
-    background: var(--navy);
-    color: #fff;
-    padding: 3rem 1.5rem 2.5rem;
-    text-align: center;
-  }
-  .site-header h1 {
-    font-size: 2.6rem;
-    letter-spacing: -0.02em;
-    font-weight: 700;
-  }
-  .site-header .subtitle {
-    font-family: system-ui, sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-top: 8px;
-  }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 1.25rem;
-  }
-  .tag {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 6px;
-    padding: 5px 14px;
-    font-size: 12px;
-    font-family: system-ui, sans-serif;
-    color: rgba(255,255,255,0.9);
-  }
+/* ══ PAGES ══ */
+.page{display:none;min-height:100vh;padding-top:60px}
+.page.active{display:block}
 
-  /* ── NAV ── */
-  .nav-wrap {
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav-btn {
-    padding: 14px 20px;
-    font-size: 13px;
-    font-family: system-ui, sans-serif;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    color: var(--text-muted);
-    white-space: nowrap;
-    transition: all 0.15s;
-  }
-  .nav-btn:hover { color: var(--text); }
-  .nav-btn.active { color: var(--navy); border-bottom-color: var(--navy); font-weight: 500; }
+/* ══ HOME ══ */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1e3a6e 60%,#1a4a8a 100%);color:#fff;padding:100px 2rem 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{max-width:800px;margin:0 auto;position:relative}
+.hero-eyebrow{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px;font-weight:600}
+.hero h1{font-size:3.2rem;font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:#60a5fa}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:580px;margin:0 auto 32px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7)}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.hero-badge{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
 
-  /* ── MAIN ── */
-  .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-  .section { display: none; }
-  .section.active { display: block; }
+/* ══ STAT STRIP ══ */
+.stats-strip{background:var(--white);border-bottom:1px solid var(--border);padding:28px 2rem}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat-item{text-align:center;padding:0 1rem;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-val{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em}
+.stat-label{font-size:12px;color:var(--text-3);margin-top:3px;font-weight:500;letter-spacing:0.03em}
 
-  /* ── PROJECT HEADER ── */
-  .project-header { margin-bottom: 1.5rem; }
-  .project-title { font-size: 1.4rem; font-weight: 700; color: var(--text); }
-  .project-company { font-size: 13px; font-family: system-ui, sans-serif; color: var(--text-muted); margin-top: 5px; }
+/* ══ SECTION WRAPPER ══ */
+.section-wrap{max-width:1100px;margin:0 auto;padding:64px 2rem}
+.section-title{font-size:1.6rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em;margin-bottom:6px}
+.section-sub{font-size:14px;color:var(--text-3);margin-bottom:2.5rem}
+.section-header{margin-bottom:2.5rem}
 
-  /* ── BACKSTORY ── */
-  .backstory {
-    background: var(--bg-surface);
-    border-left: 3px solid var(--navy);
-    border-radius: 0 8px 8px 0;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--text-muted);
-    font-family: system-ui, sans-serif;
-  }
-  .backstory strong { color: var(--text); }
+/* ══ PROJECT CARDS (home) ══ */
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.project-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden}
+.project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);border-color:var(--blue)}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--navy)}
+.project-card.green::before{background:var(--green)}
+.project-card.blue::before{background:var(--blue)}
+.project-card.amber::before{background:var(--amber)}
+.card-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
+.card-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4}
+.card-desc{font-size:13px;color:var(--text-3);line-height:1.6;margin-bottom:1rem}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.card-tag{background:var(--bg-2);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:11px;color:var(--text-2);font-weight:500}
+.card-metric{font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:2px}
+.card-metric-label{font-size:11px;color:var(--text-3)}
+.card-metrics{display:flex;gap:1.5rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.card-arrow{position:absolute;bottom:1.25rem;right:1.25rem;width:28px;height:28px;background:var(--bg-2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text-3)}
 
-  /* ── METRICS ── */
-  .metrics {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 1.5rem;
-  }
-  .metric {
-    background: var(--bg-surface);
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-  }
-  .metric-val { font-size: 1.7rem; font-weight: 700; color: var(--navy); }
-  .metric-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-family: system-ui, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 4px;
-  }
+/* ══ SKILLS GRID (home) ══ */
+.skills-home{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.skill-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
+.skill-card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
+.skill-pill-wrap{display:flex;flex-wrap:wrap;gap:5px}
+.skill-pill{background:var(--navy);color:rgba(255,255,255,0.9);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600}
+.skill-pill.blue{background:#1e40af}
+.skill-pill.green{background:#14532d}
+.skill-pill.teal{background:#0f766e}
+.skill-pill.amber{background:#92400e}
 
-  /* ── CHART GRID ── */
-  .chart-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  .chart-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
-  }
-  .chart-card.full { grid-column: 1 / -1; }
-  .chart-label { font-size: 13px; font-weight: 600; color: var(--text); font-family: system-ui, sans-serif; margin-bottom: 3px; }
-  .chart-sublabel { font-size: 11px; color: var(--text-muted); font-family: system-ui, sans-serif; margin-bottom: 1rem; }
+/* ══ ABOUT PAGE ══ */
+.about-grid{display:grid;grid-template-columns:320px 1fr;gap:2.5rem;align-items:start}
+.about-sidebar{position:sticky;top:80px}
+.about-photo-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;text-align:center;box-shadow:var(--shadow)}
+.about-initials{width:100px;height:100px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:800;color:#fff;margin:0 auto 1rem;letter-spacing:-0.02em}
+.about-name{font-size:1.2rem;font-weight:800;color:var(--text)}
+.about-role{font-size:13px;color:var(--text-3);margin-top:4px;margin-bottom:1.5rem}
+.about-contact-list{list-style:none;text-align:left;border-top:1px solid var(--border);padding-top:1rem}
+.about-contact-list li{padding:7px 0;font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.about-contact-list li:last-child{border-bottom:none}
+.contact-label{font-weight:600;color:var(--text-3);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;min-width:52px}
+.about-main{}
+.about-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.about-section-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:0.06em;font-size:11px}
+.about-bio{font-size:14px;line-height:1.8;color:var(--text-2)}
+.about-bio p{margin-bottom:1rem}
+.about-bio p:last-child{margin-bottom:0}
+.timeline{list-style:none}
+.timeline-item{padding-left:1.5rem;border-left:2px solid var(--border-2);margin-bottom:1.25rem;position:relative}
+.timeline-item::before{content:'';position:absolute;left:-5px;top:5px;width:8px;height:8px;background:var(--navy);border-radius:50%}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-title{font-size:14px;font-weight:700;color:var(--text)}
+.timeline-company{font-size:13px;color:var(--blue);font-weight:600}
+.timeline-date{font-size:11px;color:var(--text-3);margin-top:2px;font-weight:500}
+.timeline-desc{font-size:13px;color:var(--text-2);margin-top:6px;line-height:1.6}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.cert-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1rem}
+.cert-title{font-size:13px;font-weight:700;color:var(--text)}
+.cert-org{font-size:12px;color:var(--text-3);margin-top:2px}
+.cert-skills{font-size:11px;color:var(--blue);margin-top:5px;font-weight:500}
 
-  /* ── LEGEND ── */
-  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
-  .legend span { display: flex; align-items: center; gap: 5px; font-size: 11px; font-family: system-ui, sans-serif; color: var(--text-muted); }
-  .legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+/* ══ PROJECTS PAGE ══ */
+.project-detail-nav{display:flex;gap:8px;margin-bottom:2rem;flex-wrap:wrap}
+.proj-tab{padding:8px 18px;border-radius:var(--radius);border:1px solid var(--border);background:var(--white);font-size:13px;font-weight:600;cursor:pointer;color:var(--text-3);transition:all 0.15s}
+.proj-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.proj-tab:hover:not(.active){background:var(--bg-2);color:var(--text)}
+.proj-section{display:none}
+.proj-section.active{display:block}
+.proj-hero{background:var(--navy);color:#fff;border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:1.5rem}
+.proj-hero-eyebrow{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;font-weight:600}
+.proj-hero-title{font-size:1.5rem;font-weight:800;margin-bottom:6px;letter-spacing:-0.02em}
+.proj-hero-company{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:1.5rem}
+.proj-hero-metrics{display:flex;gap:2.5rem;flex-wrap:wrap}
+.phm-val{font-size:1.8rem;font-weight:800;color:#60a5fa}
+.phm-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.proj-body{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.proj-body.single{grid-template-columns:1fr}
+.proj-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;box-shadow:var(--shadow)}
+.proj-card.span2{grid-column:1/-1}
+.proj-card-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.06em}
+.proj-card-sub{font-size:11px;color:var(--text-3);margin-bottom:1rem}
+.backstory-box{background:var(--bg-2);border-left:3px solid var(--navy);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;font-size:13px;line-height:1.75;color:var(--text-2)}
+.backstory-box strong{color:var(--text);font-weight:700}
+.insight-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius);padding:.75rem 1rem;font-size:12.5px;color:#1e40af;margin-top:1rem;line-height:1.6}
 
-  /* ── INSIGHT BOX ── */
-  .insight {
-    background: var(--insight-bg);
-    border: 1px solid var(--insight-border);
-    border-radius: 8px;
-    padding: 10px 1rem;
-    font-size: 12.5px;
-    font-family: system-ui, sans-serif;
-    color: var(--insight-text);
-    margin-top: 1rem;
-    line-height: 1.6;
-  }
+/* ══ BAR ROWS ══ */
+.bar-h{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.bar-h-row{display:flex;align-items:center;gap:8px}
+.bar-h-name{width:80px;font-size:11px;color:var(--text-3);text-align:right;flex-shrink:0}
+.bar-h-track{flex:1;background:var(--bg-2);border-radius:3px;height:20px;overflow:hidden}
+.bar-h-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:8px;font-size:11px;color:#fff;font-weight:600}
+.bar-h-val{width:40px;font-size:12px;font-weight:600;color:var(--text);flex-shrink:0}
 
-  /* ── BAR ROWS ── */
-  .bar-horiz { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
-  .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; font-family: system-ui, sans-serif; }
-  .bar-name { width: 90px; color: var(--text-muted); text-align: right; flex-shrink: 0; font-size: 11px; }
-  .bar-track { flex: 1; background: var(--bg-surface); border-radius: 3px; height: 20px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; color: #fff; font-family: system-ui, sans-serif; font-weight: 500; }
-  .bar-val { width: 44px; color: var(--text); font-weight: 500; flex-shrink: 0; font-size: 12px; }
+/* ══ SCENARIO CARDS ══ */
+.scenario-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.sc{border-radius:var(--radius);padding:1rem;text-align:center;border:1px solid}
+.sc.bull{background:#f0fdf4;border-color:#bbf7d0}
+.sc.base{background:#eff6ff;border-color:#bfdbfe}
+.sc.bear{background:#fef2f2;border-color:#fecaca}
+.sc-name{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:5px}
+.sc.bull .sc-name{color:#15803d}
+.sc.base .sc-name{color:#1d4ed8}
+.sc.bear .sc-name{color:#b91c1c}
+.sc-val{font-size:1.25rem;font-weight:800}
+.sc.bull .sc-val{color:#14532d}
+.sc.base .sc-val{color:#1e3a8a}
+.sc.bear .sc-val{color:#7f1d1d}
+.sc-sub{font-size:11px;margin-top:3px}
+.sc.bull .sc-sub{color:#15803d}
+.sc.base .sc-sub{color:#1d4ed8}
+.sc.bear .sc-sub{color:#b91c1c}
 
-  /* ── SCENARIO CARDS ── */
-  .scenario-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
-  .scenario { border-radius: 8px; padding: 1rem; text-align: center; border: 1px solid; }
-  .scenario.bull { background: #eaf3de; border-color: #c0dd97; }
-  .scenario.base { background: #e6f1fb; border-color: #b5d4f4; }
-  .scenario.bear { background: #fcebeb; border-color: #f7c1c1; }
-  .scenario-name { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-family: system-ui, sans-serif; margin-bottom: 6px; font-weight: 600; }
-  .scenario.bull .scenario-name { color: #3b6d11; }
-  .scenario.base .scenario-name { color: #185fa5; }
-  .scenario.bear .scenario-name { color: #a32d2d; }
-  .scenario-val { font-size: 1.3rem; font-weight: 700; }
-  .scenario.bull .scenario-val { color: #27500a; }
-  .scenario.base .scenario-val { color: #0c447c; }
-  .scenario.bear .scenario-val { color: #791f1f; }
-  .scenario-sub { font-size: 11px; font-family: system-ui, sans-serif; margin-top: 4px; }
-  .scenario.bull .scenario-sub { color: #3b6d11; }
-  .scenario.base .scenario-sub { color: #185fa5; }
-  .scenario.bear .scenario-sub { color: #791f1f; }
+/* ══ SKILLS PAGE ══ */
+.skills-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.skill-category{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;box-shadow:var(--shadow)}
+.skill-cat-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.skill-item{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)}
+.skill-item:last-child{border-bottom:none}
+.skill-name{font-size:13px;font-weight:600;color:var(--text)}
+.skill-bar-wrap{width:100px;height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden}
+.skill-bar{height:100%;border-radius:3px;background:var(--navy)}
+.proficiency-label{font-size:10px;color:var(--text-3);margin-top:2px;text-align:right}
+.tools-section{margin-top:2rem}
+.tools-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:.75rem}
+.tool-badge{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow)}
 
-  /* ── WACC TABLE ── */
-  .wacc-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-  .wacc-label { width: 36px; color: var(--text-muted); text-align: right; flex-shrink: 0; font-size: 12px; font-family: system-ui, sans-serif; }
-  .wacc-track { flex: 1; background: var(--bg-surface); border-radius: 3px; height: 24px; overflow: hidden; }
-  .wacc-fill { height: 100%; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 500; font-family: system-ui, sans-serif; color: #fff; }
+/* ══ RESUME PAGE ══ */
+.resume-wrap{max-width:800px;margin:0 auto}
+.resume-download{background:var(--navy);color:#fff;border:none;padding:10px 24px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;margin-bottom:2rem;display:inline-flex;align-items:center;gap:8px}
+.res-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1rem;box-shadow:var(--shadow)}
+.res-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.res-header{text-align:center;padding:2rem;background:var(--navy);color:#fff;border-radius:var(--radius-lg);margin-bottom:1rem}
+.res-name{font-size:2rem;font-weight:800;letter-spacing:-0.02em}
+.res-title{font-size:14px;color:rgba(255,255,255,0.65);margin-top:4px}
+.res-contact{font-size:12px;color:rgba(255,255,255,0.55);margin-top:8px}
+.res-exp-item{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.res-exp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.res-exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.res-exp-title{font-size:14px;font-weight:700;color:var(--text)}
+.res-exp-date{font-size:12px;color:var(--text-3);font-weight:500;white-space:nowrap}
+.res-exp-company{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:.5rem}
+.res-exp-bullets{list-style:none;padding-left:0}
+.res-exp-bullets li{font-size:13px;color:var(--text-2);padding:3px 0 3px 1.25rem;position:relative;line-height:1.6}
+.res-exp-bullets li::before{content:'·';position:absolute;left:4px;color:var(--navy);font-weight:700;font-size:1rem}
+.res-skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.res-skill-item{font-size:13px;color:var(--text-2);padding:4px 0;display:flex;align-items:center;gap:6px}
+.res-skill-item::before{content:'';width:6px;height:6px;background:var(--navy);border-radius:50%;flex-shrink:0}
+.res-edu-item{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem}
+.res-edu-item:last-child{margin-bottom:0}
+.res-edu-degree{font-size:14px;font-weight:700;color:var(--text)}
+.res-edu-school{font-size:13px;color:var(--blue);font-weight:500}
+.res-edu-date{font-size:12px;color:var(--text-3);white-space:nowrap}
 
-  /* ── ACCURACY CARDS ── */
-  .accuracy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-  .accuracy-item { text-align: center; padding: 14px 10px; background: var(--bg-surface); border-radius: 8px; }
-  .accuracy-before { font-size: 1.3rem; font-weight: 700; color: var(--red); }
-  .accuracy-after { font-size: 1.3rem; font-weight: 700; color: var(--green); }
-  .accuracy-label { font-size: 11px; color: var(--text-muted); font-family: system-ui, sans-serif; margin-top: 3px; }
-  .arrow { font-size: 18px; color: var(--text-muted); margin: 4px 0; }
+/* ══ CONTACT PAGE ══ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.contact-info{background:var(--navy);color:#fff;border-radius:var(--radius-xl);padding:2.5rem}
+.contact-info h2{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.contact-info p{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:2rem;line-height:1.7}
+.contact-link{display:flex;align-items:center;gap:12px;padding:1rem;background:rgba(255,255,255,0.07);border-radius:var(--radius);margin-bottom:.75rem;text-decoration:none;color:#fff;transition:background 0.15s;font-size:14px}
+.contact-link:hover{background:rgba(255,255,255,0.12)}
+.contact-link-icon{width:36px;height:36px;background:rgba(255,255,255,0.12);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.contact-link-label{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em}
+.contact-link-val{font-size:13px;font-weight:600;color:#fff;margin-top:1px}
+.contact-form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem;box-shadow:var(--shadow-md)}
+.contact-form h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1.5rem}
+.form-group{margin-bottom:1rem}
+.form-label{display:block;font-size:12px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.form-input{width:100%;padding:10px 14px;border:1px solid var(--border-2);border-radius:var(--radius);font-size:14px;color:var(--text);background:var(--bg);font-family:inherit;transition:border-color 0.15s}
+.form-input:focus{outline:none;border-color:var(--blue);background:var(--white)}
+textarea.form-input{resize:vertical;min-height:120px}
+.form-submit{width:100%;background:var(--navy);color:#fff;border:none;padding:12px;border-radius:var(--radius);font-size:14px;font-weight:700;cursor:pointer;transition:background 0.15s;margin-top:.5rem}
+.form-submit:hover{background:#1e3a6e}
+.form-note{font-size:12px;color:var(--text-3);text-align:center;margin-top:8px}
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 12px;
-    font-family: system-ui, sans-serif;
-  }
-  footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+/* ══ FOOTER ══ */
+.site-footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;font-size:12px;margin-top:4rem}
+.site-footer a{color:rgba(255,255,255,0.8);text-decoration:none}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    .site-header h1 { font-size: 1.8rem; }
-    .chart-grid { grid-template-columns: 1fr; }
-    .chart-card.full { grid-column: 1; }
-    .metrics { grid-template-columns: repeat(3, 1fr); }
-    .scenario-grid { grid-template-columns: repeat(3, 1fr); }
-    .nav-btn { padding: 12px 14px; font-size: 12px; }
-  }
+/* ══ LEGEND ══ */
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.legend span{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3)}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .project-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-sidebar{position:static}
+  .proj-body{grid-template-columns:1fr}
+  .proj-body .span2{grid-column:1}
+  .skills-page-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .res-skills-grid{grid-template-columns:1fr}
+  .topnav{display:none}
+}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <h1>Ragib Shikder</h1>
-  <div class="subtitle">Financial &amp; Data Analyst &nbsp;·&nbsp; SQL &nbsp;·&nbsp; Power BI &nbsp;·&nbsp; Python &nbsp;·&nbsp; Claude AI</div>
-  <div class="tags">
-    <span class="tag">Goldman Sachs Trained</span>
-    <span class="tag">JPMorgan Trained</span>
-    <span class="tag">$200K+ Revenue Generated</span>
-    <span class="tag">$5B Fund Accounting</span>
-    <span class="tag">MS AI &amp; Business Analytics @ Baruch</span>
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand" onclick="showPage('home')">Ragib <span>Shikder</span></div>
+    <nav class="topnav">
+      <button class="topnav-btn active" onclick="showPage('home',this)">Home</button>
+      <button class="topnav-btn" onclick="showPage('about',this)">About</button>
+      <button class="topnav-btn" onclick="showPage('projects',this)">Projects</button>
+      <button class="topnav-btn" onclick="showPage('skills',this)">Skills</button>
+      <button class="topnav-btn" onclick="showPage('resume',this)">Resume</button>
+      <button class="topnav-btn" onclick="showPage('contact',this)">Contact</button>
+    </nav>
+    <button class="topbar-contact" onclick="showPage('contact')">Hire Me →</button>
   </div>
 </header>
 
-<div class="nav-wrap">
-  <nav class="nav">
-    <button class="nav-btn active" onclick="showSection('pmf',this)">Premium Merchant Funding</button>
-    <button class="nav-btn" onclick="showSection('proace',this)">ProACE International</button>
-    <button class="nav-btn" onclick="showSection('gs',this)">Goldman Sachs</button>
-    <button class="nav-btn" onclick="showSection('jpm',this)">J.P. Morgan</button>
-  </nav>
+<!-- ══════════════════════════ HOME PAGE ══════════════════════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Financial & Data Analyst Portfolio</div>
+      <h1>Turning Data Into<br><span>Decisions That Matter</span></h1>
+      <p class="hero-sub">Goldman Sachs & JPMorgan trained analyst specializing in SQL, Power BI (DAX), Python, and Advanced Excel. I build pipelines, dashboards, and financial models that drive measurable outcomes.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('projects')">View Case Studies →</button>
+        <button class="btn-outline" onclick="showPage('resume')">Download Resume</button>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge">Goldman Sachs Trained</span>
+        <span class="hero-badge">JPMorgan Trained</span>
+        <span class="hero-badge">$200K+ Revenue Generated</span>
+        <span class="hero-badge">$5B Fund Accounting</span>
+        <span class="hero-badge">MS AI & Business Analytics @ Baruch</span>
+        <span class="hero-badge">New York City, NY</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-val">$200K+</div><div class="stat-label">Capital Funded</div></div>
+      <div class="stat-item"><div class="stat-val">$5B</div><div class="stat-label">Fund AUM Managed</div></div>
+      <div class="stat-item"><div class="stat-val">100%</div><div class="stat-label">Data Accuracy Achieved</div></div>
+      <div class="stat-item"><div class="stat-val">5→1</div><div class="stat-label">Days Reporting Cycle Cut</div></div>
+    </div>
+  </div>
+
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Featured Case Studies</div>
+      <div class="section-sub">Real projects, real outcomes — click any card to see the full analysis</div>
+    </div>
+    <div class="project-grid">
+      <div class="project-card" onclick="showProject('pmf')">
+        <div class="card-eyebrow">Sales & Revenue Analytics</div>
+        <div class="card-metrics">
+          <div><div class="card-metric">$200K+</div><div class="card-metric-label">Capital Funded</div></div>
+          <div><div class="card-metric">10+</div><div class="card-metric-label">Clients Closed</div></div>
+          <div><div class="card-metric">8 wks</div><div class="card-metric-label">Engagement</div></div>
+        </div>
+        <div class="card-title">Pipeline Operations & Revenue Analytics System</div>
+        <div class="card-desc">Built a full Excel-based pipeline tracker with XLOOKUP scenario modeling and rolling budget vs. actuals that drove $200K+ in funded capital.</div>
+        <div class="card-tags"><span class="card-tag">Advanced Excel</span><span class="card-tag">Financial Modeling</span><span class="card-tag">Pipeline Ops</span><span class="card-tag">FP&A</span></div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="project-card green" onclick="showProject('proace')">
+        <div class="card-eyebrow">Data Engineering & Automation</div>
+        <div class="card-metrics">
+          <div><div class="card-metric">100%</div><div class="card-metric-label">Data Accuracy</div></div>
+          <div><div class="card-metric">5→1</div><div class="card-metric-label">Day Cycle</div></div>
+          <div><div class="card-metric">4</div><div class="card-metric-label">Systems Unified</div></div>
+        </div>
+        <div class="card-title">ETL Pipeline & Power BI Dashboard Automation</div>
+        <div class="card-desc">Architected an end-to-end SQL ETL pipeline and automated Power BI dashboards with DAX, eliminating manual reporting entirely.</div>
+        <div class="card-tags"><span class="card-tag">SQL</span><span class="card-tag">Power BI</span><span class="card-tag">DAX</span><span class="card-tag">ETL</span><span class="card-tag">Claude AI</span></div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="project-card blue" onclick="showProject('gs')">
+        <div class="card-eyebrow">Fund Accounting & Compliance</div>
+        <div class="card-metrics">
+          <div><div class="card-metric">$5B</div><div class="card-metric-label">Fund AUM</div></div>
+          <div><div class="card-metric">100%</div><div class="card-metric-label">Data Integrity</div></div>
+          <div><div class="card-metric">GAAP+IFRS</div><div class="card-metric-label">Compliance</div></div>
+        </div>
+        <div class="card-title">NAV Calculation & Fund Accounting — West Street Fund</div>
+        <div class="card-desc">Computed NAV for a $5B Goldman Sachs fund with GAAP/IFRS compliance, HTD ratio analysis, and automated month-end close workflows.</div>
+        <div class="card-tags"><span class="card-tag">NAV</span><span class="card-tag">GAAP</span><span class="card-tag">IFRS</span><span class="card-tag">Excel</span><span class="card-tag">Fund Accounting</span></div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="project-card amber" onclick="showProject('jpm')">
+        <div class="card-eyebrow">Investment Banking & M&A</div>
+        <div class="card-metrics">
+          <div><div class="card-metric">$1B</div><div class="card-metric-label">EBITDA Target</div></div>
+          <div><div class="card-metric">3</div><div class="card-metric-label">DCF Scenarios</div></div>
+          <div><div class="card-metric">5-yr</div><div class="card-metric-label">Forecast Horizon</div></div>
+        </div>
+        <div class="card-title">DCF Modeling & M&A Analysis — JPMorgan</div>
+        <div class="card-desc">Constructed a full three-statement DCF with WACC sensitivity analysis and scenario modeling for a $1B EBITDA M&A target.</div>
+        <div class="card-tags"><span class="card-tag">DCF</span><span class="card-tag">M&A</span><span class="card-tag">WACC</span><span class="card-tag">Scenario Analysis</span></div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem">
+      <div class="section-header">
+        <div class="section-title">Core Competencies</div>
+        <div class="section-sub">Technical skills organized by category</div>
+      </div>
+      <div class="skills-home">
+        <div class="skill-card">
+          <div class="skill-card-title">📊 Data & BI</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">SQL</span><span class="skill-pill">Power BI</span><span class="skill-pill">DAX</span><span class="skill-pill">ETL</span><span class="skill-pill">Power Query</span><span class="skill-pill">Python</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">💰 Finance</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill blue">DCF</span><span class="skill-pill blue">FP&A</span><span class="skill-pill blue">NAV</span><span class="skill-pill blue">Variance Analysis</span><span class="skill-pill blue">GAAP</span><span class="skill-pill blue">IFRS</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">🛠️ Tools</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill teal">Excel</span><span class="skill-pill teal">XLOOKUP</span><span class="skill-pill teal">Pivot Tables</span><span class="skill-pill teal">Claude AI</span><span class="skill-pill teal">VBA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<main class="main">
-
-  <!-- ═══ PMF ═══ -->
-  <div id="pmf" class="section active">
-    <div class="project-header">
-      <div class="project-title">Revenue Analytics &amp; Pipeline Operations</div>
-      <div class="project-company">Business Development Analyst &nbsp;·&nbsp; Premium Merchant Funding &nbsp;·&nbsp; Jul – Aug 2025 &nbsp;·&nbsp; Manhattan, NY</div>
+<!-- ══════════════════════════ ABOUT PAGE ══════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">About Me</div>
+      <div class="section-sub">Financial and Data Analyst based in New York City</div>
     </div>
-    <div class="backstory">
-      <strong>The problem:</strong> Premium Merchant Funding had no structured pipeline tracking system. Deal stages were tracked manually in scattered notes, there was no visibility into budget vs. actuals, and the client qualification process was inconsistent across reps. I was handed a blank slate and told to close deals. <strong>What I actually built:</strong> A full Excel-based pipeline operations system with XLOOKUP-driven scenario modeling, rolling budget vs. actuals tracking, and a repeatable client qualification workflow — then used it to close $200,000+ in funded capital across 10+ clients in 8 weeks.
-    </div>
-    <div class="metrics">
-      <div class="metric"><div class="metric-val">$200K+</div><div class="metric-label">Capital Funded</div></div>
-      <div class="metric"><div class="metric-val">10+</div><div class="metric-label">Clients Closed</div></div>
-      <div class="metric"><div class="metric-val">$100K</div><div class="metric-label">Monthly Pipeline Peak</div></div>
-    </div>
-    <div class="chart-grid">
-      <div class="chart-card full">
-        <div class="chart-label">Weekly pipeline vs. target</div>
-        <div class="chart-sublabel">Funded capital closed each week against the $25K weekly production target ($K)</div>
-        <div class="legend">
-          <span><i style="background:#1a3a5c"></i>Actual funded ($K)</span>
-          <span><i style="background:#e24b4a;opacity:0.7"></i>Target ($25K/week)</span>
+    <div class="about-grid">
+      <div class="about-sidebar">
+        <div class="about-photo-card">
+          <div class="about-initials">RS</div>
+          <div class="about-name">Ragib Shikder</div>
+          <div class="about-role">Financial & Data Analyst</div>
+          <ul class="about-contact-list">
+            <li><span class="contact-label">Email</span> ragibnyc@gmail.com</li>
+            <li><span class="contact-label">Location</span> New York City, NY</li>
+            <li><span class="contact-label">LinkedIn</span> ragib-shikder</li>
+            <li><span class="contact-label">Phone</span> +1 (347) 801-3756</li>
+            <li><span class="contact-label">Status</span> Open to work</li>
+          </ul>
         </div>
-        <div style="position:relative;width:100%;height:260px"><canvas id="c1"></canvas></div>
-        <div class="insight">Outperformed the $25K weekly target in 5 of 8 weeks. Peak week: $47K — 88% above target. Total funded: $258K across the 8-week engagement.</div>
       </div>
-      <div class="chart-card">
-        <div class="chart-label">Deal mix by product type</div>
-        <div class="chart-sublabel">Capital deployed by funding instrument</div>
-        <div class="legend">
-          <span><i style="background:#1a3a5c"></i>MCA 45%</span>
-          <span><i style="background:#378add"></i>Lines of Credit 35%</span>
-          <span><i style="background:#639922"></i>Equipment 20%</span>
-        </div>
-        <div style="position:relative;width:100%;height:220px"><canvas id="c2"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-label">Cumulative revenue vs. budget</div>
-        <div class="chart-sublabel">Rolling 8-week cumulative performance ($K)</div>
-        <div class="legend">
-          <span><i style="background:#1a3a5c"></i>Actual</span>
-          <span><i style="background:#e24b4a"></i>Budget</span>
-        </div>
-        <div style="position:relative;width:100%;height:220px"><canvas id="c3"></canvas></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ PROACE ═══ -->
-  <div id="proace" class="section">
-    <div class="project-header">
-      <div class="project-title">KPI Dashboard &amp; ETL Pipeline Automation</div>
-      <div class="project-company">Data Analyst &nbsp;·&nbsp; ProACE International &nbsp;·&nbsp; Mar – Apr 2024 &nbsp;·&nbsp; Remote</div>
-    </div>
-    <div class="backstory">
-      <strong>The problem:</strong> ProACE's financial reporting was entirely manual — analysts pulled data from 4 separate source systems into Excel every week, reconciled by hand, and built reports from scratch. Data accuracy sat around 67% due to human error in reconciliation. Reporting cycle time was 5 days per report. <strong>What I built:</strong> An end-to-end SQL ETL pipeline (joins, CTEs, aggregations) to automate extraction and validation across all source systems, automated Power BI dashboards with DAX time intelligence, and leveraged Claude AI to accelerate ad hoc analysis — bringing accuracy to 100% and cycle time to 1 day.
-    </div>
-    <div class="metrics">
-      <div class="metric"><div class="metric-val">100%</div><div class="metric-label">Data Accuracy Achieved</div></div>
-      <div class="metric"><div class="metric-val">5→1</div><div class="metric-label">Days Reporting Cycle</div></div>
-      <div class="metric"><div class="metric-val">4</div><div class="metric-label">Source Systems Unified</div></div>
-    </div>
-    <div class="chart-grid">
-      <div class="chart-card">
-        <div class="chart-label">Data accuracy — before vs. after ETL</div>
-        <div class="chart-sublabel">Accuracy and cycle time improvement after pipeline deployment</div>
-        <div class="accuracy-grid">
-          <div class="accuracy-item">
-            <div class="accuracy-before">67%</div>
-            <div class="accuracy-label">Accuracy before ETL</div>
-            <div class="arrow">↓</div>
-            <div class="accuracy-after">100%</div>
-            <div class="accuracy-label">Accuracy after ETL</div>
-          </div>
-          <div class="accuracy-item">
-            <div class="accuracy-before">5 days</div>
-            <div class="accuracy-label">Reporting cycle before</div>
-            <div class="arrow">↓</div>
-            <div class="accuracy-after">1 day</div>
-            <div class="accuracy-label">Reporting cycle after</div>
+      <div class="about-main">
+        <div class="about-section">
+          <div class="about-section-title">Bio</div>
+          <div class="about-bio">
+            <p>I'm a Financial and Data Analyst based in New York City, specializing in building the systems and tools that turn raw financial data into decisions that matter. My work sits at the intersection of analytics, operations, and finance — I'm equally comfortable writing a SQL ETL pipeline, building a Power BI dashboard with DAX time intelligence, and constructing a DCF model for a $1B EBITDA acquisition target.</p>
+            <p>My background spans investment banking analysis (JPMorgan), fund accounting (Goldman Sachs), pipeline operations and revenue analytics (Premium Merchant Funding), and full-stack data engineering (ProACE International). In total I've generated $200,000+ in capital funding, managed analytics for a $5 billion fund, and built automation systems that cut reporting cycle times from 5 days to 1.</p>
+            <p>I'm currently pursuing an MS in AI and Business Analytics at Baruch College, Zicklin School of Business — focused on applying machine learning and AI tooling to real operational and financial problems. I'm a high-agency builder: I find broken things, redesign them, and ship the fix fast.</p>
           </div>
         </div>
-        <div class="bar-horiz" style="margin-top:1rem">
-          <div style="font-size:11px;font-family:system-ui;color:var(--text-muted);margin-bottom:4px">Accuracy by category after pipeline</div>
-          <div class="bar-row"><div class="bar-name">Revenue</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div></div>
-          <div class="bar-row"><div class="bar-name">Cost alloc.</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div></div>
-          <div class="bar-row"><div class="bar-name">Milestones</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div></div>
-          <div class="bar-row"><div class="bar-name">Stakeholder</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div></div>
+        <div class="about-section">
+          <div class="about-section-title">Experience</div>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-title">Business Development Analyst</div>
+              <div class="timeline-company">Premium Merchant Funding</div>
+              <div class="timeline-date">Jul 2025 – Aug 2025 · Manhattan, NY</div>
+              <div class="timeline-desc">Secured $200,000+ in capital funding through structured financial modeling and pipeline operations. Built a $100K+ monthly pipeline tracker in Advanced Excel from scratch.</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-title">Data Analyst – Reporting & KPI Analytics</div>
+              <div class="timeline-company">ProACE International</div>
+              <div class="timeline-date">Mar 2024 – Apr 2024 · Remote</div>
+              <div class="timeline-desc">Architected an end-to-end SQL ETL pipeline and automated Power BI dashboards, achieving 100% data accuracy and cutting reporting cycle from 5 days to 1.</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-title">Fund Accounting Analyst</div>
+              <div class="timeline-company">Goldman Sachs · Virtual Experience Program</div>
+              <div class="timeline-date">Virtual Experience Program</div>
+              <div class="timeline-desc">Computed NAV for a $5 billion fund with GAAP and IFRS compliance. Devised HTD ratio analysis frameworks to proactively surface discrepancies.</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-title">Junior Investment Banking Analyst</div>
+              <div class="timeline-company">J.P. Morgan · Virtual Experience Program</div>
+              <div class="timeline-date">Virtual Experience Program</div>
+              <div class="timeline-desc">Constructed a full DCF and three-statement financial model to value a $1B EBITDA target, with WACC sensitivity analysis and M&A presentation materials.</div>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-label">Monthly KPI variance — budget vs. actuals</div>
-        <div class="chart-sublabel">Project milestone spend ($K) across 6 KPI categories</div>
-        <div class="legend"><span><i style="background:#1a3a5c"></i>Budget</span><span><i style="background:#378add"></i>Actuals</span></div>
-        <div style="position:relative;width:100%;height:220px"><canvas id="c4"></canvas></div>
-      </div>
-      <div class="chart-card full">
-        <div class="chart-label">ETL pipeline — records processed by source system</div>
-        <div class="chart-sublabel">Records extracted and validated per source (thousands)</div>
-        <div class="legend"><span><i style="background:#1a3a5c"></i>Records extracted</span><span><i style="background:#639922"></i>Records validated (100%)</span></div>
-        <div style="position:relative;width:100%;height:220px"><canvas id="c5"></canvas></div>
-        <div class="insight">All 4 source systems fully reconciled. Zero manual intervention required after pipeline deployment. Senior leadership reporting automated end-to-end.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ GOLDMAN ═══ -->
-  <div id="gs" class="section">
-    <div class="project-header">
-      <div class="project-title">NAV Calculation &amp; Fund Accounting — $5B Fund</div>
-      <div class="project-company">Fund Accounting Analyst &nbsp;·&nbsp; Goldman Sachs &nbsp;·&nbsp; Virtual Experience Program</div>
-    </div>
-    <div class="backstory">
-      <strong>The fund:</strong> The West Street Fund — a $5 billion AUM vehicle managed within Goldman Sachs Asset &amp; Wealth Management, with two share classes (Class A and Class C) serving institutional and high-net-worth investors. <strong>The work:</strong> Calculated Net Asset Valuation (NAV) by unitizing history-to-date (HTD) financial activity, ensuring full GAAP and IFRS compliance, delivering month-end close reporting, and devising HTD ratio analysis frameworks to proactively surface discrepancies before reporting deadlines — maintaining 100% data integrity throughout.
-    </div>
-    <div class="metrics">
-      <div class="metric"><div class="metric-val">$5B</div><div class="metric-label">Fund AUM</div></div>
-      <div class="metric"><div class="metric-val">100%</div><div class="metric-label">Data Integrity</div></div>
-      <div class="metric"><div class="metric-val">GAAP+IFRS</div><div class="metric-label">Compliance Standard</div></div>
-    </div>
-    <div class="chart-grid">
-      <div class="chart-card full">
-        <div class="chart-label">West Street Fund — NAV over time</div>
-        <div class="chart-sublabel">Net Asset Value ($B) — Class A vs. Class C, 6-month trailing</div>
-        <div class="legend">
-          <span><i style="background:#1a3a5c"></i>Class A ($B)</span>
-          <span><i style="background:#378add"></i>Class C ($B)</span>
-          <span><i style="background:#639922"></i>Total NAV ($B)</span>
+        <div class="about-section">
+          <div class="about-section-title">Education</div>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-title">Master of Science — AI and Business Analytics</div>
+              <div class="timeline-company">Baruch College, Zicklin School of Business (CUNY)</div>
+              <div class="timeline-date">Sep 2026 – Jun 2028</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-title">Bachelor of Science — Computer Science & Information Systems</div>
+              <div class="timeline-company">John Jay College of Criminal Justice (CUNY)</div>
+              <div class="timeline-date">Jan 2024 – Jul 2025</div>
+            </li>
+          </ul>
         </div>
-        <div style="position:relative;width:100%;height:260px"><canvas id="c6"></canvas></div>
-        <div class="insight">Total fund NAV grew from $4.60B to $5.02B over the 6-month period — an 8.9% increase. Class A outpaced Class C, driven by stronger HTD performance in the equity allocation sleeve.</div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-label">HTD ratio analysis — discrepancy detection</div>
-        <div class="chart-sublabel">Variance flagged vs. resolved each month ($M)</div>
-        <div class="legend"><span><i style="background:#e24b4a"></i>Flagged variance</span><span><i style="background:#639922"></i>Resolved pre-deadline</span></div>
-        <div style="position:relative;width:100%;height:220px"><canvas id="c7"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-label">Compliance checklist — month-end close</div>
-        <div class="chart-sublabel">Completion rate by reporting category</div>
-        <div class="bar-horiz" style="margin-top:14px">
-          <div class="bar-row"><div class="bar-name">NAV calc.</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div><div class="bar-val">100%</div></div>
-          <div class="bar-row"><div class="bar-name">GAAP recs.</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div><div class="bar-val">100%</div></div>
-          <div class="bar-row"><div class="bar-name">IFRS recs.</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div><div class="bar-val">100%</div></div>
-          <div class="bar-row"><div class="bar-name">HTD audit</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div><div class="bar-val">100%</div></div>
-          <div class="bar-row"><div class="bar-name">A/C recon.</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1a3a5c">100%</div></div><div class="bar-val">100%</div></div>
+        <div class="about-section">
+          <div class="about-section-title">Certifications</div>
+          <div class="cert-grid">
+            <div class="cert-item">
+              <div class="cert-title">Investment Banking Job Simulation</div>
+              <div class="cert-org">J.P. Morgan · Forage</div>
+              <div class="cert-skills">DCF Modeling · M&A Analysis · Financial Modeling</div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-title">Controllers Job Simulation</div>
+              <div class="cert-org">Goldman Sachs · Forage</div>
+              <div class="cert-skills">NAV Calculation · Fund Accounting · GAAP/IFRS</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ═══ JPM ═══ -->
-  <div id="jpm" class="section">
-    <div class="project-header">
-      <div class="project-title">DCF Modeling &amp; M&amp;A Financial Analysis — $1B EBITDA Target</div>
-      <div class="project-company">Junior Investment Banking Analyst &nbsp;·&nbsp; J.P. Morgan &nbsp;·&nbsp; Virtual Experience Program</div>
+<!-- ══════════════════════════ PROJECTS PAGE ══════════════════════════ -->
+<div id="page-projects" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Case Studies</div>
+      <div class="section-sub">Deep dives into each project — methodology, data, and outcomes</div>
     </div>
-    <div class="backstory">
-      <strong>The mandate:</strong> Value a $1B EBITDA target company to support an M&amp;A buy-side engagement. <strong>The model:</strong> A full three-statement DCF in Advanced Excel with 5-year revenue forecasts, WACC analysis (7–11% sensitivity range), terminal value assumptions, and dynamic scenario/sensitivity tables across bear, base, and bull cases. Outputs fed directly into investor-facing management presentations mapping the full M&amp;A auction process from non-binding indicative bids through final stakeholder communication.
+    <div class="project-detail-nav">
+      <button class="proj-tab active" onclick="showProj('pmf',this)">Premium Merchant Funding</button>
+      <button class="proj-tab" onclick="showProj('proace',this)">ProACE International</button>
+      <button class="proj-tab" onclick="showProj('gs',this)">Goldman Sachs</button>
+      <button class="proj-tab" onclick="showProj('jpm',this)">J.P. Morgan</button>
     </div>
-    <div class="metrics">
-      <div class="metric"><div class="metric-val">$1B</div><div class="metric-label">EBITDA Target</div></div>
-      <div class="metric"><div class="metric-val">3</div><div class="metric-label">DCF Scenarios Modeled</div></div>
-      <div class="metric"><div class="metric-val">5-Year</div><div class="metric-label">Forecast Horizon</div></div>
-    </div>
-    <div class="chart-grid">
-      <div class="chart-card full">
-        <div class="chart-label">5-year revenue forecast — scenario analysis</div>
-        <div class="chart-sublabel">Projected annual revenue ($B) across bear, base, and bull cases</div>
-        <div class="legend">
-          <span><i style="background:#639922"></i>Bull case</span>
-          <span><i style="background:#1a3a5c"></i>Base case</span>
-          <span><i style="background:#e24b4a"></i>Bear case</span>
+
+    <!-- PMF PROJECT -->
+    <div id="proj-pmf" class="proj-section active">
+      <div class="proj-hero">
+        <div class="proj-hero-eyebrow">Sales & Revenue Analytics · Jul – Aug 2025</div>
+        <div class="proj-hero-title">Pipeline Operations & Revenue Analytics System</div>
+        <div class="proj-hero-company">Business Development Analyst · Premium Merchant Funding · Manhattan, NY</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$200K+</div><div class="phm-label">Capital Funded</div></div>
+          <div><div class="phm-val">10+</div><div class="phm-label">Clients Closed</div></div>
+          <div><div class="phm-val">$100K</div><div class="phm-label">Monthly Pipeline Peak</div></div>
+          <div><div class="phm-val">+88%</div><div class="phm-label">Above Target (Peak Week)</div></div>
         </div>
-        <div style="position:relative;width:100%;height:260px"><canvas id="c8"></canvas></div>
       </div>
-      <div class="chart-card">
-        <div class="chart-label">Enterprise value by scenario</div>
-        <div class="chart-sublabel">Implied EV at base WACC (9%)</div>
-        <div class="scenario-grid">
-          <div class="scenario bull"><div class="scenario-name">Bull</div><div class="scenario-val">$18.2B</div><div class="scenario-sub">+29% vs base</div></div>
-          <div class="scenario base"><div class="scenario-name">Base</div><div class="scenario-val">$14.1B</div><div class="scenario-sub">14.1x EBITDA</div></div>
-          <div class="scenario bear"><div class="scenario-name">Bear</div><div class="scenario-val">$9.8B</div><div class="scenario-sub">-30% vs base</div></div>
+      <div class="proj-card span2" style="margin-bottom:1.25rem">
+        <div class="proj-card-title">Project Background</div>
+        <div class="backstory-box">
+          <strong>The problem:</strong> Premium Merchant Funding had no structured pipeline tracking system. Deal stages were tracked in scattered notes, there was zero visibility into budget vs. actuals, and the client qualification process was inconsistent. I was handed a blank slate and told to close deals. <strong>What I built:</strong> A full Excel-based pipeline operations system with XLOOKUP-driven scenario modeling, rolling budget vs. actuals tracking, and a repeatable client qualification workflow — then used it to close $200,000+ in funded capital across 10+ clients in 8 weeks.
         </div>
-        <div class="insight" style="margin-top:12px">Bull-bear spread of $8.4B underscores sensitivity to revenue growth assumptions. Scenario analysis presented to investment committee to frame bid range.</div>
       </div>
-      <div class="chart-card">
-        <div class="chart-label">WACC sensitivity — implied enterprise value</div>
-        <div class="chart-sublabel">How discount rate assumptions shift valuation ($B)</div>
-        <div style="margin-top:10px">
-          <div class="wacc-row"><div class="wacc-label">7%</div><div class="wacc-track"><div class="wacc-fill" style="width:93%;background:#1a3a5c">$16.8B</div></div></div>
-          <div class="wacc-row"><div class="wacc-label">8%</div><div class="wacc-track"><div class="wacc-fill" style="width:85%;background:#1a3a5c">$15.2B</div></div></div>
-          <div class="wacc-row"><div class="wacc-label">9%</div><div class="wacc-track"><div class="wacc-fill" style="width:78%;background:#378add">$14.1B ← base</div></div></div>
-          <div class="wacc-row"><div class="wacc-label">10%</div><div class="wacc-track"><div class="wacc-fill" style="width:70%;background:#5f8ab5">$13.0B</div></div></div>
-          <div class="wacc-row"><div class="wacc-label">11%</div><div class="wacc-track"><div class="wacc-fill" style="width:62%;background:#8aaac5">$11.9B</div></div></div>
+      <div class="proj-body">
+        <div class="proj-card span2">
+          <div class="proj-card-title">Weekly Pipeline vs. $25K Production Target</div>
+          <div class="proj-card-sub">Funded capital closed each week against the weekly production target ($K)</div>
+          <div class="legend"><span><i style="background:#0f2744"></i>Actual funded ($K)</span><span><i style="background:#dc2626;opacity:.7"></i>Target $25K/week</span></div>
+          <div style="position:relative;width:100%;height:260px"><canvas id="p1"></canvas></div>
+          <div class="insight-box">Outperformed the $25K weekly target in 5 of 8 weeks. Peak week reached $47K — 88% above target. Total capital closed: $258K over the 8-week engagement.</div>
         </div>
-        <div style="font-size:11px;font-family:system-ui;color:var(--text-muted);margin-top:10px">Each 100bps increase in WACC reduces EV by ~$1.1–1.3B at base revenue growth assumptions.</div>
+        <div class="proj-card">
+          <div class="proj-card-title">Deal Mix by Product Type</div>
+          <div class="proj-card-sub">Capital deployed by funding instrument</div>
+          <div class="legend"><span><i style="background:#0f2744"></i>MCA 45%</span><span><i style="background:#2563eb"></i>Lines of Credit 35%</span><span><i style="background:#16a34a"></i>Equipment 20%</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="p2"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Cumulative Revenue vs. Budget</div>
+          <div class="proj-card-sub">Rolling 8-week cumulative performance ($K)</div>
+          <div class="legend"><span><i style="background:#0f2744"></i>Actual</span><span><i style="background:#dc2626"></i>Budget</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="p3"></canvas></div>
+        </div>
+        <div class="proj-card span2">
+          <div class="proj-card-title">Methodology</div>
+          <div class="backstory-box">
+            <strong>Tools used:</strong> Advanced Excel (XLOOKUP, dynamic arrays, scenario manager), manual CRM tracking, financial modeling frameworks.<br><br>
+            <strong>Process:</strong> (1) Conducted structured financial discovery calls with SMB owners to collect cash flow statements, revenue history, and liability data. (2) Built creditworthiness models to score each client and match them to the optimal funding product. (3) Created a rolling pipeline tracker in Excel that monitored deal stages, funding amounts, and budget vs. actuals weekly. (4) Used scenario modeling to project monthly revenue under conservative, base, and optimistic deal-close assumptions. (5) Redesigned the client qualification workflow into a repeatable 3-step process to reduce deal cycle friction.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROACE PROJECT -->
+    <div id="proj-proace" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(135deg,#14532d,#166534)">
+        <div class="proj-hero-eyebrow">Data Engineering & Automation · Mar – Apr 2024</div>
+        <div class="proj-hero-title">ETL Pipeline & Power BI Dashboard Automation</div>
+        <div class="proj-hero-company">Data Analyst · ProACE International · Remote</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">100%</div><div class="phm-label">Data Accuracy</div></div>
+          <div><div class="phm-val">5→1</div><div class="phm-label">Day Reporting Cycle</div></div>
+          <div><div class="phm-val">4</div><div class="phm-label">Source Systems Unified</div></div>
+          <div><div class="phm-val">0</div><div class="phm-label">Manual Steps Remaining</div></div>
+        </div>
+      </div>
+      <div class="proj-card span2" style="margin-bottom:1.25rem">
+        <div class="proj-card-title">Project Background</div>
+        <div class="backstory-box">
+          <strong>The problem:</strong> ProACE's financial reporting was entirely manual — analysts pulled data from 4 separate source systems into Excel each week, reconciled by hand, and built reports from scratch. Data accuracy sat at ~67% due to human error in reconciliation. Reporting cycle time was 5 days per report. <strong>What I built:</strong> An end-to-end SQL ETL pipeline (joins, CTEs, aggregations) to automate extraction and validation, automated Power BI dashboards with DAX time intelligence (CALCULATE, SUMX, YTD/MTD/rolling), and leveraged Claude AI to identify further workflow bottlenecks and automate report summarization — achieving 100% accuracy and 1-day cycle times.
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-card">
+          <div class="proj-card-title">Data Accuracy — Before vs. After ETL</div>
+          <div class="proj-card-sub">Key improvement metrics post-pipeline deployment</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+            <div style="text-align:center;padding:1rem;background:var(--bg-2);border-radius:8px">
+              <div style="font-size:1.4rem;font-weight:800;color:#dc2626">67%</div>
+              <div style="font-size:11px;color:var(--text-3);margin-top:2px">Accuracy before ETL</div>
+              <div style="font-size:18px;color:var(--text-3);margin:4px 0">↓</div>
+              <div style="font-size:1.4rem;font-weight:800;color:#16a34a">100%</div>
+              <div style="font-size:11px;color:var(--text-3);margin-top:2px">Accuracy after ETL</div>
+            </div>
+            <div style="text-align:center;padding:1rem;background:var(--bg-2);border-radius:8px">
+              <div style="font-size:1.4rem;font-weight:800;color:#dc2626">5 days</div>
+              <div style="font-size:11px;color:var(--text-3);margin-top:2px">Reporting cycle before</div>
+              <div style="font-size:18px;color:var(--text-3);margin:4px 0">↓</div>
+              <div style="font-size:1.4rem;font-weight:800;color:#16a34a">1 day</div>
+              <div style="font-size:11px;color:var(--text-3);margin-top:2px">Reporting cycle after</div>
+            </div>
+          </div>
+          <div class="bar-h" style="margin-top:1rem">
+            <div style="font-size:11px;color:var(--text-3);margin-bottom:4px;font-weight:600">Accuracy by KPI category (post-pipeline)</div>
+            <div class="bar-h-row"><div class="bar-h-name">Revenue</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div></div>
+            <div class="bar-h-row"><div class="bar-h-name">Cost Alloc.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div></div>
+            <div class="bar-h-row"><div class="bar-h-name">Milestones</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div></div>
+            <div class="bar-h-row"><div class="bar-h-name">Stakeholder</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Monthly KPI Variance — Budget vs. Actuals</div>
+          <div class="proj-card-sub">Project milestone spend ($K) across 6 KPI categories</div>
+          <div class="legend"><span><i style="background:#0f2744"></i>Budget</span><span><i style="background:#2563eb"></i>Actuals</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="p4"></canvas></div>
+        </div>
+        <div class="proj-card span2">
+          <div class="proj-card-title">ETL Pipeline — Records Processed by Source System</div>
+          <div class="proj-card-sub">Records extracted and validated per source (thousands) — all sources achieved 100% reconciliation</div>
+          <div class="legend"><span><i style="background:#0f2744"></i>Records extracted</span><span><i style="background:#16a34a"></i>Records validated (100%)</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="p5"></canvas></div>
+          <div class="insight-box">All 4 source systems fully reconciled. Zero manual intervention required after pipeline deployment. Senior leadership reporting automated end-to-end using Power BI Service with scheduled refresh.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOLDMAN PROJECT -->
+    <div id="proj-gs" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(135deg,#1e3a8a,#1d4ed8)">
+        <div class="proj-hero-eyebrow">Fund Accounting & Compliance · Virtual Experience Program</div>
+        <div class="proj-hero-title">NAV Calculation & Fund Accounting — West Street Fund</div>
+        <div class="proj-hero-company">Fund Accounting Analyst · Goldman Sachs</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$5B</div><div class="phm-label">Fund AUM</div></div>
+          <div><div class="phm-val">100%</div><div class="phm-label">Data Integrity</div></div>
+          <div><div class="phm-val">GAAP</div><div class="phm-label">Compliance Standard</div></div>
+          <div><div class="phm-val">IFRS</div><div class="phm-label">Compliance Standard</div></div>
+        </div>
+      </div>
+      <div class="proj-card span2" style="margin-bottom:1.25rem">
+        <div class="proj-card-title">Project Background</div>
+        <div class="backstory-box">
+          <strong>The fund:</strong> The West Street Fund — a $5 billion AUM vehicle within Goldman Sachs Asset & Wealth Management, with two share classes (Class A and Class C) serving institutional and high-net-worth investors. <strong>The work:</strong> Computed Net Asset Valuation (NAV) by unitizing history-to-date (HTD) financial activity across fund classes, ensured full GAAP and IFRS compliance, automated month-end close deliverables, and devised HTD ratio analysis frameworks to proactively surface discrepancies before reporting deadlines.
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-card span2">
+          <div class="proj-card-title">West Street Fund — NAV Performance Over Time</div>
+          <div class="proj-card-sub">Net Asset Value ($B) — Class A vs. Class C, 6-month trailing period</div>
+          <div class="legend"><span><i style="background:#0f2744"></i>Class A ($B)</span><span><i style="background:#2563eb"></i>Class C ($B)</span><span><i style="background:#16a34a"></i>Total NAV ($B)</span></div>
+          <div style="position:relative;width:100%;height:260px"><canvas id="p6"></canvas></div>
+          <div class="insight-box">Total fund NAV grew from $4.60B to $5.02B over the 6-month period — an 8.9% increase. Class A outpaced Class C, driven by stronger HTD performance in the equity allocation sleeve.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">HTD Ratio Analysis — Discrepancy Detection</div>
+          <div class="proj-card-sub">Variance flagged vs. resolved pre-deadline each month ($M)</div>
+          <div class="legend"><span><i style="background:#dc2626"></i>Flagged variance</span><span><i style="background:#16a34a"></i>Resolved pre-deadline</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="p7"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Month-End Close Compliance Checklist</div>
+          <div class="proj-card-sub">Completion rate by reporting category — all 100%</div>
+          <div class="bar-h" style="margin-top:14px">
+            <div class="bar-h-row"><div class="bar-h-name">NAV calc.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">GAAP recs.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">IFRS recs.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">HTD audit</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">A/C recon.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#0f2744">100%</div></div><div class="bar-h-val">100%</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JPM PROJECT -->
+    <div id="proj-jpm" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(135deg,#78350f,#b45309)">
+        <div class="proj-hero-eyebrow">Investment Banking & M&A · Virtual Experience Program</div>
+        <div class="proj-hero-title">DCF Modeling & M&A Financial Analysis — $1B EBITDA Target</div>
+        <div class="proj-hero-company">Junior Investment Banking Analyst · J.P. Morgan</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$1B</div><div class="phm-label">EBITDA Target</div></div>
+          <div><div class="phm-val">$14.1B</div><div class="phm-label">Base Case EV</div></div>
+          <div><div class="phm-val">3</div><div class="phm-label">DCF Scenarios</div></div>
+          <div><div class="phm-val">5-yr</div><div class="phm-label">Forecast Horizon</div></div>
+        </div>
+      </div>
+      <div class="proj-card span2" style="margin-bottom:1.25rem">
+        <div class="proj-card-title">Project Background</div>
+        <div class="backstory-box">
+          <strong>The mandate:</strong> Value a $1B EBITDA target company to support a buy-side M&A engagement for the investment committee. <strong>The model:</strong> A full three-statement DCF in Advanced Excel with 5-year revenue forecasts, WACC sensitivity analysis across a 7–11% range, terminal value assumptions, and dynamic scenario/sensitivity tables across bear, base, and bull cases. Model outputs fed directly into investor-facing management presentations mapping the full M&A auction process from non-binding indicative bids through final stakeholder frameworks.
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-card span2">
+          <div class="proj-card-title">5-Year Revenue Forecast — Scenario Analysis</div>
+          <div class="proj-card-sub">Projected annual revenue ($B) across bear, base, and bull cases</div>
+          <div class="legend"><span><i style="background:#16a34a"></i>Bull case</span><span><i style="background:#0f2744"></i>Base case</span><span><i style="background:#dc2626"></i>Bear case</span></div>
+          <div style="position:relative;width:100%;height:260px"><canvas id="p8"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Enterprise Value by Scenario</div>
+          <div class="proj-card-sub">Implied EV at base WACC (9%) — all three cases</div>
+          <div class="scenario-row">
+            <div class="sc bull"><div class="sc-name">Bull</div><div class="sc-val">$18.2B</div><div class="sc-sub">+29% vs base</div></div>
+            <div class="sc base"><div class="sc-name">Base</div><div class="sc-val">$14.1B</div><div class="sc-sub">14.1x EBITDA</div></div>
+            <div class="sc bear"><div class="sc-name">Bear</div><div class="sc-val">$9.8B</div><div class="sc-sub">-30% vs base</div></div>
+          </div>
+          <div class="insight-box" style="margin-top:10px">Bull-bear spread of $8.4B underscores sensitivity to revenue growth assumptions. This range informed the investment committee's bid structuring strategy.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">WACC Sensitivity — Implied Enterprise Value</div>
+          <div class="proj-card-sub">How discount rate assumptions shift valuation at base revenue growth</div>
+          <div style="margin-top:12px">
+            <div class="bar-h-row" style="margin-bottom:8px"><div class="bar-h-name">7% WACC</div><div class="bar-h-track"><div class="bar-h-fill" style="width:93%;background:#0f2744">$16.8B</div></div></div>
+            <div class="bar-h-row" style="margin-bottom:8px"><div class="bar-h-name">8% WACC</div><div class="bar-h-track"><div class="bar-h-fill" style="width:85%;background:#0f2744">$15.2B</div></div></div>
+            <div class="bar-h-row" style="margin-bottom:8px"><div class="bar-h-name">9% — base</div><div class="bar-h-track"><div class="bar-h-fill" style="width:78%;background:#2563eb">$14.1B ← base</div></div></div>
+            <div class="bar-h-row" style="margin-bottom:8px"><div class="bar-h-name">10% WACC</div><div class="bar-h-track"><div class="bar-h-fill" style="width:70%;background:#6b7280">$13.0B</div></div></div>
+            <div class="bar-h-row"><div class="bar-h-name">11% WACC</div><div class="bar-h-track"><div class="bar-h-fill" style="width:62%;background:#9ca3af">$11.9B</div></div></div>
+          </div>
+          <div style="font-size:11px;color:var(--text-3);margin-top:10px">Each 100bps increase in WACC reduces implied EV by ~$1.1–1.3B at base revenue growth assumptions.</div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-</main>
+<!-- ══════════════════════════ SKILLS PAGE ══════════════════════════ -->
+<div id="page-skills" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Skills & Proficiencies</div>
+      <div class="section-sub">Technical toolkit organized by category with proficiency levels</div>
+    </div>
+    <div class="skills-page-grid">
+      <div class="skill-category">
+        <div class="skill-cat-title">SQL & Data Engineering</div>
+        <div class="skill-item"><span class="skill-name">SQL (JOINs, CTEs, Window Fns)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">ETL Pipeline Development</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Stored Procedures & Views</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Data Validation & Reconciliation</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Multi-Source Data Integration</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Power BI & Data Visualization</div>
+        <div class="skill-item"><span class="skill-name">Power BI Dashboard Development</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">DAX (CALCULATE, SUMX, Time Intel.)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Power Query (M Language)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Star Schema Data Modeling</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Power BI Service & Scheduled Refresh</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div></div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Advanced Excel</div>
+        <div class="skill-item"><span class="skill-name">XLOOKUP, INDEX/MATCH, SUMIFS</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Pivot Tables & Pivot Charts</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Scenario Manager & What-If</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">VBA / Macro Automation</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Dynamic Arrays (FILTER, SORT)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Financial Analysis</div>
+        <div class="skill-item"><span class="skill-name">Financial Modeling & DCF</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">FP&A, Budgeting & Forecasting</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Variance & Budget vs. Actuals</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">NAV & Fund Accounting</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">GAAP / IFRS Compliance</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Python & Automation</div>
+        <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Data Cleaning & Preprocessing</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Claude AI & LLM Tooling</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Workflow Automation</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Process Redesign & Optimization</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">M&A & Investment Banking</div>
+        <div class="skill-item"><span class="skill-name">DCF & Three-Statement Modeling</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">WACC & Sensitivity Analysis</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Scenario Modeling (Bear/Base/Bull)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">M&A Due Diligence</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div></div>
+        <div class="skill-item"><span class="skill-name">Executive Presentations & IC Memos</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
+      </div>
+    </div>
+    <div class="tools-section">
+      <div class="section-title" style="font-size:1.1rem;margin-bottom:4px">Tools & Platforms</div>
+      <div class="tools-grid">
+        <span class="tool-badge">Microsoft Power BI</span><span class="tool-badge">Advanced Excel</span><span class="tool-badge">SQL Server</span><span class="tool-badge">Python</span><span class="tool-badge">Claude AI</span><span class="tool-badge">Power Query</span><span class="tool-badge">DAX Studio</span><span class="tool-badge">Pandas</span><span class="tool-badge">NumPy</span><span class="tool-badge">Power Automate</span><span class="tool-badge">ERP Systems</span><span class="tool-badge">Forage (GS + JPM)</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-<footer>
-  Ragib Shikder &nbsp;·&nbsp;
-  <a href="mailto:ragibnyc@gmail.com">ragibnyc@gmail.com</a> &nbsp;·&nbsp;
-  <a href="https://linkedin.com/in/ragib-shikder" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
-  New York City, NY
+<!-- ══════════════════════════ RESUME PAGE ══════════════════════════ -->
+<div id="page-resume" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Resume</div>
+      <div class="section-sub">Full work history, education, and skills</div>
+    </div>
+    <div class="resume-wrap">
+      <div class="res-header">
+        <div class="res-name">Ragib Shikder</div>
+        <div class="res-title">Financial Analyst & Data Analyst</div>
+        <div class="res-contact">+1 (347) 801-3756 · ragibnyc@gmail.com · linkedin.com/in/ragib-shikder · New York City, NY</div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-title">Professional Summary</div>
+        <div style="font-size:13px;color:var(--text-2);line-height:1.75">Financial and Data Analyst specializing in SQL, Power BI (DAX), Python, and Advanced Excel — Goldman Sachs-trained in NAV and GAAP/IFRS fund accounting, JPMorgan-trained in DCF and M&A financial modeling. Developed automated internal tools and data pipelines that eliminated manual reporting, achieved 100% data accuracy, and generated $200,000+ in revenue. High-agency builder with a track record of identifying operational bottlenecks, designing structured workflows, and shipping data-driven solutions fast.</div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-title">Professional Experience</div>
+        <div class="res-exp-item">
+          <div class="res-exp-header"><span class="res-exp-title">Business Development Analyst</span><span class="res-exp-date">Jul 2025 – Aug 2025</span></div>
+          <div class="res-exp-company">Premium Merchant Funding · Manhattan, NY</div>
+          <ul class="res-exp-bullets">
+            <li><strong>Revenue Analytics & Go-to-Market Execution:</strong> Secured $200,000+ in capital funding by constructing structured financial models to analyze SMB cash flow, P&L performance, and creditworthiness across MCA, Business Lines of Credit, and Equipment Financing for 10+ clients.</li>
+            <li><strong>Pipeline Operations & Forecasting Automation:</strong> Engineered a $100,000+ monthly pipeline tracker in Advanced Excel (XLOOKUP, scenario modeling), monitoring budget vs. actuals in real time and consistently outperforming monthly production targets.</li>
+            <li><strong>Operational Workflow Design:</strong> Restructured the client qualification workflow by designing a repeatable KPI analysis and ROI projection delivery process — improving funding approval accuracy across a 10+ client portfolio.</li>
+          </ul>
+        </div>
+        <div class="res-exp-item">
+          <div class="res-exp-header"><span class="res-exp-title">Data Analyst – Reporting & KPI Analytics</span><span class="res-exp-date">Mar 2024 – Apr 2024</span></div>
+          <div class="res-exp-company">ProACE International · Remote</div>
+          <ul class="res-exp-bullets">
+            <li><strong>Power BI Dashboard Development:</strong> Designed and deployed automated Power BI dashboards using DAX (CALCULATE, SUMX, YTD/MTD time intelligence), star-schema data modeling, and Power Query (M language).</li>
+            <li><strong>SQL Data Pipeline & ETL Automation:</strong> Architected an end-to-end ETL pipeline in SQL to extract and validate revenue data across 4 source systems — achieving 100% financial data accuracy for senior leadership.</li>
+            <li><strong>Bottleneck Identification & AI-Assisted Automation:</strong> Audited existing workflows, eliminated redundant manual steps, and leveraged Claude AI to accelerate ad hoc analysis and automate report summarization.</li>
+          </ul>
+        </div>
+        <div class="res-exp-item">
+          <div class="res-exp-header"><span class="res-exp-title">Fund Accounting Analyst</span><span class="res-exp-date">Virtual Experience Program</span></div>
+          <div class="res-exp-company">Goldman Sachs</div>
+          <ul class="res-exp-bullets">
+            <li>Computed NAV for a $5 Billion fund by unitizing HTD financial activity across Class A/C commitments — ensuring full GAAP and IFRS compliance and delivering month-end close reporting.</li>
+            <li>Devised HTD ratio analysis and Excel-based trend modeling frameworks to proactively surface fund discrepancies before reporting deadlines.</li>
+          </ul>
+        </div>
+        <div class="res-exp-item">
+          <div class="res-exp-header"><span class="res-exp-title">Junior Investment Banking Analyst</span><span class="res-exp-date">Virtual Experience Program</span></div>
+          <div class="res-exp-company">J.P. Morgan</div>
+          <ul class="res-exp-bullets">
+            <li>Constructed a full DCF and three-statement model in Advanced Excel to value a $1B EBITDA target — integrating 5-year forecasts, WACC analysis, and dynamic scenario/sensitivity tables.</li>
+            <li>Formulated investor-facing company profiles and deal presentations mapping the full M&A auction process from non-binding indicative bids through final stakeholder frameworks.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-title">Education</div>
+        <div class="res-edu-item">
+          <div><div class="res-edu-degree">Master of Science — AI and Business Analytics</div><div class="res-edu-school">Baruch College, Zicklin School of Business (CUNY)</div></div>
+          <div class="res-edu-date">Sep 2026 – Jun 2028</div>
+        </div>
+        <div class="res-edu-item" style="margin-top:.75rem">
+          <div><div class="res-edu-degree">Bachelor of Science — Computer Science & Information Systems</div><div class="res-edu-school">John Jay College of Criminal Justice (CUNY)</div></div>
+          <div class="res-edu-date">Jan 2024 – Jul 2025</div>
+        </div>
+      </div>
+      <div class="res-section">
+        <div class="res-section-title">Technical Skills</div>
+        <div class="res-skills-grid">
+          <div class="res-skill-item">SQL & ETL Pipeline Development</div>
+          <div class="res-skill-item">Power BI & DAX Dashboard Tooling</div>
+          <div class="res-skill-item">Python (Pandas, NumPy, Automation)</div>
+          <div class="res-skill-item">Advanced Excel (XLOOKUP, Pivots, VBA)</div>
+          <div class="res-skill-item">Financial Modeling, DCF & WACC</div>
+          <div class="res-skill-item">FP&A, Budgeting & Forecasting</div>
+          <div class="res-skill-item">Variance & Budget vs. Actuals</div>
+          <div class="res-skill-item">GAAP / IFRS & Fund Accounting</div>
+          <div class="res-skill-item">NAV Calculation & Month-End Close</div>
+          <div class="res-skill-item">Claude AI & LLM Tooling</div>
+          <div class="res-skill-item">Power Query (M Language)</div>
+          <div class="res-skill-item">Go-to-Market & Revenue Analytics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ CONTACT PAGE ══════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Get In Touch</div>
+      <div class="section-sub">Open to full-time analyst and operations roles in NYC or remote</div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Let's Connect</h2>
+        <p>I'm actively looking for Financial Analyst, Data Analyst, and Revenue Operations roles. If you're building something interesting, I'd love to hear about it.</p>
+        <a class="contact-link" href="mailto:ragibnyc@gmail.com">
+          <div class="contact-link-icon">✉</div>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-val">ragibnyc@gmail.com</div></div>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/ragib-shikder" target="_blank">
+          <div class="contact-link-icon">in</div>
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">linkedin.com/in/ragib-shikder</div></div>
+        </a>
+        <a class="contact-link" href="tel:+13478013756">
+          <div class="contact-link-icon">☎</div>
+          <div><div class="contact-link-label">Phone</div><div class="contact-link-val">+1 (347) 801-3756</div></div>
+        </a>
+        <div class="contact-link" style="cursor:default">
+          <div class="contact-link-icon">📍</div>
+          <div><div class="contact-link-label">Location</div><div class="contact-link-val">New York City, NY</div></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" placeholder="Your name"></div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label class="form-label">Company / Role</label><input class="form-input" type="text" placeholder="e.g. Pepper · Growth Operations"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell me about the role or opportunity..."></textarea></div>
+        <button class="form-submit" onclick="alert('Message sent! (In production this would submit to a backend.) Reach out directly at ragibnyc@gmail.com')">Send Message →</button>
+        <div class="form-note">Or email directly: ragibnyc@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  Ragib Shikder &nbsp;·&nbsp; <a href="mailto:ragibnyc@gmail.com">ragibnyc@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/ragib-shikder" target="_blank">LinkedIn</a> &nbsp;·&nbsp; New York City, NY
 </footer>
 
 <script>
-function showSection(id, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
+const GRID='rgba(0,0,0,0.06)';
+const N='#0f2744',B='#2563eb',G='#16a34a',R='#dc2626';
+const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}}}};
+
+let chartsInit=false;
+function initCharts(){
+  if(chartsInit)return;chartsInit=true;
+  new Chart(document.getElementById('p1'),{type:'bar',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[15,28,22,35,31,42,38,47],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25,25,25,25],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'K'}}}}});
+  new Chart(document.getElementById('p2'),{type:'doughnut',data:{labels:['MCA','Lines of Credit','Equipment'],datasets:[{data:[45,35,20],backgroundColor:[N,B,G],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false}},layout:{padding:10}}});
+  new Chart(document.getElementById('p3'),{type:'line',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[15,43,65,100,131,173,211,258],borderColor:N,backgroundColor:'rgba(15,39,68,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:[25,50,75,100,125,150,175,200],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'K'}}}}});
+  new Chart(document.getElementById('p4'),{type:'bar',data:{labels:['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],datasets:[{label:'Budget',data:[45,52,48,55,50,58],backgroundColor:N},{label:'Actuals',data:[38,51,44,57,48,62],backgroundColor:B}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'K'}}}}});
+  new Chart(document.getElementById('p5'),{type:'bar',data:{labels:['CRM System','ERP Exports','Billing Platform','Ops Database'],datasets:[{label:'Extracted',data:[142,98,211,76],backgroundColor:N,borderRadius:3},{label:'Validated',data:[142,98,211,76],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>v+'K'}}}}});
+  new Chart(document.getElementById('p6'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Class A',data:[2.92,2.98,3.05,3.08,3.12,3.18],borderColor:N,backgroundColor:'rgba(15,39,68,0.06)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Class C',data:[1.68,1.74,1.76,1.77,1.79,1.84],borderColor:B,backgroundColor:'rgba(37,99,235,0.05)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Total',data:[4.60,4.72,4.81,4.85,4.91,5.02],borderColor:G,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'B'}}}}});
+  new Chart(document.getElementById('p7'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(22,163,74,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(15,39,68,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(220,38,38,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
 }
 
-const navy='#1a3a5c', blue='#378add', green='#639922', red='#e24b4a';
-const grid='rgba(0,0,0,0.06)';
-const base = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: { legend: { display: false } },
-  scales: {
-    x: { grid: { color: grid }, ticks: { font: { size: 11 }, color: '#888' } },
-    y: { grid: { color: grid }, ticks: { font: { size: 11 }, color: '#888' } }
-  }
-};
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.topnav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  else{const btns=document.querySelectorAll('.topnav-btn');btns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active')});}
+  window.scrollTo(0,0);
+  if(id==='projects')initCharts();
+}
 
-new Chart(document.getElementById('c1'), {
-  type: 'bar',
-  data: {
-    labels: ['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],
-    datasets: [
-      { label: 'Actual', data: [15,28,22,35,31,42,38,47], backgroundColor: navy, borderRadius: 3 },
-      { type: 'line', label: 'Target', data: [25,25,25,25,25,25,25,25], borderColor: red, borderDash: [5,4], borderWidth: 1.5, pointRadius: 0, fill: false }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:11},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>'$'+v+'K'} } } }
-});
+function showProject(id){
+  showPage('projects');
+  setTimeout(()=>{
+    document.querySelectorAll('.proj-section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('proj-'+id).classList.add('active');
+    const tabs=document.querySelectorAll('.proj-tab');
+    const map={pmf:0,proace:1,gs:2,jpm:3};
+    if(tabs[map[id]])tabs[map[id]].classList.add('active');
+  },50);
+}
 
-new Chart(document.getElementById('c2'), {
-  type: 'doughnut',
-  data: { labels: ['MCA','Lines of Credit','Equipment'], datasets: [{ data: [45,35,20], backgroundColor: [navy,blue,green], borderWidth: 0, hoverOffset: 4 }] },
-  options: { responsive: true, maintainAspectRatio: false, cutout: '68%', plugins: { legend: { display: false } }, layout: { padding: 10 } }
-});
-
-new Chart(document.getElementById('c3'), {
-  type: 'line',
-  data: {
-    labels: ['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],
-    datasets: [
-      { label: 'Actual', data: [15,43,65,100,131,173,211,258], borderColor: navy, backgroundColor: 'rgba(26,58,92,0.08)', fill: true, tension: 0.4, pointRadius: 3, borderWidth: 2 },
-      { label: 'Budget', data: [25,50,75,100,125,150,175,200], borderColor: red, borderDash: [5,4], borderWidth: 1.5, pointRadius: 0, fill: false }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:11},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>'$'+v+'K'} } } }
-});
-
-new Chart(document.getElementById('c4'), {
-  type: 'bar',
-  data: {
-    labels: ['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],
-    datasets: [
-      { label: 'Budget', data: [45,52,48,55,50,58], backgroundColor: navy },
-      { label: 'Actuals', data: [38,51,44,57,48,62], backgroundColor: blue }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:10},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>'$'+v+'K'} } } }
-});
-
-new Chart(document.getElementById('c5'), {
-  type: 'bar',
-  data: {
-    labels: ['CRM System','ERP Exports','Billing Platform','Ops Database'],
-    datasets: [
-      { label: 'Extracted', data: [142,98,211,76], backgroundColor: navy, borderRadius: 3 },
-      { label: 'Validated', data: [142,98,211,76], backgroundColor: green, borderRadius: 3 }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:11},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>v+'K'} } } }
-});
-
-new Chart(document.getElementById('c6'), {
-  type: 'line',
-  data: {
-    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-    datasets: [
-      { label: 'Class A', data: [2.92,2.98,3.05,3.08,3.12,3.18], borderColor: navy, backgroundColor: 'rgba(26,58,92,0.06)', fill: true, tension: 0.4, pointRadius: 3, borderWidth: 2 },
-      { label: 'Class C', data: [1.68,1.74,1.76,1.77,1.79,1.84], borderColor: blue, backgroundColor: 'rgba(55,138,221,0.06)', fill: true, tension: 0.4, pointRadius: 3, borderWidth: 2 },
-      { label: 'Total', data: [4.60,4.72,4.81,4.85,4.91,5.02], borderColor: green, borderDash: [4,3], borderWidth: 1.5, pointRadius: 3, fill: false }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:11},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>'$'+v+'B'} } } }
-});
-
-new Chart(document.getElementById('c7'), {
-  type: 'bar',
-  data: {
-    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-    datasets: [
-      { label: 'Flagged', data: [12,8,15,6,10,4], backgroundColor: red, borderRadius: 3 },
-      { label: 'Resolved', data: [12,8,15,6,10,4], backgroundColor: green, borderRadius: 3 }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:11},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>'$'+v+'M'} } } }
-});
-
-new Chart(document.getElementById('c8'), {
-  type: 'line',
-  data: {
-    labels: ['Year 1','Year 2','Year 3','Year 4','Year 5'],
-    datasets: [
-      { label: 'Bull', data: [1.00,1.20,1.44,1.73,2.07], borderColor: green, backgroundColor: 'rgba(99,153,34,0.06)', fill: true, tension: 0.4, pointRadius: 4, borderWidth: 2 },
-      { label: 'Base', data: [1.00,1.12,1.26,1.41,1.58], borderColor: navy, backgroundColor: 'rgba(26,58,92,0.06)', fill: true, tension: 0.4, pointRadius: 4, borderWidth: 2 },
-      { label: 'Bear', data: [1.00,1.05,1.10,1.16,1.22], borderColor: red, backgroundColor: 'rgba(226,75,74,0.06)', fill: true, tension: 0.4, pointRadius: 4, borderWidth: 2 }
-    ]
-  },
-  options: { ...base, scales: { x: { grid:{color:grid}, ticks:{font:{size:11},color:'#888'} }, y: { grid:{color:grid}, ticks:{font:{size:11},color:'#888',callback:v=>'$'+v.toFixed(2)+'B'} } } }
-});
+function showProj(id,btn){
+  document.querySelectorAll('.proj-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('proj-'+id).classList.add('active');
+  btn.classList.add('active');
+}
 </script>
 </body>
 </html>
