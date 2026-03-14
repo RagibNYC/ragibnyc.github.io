@@ -8,25 +8,29 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0f2744;
-  --navy-mid:#1a3a5c;
-  --blue:#2563eb;
-  --blue-light:#3b82f6;
-  --green:#16a34a;
-  --red:#dc2626;
-  --amber:#d97706;
-  --text:#111827;
-  --text-2:#374151;
-  --text-3:#6b7280;
-  --bg:#f9fafb;
-  --bg-2:#f3f4f6;
-  --bg-3:#e5e7eb;
+  /* JP Morgan / Morgan Stanley finance palette */
+  --navy:#001f5b;        /* JPMorgan deep navy */
+  --navy-mid:#003087;    /* JPMorgan primary blue */
+  --blue:#0066cc;        /* Morgan Stanley blue */
+  --blue-light:#0080ff;
+  --gold:#b8952a;        /* Wall Street gold */
+  --gold-light:#d4af37;  /* Gold accent */
+  --gold-bg:#faf6ec;     /* Gold tint background */
+  --green:#155724;
+  --red:#721c24;
+  --amber:#856404;
+  --text:#0a0f1e;
+  --text-2:#1c2a4a;
+  --text-3:#5a6a8a;
+  --bg:#f7f8fb;          /* Very slightly blue-tinted white */
+  --bg-2:#eef1f8;
+  --bg-3:#dde3f0;
   --white:#ffffff;
-  --border:#e5e7eb;
-  --border-2:#d1d5db;
-  --shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md:0 4px 6px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg:0 10px 15px rgba(0,0,0,0.07),0 4px 6px rgba(0,0,0,0.04);
+  --border:#d0d8ec;
+  --border-2:#b8c4dc;
+  --shadow:0 1px 3px rgba(0,31,91,0.08),0 1px 2px rgba(0,31,91,0.04);
+  --shadow-md:0 4px 6px rgba(0,31,91,0.07),0 2px 4px rgba(0,31,91,0.04);
+  --shadow-lg:0 10px 15px rgba(0,31,91,0.09),0 4px 6px rgba(0,31,91,0.05);
   --radius:8px;
   --radius-lg:12px;
   --radius-xl:16px;
@@ -44,20 +48,20 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .topnav-btn{padding:6px 14px;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--text-3);cursor:pointer;border-radius:var(--radius);transition:all 0.15s}
 .topnav-btn:hover{background:var(--bg-2);color:var(--text)}
 .topnav-btn.active{background:var(--navy);color:var(--white)}
-.topbar-contact{background:var(--blue);color:#fff;border:none;padding:7px 16px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:background 0.15s}
-.topbar-contact:hover{background:var(--blue-light)}
+.topbar-contact{background:var(--gold);color:#fff;border:none;padding:7px 16px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:background 0.15s}
+.topbar-contact:hover{background:var(--gold-light)}
 
 /* ══ PAGES ══ */
 .page{display:none;min-height:100vh;padding-top:60px}
 .page.active{display:block}
 
 /* ══ HOME ══ */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#1e3a6e 60%,#1a4a8a 100%);color:#fff;padding:100px 2rem 80px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,#001f5b 0%,#003087 55%,#004db3 100%);color:#fff;padding:100px 2rem 80px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .hero-inner{max-width:800px;margin:0 auto;position:relative}
 .hero-eyebrow{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px;font-weight:600}
 .hero h1{font-size:3.2rem;font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:20px}
-.hero h1 span{color:#60a5fa}
+.hero h1 span{color:#d4af37}
 .hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:580px;margin:0 auto 32px;line-height:1.7}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-primary{background:var(--blue);color:#fff;border:none;padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s}
@@ -72,7 +76,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .stat-item{text-align:center;padding:0 1rem;border-right:1px solid var(--border)}
 .stat-item:last-child{border-right:none}
-.stat-val{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em}
+.stat-val{font-size:2rem;font-weight:800;color:var(--navy-mid);letter-spacing:-0.02em}
 .stat-label{font-size:12px;color:var(--text-3);margin-top:3px;font-weight:500;letter-spacing:0.03em}
 
 /* ══ SECTION WRAPPER ══ */
@@ -86,9 +90,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .project-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden}
 .project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);border-color:var(--blue)}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--navy)}
-.project-card.green::before{background:var(--green)}
+.project-card.green::before{background:var(--gold)}
 .project-card.blue::before{background:var(--blue)}
-.project-card.amber::before{background:var(--amber)}
+.project-card.amber::before{background:var(--gold-light)}
 .card-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
 .card-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4}
 .card-desc{font-size:13px;color:var(--text-3);line-height:1.6;margin-bottom:1rem}
@@ -104,17 +108,17 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .skill-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
 .skill-card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
 .skill-pill-wrap{display:flex;flex-wrap:wrap;gap:5px}
-.skill-pill{background:var(--navy);color:rgba(255,255,255,0.9);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600}
-.skill-pill.blue{background:#1e40af}
-.skill-pill.green{background:#14532d}
-.skill-pill.teal{background:#0f766e}
-.skill-pill.amber{background:#92400e}
+.skill-pill{background:var(--navy);color:rgba(255,255,255,0.92);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600}
+.skill-pill.blue{background:var(--navy-mid)}
+.skill-pill.green{background:#0d4a6e}
+.skill-pill.teal{background:#0f3460}
+.skill-pill.amber{background:#7a6010}
 
 /* ══ ABOUT PAGE ══ */
 .about-grid{display:grid;grid-template-columns:320px 1fr;gap:2.5rem;align-items:start}
 .about-sidebar{position:sticky;top:80px}
 .about-photo-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;text-align:center;box-shadow:var(--shadow)}
-.about-initials{width:100px;height:100px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:800;color:#fff;margin:0 auto 1rem;letter-spacing:-0.02em}
+.about-initials{width:100px;height:100px;background:linear-gradient(135deg,#001f5b,#003087);border:3px solid #d4af37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:800;color:#fff;margin:0 auto 1rem;letter-spacing:-0.02em}
 .about-name{font-size:1.2rem;font-weight:800;color:var(--text)}
 .about-role{font-size:13px;color:var(--text-3);margin-top:4px;margin-bottom:1.5rem}
 .about-contact-list{list-style:none;text-align:left;border-top:1px solid var(--border);padding-top:1rem}
@@ -206,9 +210,43 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .tools-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:.75rem}
 .tool-badge{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow)}
 
-/* ══ RESUME PAGE ══ */
-.resume-wrap{max-width:800px;margin:0 auto}
-.resume-download{background:var(--navy);color:#fff;border:none;padding:10px 24px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;margin-bottom:2rem;display:inline-flex;align-items:center;gap:8px}
+/* ══ PRINT / PDF DOWNLOAD ══ */
+@media print{
+  .topbar,.site-footer,.section-header,.resume-download-bar{display:none!important}
+  .page{display:block!important;padding-top:0}
+  #page-home,#page-about,#page-projects,#page-skills,#page-contact{display:none!important}
+  #page-resume{display:block!important}
+  body{background:#fff;font-size:12px}
+  .resume-wrap{max-width:100%;margin:0;padding:0}
+  .res-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .res-section{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid}
+}
+
+/* ══ RESUME DOWNLOAD BAR ══ */
+.resume-download-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--gold-bg);border:1px solid var(--gold);
+  border-radius:var(--radius-lg);padding:1rem 1.5rem;
+  margin-bottom:1.5rem;
+}
+.resume-download-text{font-size:13px;color:var(--text-2)}
+.resume-download-text strong{color:var(--navy);font-weight:700}
+.resume-download-btns{display:flex;gap:10px}
+.btn-dl-pdf{
+  background:var(--navy);color:#fff;border:none;
+  padding:9px 20px;border-radius:var(--radius);
+  font-size:13px;font-weight:700;cursor:pointer;
+  transition:background 0.15s;display:flex;align-items:center;gap:6px;
+}
+.btn-dl-pdf:hover{background:var(--navy-mid)}
+.btn-dl-print{
+  background:var(--white);color:var(--navy);
+  border:1.5px solid var(--navy);
+  padding:9px 20px;border-radius:var(--radius);
+  font-size:13px;font-weight:700;cursor:pointer;
+  transition:all 0.15s;display:flex;align-items:center;gap:6px;
+}
+.btn-dl-print:hover{background:var(--bg-2)}
 .res-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1rem;box-shadow:var(--shadow)}
 .res-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
 .res-header{text-align:center;padding:2rem;background:var(--navy);color:#fff;border-radius:var(--radius-lg);margin-bottom:1rem}
@@ -573,7 +611,7 @@ textarea.form-input{resize:vertical;min-height:120px}
 
     <!-- PROACE PROJECT -->
     <div id="proj-proace" class="proj-section">
-      <div class="proj-hero" style="background:linear-gradient(135deg,#14532d,#166534)">
+      <div class="proj-hero" style="background:linear-gradient(135deg,#0d3b1e,#145228)">
         <div class="proj-hero-eyebrow">Data Engineering & Automation · Mar – Apr 2024</div>
         <div class="proj-hero-title">ETL Pipeline & Power BI Dashboard Automation</div>
         <div class="proj-hero-company">Data Analyst · ProACE International · Remote</div>
@@ -636,7 +674,7 @@ textarea.form-input{resize:vertical;min-height:120px}
 
     <!-- GOLDMAN PROJECT -->
     <div id="proj-gs" class="proj-section">
-      <div class="proj-hero" style="background:linear-gradient(135deg,#1e3a8a,#1d4ed8)">
+      <div class="proj-hero" style="background:linear-gradient(135deg,#001f5b,#003087)">
         <div class="proj-hero-eyebrow">Fund Accounting & Compliance · Virtual Experience Program</div>
         <div class="proj-hero-title">NAV Calculation & Fund Accounting — West Street Fund</div>
         <div class="proj-hero-company">Fund Accounting Analyst · Goldman Sachs</div>
@@ -683,7 +721,7 @@ textarea.form-input{resize:vertical;min-height:120px}
 
     <!-- JPM PROJECT -->
     <div id="proj-jpm" class="proj-section">
-      <div class="proj-hero" style="background:linear-gradient(135deg,#78350f,#b45309)">
+      <div class="proj-hero" style="background:linear-gradient(135deg,#2a1f00,#7a5c00)">
         <div class="proj-hero-eyebrow">Investment Banking & M&A · Virtual Experience Program</div>
         <div class="proj-hero-title">DCF Modeling & M&A Financial Analysis — $1B EBITDA Target</div>
         <div class="proj-hero-company">Junior Investment Banking Analyst · J.P. Morgan</div>
@@ -805,10 +843,17 @@ textarea.form-input{resize:vertical;min-height:120px}
   <div class="section-wrap">
     <div class="section-header">
       <div class="section-title">Resume</div>
-      <div class="section-sub">Full work history, education, and skills</div>
+      <div class="section-sub">Full work history, education, and technical skills</div>
     </div>
     <div class="resume-wrap">
-      <div class="res-header">
+      <div class="resume-download-bar">
+        <div class="resume-download-text"><strong>Ragib Shikder — Resume</strong> &nbsp;·&nbsp; Financial & Data Analyst &nbsp;·&nbsp; Updated 2025</div>
+        <div class="resume-download-btns">
+          <button class="btn-dl-pdf" onclick="downloadResumePDF()">⬇ Download PDF</button>
+          <button class="btn-dl-print" onclick="window.print()">🖨 Print</button>
+        </div>
+      </div>
+      <div class="res-header" style="background:linear-gradient(135deg,#001f5b,#003087);border-bottom:3px solid #d4af37">
         <div class="res-name">Ragib Shikder</div>
         <div class="res-title">Financial Analyst & Data Analyst</div>
         <div class="res-contact">+1 (347) 801-3756 · ragibnyc@gmail.com · linkedin.com/in/ragib-shikder · New York City, NY</div>
@@ -894,7 +939,7 @@ textarea.form-input{resize:vertical;min-height:120px}
       <div class="section-sub">Open to full-time analyst and operations roles in NYC or remote</div>
     </div>
     <div class="contact-grid">
-      <div class="contact-info">
+      <div class="contact-info" style="background:linear-gradient(160deg,#001f5b 0%,#003087 100%)"
         <h2>Let's Connect</h2>
         <p>I'm actively looking for Financial Analyst, Data Analyst, and Revenue Operations roles. If you're building something interesting, I'd love to hear about it.</p>
         <a class="contact-link" href="mailto:ragibnyc@gmail.com">
@@ -932,9 +977,18 @@ textarea.form-input{resize:vertical;min-height:120px}
 </footer>
 
 <script>
-const GRID='rgba(0,0,0,0.06)';
-const N='#0f2744',B='#2563eb',G='#16a34a',R='#dc2626';
-const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}}}};
+const GRID='rgba(0,31,91,0.07)';
+const N='#001f5b',B='#0066cc',G='#b8952a',R='#8b1a1a';
+const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}}}};
+
+function downloadResumePDF(){
+  const el=document.createElement('a');
+  el.href='/Ragib_Shikder_Final_1Page.pdf';
+  el.download='Ragib_Shikder_Resume.pdf';
+  el.click();
+  // Fallback: open print dialog targeting resume only
+  setTimeout(()=>window.print(),300);
+}
 
 let chartsInit=false;
 function initCharts(){
