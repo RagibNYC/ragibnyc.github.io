@@ -8,32 +8,31 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* JP Morgan / Morgan Stanley finance palette */
-  --navy:#001f5b;        /* JPMorgan deep navy */
-  --navy-mid:#003087;    /* JPMorgan primary blue */
-  --blue:#0066cc;        /* Morgan Stanley blue */
-  --blue-light:#0080ff;
-  --gold:#b8952a;        /* Wall Street gold */
-  --gold-light:#d4af37;  /* Gold accent */
-  --gold-bg:#faf6ec;     /* Gold tint background */
-  --green:#155724;
-  --red:#721c24;
-  --amber:#856404;
-  --text:#0a0f1e;
-  --text-2:#1c2a4a;
+  /* Chase / JPMorgan Chase official brand palette */
+  --navy:#001F5B;        /* Chase deep navy */
+  --navy-mid:#003087;    /* Chase primary navy */
+  --blue:#005EB8;        /* Chase signature blue */
+  --blue-light:#0078D4;  /* Chase hover blue */
+  --blue-pale:#E8F0FA;   /* Chase light blue tint */
+  --chase-mid:#1A4BAF;   /* Mid-tone blue */
+  --green:#006400;
+  --red:#8B0000;
+  --amber:#7A5C00;
+  --text:#001F5B;
+  --text-2:#1a2a4a;
   --text-3:#5a6a8a;
-  --bg:#f7f8fb;          /* Very slightly blue-tinted white */
-  --bg-2:#eef1f8;
-  --bg-3:#dde3f0;
+  --bg:#F6F8FC;          /* Chase off-white with slight blue tint */
+  --bg-2:#EBF0FA;        /* Chase light surface */
+  --bg-3:#D6E0F5;
   --white:#ffffff;
-  --border:#d0d8ec;
-  --border-2:#b8c4dc;
-  --shadow:0 1px 3px rgba(0,31,91,0.08),0 1px 2px rgba(0,31,91,0.04);
-  --shadow-md:0 4px 6px rgba(0,31,91,0.07),0 2px 4px rgba(0,31,91,0.04);
-  --shadow-lg:0 10px 15px rgba(0,31,91,0.09),0 4px 6px rgba(0,31,91,0.05);
-  --radius:8px;
-  --radius-lg:12px;
-  --radius-xl:16px;
+  --border:#C8D6F0;
+  --border-2:#A8BEDD;
+  --shadow:0 1px 3px rgba(0,31,91,0.09),0 1px 2px rgba(0,31,91,0.05);
+  --shadow-md:0 4px 8px rgba(0,31,91,0.08),0 2px 4px rgba(0,31,91,0.05);
+  --shadow-lg:0 10px 20px rgba(0,31,91,0.10),0 4px 6px rgba(0,31,91,0.06);
+  --radius:6px;
+  --radius-lg:10px;
+  --radius-xl:14px;
 }
 
 html{scroll-behavior:smooth}
@@ -48,28 +47,28 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .topnav-btn{padding:6px 14px;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--text-3);cursor:pointer;border-radius:var(--radius);transition:all 0.15s}
 .topnav-btn:hover{background:var(--bg-2);color:var(--text)}
 .topnav-btn.active{background:var(--navy);color:var(--white)}
-.topbar-contact{background:var(--gold);color:#fff;border:none;padding:7px 16px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:background 0.15s}
-.topbar-contact:hover{background:var(--gold-light)}
+.topbar-contact{background:var(--blue);color:#fff;border:none;padding:7px 16px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:background 0.15s}
+.topbar-contact:hover{background:var(--blue-light)}
 
 /* ══ PAGES ══ */
 .page{display:none;min-height:100vh;padding-top:60px}
 .page.active{display:block}
 
 /* ══ HOME ══ */
-.hero{background:linear-gradient(135deg,#001f5b 0%,#003087 55%,#004db3 100%);color:#fff;padding:100px 2rem 80px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(160deg,#001F5B 0%,#003087 50%,#005EB8 100%);color:#fff;padding:100px 2rem 80px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .hero-inner{max-width:800px;margin:0 auto;position:relative}
 .hero-eyebrow{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px;font-weight:600}
 .hero h1{font-size:3.2rem;font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:20px}
-.hero h1 span{color:#d4af37}
-.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:580px;margin:0 auto 32px;line-height:1.7}
+.hero h1 span{color:#7AB8F5}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.75);max-width:580px;margin:0 auto 32px;line-height:1.7}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-primary{background:var(--blue);color:#fff;border:none;padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s}
-.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
-.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s}
-.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7)}
+.btn-primary:hover{background:var(--blue-light);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.5);padding:12px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.btn-outline:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.8)}
 .hero-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
-.hero-badge{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
+.hero-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,0.85);font-weight:500}
 
 /* ══ STAT STRIP ══ */
 .stats-strip{background:var(--white);border-bottom:1px solid var(--border);padding:28px 2rem}
@@ -109,10 +108,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .skill-card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
 .skill-pill-wrap{display:flex;flex-wrap:wrap;gap:5px}
 .skill-pill{background:var(--navy);color:rgba(255,255,255,0.92);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600}
-.skill-pill.blue{background:var(--navy-mid)}
-.skill-pill.green{background:#0d4a6e}
-.skill-pill.teal{background:#0f3460}
-.skill-pill.amber{background:#7a6010}
+.skill-pill.blue{background:var(--blue)}
+.skill-pill.green{background:#004d40}
+.skill-pill.teal{background:#003d5c}
+.skill-pill.amber{background:#5c4000}
 
 /* ══ ABOUT PAGE ══ */
 .about-grid{display:grid;grid-template-columns:320px 1fr;gap:2.5rem;align-items:start}
@@ -225,7 +224,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 /* ══ RESUME DOWNLOAD BAR ══ */
 .resume-download-bar{
   display:flex;align-items:center;justify-content:space-between;
-  background:var(--gold-bg);border:1px solid var(--gold);
+  background:var(--blue-pale);border:1px solid var(--border);
   border-radius:var(--radius-lg);padding:1rem 1.5rem;
   margin-bottom:1.5rem;
 }
@@ -327,6 +326,7 @@ textarea.form-input{resize:vertical;min-height:120px}
       <button class="topnav-btn active" onclick="showPage('home',this)">Home</button>
       <button class="topnav-btn" onclick="showPage('about',this)">About</button>
       <button class="topnav-btn" onclick="showPage('projects',this)">Projects</button>
+      <button class="topnav-btn" onclick="showPage('scenarios',this)">Scenarios</button>
       <button class="topnav-btn" onclick="showPage('skills',this)">Skills</button>
       <button class="topnav-btn" onclick="showPage('resume',this)">Resume</button>
       <button class="topnav-btn" onclick="showPage('contact',this)">Contact</button>
@@ -931,6 +931,327 @@ textarea.form-input{resize:vertical;min-height:120px}
   </div>
 </div>
 
+<!-- ══════════════════════════ SCENARIOS PAGE ══════════════════════════ -->
+<div id="page-scenarios" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Financial Scenarios & Analytics</div>
+      <div class="section-sub">Real-world Power BI-style dashboards covering the full financial analyst toolkit — from P&L variance to DCF sensitivity, portfolio performance, and KPI operations</div>
+    </div>
+
+    <!-- ── SCENARIO TABS ── -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem" id="sc-tabs">
+      <button class="proj-tab active" onclick="showSc('pl',this)">P&L Variance</button>
+      <button class="proj-tab" onclick="showSc('cashflow',this)">Cash Flow</button>
+      <button class="proj-tab" onclick="showSc('portfolio',this)">Portfolio Performance</button>
+      <button class="proj-tab" onclick="showSc('dcf',this)">DCF Sensitivity</button>
+      <button class="proj-tab" onclick="showSc('kpi',this)">KPI Dashboard</button>
+      <button class="proj-tab" onclick="showSc('budget',this)">Budget vs. Actuals</button>
+      <button class="proj-tab" onclick="showSc('pipeline',this)">Revenue Pipeline</button>
+      <button class="proj-tab" onclick="showSc('risk',this)">Risk & Compliance</button>
+    </div>
+
+    <!-- ══ P&L VARIANCE ══ -->
+    <div id="sc-pl" class="proj-section active">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#005EB8)">
+        <div class="proj-hero-eyebrow">Income Statement Analysis · FP&A</div>
+        <div class="proj-hero-title">P&L Variance Dashboard — Quarterly Review</div>
+        <div class="proj-hero-company">Analyzes revenue, COGS, gross margin, EBITDA, and net income variance against plan across 4 business units</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$142.3M</div><div class="phm-label">Total Revenue YTD</div></div>
+          <div><div class="phm-val">38.2%</div><div class="phm-label">Gross Margin</div></div>
+          <div><div class="phm-val">+$4.1M</div><div class="phm-label">vs. Plan</div></div>
+          <div><div class="phm-val">21.4%</div><div class="phm-label">EBITDA Margin</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">Monthly Revenue — Actual vs. Budget vs. Prior Year</div>
+          <div class="proj-card-sub">$M · 12 months trailing</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#005EB8"></i>Budget</span><span><i style="background:#A8BEDD"></i>Prior Year</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc1a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Gross Margin % by Business Unit</div>
+          <div class="proj-card-sub">Actual vs. Plan — current quarter</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Actual %</span><span><i style="background:#A8BEDD"></i>Plan %</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc1b"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">P&L Waterfall — Budget to Actual Bridge</div>
+          <div class="proj-card-sub">Variance drivers from budget to actual EBITDA ($M)</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Positive variance</span><span><i style="background:#8B0000"></i>Negative variance</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc1c"></canvas></div>
+          <div class="insight-box">Revenue outperformance (+$6.2M) partially offset by COGS overage (-$1.8M) and SG&A increase (-$0.3M). Net favorable variance: +$4.1M vs. plan.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">EBITDA Margin Trend</div>
+          <div class="proj-card-sub">Rolling 12-month EBITDA margin % with target band</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>EBITDA %</span><span><i style="background:#A8BEDD"></i>Target band</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc1d"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CASH FLOW ══ -->
+    <div id="sc-cashflow" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#005EB8)">
+        <div class="proj-hero-eyebrow">Liquidity & Cash Management · Treasury</div>
+        <div class="proj-hero-title">Cash Flow Analysis — Operating, Investing & Financing</div>
+        <div class="proj-hero-company">Three-statement cash flow model with working capital analysis, free cash flow conversion, and liquidity runway</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$28.4M</div><div class="phm-label">Operating CF</div></div>
+          <div><div class="phm-val">$18.1M</div><div class="phm-label">Free Cash Flow</div></div>
+          <div><div class="phm-val">76%</div><div class="phm-label">FCF Conversion</div></div>
+          <div><div class="phm-val">14.2 mo</div><div class="phm-label">Cash Runway</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">Cash Flow Bridge — Operating, Investing & Financing Activities</div>
+          <div class="proj-card-sub">$M · Quarterly decomposition</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Operating CF</span><span><i style="background:#005EB8"></i>Investing CF</span><span><i style="background:#7AB8F5"></i>Financing CF</span><span><i style="background:#004d40"></i>Net Cash</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc2a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Working Capital Components</div>
+          <div class="proj-card-sub">Days outstanding — AR, AP, Inventory vs. target</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Actual days</span><span><i style="background:#A8BEDD"></i>Target days</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc2b"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Free Cash Flow vs. Net Income</div>
+          <div class="proj-card-sub">FCF conversion ratio — quarterly trend</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>FCF ($M)</span><span><i style="background:#005EB8"></i>Net Income ($M)</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc2c"></canvas></div>
+          <div class="insight-box">FCF conversion rate improved from 61% in Q1 to 82% in Q4, driven by AR collections improvement (DSO reduced from 48 to 38 days) and disciplined capex management.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PORTFOLIO PERFORMANCE ══ -->
+    <div id="sc-portfolio" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#003087)">
+        <div class="proj-hero-eyebrow">Asset Management · Fund Performance · NAV</div>
+        <div class="proj-hero-title">Investment Portfolio Performance Dashboard</div>
+        <div class="proj-hero-company">Multi-asset portfolio analytics: NAV, attribution, Sharpe ratio, benchmark comparison, and risk-adjusted returns</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$5.02B</div><div class="phm-label">Total AUM</div></div>
+          <div><div class="phm-val">+8.9%</div><div class="phm-label">YTD Return</div></div>
+          <div><div class="phm-val">1.42</div><div class="phm-label">Sharpe Ratio</div></div>
+          <div><div class="phm-val">+2.3%</div><div class="phm-label">Alpha vs. Benchmark</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">Portfolio NAV vs. Benchmark — 12-Month Performance</div>
+          <div class="proj-card-sub">Indexed to 100 at start of period · Portfolio vs. S&P 500</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Portfolio (Class A+C)</span><span><i style="background:#A8BEDD"></i>S&P 500 Benchmark</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc3a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Asset Allocation by Class</div>
+          <div class="proj-card-sub">Current portfolio weighting vs. target allocation</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Equities 52%</span><span><i style="background:#005EB8"></i>Fixed Income 28%</span><span><i style="background:#7AB8F5"></i>Alternatives 12%</span><span><i style="background:#A8BEDD"></i>Cash 8%</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc3b"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Monthly Return Attribution</div>
+          <div class="proj-card-sub">Contribution to total return by asset class ($M)</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Equities</span><span><i style="background:#005EB8"></i>Fixed Income</span><span><i style="background:#7AB8F5"></i>Alternatives</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc3c"></canvas></div>
+          <div class="insight-box">Equity sleeve drove 68% of total YTD return. Alternative allocations provided meaningful diversification during the Q3 volatility period, contributing positive returns when equities declined.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ DCF SENSITIVITY ══ -->
+    <div id="sc-dcf" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#003087)">
+        <div class="proj-hero-eyebrow">Investment Banking · Valuation · M&A</div>
+        <div class="proj-hero-title">DCF Sensitivity & Scenario Analysis Engine</div>
+        <div class="proj-hero-company">Dynamic DCF model with WACC/terminal growth sensitivity tables, scenario modeling, and enterprise value bridge</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$14.1B</div><div class="phm-label">Base Case EV</div></div>
+          <div><div class="phm-val">$1.0B</div><div class="phm-label">EBITDA Target</div></div>
+          <div><div class="phm-val">9.0%</div><div class="phm-label">Base WACC</div></div>
+          <div><div class="phm-val">3.0%</div><div class="phm-label">Terminal Growth Rate</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">5-Year Free Cash Flow Forecast — Bear / Base / Bull</div>
+          <div class="proj-card-sub">Projected FCF ($B) with confidence intervals across three scenarios</div>
+          <div class="legend"><span><i style="background:#006400"></i>Bull</span><span><i style="background:#001F5B"></i>Base</span><span><i style="background:#8B0000"></i>Bear</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc4a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">WACC × Terminal Growth Rate Sensitivity Matrix</div>
+          <div class="proj-card-sub">Implied Enterprise Value ($B) — heat map</div>
+          <div id="wacc-matrix" style="margin-top:8px;font-family:system-ui;font-size:12px"></div>
+          <div class="insight-box" style="margin-top:10px">Base case EV of $14.1B at 9% WACC / 3% TGR. A 100bps WACC increase reduces EV by ~$1.2B. Terminal growth assumptions drive significant spread at lower discount rates.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Enterprise Value Bridge — Components</div>
+          <div class="proj-card-sub">How PV of cash flows and terminal value build to EV ($B)</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>PV of FCF Years 1-5</span><span><i style="background:#005EB8"></i>PV of Terminal Value</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc4b"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ KPI DASHBOARD ══ -->
+    <div id="sc-kpi" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#005EB8)">
+        <div class="proj-hero-eyebrow">Operational Analytics · Power BI · Executive Reporting</div>
+        <div class="proj-hero-title">Executive KPI Dashboard — Operations & Finance</div>
+        <div class="proj-hero-company">Real-time KPI monitoring across revenue, customer, operations, and financial health metrics for executive leadership</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">94.2%</div><div class="phm-label">On-Time Delivery</div></div>
+          <div><div class="phm-val">$8,420</div><div class="phm-label">Avg. Deal Size</div></div>
+          <div><div class="phm-val">38 days</div><div class="phm-label">DSO</div></div>
+          <div><div class="phm-val">2.8x</div><div class="phm-label">Current Ratio</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">KPI Scorecard — Actual vs. Target (Current Month)</div>
+          <div class="proj-card-sub">Traffic light status: green = on/above target · red = below target</div>
+          <div id="kpi-scorecard" style="margin-top:8px"></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Revenue KPIs — Monthly Trend</div>
+          <div class="proj-card-sub">New ARR, Churn, Net Revenue Retention % rolling 12 months</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>New ARR ($M)</span><span><i style="background:#005EB8"></i>NRR %</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc5a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Operational Efficiency Metrics</div>
+          <div class="proj-card-sub">Revenue per employee, cost per unit, and utilization rate trend</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Rev/Employee ($K)</span><span><i style="background:#005EB8"></i>Utilization %</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc5b"></canvas></div>
+          <div class="insight-box">Revenue per employee increased 14% YTD to $284K following automation of reporting workflows. Utilization rate stabilized at 87% after onboarding new team members in Q3.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BUDGET VS ACTUALS ══ -->
+    <div id="sc-budget" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#005EB8)">
+        <div class="proj-hero-eyebrow">FP&A · Management Reporting · Variance Analysis</div>
+        <div class="proj-hero-title">Annual Budget vs. Actuals — Full Variance Analysis</div>
+        <div class="proj-hero-company">Department-level variance decomposition with rolling forecast, re-forecast, and YTD vs. full-year outlook</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">+2.9%</div><div class="phm-label">Revenue vs. Budget</div></div>
+          <div><div class="phm-val">-1.2%</div><div class="phm-label">COGS vs. Budget</div></div>
+          <div><div class="phm-val">+$4.1M</div><div class="phm-label">EBITDA vs. Budget</div></div>
+          <div><div class="phm-val">108%</div><div class="phm-label">Revenue Attainment</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">Department Budget vs. Actuals — YTD Variance</div>
+          <div class="proj-card-sub">Spend by department: actual vs. approved budget ($M) · positive = under budget</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Budget</span><span><i style="background:#005EB8"></i>Actuals</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc6a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Variance % by Cost Category</div>
+          <div class="proj-card-sub">Over/under budget as % of budgeted amount</div>
+          <div class="legend"><span><i style="background:#006400"></i>Under budget</span><span><i style="background:#8B0000"></i>Over budget</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc6b"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Rolling Forecast vs. Original Budget</div>
+          <div class="proj-card-sub">Full-year revenue outlook as forecast is updated each quarter ($M)</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Original budget</span><span><i style="background:#005EB8"></i>Q1 reforecast</span><span><i style="background:#7AB8F5"></i>Q2 reforecast</span><span><i style="background:#004d40"></i>Q3 reforecast</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc6c"></canvas></div>
+          <div class="insight-box">Rolling forecast accuracy improved each quarter. Q3 reforecast landed within 0.8% of actual full-year result, down from 4.2% variance in the original budget — reflecting improved pipeline visibility.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ REVENUE PIPELINE ══ -->
+    <div id="sc-pipeline" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#005EB8)">
+        <div class="proj-hero-eyebrow">Sales Analytics · CRM · Pipeline Operations</div>
+        <div class="proj-hero-title">Revenue Pipeline & Sales Funnel Analytics</div>
+        <div class="proj-hero-company">End-to-end pipeline visibility: stage progression, conversion rates, deal velocity, win/loss, and forecast coverage</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">$18.4M</div><div class="phm-label">Pipeline Value</div></div>
+          <div><div class="phm-val">24%</div><div class="phm-label">Avg. Win Rate</div></div>
+          <div><div class="phm-val">42 days</div><div class="phm-label">Avg. Sales Cycle</div></div>
+          <div><div class="phm-val">3.2x</div><div class="phm-label">Pipeline Coverage</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">Sales Funnel — Stage Conversion Rates</div>
+          <div class="proj-card-sub">Deals and dollar value at each stage of the sales cycle</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Deal count</span><span><i style="background:#005EB8"></i>Pipeline value ($M)</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc7a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Monthly New ARR vs. Churn</div>
+          <div class="proj-card-sub">New bookings vs. lost revenue ($M) — net new ARR</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>New ARR</span><span><i style="background:#8B0000"></i>Churn</span><span><i style="background:#004d40"></i>Net new ARR</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc7b"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Win Rate by Deal Size & Source</div>
+          <div class="proj-card-sub">Conversion % by opportunity tier</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Win rate %</span><span><i style="background:#A8BEDD"></i>Target 25%</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc7c"></canvas></div>
+          <div class="insight-box">Enterprise deals ($500K+) have the highest win rate at 38% but longest cycle at 74 days. SMB segment shows 22% win rate with 18-day average cycle — highest volume, lowest ACV.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ RISK & COMPLIANCE ══ -->
+    <div id="sc-risk" class="proj-section">
+      <div class="proj-hero" style="background:linear-gradient(160deg,#001F5B,#003087)">
+        <div class="proj-hero-eyebrow">Risk Management · GAAP/IFRS · Internal Controls</div>
+        <div class="proj-hero-title">Risk & Compliance Monitoring Dashboard</div>
+        <div class="proj-hero-company">Financial risk indicators, audit completeness, GAAP/IFRS compliance tracking, and internal control testing results</div>
+        <div class="proj-hero-metrics">
+          <div><div class="phm-val">98.4%</div><div class="phm-label">Audit Completion</div></div>
+          <div><div class="phm-val">0</div><div class="phm-label">Material Findings</div></div>
+          <div><div class="phm-val">100%</div><div class="phm-label">GAAP Compliance</div></div>
+          <div><div class="phm-val">Low</div><div class="phm-label">Overall Risk Rating</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="proj-card" style="grid-column:1/-1">
+          <div class="proj-card-title">Internal Control Testing Results by Category</div>
+          <div class="proj-card-sub">Pass / fail rate across all control domains — quarterly audit cycle</div>
+          <div class="legend"><span><i style="background:#001F5B"></i>Controls tested</span><span><i style="background:#004d40"></i>Controls passed</span><span><i style="background:#8B0000"></i>Controls failed</span></div>
+          <div style="position:relative;width:100%;height:280px"><canvas id="sc8a"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Financial Discrepancy Detection — Monthly</div>
+          <div class="proj-card-sub">Variances flagged vs. resolved before reporting deadline ($K)</div>
+          <div class="legend"><span><i style="background:#8B0000"></i>Flagged</span><span><i style="background:#004d40"></i>Resolved pre-deadline</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="sc8b"></canvas></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-card-title">Compliance Status by Reporting Standard</div>
+          <div class="proj-card-sub">Month-end close checklist completion rate</div>
+          <div class="bar-h" style="margin-top:12px">
+            <div class="bar-h-row"><div class="bar-h-name">GAAP Filing</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#001F5B">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">IFRS Recs.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#001F5B">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">NAV Calc.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#001F5B">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">SOX Controls</div><div class="bar-h-track"><div class="bar-h-fill" style="width:96%;background:#003087">96%</div></div><div class="bar-h-val">96%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">HTD Audit</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#001F5B">100%</div></div><div class="bar-h-val">100%</div></div>
+            <div class="bar-h-row"><div class="bar-h-name">AR Recon.</div><div class="bar-h-track"><div class="bar-h-fill" style="width:100%;background:#001F5B">100%</div></div><div class="bar-h-val">100%</div></div>
+          </div>
+          <div class="insight-box" style="margin-top:10px">Zero material audit findings YTD. SOX control gap (96%) relates to one IT general control remediation in progress — expected completion Q4.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ══════════════════════════ CONTACT PAGE ══════════════════════════ -->
 <div id="page-contact" class="page">
   <div class="section-wrap">
@@ -978,29 +1299,120 @@ textarea.form-input{resize:vertical;min-height:120px}
 
 <script>
 const GRID='rgba(0,31,91,0.07)';
-const N='#001f5b',B='#0066cc',G='#b8952a',R='#8b1a1a';
+const N='#001F5B',B='#005EB8',BL='#7AB8F5',BM='#003087',G='#006400',R='#8B0000',T='#004d40',GY='#A8BEDD';
 const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}}}};
 
 function downloadResumePDF(){
   const el=document.createElement('a');
-  el.href='/Ragib_Shikder_Final_1Page.pdf';
+  el.href='Ragib_Shikder_Final_1Page.pdf';
   el.download='Ragib_Shikder_Resume.pdf';
   el.click();
-  // Fallback: open print dialog targeting resume only
   setTimeout(()=>window.print(),300);
 }
 
-let chartsInit=false;
+let chartsInit=false,scenariosInit=false;
+
 function initCharts(){
   if(chartsInit)return;chartsInit=true;
-  new Chart(document.getElementById('p1'),{type:'bar',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[15,28,22,35,31,42,38,47],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25,25,25,25],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p2'),{type:'doughnut',data:{labels:['MCA','Lines of Credit','Equipment'],datasets:[{data:[45,35,20],backgroundColor:[N,B,G],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false}},layout:{padding:10}}});
-  new Chart(document.getElementById('p3'),{type:'line',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[15,43,65,100,131,173,211,258],borderColor:N,backgroundColor:'rgba(15,39,68,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:[25,50,75,100,125,150,175,200],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p4'),{type:'bar',data:{labels:['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],datasets:[{label:'Budget',data:[45,52,48,55,50,58],backgroundColor:N},{label:'Actuals',data:[38,51,44,57,48,62],backgroundColor:B}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p5'),{type:'bar',data:{labels:['CRM System','ERP Exports','Billing Platform','Ops Database'],datasets:[{label:'Extracted',data:[142,98,211,76],backgroundColor:N,borderRadius:3},{label:'Validated',data:[142,98,211,76],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>v+'K'}}}}});
-  new Chart(document.getElementById('p6'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Class A',data:[2.92,2.98,3.05,3.08,3.12,3.18],borderColor:N,backgroundColor:'rgba(15,39,68,0.06)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Class C',data:[1.68,1.74,1.76,1.77,1.79,1.84],borderColor:B,backgroundColor:'rgba(37,99,235,0.05)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Total',data:[4.60,4.72,4.81,4.85,4.91,5.02],borderColor:G,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'B'}}}}});
-  new Chart(document.getElementById('p7'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v+'M'}}}}});
-  new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(22,163,74,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(15,39,68,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(220,38,38,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#9ca3af',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
+  new Chart(document.getElementById('p1'),{type:'bar',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[15,28,22,35,31,42,38,47],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25,25,25,25],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
+  new Chart(document.getElementById('p2'),{type:'doughnut',data:{labels:['MCA','Lines of Credit','Equipment'],datasets:[{data:[45,35,20],backgroundColor:[N,B,BL],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false}},layout:{padding:10}}});
+  new Chart(document.getElementById('p3'),{type:'line',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[15,43,65,100,131,173,211,258],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:[25,50,75,100,125,150,175,200],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
+  new Chart(document.getElementById('p4'),{type:'bar',data:{labels:['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],datasets:[{label:'Budget',data:[45,52,48,55,50,58],backgroundColor:N},{label:'Actuals',data:[38,51,44,57,48,62],backgroundColor:B}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
+  new Chart(document.getElementById('p5'),{type:'bar',data:{labels:['CRM System','ERP Exports','Billing Platform','Ops Database'],datasets:[{label:'Extracted',data:[142,98,211,76],backgroundColor:N,borderRadius:3},{label:'Validated',data:[142,98,211,76],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'K'}}}}});
+  new Chart(document.getElementById('p6'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Class A',data:[2.92,2.98,3.05,3.08,3.12,3.18],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Class C',data:[1.68,1.74,1.76,1.77,1.79,1.84],borderColor:B,backgroundColor:'rgba(0,94,184,0.05)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Total',data:[4.60,4.72,4.81,4.85,4.91,5.02],borderColor:G,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'B'}}}}});
+  new Chart(document.getElementById('p7'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(0,100,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(139,0,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
+}
+
+function initScenarios(){
+  if(scenariosInit)return;scenariosInit=true;
+
+  /* ── P&L ── */
+  new Chart(document.getElementById('sc1a'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Actual',data:[10.2,11.4,10.8,12.1,11.9,13.2,12.8,14.1,13.6,14.8,14.2,13.2],backgroundColor:N,borderRadius:2},{label:'Budget',data:[10.0,11.0,11.0,11.5,12.0,12.5,13.0,13.5,13.5,14.0,14.0,14.5],backgroundColor:B,borderRadius:2},{type:'line',label:'Prior Year',data:[8.8,9.6,9.2,10.1,10.4,11.2,10.9,12.0,11.8,12.6,12.1,11.4],borderColor:GY,borderWidth:1.5,pointRadius:2,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('sc1b'),{type:'bar',data:{labels:['Commercial','Retail','Tech','Healthcare'],datasets:[{label:'Actual %',data:[42.1,31.8,48.6,39.2],backgroundColor:N,borderRadius:3},{label:'Plan %',data:[40.0,33.0,46.0,38.0],backgroundColor:GY,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('sc1c'),{type:'bar',data:{labels:['Budget\nEBITDA','Revenue\n+Var','COGS\n-Var','SG&A\n-Var','Actual\nEBITDA'],datasets:[{label:'',data:[26.2,6.2,-1.8,-0.3,30.3],backgroundColor:[N,G,R,R,B],borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('sc1d'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'EBITDA %',data:[18.2,19.1,18.8,20.1,19.6,21.2,20.8,22.1,21.4,22.8,22.1,21.4],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{type:'line',label:'Target',data:[20,20,20,20,20,20,20,20,20,20,20,20],borderColor:GY,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'%'}}}}});
+
+  /* ── CASH FLOW ── */
+  new Chart(document.getElementById('sc2a'),{type:'bar',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'Operating CF',data:[5.8,6.9,7.2,8.5],backgroundColor:N,borderRadius:3},{label:'Investing CF',data:[-3.2,-4.1,-2.8,-3.4],backgroundColor:B,borderRadius:3},{label:'Financing CF',data:[-1.2,0.8,-2.1,1.4],backgroundColor:BL,borderRadius:3},{type:'line',label:'Net Cash',data:[1.4,3.6,2.3,6.5],borderColor:T,borderWidth:2,pointRadius:4,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('sc2b'),{type:'bar',data:{labels:['DSO (AR)','DPO (AP)','DIO (Inv)','CCC'],datasets:[{label:'Actual',data:[38,52,28,14],backgroundColor:N,borderRadius:3},{label:'Target',data:[35,55,25,5],backgroundColor:GY,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+' days'}}}}});
+  new Chart(document.getElementById('sc2c'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'FCF',data:[3.6,4.8,5.1,4.6],borderColor:N,backgroundColor:'rgba(0,31,91,0.08)',fill:true,tension:0.3,pointRadius:5,borderWidth:2},{label:'Net Income',data:[5.8,6.2,6.4,5.8],borderColor:B,borderDash:[4,3],borderWidth:1.5,pointRadius:4,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+
+  /* ── PORTFOLIO ── */
+  new Chart(document.getElementById('sc3a'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Portfolio',data:[100,103.2,106.8,105.1,109.4,112.8,111.2,115.6,114.8,118.2,116.4,108.9],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'S&P 500',data:[100,101.8,104.2,103.6,106.8,108.4,107.2,111.4,110.8,113.6,111.2,106.6],borderColor:GY,borderDash:[4,3],borderWidth:1.5,pointRadius:2,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v.toFixed(0)}},plugins:{legend:{display:false}}}}});
+  new Chart(document.getElementById('sc3b'),{type:'doughnut',data:{labels:['Equities','Fixed Income','Alternatives','Cash'],datasets:[{data:[52,28,12,8],backgroundColor:[N,B,BL,GY],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false}},layout:{padding:10}}});
+  new Chart(document.getElementById('sc3c'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Equities',data:[42,58,72,38,84,96,62,88,72,106,82,48],backgroundColor:N,borderRadius:2},{label:'Fixed Income',data:[18,22,24,20,28,26,22,30,24,32,28,20],backgroundColor:B,borderRadius:2},{label:'Alternatives',data:[8,12,14,16,10,18,22,14,18,20,16,12],backgroundColor:BL,borderRadius:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+
+  /* ── DCF ── */
+  new Chart(document.getElementById('sc4a'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.15,1.38,1.66,1.99,2.39],borderColor:G,backgroundColor:'rgba(0,100,0,0.06)',fill:true,tension:0.4,pointRadius:5,borderWidth:2},{label:'Base',data:[1.00,1.12,1.25,1.40,1.57],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:5,borderWidth:2},{label:'Bear',data:[0.88,0.92,0.97,1.02,1.07],borderColor:R,backgroundColor:'rgba(139,0,0,0.06)',fill:true,tension:0.4,pointRadius:5,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
+
+  /* WACC matrix */
+  const waccs=[7,8,9,10,11],tgrs=[2,2.5,3,3.5,4];
+  const baseEV=14.1;
+  let html='<table style="width:100%;border-collapse:collapse;font-size:11px;font-family:system-ui">';
+  html+='<tr><th style="padding:5px;background:#E8F0FA;color:#001F5B;font-weight:700">WACC →<br>TGR ↓</th>';
+  waccs.forEach(w=>html+='<th style="padding:5px;background:#E8F0FA;color:#001F5B;font-weight:700">'+w+'%</th>');
+  html+='</tr>';
+  tgrs.forEach(tgr=>{
+    html+='<tr>';
+    html+='<td style="padding:5px;background:#E8F0FA;color:#001F5B;font-weight:700">'+tgr+'%</td>';
+    waccs.forEach(wacc=>{
+      const ev=(baseEV*(1+(3-wacc)*0.09+(tgr-3)*0.12)).toFixed(1);
+      const isBase=wacc===9&&tgr===3;
+      const bg=isBase?'#001F5B':parseFloat(ev)>baseEV?'#EEF8EE':'#FEF0F0';
+      const col=isBase?'#fff':parseFloat(ev)>baseEV?'#003300':'#660000';
+      html+='<td style="padding:5px;text-align:center;background:'+bg+';color:'+col+';font-weight:'+(isBase?'700':'500')+'">$'+ev+'B'+(isBase?' ★':'')+'</td>';
+    });
+    html+='</tr>';
+  });
+  html+='</table>';
+  document.getElementById('wacc-matrix').innerHTML=html;
+
+  new Chart(document.getElementById('sc4b'),{type:'bar',data:{labels:['Base Case'],datasets:[{label:'PV FCF Yr 1-5',data:[4.8],backgroundColor:N,borderRadius:3},{label:'PV Terminal Value',data:[9.3],backgroundColor:B,borderRadius:3}]},options:{...baseOpts,indexAxis:'y',scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'B'}},y:{grid:{display:false},ticks:{font:{size:11},color:'#8892b0'}}}}});
+
+  /* ── KPI SCORECARD ── */
+  const kpis=[
+    {name:'Revenue Attainment',actual:'108%',target:'100%',ok:true},
+    {name:'Gross Margin',actual:'38.2%',target:'36.0%',ok:true},
+    {name:'EBITDA Margin',actual:'21.4%',target:'20.0%',ok:true},
+    {name:'DSO (Days Sales Outstanding)',actual:'38 days',target:'≤35 days',ok:false},
+    {name:'Current Ratio',actual:'2.8x',target:'≥2.0x',ok:true},
+    {name:'Pipeline Coverage',actual:'3.2x',target:'≥3.0x',ok:true},
+    {name:'On-Time Delivery',actual:'94.2%',target:'95.0%',ok:false},
+    {name:'Customer NPS',actual:'62',target:'≥55',ok:true},
+  ];
+  let khtml='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+  kpis.forEach(k=>{
+    khtml+=`<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:${k.ok?'#EEF8EE':'#FEF0F0'};border-radius:6px;border-left:3px solid ${k.ok?'#006400':'#8B0000'}">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#1a2a4a">${k.name}</div>
+        <div style="font-size:11px;color:#5a6a8a;margin-top:2px">Target: ${k.target}</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:14px;font-weight:800;color:${k.ok?'#006400':'#8B0000'}">${k.actual}</div>
+        <div style="font-size:10px;font-weight:700;color:${k.ok?'#006400':'#8B0000'}">${k.ok?'✓ ON TARGET':'✗ BELOW'}</div>
+      </div>
+    </div>`;
+  });
+  khtml+='</div>';
+  document.getElementById('kpi-scorecard').innerHTML=khtml;
+
+  new Chart(document.getElementById('sc5a'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'New ARR',data:[0.82,0.94,1.08,0.96,1.12,1.24,1.18,1.32,1.28,1.44,1.38,1.52],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{type:'line',label:'NRR %',data:[108,110,112,109,114,116,113,118,116,120,118,122],borderColor:B,borderDash:[3,3],borderWidth:1.5,pointRadius:3,fill:false,yAxisID:'y2'}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}},y2:{position:'right',grid:{display:false},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('sc5b'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Rev/Employee',data:[249,252,258,254,264,270,268,278,274,284,280,284],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{type:'line',label:'Utilization %',data:[82,85,88,84,86,90,88,87,89,87,88,87],borderColor:B,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false,yAxisID:'y2'}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}},y2:{position:'right',grid:{display:false},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'%'}}}}});
+
+  /* ── BUDGET ── */
+  new Chart(document.getElementById('sc6a'),{type:'bar',data:{labels:['Sales','Engineering','Marketing','Finance','Operations','HR','Legal'],datasets:[{label:'Budget',data:[28.4,22.1,18.6,8.2,14.8,6.4,4.8],backgroundColor:N,borderRadius:3},{label:'Actuals',data:[26.8,23.4,17.2,7.8,15.6,6.1,4.9],backgroundColor:B,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('sc6b'),{type:'bar',data:{labels:['Headcount','Software','Travel','Facilities','Marketing\nPrograms','R&D','COGS'],datasets:[{label:'Variance %',data:[2.4,-5.8,8.2,1.1,-7.4,-3.2,1.8],backgroundColor:(ctx)=>ctx.raw>=0?G:R,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>(v>=0?'+':'')+v+'%'}}}}});
+  new Chart(document.getElementById('sc6c'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'Original Budget',data:[130,135,140,145],borderColor:GY,borderDash:[6,4],borderWidth:1.5,pointRadius:4,fill:false},{label:'Q1 Reforecast',data:[130,136,142,148],borderColor:N,borderWidth:2,pointRadius:4,fill:false},{label:'Q2 Reforecast',data:[130,136,143,149],borderColor:B,borderWidth:2,pointRadius:4,fill:false},{label:'Q3 Reforecast',data:[130,136,143,150.2],borderColor:T,borderWidth:2,pointRadius:4,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},min:125,ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+
+  /* ── PIPELINE ── */
+  new Chart(document.getElementById('sc7a'),{type:'bar',data:{labels:['Prospecting','Qualified','Discovery','Proposal','Negotiation','Closed Won'],datasets:[{label:'Deal Count',data:[142,88,64,41,24,18],backgroundColor:N,borderRadius:3},{type:'line',label:'Pipeline $M',data:[18.4,14.2,11.8,8.6,5.4,3.2],borderColor:B,borderWidth:2,pointRadius:5,fill:false,yAxisID:'y2'}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+' deals'}},y2:{position:'right',grid:{display:false},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('sc7b'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'New ARR',data:[0.82,0.94,1.08,0.96,1.12,1.24,1.18,1.32,1.28,1.44,1.38,1.52],backgroundColor:N,borderRadius:2},{label:'Churn',data:[-0.12,-0.14,-0.10,-0.16,-0.12,-0.08,-0.14,-0.10,-0.12,-0.08,-0.10,-0.08],backgroundColor:R,borderRadius:2},{type:'line',label:'Net New ARR',data:[0.70,0.80,0.98,0.80,1.00,1.16,1.04,1.22,1.16,1.36,1.28,1.44],borderColor:T,borderWidth:2,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('sc7c'),{type:'bar',data:{labels:['SMB\n(<$50K)','Mid-Market\n($50-200K)','Commercial\n($200-500K)','Enterprise\n($500K+)','Inbound\nReferral'],datasets:[{label:'Win Rate',data:[22,28,32,38,42],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25],borderColor:GY,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'%'}}}}});
+
+  /* ── RISK ── */
+  new Chart(document.getElementById('sc8a'),{type:'bar',data:{labels:['Financial\nReporting','IT General\nControls','Revenue\nRecognition','Procurement','Payroll','Compliance\n& Legal','Treasury'],datasets:[{label:'Tested',data:[24,18,20,16,14,12,10],backgroundColor:GY,borderRadius:3},{label:'Passed',data:[24,17,20,16,14,12,10],backgroundColor:N,borderRadius:3},{label:'Failed',data:[0,1,0,0,0,0,0],backgroundColor:R,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+' controls'}}}}});
+  new Chart(document.getElementById('sc8b'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:T,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
 }
 
 function showPage(id,btn){
@@ -1011,6 +1423,7 @@ function showPage(id,btn){
   else{const btns=document.querySelectorAll('.topnav-btn');btns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active')});}
   window.scrollTo(0,0);
   if(id==='projects')initCharts();
+  if(id==='scenarios')initScenarios();
 }
 
 function showProject(id){
@@ -1029,6 +1442,13 @@ function showProj(id,btn){
   document.querySelectorAll('.proj-section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('proj-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function showSc(id,btn){
+  document.querySelectorAll('#page-scenarios .proj-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('#sc-tabs .proj-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sc-'+id).classList.add('active');
   btn.classList.add('active');
 }
 </script>
