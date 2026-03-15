@@ -336,8 +336,96 @@ textarea.form-input{resize:vertical;min-height:120px}
 .form-note{font-size:12px;color:var(--text-3);text-align:center;margin-top:8px}
 
 /* ══ FOOTER ══ */
-.site-footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;font-size:12px;margin-top:4rem}
-.site-footer a{color:rgba(255,255,255,0.8);text-decoration:none}
+/* ══ POWER BI PAGE ══ */
+.pbi-page{background:#1a1a2e;min-height:100vh}
+.pbi-header{background:linear-gradient(135deg,#001F5B 0%,#003087 60%,#005EB8 100%);padding:48px 2rem 40px;text-align:center}
+.pbi-header-title{font-size:2rem;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-bottom:8px}
+.pbi-header-sub{font-size:14px;color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto 24px}
+.pbi-db-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.pbi-tab{padding:9px 20px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);font-size:12px;font-weight:700;cursor:pointer;color:rgba(255,255,255,0.65);transition:all 0.15s;font-family:system-ui;letter-spacing:0.02em}
+.pbi-tab.active{background:#005EB8;border-color:#005EB8;color:#fff}
+.pbi-tab:hover:not(.active){background:rgba(255,255,255,0.12);color:#fff}
+
+/* Dashboard container */
+.pbi-db{display:none;padding:20px}
+.pbi-db.active{display:block}
+.pbi-db-inner{max-width:1200px;margin:0 auto}
+
+/* Scenario card */
+.pbi-scenario{background:#0d1b3e;border:1px solid rgba(255,255,255,0.08);border-left:3px solid #005EB8;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;font-family:system-ui}
+.pbi-scenario strong{color:#7AB8F5}
+.pbi-scenario .sc-tag{display:inline-block;background:rgba(0,94,184,0.25);border:1px solid rgba(0,94,184,0.5);color:#7AB8F5;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:6px;margin-bottom:4px;letter-spacing:0.05em}
+
+/* Power BI chrome */
+.pbi-chrome{background:#1e1e2e;border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+.pbi-chrome-bar{background:#252535;padding:8px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.pbi-chrome-dots{display:flex;gap:6px}
+.pbi-chrome-dot{width:10px;height:10px;border-radius:50%}
+.pbi-chrome-title{font-size:12px;color:rgba(255,255,255,0.4);font-family:system-ui;font-weight:600;letter-spacing:0.02em;flex:1;text-align:center}
+.pbi-chrome-badge{font-size:10px;background:rgba(0,94,184,0.3);color:#7AB8F5;border:1px solid rgba(0,94,184,0.4);padding:2px 8px;border-radius:4px;font-weight:700;font-family:system-ui}
+
+/* Dashboard layout inside chrome */
+.pbi-layout{display:grid;gap:0}
+.pbi-top-bar{background:#1a1a2e;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+.pbi-slicer-label{font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;font-family:system-ui}
+.pbi-slicer{background:#252535;border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#fff;font-size:11px;font-family:system-ui;padding:5px 10px;cursor:pointer;font-weight:600}
+.pbi-slicer:focus{outline:none;border-color:#005EB8}
+.pbi-slicer-sep{width:1px;height:20px;background:rgba(255,255,255,0.08);margin:0 4px}
+.pbi-btn-slicer{background:rgba(0,94,184,0.2);border:1px solid rgba(0,94,184,0.4);border-radius:4px;color:#7AB8F5;font-size:10px;font-family:system-ui;padding:4px 10px;cursor:pointer;font-weight:700;transition:all 0.15s}
+.pbi-btn-slicer.active,.pbi-btn-slicer:hover{background:#005EB8;color:#fff;border-color:#005EB8}
+
+/* KPI card row */
+.pbi-kpi-row{display:grid;gap:1px;background:rgba(255,255,255,0.04)}
+.pbi-kpi{background:#1e1e2e;padding:14px 18px;position:relative}
+.pbi-kpi-label{font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;font-family:system-ui;margin-bottom:6px}
+.pbi-kpi-val{font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1}
+.pbi-kpi-val.up{color:#4ade80}
+.pbi-kpi-val.down{color:#f87171}
+.pbi-kpi-val.neutral{color:#7AB8F5}
+.pbi-kpi-delta{font-size:11px;font-family:system-ui;margin-top:5px;font-weight:700}
+.pbi-kpi-delta.up{color:#4ade80}
+.pbi-kpi-delta.down{color:#f87171}
+.pbi-kpi-sparkline{position:absolute;right:12px;bottom:12px;opacity:0.5}
+
+/* Chart grid */
+.pbi-chart-grid{display:grid;gap:1px;background:rgba(255,255,255,0.04)}
+.pbi-visual{background:#1e1e2e;padding:14px 16px}
+.pbi-visual-title{font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);font-family:system-ui;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.06em}
+.pbi-visual-sub{font-size:10px;color:rgba(255,255,255,0.3);font-family:system-ui;margin-bottom:10px}
+.pbi-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.pbi-legend span{display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(255,255,255,0.5);font-family:system-ui}
+.pbi-legend i{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0}
+
+/* Status badges in tables */
+.pbi-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;font-family:system-ui}
+.pbi-status.green{background:rgba(74,222,128,0.15);color:#4ade80;border:1px solid rgba(74,222,128,0.3)}
+.pbi-status.red{background:rgba(248,113,113,0.15);color:#f87171;border:1px solid rgba(248,113,113,0.3)}
+.pbi-status.yellow{background:rgba(250,204,21,0.15);color:#facc15;border:1px solid rgba(250,204,21,0.3)}
+.pbi-status.blue{background:rgba(122,184,245,0.15);color:#7AB8F5;border:1px solid rgba(122,184,245,0.3)}
+
+/* Table inside PBI */
+.pbi-table{width:100%;border-collapse:collapse;font-family:system-ui;font-size:11px}
+.pbi-table th{color:rgba(255,255,255,0.35);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:left;font-size:10px}
+.pbi-table td{color:rgba(255,255,255,0.75);padding:7px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.pbi-table tr:hover td{background:rgba(255,255,255,0.03)}
+.pbi-table .num{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.pbi-table .pos{color:#4ade80}
+.pbi-table .neg{color:#f87171}
+
+/* Gauge / donut overlay */
+.gauge-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
+.gauge-center{position:absolute;text-align:center}
+.gauge-val{font-size:1.4rem;font-weight:900;color:#fff;display:block}
+.gauge-label{font-size:10px;color:rgba(255,255,255,0.4);font-family:system-ui;display:block;margin-top:2px}
+
+/* Progress bar in PBI */
+.pbi-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.pbi-bar-name{font-size:11px;color:rgba(255,255,255,0.6);font-family:system-ui;width:100px;flex-shrink:0;text-align:right}
+.pbi-bar-track{flex:1;background:rgba(255,255,255,0.08);border-radius:2px;height:16px;overflow:hidden}
+.pbi-bar-fill{height:100%;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:10px;font-weight:700;color:#fff;font-family:system-ui;transition:width 0.6s ease}
+.pbi-bar-val{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);font-family:system-ui;width:50px;flex-shrink:0}
+
+/* ══ SITE FOOTER ══ */
 
 /* ══ LEGEND ══ */
 .legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px}
@@ -358,6 +446,105 @@ textarea.form-input{resize:vertical;min-height:120px}
   .res-skills-grid{grid-template-columns:1fr}
   .topnav{display:none}
 }
+/* ══ POWER BI PAGE ══ */
+.pbi-hero{background:linear-gradient(160deg,#001F5B 0%,#003087 60%,#005EB8 100%);padding:60px 2rem 50px;color:#fff}
+.pbi-hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.pbi-hero-left{}
+.pbi-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px;font-weight:700}
+.pbi-hero-title{font-size:2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:8px}
+.pbi-hero-sub{font-size:14px;color:rgba(255,255,255,0.65);max-width:500px;line-height:1.7}
+.pbi-skill-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pbi-skill-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:4px 12px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);font-family:monospace}
+.pbi-hero-stats{display:flex;gap:2rem;flex-shrink:0}
+.pbi-hstat{text-align:center}
+.pbi-hstat-num{font-size:2.2rem;font-weight:900;color:#7AB8F5;letter-spacing:-0.03em;display:block}
+.pbi-hstat-label{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+
+/* Dashboard tabs */
+.pbi-tabs{display:flex;background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem;overflow-x:auto;scrollbar-width:none;position:sticky;top:60px;z-index:50}
+.pbi-tabs::-webkit-scrollbar{display:none}
+.pbi-tab{padding:14px 20px;font-size:13px;font-weight:700;border:none;background:transparent;cursor:pointer;color:var(--text-3);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;font-family:system-ui;transition:all 0.15s;display:flex;align-items:center;gap:7px}
+.pbi-tab:hover{color:var(--text)}
+.pbi-tab.active{color:var(--navy);border-bottom-color:var(--blue)}
+.pbi-tab-dot{width:8px;height:8px;border-radius:50%;background:var(--bg-3);flex-shrink:0}
+.pbi-tab.active .pbi-tab-dot{background:var(--blue)}
+
+/* Dashboard panels */
+.pbi-panel{display:none;padding:0}
+.pbi-panel.active{display:block}
+
+/* Control bar (slicer row) */
+.slicer-bar{background:var(--bg-2);border-bottom:1px solid var(--border);padding:10px 2rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.slicer-label{font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap}
+.slicer-select{padding:5px 10px;border:1px solid var(--border-2);border-radius:var(--radius);font-size:12px;font-weight:600;color:var(--text);background:var(--white);cursor:pointer;font-family:system-ui;min-width:110px}
+.slicer-select:focus{outline:none;border-color:var(--blue)}
+.slicer-sep{width:1px;height:24px;background:var(--border-2);flex-shrink:0}
+.slicer-date{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text);background:var(--white);border:1px solid var(--border-2);border-radius:var(--radius);padding:5px 10px}
+.refresh-btn{margin-left:auto;background:var(--navy);color:#fff;border:none;padding:6px 14px;border-radius:var(--radius);font-size:11px;font-weight:700;cursor:pointer;font-family:system-ui;display:flex;align-items:center;gap:5px;transition:background 0.15s}
+.refresh-btn:hover{background:var(--blue)}
+
+/* Dashboard grid */
+.db-wrap{max-width:1100px;margin:0 auto;padding:20px 2rem 40px}
+.db-grid{display:grid;gap:14px}
+.db-row-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.db-row-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.db-row-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.db-row-2-1{grid-template-columns:2fr 1fr}
+.db-row-1-2{grid-template-columns:1fr 2fr}
+
+/* KPI Cards */
+.kpi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;position:relative;overflow:hidden;transition:box-shadow 0.2s}
+.kpi-card:hover{box-shadow:var(--shadow-md)}
+.kpi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.kpi-card.c-blue::after{background:var(--blue)}
+.kpi-card.c-navy::after{background:var(--navy)}
+.kpi-card.c-green::after{background:#006400}
+.kpi-card.c-red::after{background:#8B0000}
+.kpi-card.c-teal::after{background:#006670}
+.kpi-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:6px;font-family:system-ui}
+.kpi-val{font-size:1.9rem;font-weight:900;color:var(--navy);letter-spacing:-0.03em;line-height:1}
+.kpi-sub{font-size:11px;color:var(--text-3);margin-top:5px;font-family:system-ui}
+.kpi-delta{font-size:11px;font-weight:700;margin-top:4px;font-family:system-ui}
+.kpi-delta.up{color:#006400}
+.kpi-delta.down{color:#8B0000}
+
+/* Chart cards */
+.chart-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:box-shadow 0.2s}
+.chart-card:hover{box-shadow:var(--shadow-md)}
+.cc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
+.cc-title{font-size:12px;font-weight:800;color:var(--text);font-family:system-ui;letter-spacing:-0.01em}
+.cc-sub{font-size:10px;color:var(--text-3);font-family:system-ui;margin-bottom:.75rem}
+.cc-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;font-family:system-ui}
+.cc-badge.live{background:#e8f5e9;color:#2e7d32}
+.cc-badge.ytd{background:#e8f0fa;color:#1a3a8a}
+.pbi-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.pbi-legend span{display:flex;align-items:center;gap:4px;font-size:10px;font-family:system-ui;color:var(--text-3)}
+.pbi-legend i{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* Drill-down table */
+.db-table{width:100%;border-collapse:collapse;font-size:12px;font-family:system-ui}
+.db-table th{background:var(--bg-2);padding:7px 10px;text-align:left;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-3);border-bottom:2px solid var(--border)}
+.db-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text-2)}
+.db-table tr:hover td{background:var(--bg-2)}
+.db-table tr:last-child td{border-bottom:none}
+.td-bar-wrap{display:flex;align-items:center;gap:8px}
+.td-bar{height:6px;border-radius:3px;background:var(--navy);flex-shrink:0}
+.td-pos{color:#006400;font-weight:700}
+.td-neg{color:#8B0000;font-weight:700}
+.td-badge{padding:2px 7px;border-radius:3px;font-size:10px;font-weight:700}
+.td-badge.green{background:#e8f5e9;color:#2e7d32}
+.td-badge.red{background:#fce8e8;color:#8B0000}
+.td-badge.amber{background:#fff8e1;color:#856404}
+
+/* Scenario story box */
+.db-story{background:var(--blue-pale);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:1rem 1.25rem;margin-bottom:16px;font-size:13px;font-family:system-ui;line-height:1.7;color:var(--text-2)}
+.db-story strong{color:var(--navy)}
+
+@media(max-width:768px){
+  .db-row-4,.db-row-3{grid-template-columns:1fr 1fr}
+  .db-row-2,.db-row-2-1,.db-row-1-2{grid-template-columns:1fr}
+  .pbi-hero-stats{display:none}
+}
 </style>
 </head>
 <body>
@@ -371,9 +558,12 @@ textarea.form-input{resize:vertical;min-height:120px}
       <button class="topnav-btn" onclick="showPage('about',this)">About</button>
       <button class="topnav-btn" onclick="showPage('projects',this)">Projects</button>
       <button class="topnav-btn" onclick="showPage('scenarios',this)">Scenarios</button>
+      <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
       <button class="topnav-btn" onclick="showPage('skills',this)">Skills</button>
       <button class="topnav-btn" onclick="showPage('resume',this)">Resume</button>
+      <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
       <button class="topnav-btn" onclick="showPage('contact',this)">Contact</button>
+      <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
     </nav>
     <button class="topbar-contact" onclick="showPage('contact')">Hire Me →</button>
   </div>
@@ -1093,6 +1283,352 @@ ActiveScenario_Revenue =
 </div>
 
 <!-- ══════════════════════════ SKILLS PAGE ══════════════════════════ -->
+<!-- ══════════════════════════ POWER BI PAGE ══════════════════════════ -->
+<div id="page-powerbi" class="page pbi-page">
+
+  <!-- Hero -->
+  <div class="pbi-hero">
+    <div class="pbi-hero-inner">
+      <div class="pbi-hero-left">
+        <div class="pbi-eyebrow">Interactive Dashboards · Power BI Showcase</div>
+        <div class="pbi-hero-title">Power BI & DAX Portfolio</div>
+        <div class="pbi-hero-sub">Four fully interactive dashboards — each built around a realistic business scenario. Slicers, cross-filtering, time intelligence, drill-down tables, and KPI scorecards. Everything you'd see in a real Power BI report, live in the browser.</div>
+        <div class="pbi-skill-badges">
+          <span class="pbi-skill-badge">CALCULATE()</span>
+          <span class="pbi-skill-badge">DATESINPERIOD()</span>
+          <span class="pbi-skill-badge">SAMEPERIODLASTYEAR()</span>
+          <span class="pbi-skill-badge">RANKX()</span>
+          <span class="pbi-skill-badge">SWITCH(TRUE())</span>
+          <span class="pbi-skill-badge">Star Schema</span>
+          <span class="pbi-skill-badge">Row-Level Security</span>
+          <span class="pbi-skill-badge">Power Query M</span>
+        </div>
+      </div>
+      <div class="pbi-hero-stats">
+        <div class="pbi-hstat"><span class="pbi-hstat-num">4</span><span class="pbi-hstat-label">Live Dashboards</span></div>
+        <div class="pbi-hstat"><span class="pbi-hstat-num">22+</span><span class="pbi-hstat-label">DAX Measures</span></div>
+        <div class="pbi-hstat"><span class="pbi-hstat-num">100%</span><span class="pbi-hstat-label">Data Accuracy</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard tabs -->
+  <div class="pbi-tabs">
+    <button class="pbi-tab active" onclick="showPBI('exec',this)">
+      <span class="pbi-tab-dot"></span>Executive Revenue
+    </button>
+    <button class="pbi-tab" onclick="showPBI('sales',this)">
+      <span class="pbi-tab-dot"></span>Sales Performance
+    </button>
+    <button class="pbi-tab" onclick="showPBI('ops',this)">
+      <span class="pbi-tab-dot"></span>Operations KPI
+    </button>
+    <button class="pbi-tab" onclick="showPBI('finance',this)">
+      <span class="pbi-tab-dot"></span>Financial P&L
+    </button>
+  </div>
+
+  <!-- ══ DASHBOARD 1: Executive Revenue ══ -->
+  <div id="pbi-exec" class="pbi-panel active">
+    <div class="slicer-bar">
+      <span class="slicer-label">Period</span>
+      <button class="slicer-btn active" onclick="pbiFilter('exec','period','ytd',this)">YTD 2024</button>
+      <button class="slicer-btn" onclick="pbiFilter('exec','period','q4',this)">Q4 2024</button>
+      <button class="slicer-btn" onclick="pbiFilter('exec','period','q3',this)">Q3 2024</button>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Region</span>
+      <button class="slicer-btn active" onclick="pbiFilter('exec','region','all',this)">All Regions</button>
+      <button class="slicer-btn" onclick="pbiFilter('exec','region','ne',this)">Northeast</button>
+      <button class="slicer-btn" onclick="pbiFilter('exec','region','se',this)">Southeast</button>
+      <button class="slicer-btn" onclick="pbiFilter('exec','region','west',this)">West</button>
+      <span class="last-refresh">⟳ Last refresh: Today 6:00 AM  ·  Scheduled daily</span>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario:</strong> The CFO of a $142M B2B SaaS company needs a single executive view before the board meeting. Six teams were sending separate reports — and none agreed on ARR. This dashboard replaced all of them. <strong>Built with:</strong> Star schema (FactRevenue + DimDate + DimCustomer + DimRep), CALCULATE time intelligence, SWITCH(TRUE()) for dynamic KPI status.
+      </div>
+      <!-- KPI Row -->
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue">
+          <div class="kpi-title">Total Revenue</div>
+          <div class="kpi-val" id="exec-rev">$142.3M</div>
+          <div class="kpi-delta up" id="exec-rev-d">▲ +12.4% vs. Prior Year</div>
+        </div>
+        <div class="kpi-card c-green">
+          <div class="kpi-title">New ARR</div>
+          <div class="kpi-val" id="exec-arr">$14.8M</div>
+          <div class="kpi-delta up" id="exec-arr-d">▲ +18.2% vs. Prior Year</div>
+        </div>
+        <div class="kpi-card c-navy">
+          <div class="kpi-title">Gross Margin</div>
+          <div class="kpi-val" id="exec-gm">38.2%</div>
+          <div class="kpi-delta up" id="exec-gm-d">▲ +2.1pp vs. Budget</div>
+        </div>
+        <div class="kpi-card c-teal">
+          <div class="kpi-title">Net Revenue Retention</div>
+          <div class="kpi-val" id="exec-nrr">118%</div>
+          <div class="kpi-delta up" id="exec-nrr-d">▲ +6pp vs. Prior Year</div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2-1" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-header"><div><div class="cc-title">Monthly Revenue — Actual vs. Budget vs. Prior Year</div><div class="cc-sub">$M · with YoY growth line</div></div><span class="cc-badge ytd">YTD</span></div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#A8BEDD"></i>Budget</span><span><i style="background:#005EB8;opacity:.5"></i>Prior Year</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi1a"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-header"><div><div class="cc-title">Revenue by Region</div><div class="cc-sub">% share of total</div></div></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi1b"></canvas></div>
+          <div id="pbi1b-legend" style="margin-top:8px;font-size:11px;font-family:system-ui;color:var(--text-3)"></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-3" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Gross Margin % Trend</div>
+          <div class="cc-sub">Monthly with 20% target line</div>
+          <div style="position:relative;width:100%;height:180px"><canvas id="pbi1c"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Customer Count — New vs. Churned</div>
+          <div class="cc-sub">Net customer adds per quarter</div>
+          <div style="position:relative;width:100%;height:180px"><canvas id="pbi1d"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">ARR Waterfall</div>
+          <div class="cc-sub">Beginning → New → Expansion → Churn → Ending</div>
+          <div style="position:relative;width:100%;height:180px"><canvas id="pbi1e"></canvas></div>
+        </div>
+      </div>
+      <!-- Drill-down table -->
+      <div class="chart-card">
+        <div class="cc-title">Revenue by Account — Top 10 Drill-Down</div>
+        <div class="cc-sub">Click a row to filter all visuals · sorted by revenue descending</div>
+        <table class="db-table" id="exec-table"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 2: Sales Performance ══ -->
+  <div id="pbi-sales" class="pbi-panel">
+    <div class="slicer-bar">
+      <span class="slicer-label">Rep</span>
+      <select class="slicer-select" onchange="pbiSelectFilter('sales','rep',this.value)">
+        <option value="all">All Reps</option>
+        <option value="alex">Alex Torres</option>
+        <option value="priya">Priya Nair</option>
+        <option value="marcus">Marcus Webb</option>
+        <option value="sarah">Sarah Kim</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Product</span>
+      <button class="slicer-btn active" onclick="pbiFilter('sales','prod','all',this)">All</button>
+      <button class="slicer-btn" onclick="pbiFilter('sales','prod','ent',this)">Enterprise</button>
+      <button class="slicer-btn" onclick="pbiFilter('sales','prod','mid',this)">Mid-Market</button>
+      <button class="slicer-btn" onclick="pbiFilter('sales','prod','smb',this)">SMB</button>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Stage</span>
+      <select class="slicer-select" onchange="pbiSelectFilter('sales','stage',this.value)">
+        <option value="all">All Stages</option>
+        <option value="closed">Closed Won</option>
+        <option value="negotiation">Negotiation</option>
+        <option value="proposal">Proposal</option>
+      </select>
+      <span class="last-refresh">⟳ Synced from CRM · 15 min ago</span>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario:</strong> The VP of Sales and Finance were getting into arguments at every QBR — Sales said pipeline was $18M, Finance modeled $14.2M. A $400K enterprise churn had never been logged. This dashboard became the single source of truth. <strong>Built with:</strong> RANKX() for rep leaderboard, CALCULATE + FILTER for segment slicing, DATESYTD for attainment, conditional formatting via SWITCH(TRUE()) for RAG status.
+      </div>
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue">
+          <div class="kpi-title">Pipeline Value</div>
+          <div class="kpi-val">$18.4M</div>
+          <div class="kpi-delta up">▲ 3.2x coverage ratio</div>
+        </div>
+        <div class="kpi-card c-green">
+          <div class="kpi-title">Closed Won YTD</div>
+          <div class="kpi-val">$5.74M</div>
+          <div class="kpi-delta up">▲ 108% of $5.3M target</div>
+        </div>
+        <div class="kpi-card c-navy">
+          <div class="kpi-title">Avg. Win Rate</div>
+          <div class="kpi-val">24%</div>
+          <div class="kpi-delta flat">— on target (25%)</div>
+        </div>
+        <div class="kpi-card c-teal">
+          <div class="kpi-title">Avg. Sales Cycle</div>
+          <div class="kpi-val">42 days</div>
+          <div class="kpi-delta down">▼ 7 days vs. target</div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Sales Funnel — Deal Count & Value by Stage</div>
+          <div class="cc-sub">Dual axis: count (bars) + pipeline $M (line)</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Deal count</span><span><i style="background:#005EB8"></i>Pipeline $M</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi2a"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Monthly Bookings — New ARR vs. Churn</div>
+          <div class="cc-sub">Net new ARR waterfall · $M</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>New ARR</span><span><i style="background:#8B0000"></i>Churn</span><span><i style="background:#004d40"></i>Net ARR</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi2b"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Win Rate by Deal Segment</div>
+          <div class="cc-sub">Actual % vs. 25% target</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi2c"></canvas></div>
+          <div class="pbi-insight">Enterprise deals ($500K+) win at <strong>38%</strong> but take 74 days. SMB closes in 18 days at 22%. <strong>Insight: reps are over-investing time in SMB relative to revenue contribution.</strong></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Rep Leaderboard — Quota Attainment</div>
+          <div class="cc-sub">YTD closed vs. annual quota · RANKX() sorted</div>
+          <div id="rep-leaderboard" style="margin-top:8px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 3: Operations KPI ══ -->
+  <div id="pbi-ops" class="pbi-panel">
+    <div class="slicer-bar">
+      <span class="slicer-label">Department</span>
+      <button class="slicer-btn active" onclick="pbiFilter('ops','dept','all',this)">All</button>
+      <button class="slicer-btn" onclick="pbiFilter('ops','dept','eng',this)">Engineering</button>
+      <button class="slicer-btn" onclick="pbiFilter('ops','dept','ops',this)">Operations</button>
+      <button class="slicer-btn" onclick="pbiFilter('ops','dept','cs',this)">Customer Success</button>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Timeframe</span>
+      <button class="slicer-btn active" onclick="pbiFilter('ops','time','mtd',this)">MTD</button>
+      <button class="slicer-btn" onclick="pbiFilter('ops','time','qtd',this)">QTD</button>
+      <button class="slicer-btn" onclick="pbiFilter('ops','time','ytd',this)">YTD</button>
+      <span class="last-refresh">⟳ Live · refreshes every 30 min</span>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario:</strong> The COO was running 6 separate Excel reports every Monday — one per team — and spending the first 20 minutes of the standup reconciling numbers. On-time delivery had slipped from 96% to 94% and nobody knew why until 3 weeks after it happened. This dashboard replaced all 6 reports with one view that updates automatically. <strong>Built with:</strong> Power BI Service scheduled refresh, row-level security by department, conditional formatting for RAG status, CALCULATE + ALL() for cross-filter context.
+      </div>
+      <!-- KPI scorecard -->
+      <div id="ops-scorecard" style="margin-bottom:14px"></div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">On-Time Delivery % — 12-Month Trend</div>
+          <div class="cc-sub">With 95% SLA target line</div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi3a"></canvas></div>
+          <div class="pbi-insight">OTD dropped from <strong>96.2%</strong> in Jan to <strong>93.8%</strong> in Aug after headcount reduction. Recovered to <strong>94.8%</strong> after process automation in Sept. Still <strong>below 95% SLA</strong> — flagged for Q4 remediation.</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Revenue per Employee — Monthly</div>
+          <div class="cc-sub">vs. $260K annual target ($21.7K/month)</div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi3b"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-3" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Working Capital — DSO vs. DPO vs. DIO</div>
+          <div class="cc-sub">Days outstanding · actual vs. target</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi3c"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Support Ticket Resolution</div>
+          <div class="cc-sub">Avg. hours to close · by priority tier</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi3d"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Headcount & Utilization</div>
+          <div class="cc-sub">FTE count vs. utilization rate %</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi3e"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 4: Financial P&L ══ -->
+  <div id="pbi-finance" class="pbi-panel">
+    <div class="slicer-bar">
+      <span class="slicer-label">Business Unit</span>
+      <button class="slicer-btn active" onclick="pbiFilter('fin','bu','all',this)">Consolidated</button>
+      <button class="slicer-btn" onclick="pbiFilter('fin','bu','commercial',this)">Commercial</button>
+      <button class="slicer-btn" onclick="pbiFilter('fin','bu','retail',this)">Retail</button>
+      <button class="slicer-btn" onclick="pbiFilter('fin','bu','tech',this)">Tech</button>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">View</span>
+      <button class="slicer-btn active" onclick="pbiFilter('fin','view','actual',this)">Actual</button>
+      <button class="slicer-btn" onclick="pbiFilter('fin','view','budget',this)">vs. Budget</button>
+      <button class="slicer-btn" onclick="pbiFilter('fin','view','py',this)">vs. Prior Year</button>
+      <span class="last-refresh">⟳ Month-end close · locked Nov 30</span>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario:</strong> The board asked at Q3 review: "Revenue beat by $4.1M — but is it structural or one-time?" Engineering was $1.3M over budget. Marketing underspent by $1.4M because two campaigns slipped. None of this was visible in the top-line numbers. This P&L dashboard drills from consolidated to BU to line-item in three clicks. <strong>Built with:</strong> SAMEPERIODLASTYEAR() for prior year bridge, CALCULATE + FILTER for BU isolation, DIVIDE() with zero-check for margin %, dynamic title via SELECTEDVALUE().
+      </div>
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue">
+          <div class="kpi-title">Total Revenue YTD</div>
+          <div class="kpi-val">$142.3M</div>
+          <div class="kpi-delta up">▲ +$4.1M vs. budget</div>
+        </div>
+        <div class="kpi-card c-green">
+          <div class="kpi-title">Gross Margin</div>
+          <div class="kpi-val">38.2%</div>
+          <div class="kpi-delta up">▲ +2.1pp vs. budget</div>
+        </div>
+        <div class="kpi-card c-navy">
+          <div class="kpi-title">EBITDA</div>
+          <div class="kpi-val">$30.5M</div>
+          <div class="kpi-delta up">▲ 21.4% margin</div>
+        </div>
+        <div class="kpi-card c-teal">
+          <div class="kpi-title">Operating Expense</div>
+          <div class="kpi-val">$111.8M</div>
+          <div class="kpi-delta down">▼ +$0.3M vs. budget</div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">P&L Waterfall — Budget to Actual Bridge</div>
+          <div class="cc-sub">Variance drivers: what moved EBITDA from budget to actual ($M)</div>
+          <div class="pbi-legend"><span><i style="background:#006400"></i>Favorable</span><span><i style="background:#8B0000"></i>Unfavorable</span><span><i style="background:#001F5B"></i>Total</span></div>
+          <div style="position:relative;width:100%;height:240px"><canvas id="pbi4a"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Revenue — Actual vs. Budget vs. Prior Year</div>
+          <div class="cc-sub">Monthly $M · 12-month view</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#005EB8"></i>Budget</span><span><i style="background:#A8BEDD"></i>Prior Year</span></div>
+          <div style="position:relative;width:100%;height:240px"><canvas id="pbi4b"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-3" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Gross Margin by Business Unit</div>
+          <div class="cc-sub">Actual % vs. plan % · current quarter</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi4c"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">OpEx Variance by Department</div>
+          <div class="cc-sub">Over/under budget % · green = under</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi4d"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">EBITDA Margin Trend</div>
+          <div class="cc-sub">Rolling 12M with 20% target band</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi4e"></canvas></div>
+        </div>
+      </div>
+      <!-- P&L drill-down table -->
+      <div class="chart-card">
+        <div class="cc-title">Income Statement Drill-Down — Line Item Detail</div>
+        <div class="cc-sub">Actual vs. Budget vs. Prior Year · with variance % and RAG status</div>
+        <table class="db-table" id="pl-table"></table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ══ END POWER BI PAGE ══ -->
+
 <div id="page-skills" class="page">
   <div class="section-wrap">
     <div class="section-header">
@@ -1608,6 +2144,333 @@ ActiveScenario_Revenue =
   </div>
 </div>
 
+<!-- ══════════════════════════ POWER BI PAGE ══════════════════════════ -->
+<div id="page-powerbi" class="page">
+
+  <div class="pbi-hero">
+    <div class="pbi-hero-inner">
+      <div class="pbi-hero-left">
+        <div class="pbi-eyebrow">Interactive Power BI Dashboards</div>
+        <div class="pbi-hero-title">Live Analytics Suite</div>
+        <div class="pbi-hero-sub">Four fully interactive dashboards with working slicers, drill-downs, and real business data. Every filter actually changes the charts — exactly how Power BI works in production.</div>
+        <div class="pbi-skill-badges">
+          <span class="pbi-skill-badge">DAX</span><span class="pbi-skill-badge">CALCULATE</span><span class="pbi-skill-badge">SUMX</span><span class="pbi-skill-badge">YTD/MTD</span><span class="pbi-skill-badge">Rolling 12M</span><span class="pbi-skill-badge">Star Schema</span><span class="pbi-skill-badge">Power Query</span><span class="pbi-skill-badge">Row-Level Security</span>
+        </div>
+      </div>
+      <div class="pbi-hero-stats">
+        <div class="pbi-hstat"><span class="pbi-hstat-num">4</span><span class="pbi-hstat-label">Live Dashboards</span></div>
+        <div class="pbi-hstat"><span class="pbi-hstat-num">24+</span><span class="pbi-hstat-label">Chart Types</span></div>
+        <div class="pbi-hstat"><span class="pbi-hstat-num">100%</span><span class="pbi-hstat-label">Interactive</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD TABS -->
+  <div class="pbi-tabs" id="pbi-tabs">
+    <button class="pbi-tab active" onclick="showPBI('sales',this)"><span class="pbi-tab-dot"></span>Sales Performance</button>
+    <button class="pbi-tab" onclick="showPBI('fpa',this)"><span class="pbi-tab-dot"></span>FP&A — Budget vs. Actuals</button>
+    <button class="pbi-tab" onclick="showPBI('ops',this)"><span class="pbi-tab-dot"></span>Operations & Supply Chain</button>
+    <button class="pbi-tab" onclick="showPBI('customer',this)"><span class="pbi-tab-dot"></span>Customer & Retention</button>
+  </div>
+
+  <!-- ══ DASHBOARD 1: SALES PERFORMANCE ══ -->
+  <div id="pbi-sales" class="pbi-panel active">
+    <div class="slicer-bar">
+      <span class="slicer-label">Region</span>
+      <select class="slicer-select" id="sl-region" onchange="updateSales()">
+        <option value="all">All Regions</option>
+        <option value="northeast">Northeast</option>
+        <option value="southeast">Southeast</option>
+        <option value="midwest">Midwest</option>
+        <option value="west">West</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Product</span>
+      <select class="slicer-select" id="sl-product" onchange="updateSales()">
+        <option value="all">All Products</option>
+        <option value="enterprise">Enterprise</option>
+        <option value="midmarket">Mid-Market</option>
+        <option value="smb">SMB</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Period</span>
+      <select class="slicer-select" id="sl-period" onchange="updateSales()">
+        <option value="ytd">YTD 2024</option>
+        <option value="q4">Q4 2024</option>
+        <option value="q3">Q3 2024</option>
+        <option value="q2">Q2 2024</option>
+      </select>
+      <button class="refresh-btn" onclick="resetSales()">↺ Reset Filters</button>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario — Nexus Software Inc.:</strong> The VP of Sales asked for a dashboard to monitor rep performance, pipeline health, and quota attainment by region and product tier ahead of the Q4 board review. The slicers above filter every chart simultaneously — exactly how Power BI slicers work with relationships across fact and dimension tables.
+      </div>
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue"><div class="kpi-title">Total Revenue</div><div class="kpi-val" id="kpi-rev">$38.4M</div><div class="kpi-delta up" id="kpi-rev-d">▲ +12.3% vs prior year</div></div>
+        <div class="kpi-card c-navy"><div class="kpi-title">Quota Attainment</div><div class="kpi-val" id="kpi-quota">108%</div><div class="kpi-delta up" id="kpi-quota-d">▲ +8pts vs target</div></div>
+        <div class="kpi-card c-green"><div class="kpi-title">New Logos</div><div class="kpi-val" id="kpi-logos">184</div><div class="kpi-delta up" id="kpi-logos-d">▲ +22 vs last year</div></div>
+        <div class="kpi-card c-teal"><div class="kpi-title">Avg Deal Size</div><div class="kpi-val" id="kpi-deal">$208K</div><div class="kpi-delta up" id="kpi-deal-d">▲ +$18K vs last year</div></div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-header"><div><div class="cc-title">Monthly Revenue — Actual vs. Target vs. Prior Year</div><div class="cc-sub">$M · filtered by selection above</div></div><span class="cc-badge ytd" id="badge-s1">YTD 2024</span></div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#005EB8"></i>Target</span><span><i style="background:#A8BEDD"></i>Prior Year</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-s1"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-header"><div><div class="cc-title">Revenue by Product Tier</div><div class="cc-sub">Share of total revenue — current period</div></div></div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Enterprise</span><span><i style="background:#005EB8"></i>Mid-Market</span><span><i style="background:#7AB8F5"></i>SMB</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-s2"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2-1" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Rep Quota Attainment — by Region</div>
+          <div class="cc-sub">% of annual quota achieved · current filter selection</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-s3"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Win Rate by Deal Stage</div>
+          <div class="cc-sub">Conversion % · funnel efficiency</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-s4"></canvas></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="cc-title">Top 10 Deals — Drill-Down Table</div>
+        <div class="cc-sub">Largest closed deals · filtered by current slicer selection</div>
+        <div style="overflow-x:auto;margin-top:8px">
+          <table class="db-table" id="sales-table">
+            <thead><tr><th>Account</th><th>Region</th><th>Product</th><th>Deal Size</th><th>Close Date</th><th>Rep</th><th>vs. Target</th><th>Status</th></tr></thead>
+            <tbody id="sales-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 2: FP&A ══ -->
+  <div id="pbi-fpa" class="pbi-panel">
+    <div class="slicer-bar">
+      <span class="slicer-label">Department</span>
+      <select class="slicer-select" id="sl-dept" onchange="updateFPA()">
+        <option value="all">All Departments</option>
+        <option value="sales">Sales</option>
+        <option value="eng">Engineering</option>
+        <option value="mktg">Marketing</option>
+        <option value="ops">Operations</option>
+        <option value="hr">HR & G&A</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Scenario</span>
+      <select class="slicer-select" id="sl-scenario" onchange="updateFPA()">
+        <option value="base">Base Budget</option>
+        <option value="bull">Upside Case</option>
+        <option value="bear">Downside Case</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">View</span>
+      <select class="slicer-select" id="sl-view" onchange="updateFPA()">
+        <option value="ytd">YTD</option>
+        <option value="q4">Q4 Only</option>
+        <option value="fy">Full Year</option>
+      </select>
+      <button class="refresh-btn" onclick="resetFPA()">↺ Reset</button>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario — Nexus Software Inc. CFO Dashboard:</strong> The CFO needs a single view of budget vs. actuals across all departments before the Q4 board pack. The scenario slicer switches the entire model between base, upside, and downside assumptions — a key FP&A skill showing connected DAX measures across a star schema data model.
+      </div>
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue"><div class="kpi-title">Revenue vs. Budget</div><div class="kpi-val" id="fpa-k1">+$4.1M</div><div class="kpi-delta up">▲ 108% attainment</div></div>
+        <div class="kpi-card c-navy"><div class="kpi-title">EBITDA Margin</div><div class="kpi-val" id="fpa-k2">21.4%</div><div class="kpi-delta up">▲ +1.4pts vs budget</div></div>
+        <div class="kpi-card c-green"><div class="kpi-title">OpEx vs. Budget</div><div class="kpi-val" id="fpa-k3">-$1.2M</div><div class="kpi-delta up">▲ Under budget</div></div>
+        <div class="kpi-card c-teal"><div class="kpi-title">Headcount Variance</div><div class="kpi-val" id="fpa-k4">+3</div><div class="kpi-delta down">▼ 3 above plan</div></div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-header"><div><div class="cc-title">P&L Bridge — Budget to Actual</div><div class="cc-sub">Variance drivers by category ($M)</div></div><span class="cc-badge live" id="fpa-scenario-badge">Base Budget</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-f1"></canvas></div>
+          <div style="font-size:11px;color:var(--text-3);font-family:system-ui;margin-top:8px">Revenue beat offset by Engineering headcount overage and increased travel spend. Net: +$4.1M favorable.</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-header"><div><div class="cc-title">Department Spend — Budget vs. Actuals</div><div class="cc-sub">$M · current department selection</div></div></div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Budget</span><span><i style="background:#005EB8"></i>Actuals</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-f2"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Monthly Revenue — Scenario Comparison</div>
+          <div class="cc-sub">Actual vs. selected scenario forecast ($M)</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#A8BEDD;border:1px dashed #005EB8"></i>Scenario</span></div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-f3"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Variance % by Cost Category</div>
+          <div class="cc-sub">Over/under budget · positive = under budget</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-f4"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 3: OPERATIONS ══ -->
+  <div id="pbi-ops" class="pbi-panel">
+    <div class="slicer-bar">
+      <span class="slicer-label">Warehouse</span>
+      <select class="slicer-select" id="sl-wh" onchange="updateOps()">
+        <option value="all">All Warehouses</option>
+        <option value="nyc">New York (HQ)</option>
+        <option value="chi">Chicago</option>
+        <option value="la">Los Angeles</option>
+        <option value="atl">Atlanta</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Category</span>
+      <select class="slicer-select" id="sl-cat" onchange="updateOps()">
+        <option value="all">All Categories</option>
+        <option value="electronics">Electronics</option>
+        <option value="industrial">Industrial</option>
+        <option value="consumer">Consumer</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Month</span>
+      <select class="slicer-select" id="sl-month" onchange="updateOps()">
+        <option value="dec">December 2024</option>
+        <option value="nov">November 2024</option>
+        <option value="oct">October 2024</option>
+      </select>
+      <button class="refresh-btn" onclick="resetOps()">↺ Reset</button>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario — Atlas Distribution Co.:</strong> The COO needs real-time visibility into warehouse efficiency, order fulfillment, and inventory turns. A supplier in Chicago is running 4 days behind on delivery. The dashboard should surface that immediately — which is what the On-Time Delivery and Lead Time charts are designed to catch.
+      </div>
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue"><div class="kpi-title">On-Time Delivery</div><div class="kpi-val" id="ops-k1">94.2%</div><div class="kpi-delta down">▼ -0.8pts vs target (95%)</div></div>
+        <div class="kpi-card c-navy"><div class="kpi-title">Inventory Turnover</div><div class="kpi-val" id="ops-k2">8.4x</div><div class="kpi-delta up">▲ +0.6x vs last month</div></div>
+        <div class="kpi-card c-green"><div class="kpi-title">Order Fill Rate</div><div class="kpi-val" id="ops-k3">98.1%</div><div class="kpi-delta up">▲ On target</div></div>
+        <div class="kpi-card c-red"><div class="kpi-title">Avg Lead Time</div><div class="kpi-val" id="ops-k4">4.2 days</div><div class="kpi-delta down">▼ +0.4 days vs target</div></div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">On-Time Delivery % by Warehouse — Monthly Trend</div>
+          <div class="cc-sub">Target: 95% · Red line shows threshold</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>NYC</span><span><i style="background:#005EB8"></i>Chicago</span><span><i style="background:#7AB8F5"></i>LA</span><span><i style="background:#A8BEDD"></i>Atlanta</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-o1"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Inventory Value by Category</div>
+          <div class="cc-sub">Current on-hand value ($M) · with turnover rate</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Electronics</span><span><i style="background:#005EB8"></i>Industrial</span><span><i style="background:#7AB8F5"></i>Consumer</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-o2"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-1-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Order Volume — Daily</div>
+          <div class="cc-sub">Orders shipped vs. received this month</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Shipped</span><span><i style="background:#A8BEDD"></i>Received</span></div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-o3"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Supplier Performance — Lead Time vs. SLA</div>
+          <div class="cc-sub">Avg days to delivery by supplier · target 3.5 days</div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-o4"></canvas></div>
+          <div style="font-size:11px;color:#8B0000;font-family:system-ui;margin-top:8px;font-weight:600">⚠ Chicago Supplier B is 4.8 days avg — 1.3 days over SLA. Escalation recommended.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 4: CUSTOMER ══ -->
+  <div id="pbi-customer" class="pbi-panel">
+    <div class="slicer-bar">
+      <span class="slicer-label">Segment</span>
+      <select class="slicer-select" id="sl-seg" onchange="updateCustomer()">
+        <option value="all">All Segments</option>
+        <option value="enterprise">Enterprise</option>
+        <option value="midmarket">Mid-Market</option>
+        <option value="smb">SMB</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Cohort Year</span>
+      <select class="slicer-select" id="sl-cohort" onchange="updateCustomer()">
+        <option value="all">All Cohorts</option>
+        <option value="2022">2022 Cohort</option>
+        <option value="2023">2023 Cohort</option>
+        <option value="2024">2024 Cohort</option>
+      </select>
+      <div class="slicer-sep"></div>
+      <span class="slicer-label">Health Score</span>
+      <select class="slicer-select" id="sl-health" onchange="updateCustomer()">
+        <option value="all">All</option>
+        <option value="healthy">Healthy (70+)</option>
+        <option value="risk">At Risk (40–69)</option>
+        <option value="churn">Churn Risk (&lt;40)</option>
+      </select>
+      <button class="refresh-btn" onclick="resetCustomer()">↺ Reset</button>
+    </div>
+    <div class="db-wrap">
+      <div class="db-story">
+        <strong>Scenario — Nexus Software Inc. Customer Success:</strong> The Head of Customer Success flagged that Q3 NRR dropped from 118% to 112% — a 6-point decline that went unnoticed for two months. This dashboard was built to surface churn signals early, track cohort retention, and show which segments are expanding vs. contracting before it hits revenue.
+      </div>
+      <div class="db-grid db-row-4" style="margin-bottom:14px">
+        <div class="kpi-card c-blue"><div class="kpi-title">Net Revenue Retention</div><div class="kpi-val" id="cust-k1">114%</div><div class="kpi-delta up">▲ +2pts vs last quarter</div></div>
+        <div class="kpi-card c-navy"><div class="kpi-title">Gross Retention</div><div class="kpi-val" id="cust-k2">91.4%</div><div class="kpi-delta down">▼ -1.2pts vs target (93%)</div></div>
+        <div class="kpi-card c-green"><div class="kpi-title">Avg Health Score</div><div class="kpi-val" id="cust-k3">72.4</div><div class="kpi-delta up">▲ +4.2 pts this quarter</div></div>
+        <div class="kpi-card c-red"><div class="kpi-title">Churn Risk Accounts</div><div class="kpi-val" id="cust-k4">18</div><div class="kpi-delta down">▼ $2.4M ARR at risk</div></div>
+      </div>
+      <div class="db-grid db-row-2" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">NRR vs. GRR — Monthly Trend</div>
+          <div class="cc-sub">Net & Gross Revenue Retention % · rolling 12 months</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>NRR %</span><span><i style="background:#005EB8"></i>GRR %</span><span><i style="background:#A8BEDD;border:1px dashed #8B0000"></i>GRR Target (93%)</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-c1"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Revenue Waterfall — Expansion vs. Churn</div>
+          <div class="cc-sub">Monthly new ARR + expansion − churn ($M)</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>New ARR</span><span><i style="background:#005EB8"></i>Expansion</span><span><i style="background:#8B0000"></i>Churn</span></div>
+          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-c2"></canvas></div>
+        </div>
+      </div>
+      <div class="db-grid db-row-2-1" style="margin-bottom:14px">
+        <div class="chart-card">
+          <div class="cc-title">Cohort Retention Analysis</div>
+          <div class="cc-sub">% of original ARR retained by months since signup</div>
+          <div class="pbi-legend"><span><i style="background:#001F5B"></i>2022 Cohort</span><span><i style="background:#005EB8"></i>2023 Cohort</span><span><i style="background:#7AB8F5"></i>2024 Cohort</span></div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-c3"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-title">Health Score Distribution</div>
+          <div class="cc-sub">Accounts by health band · current filter</div>
+          <div class="pbi-legend"><span><i style="background:#006400"></i>Healthy 70+</span><span><i style="background:#856404"></i>At Risk 40–69</span><span><i style="background:#8B0000"></i>Churn Risk &lt;40</span></div>
+          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-c4"></canvas></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="cc-title">At-Risk Account List — Drill Down</div>
+        <div class="cc-sub">Accounts below health score 40 · sorted by ARR at risk</div>
+        <div style="overflow-x:auto;margin-top:8px">
+          <table class="db-table">
+            <thead><tr><th>Account</th><th>Segment</th><th>ARR</th><th>Health Score</th><th>Last Login</th><th>Support Tickets</th><th>CSM</th><th>Risk Level</th></tr></thead>
+            <tbody>
+              <tr><td>Meridian Group</td><td>Enterprise</td><td>$480K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:28px;background:#8B0000"></div>28</div></td><td>47 days ago</td><td>8 open</td><td>J. Chen</td><td><span class="td-badge red">Critical</span></td></tr>
+              <tr><td>Cascade Logistics</td><td>Mid-Market</td><td>$220K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:32px;background:#8B0000"></div>32</div></td><td>31 days ago</td><td>4 open</td><td>M. Torres</td><td><span class="td-badge red">Critical</span></td></tr>
+              <tr><td>Vantage Retail</td><td>Mid-Market</td><td>$185K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:36px;background:#856404"></div>36</div></td><td>18 days ago</td><td>2 open</td><td>J. Chen</td><td><span class="td-badge amber">High</span></td></tr>
+              <tr><td>Summit Financial</td><td>SMB</td><td>$92K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:30px;background:#8B0000"></div>30</div></td><td>62 days ago</td><td>0 open</td><td>R. Park</td><td><span class="td-badge red">Critical</span></td></tr>
+              <tr><td>Apex Industries</td><td>SMB</td><td>$68K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:38px;background:#856404"></div>38</div></td><td>24 days ago</td><td>1 open</td><td>M. Torres</td><td><span class="td-badge amber">High</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <!-- ══════════════════════════ CONTACT PAGE ══════════════════════════ -->
 <div id="page-contact" class="page">
   <div class="section-wrap">
@@ -1634,6 +2497,348 @@ ActiveScenario_Revenue =
         <div class="contact-link" style="cursor:default">
           <div class="contact-link-icon">📍</div>
           <div><div class="contact-link-label">Location</div><div class="contact-link-val">New York City, NY</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ POWER BI PAGE ══════════════════════════ -->
+<div id="page-powerbi" class="page pbi-page">
+  <div class="pbi-header">
+    <div class="pbi-header-title">Power BI Dashboard Portfolio</div>
+    <div class="pbi-header-sub">Four fully interactive dashboards — real DAX measures, working slicers, drill-down charts, and the business scenarios behind each one</div>
+    <div class="pbi-db-tabs" id="pbi-tabs">
+      <button class="pbi-tab active" onclick="showPbi('sales',this)">Sales Performance</button>
+      <button class="pbi-tab" onclick="showPbi('finance',this)">Financial Operations</button>
+      <button class="pbi-tab" onclick="showPbi('hr',this)">Workforce Analytics</button>
+      <button class="pbi-tab" onclick="showPbi('ops',this)">Operations & Supply Chain</button>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 1: SALES PERFORMANCE ══ -->
+  <div id="pbi-sales" class="pbi-db active">
+    <div class="pbi-db-inner">
+      <div class="pbi-scenario">
+        <span class="sc-tag">SCENARIO</span><span class="sc-tag">SALES ANALYTICS</span><span class="sc-tag">POWER BI · DAX</span><br>
+        The VP of Sales at a B2B SaaS company was flying blind — she had revenue numbers from Salesforce, quota data from a spreadsheet, and commission reports from Finance, all in three different places. None of them agreed. When the board asked "are we going to hit Q4 number?" nobody could answer confidently. <strong>I was asked to build a single dashboard that would give the whole go-to-market team one source of truth.</strong> The slicers below filter every visual simultaneously — just like real Power BI connected to a live CRM.
+      </div>
+      <div class="pbi-chrome">
+        <div class="pbi-chrome-bar">
+          <div class="pbi-chrome-dots"><div class="pbi-chrome-dot" style="background:#ff5f57"></div><div class="pbi-chrome-dot" style="background:#febc2e"></div><div class="pbi-chrome-dot" style="background:#28c840"></div></div>
+          <span class="pbi-chrome-title">Sales Performance Dashboard — FY 2024 · Live Connected</span>
+          <span class="pbi-chrome-badge">● LIVE</span>
+        </div>
+        <!-- Slicers -->
+        <div class="pbi-top-bar">
+          <span class="pbi-slicer-label">Quarter</span>
+          <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','all',this)" id="sq-all" style="background:#005EB8;border-color:#005EB8;color:#fff">All</button>
+          <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q1',this)" id="sq-Q1">Q1</button>
+          <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q2',this)" id="sq-Q2">Q2</button>
+          <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q3',this)" id="sq-Q3">Q3</button>
+          <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q4',this)" id="sq-Q4">Q4</button>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Region</span>
+          <select class="pbi-slicer" onchange="pbiSalesFilter('r',this.value,null)" id="sr-sel">
+            <option value="all">All Regions</option>
+            <option value="Northeast">Northeast</option>
+            <option value="Southeast">Southeast</option>
+            <option value="West">West</option>
+            <option value="Midwest">Midwest</option>
+          </select>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Segment</span>
+          <select class="pbi-slicer" onchange="pbiSalesFilter('s',this.value,null)" id="ss-sel">
+            <option value="all">All Segments</option>
+            <option value="SMB">SMB</option>
+            <option value="Mid-Market">Mid-Market</option>
+            <option value="Enterprise">Enterprise</option>
+          </select>
+        </div>
+        <!-- KPI Row -->
+        <div class="pbi-kpi-row" style="grid-template-columns:repeat(5,1fr)">
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Total ARR</div><div class="pbi-kpi-val neutral" id="s-arr">$14.8M</div><div class="pbi-kpi-delta up" id="s-arr-d">▲ 12.4% vs LY</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Quota Attainment</div><div class="pbi-kpi-val up" id="s-att">108%</div><div class="pbi-kpi-delta up" id="s-att-d">▲ 8pts vs target</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">New Logos</div><div class="pbi-kpi-val neutral" id="s-logos">142</div><div class="pbi-kpi-delta up" id="s-logos-d">▲ 18 vs Q4 plan</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Avg Deal Size</div><div class="pbi-kpi-val neutral" id="s-deal">$104K</div><div class="pbi-kpi-delta up" id="s-deal-d">▲ $12K vs LY</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Win Rate</div><div class="pbi-kpi-val" id="s-win" style="color:#facc15">27%</div><div class="pbi-kpi-delta down" id="s-win-d">▼ 2pts vs target</div></div>
+        </div>
+        <!-- Charts -->
+        <div class="pbi-chart-grid" style="grid-template-columns:2fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Monthly ARR vs. Quota — Actuals & Trend</div>
+            <div class="pbi-visual-sub">$M · Full year · Shaded area = quota band</div>
+            <div class="pbi-legend"><span><i style="background:#005EB8"></i>Actual ARR</span><span><i style="background:#4ade80;opacity:.6"></i>Quota</span><span><i style="background:#7AB8F5;opacity:.5"></i>Prior Year</span></div>
+            <div style="position:relative;height:200px"><canvas id="pbi-s1"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">ARR by Segment</div>
+            <div class="pbi-visual-sub">Distribution & attainment %</div>
+            <div class="pbi-legend"><span><i style="background:#001F5B"></i>Enterprise</span><span><i style="background:#005EB8"></i>Mid-Market</span><span><i style="background:#7AB8F5"></i>SMB</span></div>
+            <div style="position:relative;height:200px"><canvas id="pbi-s2"></canvas></div>
+          </div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Win Rate by Deal Size</div>
+            <div class="pbi-visual-sub">vs. 25% target</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-s3"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Pipeline Stage Funnel</div>
+            <div class="pbi-visual-sub">Current open pipeline · $M</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-s4"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Rep Leaderboard</div>
+            <div class="pbi-visual-sub">Quota attainment % · Top 5</div>
+            <div style="margin-top:8px" id="pbi-s-leader"></div>
+          </div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Revenue by Region — Heatmap</div>
+            <div class="pbi-visual-sub">ARR $M vs. regional quota · variance highlighted</div>
+            <div id="pbi-s-region" style="margin-top:8px"></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Churn & Expansion ARR</div>
+            <div class="pbi-visual-sub">New bookings vs. churn · net new ARR waterfall</div>
+            <div class="pbi-legend"><span><i style="background:#4ade80"></i>New ARR</span><span><i style="background:#f87171"></i>Churn</span><span><i style="background:#7AB8F5"></i>Net New</span></div>
+            <div style="position:relative;height:180px"><canvas id="pbi-s5"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 2: FINANCIAL OPERATIONS ══ -->
+  <div id="pbi-finance" class="pbi-db">
+    <div class="pbi-db-inner">
+      <div class="pbi-scenario">
+        <span class="sc-tag">SCENARIO</span><span class="sc-tag">FP&A · VARIANCE ANALYSIS</span><span class="sc-tag">POWER BI · DAX TIME INTELLIGENCE</span><br>
+        A mid-size company's CFO was getting questions from the board she couldn't answer fast enough — "Why did EBITDA miss by $2M in October?" "Which department is over budget?" "What's our cash runway?" She had the data but it was buried in Excel files emailed around every Monday. <strong>I built this financial operations dashboard so she could answer any board question in under 60 seconds, from her phone.</strong> The YTD/MTD/QTD toggle uses DAX DATESYTD, DATESMTD, and DATESQTD measures switching simultaneously across every visual.
+      </div>
+      <div class="pbi-chrome">
+        <div class="pbi-chrome-bar">
+          <div class="pbi-chrome-dots"><div class="pbi-chrome-dot" style="background:#ff5f57"></div><div class="pbi-chrome-dot" style="background:#febc2e"></div><div class="pbi-chrome-dot" style="background:#28c840"></div></div>
+          <span class="pbi-chrome-title">Financial Operations Dashboard — CFO View · FY 2024</span>
+          <span class="pbi-chrome-badge">● LIVE</span>
+        </div>
+        <div class="pbi-top-bar">
+          <span class="pbi-slicer-label">Period</span>
+          <button class="pbi-btn-slicer active" onclick="pbiFinFilter('p','ytd',this)" id="fp-ytd">YTD</button>
+          <button class="pbi-btn-slicer" onclick="pbiFinFilter('p','qtd',this)" id="fp-qtd">QTD</button>
+          <button class="pbi-btn-slicer" onclick="pbiFinFilter('p','mtd',this)" id="fp-mtd">MTD</button>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Business Unit</span>
+          <select class="pbi-slicer" onchange="pbiFinFilter('bu',this.value,null)">
+            <option value="all">All BUs</option>
+            <option value="commercial">Commercial</option>
+            <option value="retail">Retail</option>
+            <option value="tech">Tech</option>
+          </select>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">View</span>
+          <button class="pbi-btn-slicer active" onclick="pbiFinFilter('v','actual',this)" id="fv-actual">Actual</button>
+          <button class="pbi-btn-slicer" onclick="pbiFinFilter('v','variance',this)" id="fv-var">Variance</button>
+        </div>
+        <div class="pbi-kpi-row" style="grid-template-columns:repeat(5,1fr)">
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Revenue</div><div class="pbi-kpi-val neutral" id="f-rev">$142.3M</div><div class="pbi-kpi-delta up" id="f-rev-d">▲ $4.1M vs Budget</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Gross Margin</div><div class="pbi-kpi-val up" id="f-gm">38.2%</div><div class="pbi-kpi-delta up" id="f-gm-d">▲ 2.2pts vs Plan</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">EBITDA</div><div class="pbi-kpi-val neutral" id="f-ebitda">$30.4M</div><div class="pbi-kpi-delta up" id="f-ebitda-d">▲ $2.8M vs Budget</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">OpEx</div><div class="pbi-kpi-val down" id="f-opex">$98.2M</div><div class="pbi-kpi-delta down" id="f-opex-d">▼ $1.4M over Budget</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Cash Runway</div><div class="pbi-kpi-val up" id="f-cash">14.2 mo</div><div class="pbi-kpi-delta up" id="f-cash-d">▲ 2.1mo vs Q3</div></div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:2fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Revenue vs. Budget — Monthly Waterfall</div>
+            <div class="pbi-visual-sub">Actual $M · Budget overlay · Variance highlighted</div>
+            <div class="pbi-legend"><span><i style="background:#005EB8"></i>Actual</span><span><i style="background:rgba(122,184,245,.4)"></i>Budget</span><span><i style="background:#4ade80"></i>Favorable var.</span><span><i style="background:#f87171"></i>Unfavorable var.</span></div>
+            <div style="position:relative;height:200px"><canvas id="pbi-f1"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">P&L Summary</div>
+            <div class="pbi-visual-sub">Actual vs. Budget by line item</div>
+            <div id="pbi-f-pl" style="margin-top:4px"></div>
+          </div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">EBITDA Margin Trend</div>
+            <div class="pbi-visual-sub">Rolling 12M % vs. 20% target</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-f2"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Dept. Budget Variance</div>
+            <div class="pbi-visual-sub">Over/under budget $M</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-f3"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Gross Margin by BU</div>
+            <div class="pbi-visual-sub">Actual % vs. Plan %</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-f4"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 3: WORKFORCE ANALYTICS ══ -->
+  <div id="pbi-hr" class="pbi-db">
+    <div class="pbi-db-inner">
+      <div class="pbi-scenario">
+        <span class="sc-tag">SCENARIO</span><span class="sc-tag">HR ANALYTICS · WORKFORCE</span><span class="sc-tag">POWER BI · CALCULATED COLUMNS</span><br>
+        The Head of People at a 400-person company noticed voluntary attrition had jumped from 8% to 14% over 6 months but couldn't identify why or where. HR had the data but it was in an HRIS export nobody had analyzed. Finance didn't know which departments were burning headcount budget. <strong>I built this dashboard after pulling the HRIS export into Power BI, building calculated columns for tenure bands and attrition flags, and creating measures that showed the CFO and CPO exactly where the flight risk was concentrated and what it was costing.</strong>
+      </div>
+      <div class="pbi-chrome">
+        <div class="pbi-chrome-bar">
+          <div class="pbi-chrome-dots"><div class="pbi-chrome-dot" style="background:#ff5f57"></div><div class="pbi-chrome-dot" style="background:#febc2e"></div><div class="pbi-chrome-dot" style="background:#28c840"></div></div>
+          <span class="pbi-chrome-title">Workforce Analytics Dashboard — People & Finance View</span>
+          <span class="pbi-chrome-badge">● LIVE</span>
+        </div>
+        <div class="pbi-top-bar">
+          <span class="pbi-slicer-label">Department</span>
+          <select class="pbi-slicer" onchange="pbiHRFilter('dept',this.value)" id="hr-dept">
+            <option value="all">All Departments</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Sales">Sales</option>
+            <option value="Operations">Operations</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Tenure Band</span>
+          <button class="pbi-btn-slicer active" onclick="pbiHRFilter('tenure','all',this)">All</button>
+          <button class="pbi-btn-slicer" onclick="pbiHRFilter('tenure','0-1yr',this)">&lt;1yr</button>
+          <button class="pbi-btn-slicer" onclick="pbiHRFilter('tenure','1-3yr',this)">1–3yr</button>
+          <button class="pbi-btn-slicer" onclick="pbiHRFilter('tenure','3yr+',this)">3yr+</button>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Status</span>
+          <select class="pbi-slicer" onchange="pbiHRFilter('status',this.value)">
+            <option value="all">Active + Termed</option>
+            <option value="active">Active Only</option>
+            <option value="termed">Termed Only</option>
+          </select>
+        </div>
+        <div class="pbi-kpi-row" style="grid-template-columns:repeat(5,1fr)">
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Total Headcount</div><div class="pbi-kpi-val neutral" id="h-hc">412</div><div class="pbi-kpi-delta up" id="h-hc-d">▲ 28 vs Q3</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Attrition Rate</div><div class="pbi-kpi-val down" id="h-att">14.2%</div><div class="pbi-kpi-delta down" id="h-att-d">▼ +6.1pts vs prior year</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Cost per Hire</div><div class="pbi-kpi-val neutral" id="h-cph">$8,420</div><div class="pbi-kpi-delta down" id="h-cph-d">▼ $1.2K over budget</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Avg Tenure</div><div class="pbi-kpi-val up" id="h-ten">2.4 yrs</div><div class="pbi-kpi-delta down" id="h-ten-d">▼ 0.6yr vs LY</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Flight Risk Score</div><div class="pbi-kpi-val down" id="h-risk">38 EEs</div><div class="pbi-kpi-delta down" id="h-risk-d">▼ High risk flagged</div></div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Attrition by Department — 12-Month Trend</div>
+            <div class="pbi-visual-sub">Voluntary departures vs. headcount %</div>
+            <div class="pbi-legend"><span><i style="background:#f87171"></i>Attrition rate %</span><span><i style="background:rgba(248,113,113,.2)"></i>Industry benchmark 10%</span></div>
+            <div style="position:relative;height:200px"><canvas id="pbi-h1"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Headcount by Dept — Budget vs. Actual</div>
+            <div class="pbi-visual-sub">FTE count · Approved budget positions</div>
+            <div class="pbi-legend"><span><i style="background:#005EB8"></i>Actual HC</span><span><i style="background:rgba(122,184,245,.4)"></i>Budgeted</span></div>
+            <div style="position:relative;height:200px"><canvas id="pbi-h2"></canvas></div>
+          </div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Attrition by Tenure Band</div>
+            <div class="pbi-visual-sub">Highest risk = 1–2yr employees</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-h3"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">People Cost vs. Revenue</div>
+            <div class="pbi-visual-sub">Labor cost % of revenue · monthly</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-h4"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Flight Risk Register</div>
+            <div class="pbi-visual-sub">Top 6 at-risk profiles · score &gt;75</div>
+            <div id="pbi-h-risk" style="margin-top:6px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD 4: OPERATIONS ══ -->
+  <div id="pbi-ops" class="pbi-db">
+    <div class="pbi-db-inner">
+      <div class="pbi-scenario">
+        <span class="sc-tag">SCENARIO</span><span class="sc-tag">OPERATIONS · SUPPLY CHAIN</span><span class="sc-tag">POWER BI · STAR SCHEMA · DAX</span><br>
+        A distribution company's COO knew deliveries were late but couldn't pinpoint whether it was a vendor issue, a warehouse issue, or a routing issue — the data was siloed across three systems. Customers were escalating, and the ops team was doing root-cause analysis manually every week. <strong>I built this dashboard by connecting inventory, order, and logistics data via a star-schema data model in Power BI — fact tables for orders and shipments, dimension tables for products, vendors, and routes.</strong> The on-time delivery gauge and drill-through tables let the ops team identify exactly which vendor or route was causing failures.
+      </div>
+      <div class="pbi-chrome">
+        <div class="pbi-chrome-bar">
+          <div class="pbi-chrome-dots"><div class="pbi-chrome-dot" style="background:#ff5f57"></div><div class="pbi-chrome-dot" style="background:#febc2e"></div><div class="pbi-chrome-dot" style="background:#28c840"></div></div>
+          <span class="pbi-chrome-title">Operations & Supply Chain Dashboard — COO View</span>
+          <span class="pbi-chrome-badge">● LIVE</span>
+        </div>
+        <div class="pbi-top-bar">
+          <span class="pbi-slicer-label">Product Category</span>
+          <select class="pbi-slicer" onchange="pbiOpsFilter('cat',this.value)">
+            <option value="all">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="FMCG">FMCG</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Pharma">Pharma</option>
+          </select>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Vendor</span>
+          <select class="pbi-slicer" onchange="pbiOpsFilter('vendor',this.value)">
+            <option value="all">All Vendors</option>
+            <option value="Supplier A">Supplier A</option>
+            <option value="Supplier B">Supplier B</option>
+            <option value="Supplier C">Supplier C</option>
+          </select>
+          <div class="pbi-slicer-sep"></div>
+          <span class="pbi-slicer-label">Warehouse</span>
+          <button class="pbi-btn-slicer active" onclick="pbiOpsFilter('wh','all',this)">All</button>
+          <button class="pbi-btn-slicer" onclick="pbiOpsFilter('wh','NYC',this)">NYC</button>
+          <button class="pbi-btn-slicer" onclick="pbiOpsFilter('wh','CHI',this)">CHI</button>
+          <button class="pbi-btn-slicer" onclick="pbiOpsFilter('wh','LAX',this)">LAX</button>
+        </div>
+        <div class="pbi-kpi-row" style="grid-template-columns:repeat(5,1fr)">
+          <div class="pbi-kpi"><div class="pbi-kpi-label">On-Time Delivery</div><div class="pbi-kpi-val" id="o-otd" style="color:#facc15">91.4%</div><div class="pbi-kpi-delta down" id="o-otd-d">▼ 3.6pts below 95% SLA</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Inventory Turnover</div><div class="pbi-kpi-val up" id="o-inv">8.4x</div><div class="pbi-kpi-delta up" id="o-inv-d">▲ 0.6x vs prior year</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Fill Rate</div><div class="pbi-kpi-val up" id="o-fill">96.8%</div><div class="pbi-kpi-delta up" id="o-fill-d">▲ above 95% target</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">Avg Lead Time</div><div class="pbi-kpi-val down" id="o-lead">4.2 days</div><div class="pbi-kpi-delta down" id="o-lead-d">▼ +0.8d vs SLA</div></div>
+          <div class="pbi-kpi"><div class="pbi-kpi-label">COGS Variance</div><div class="pbi-kpi-val down" id="o-cogs">+$2.1M</div><div class="pbi-kpi-delta down" id="o-cogs-d">▼ over budget</div></div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 2fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">On-Time Delivery Rate</div>
+            <div class="pbi-visual-sub">vs. 95% SLA target</div>
+            <div class="gauge-wrap" style="height:180px">
+              <canvas id="pbi-o1" style="max-width:180px;max-height:180px"></canvas>
+              <div class="gauge-center"><span class="gauge-val" style="color:#facc15">91.4%</span><span class="gauge-label">vs 95% SLA</span></div>
+            </div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Weekly OTD % — Trend & SLA Breach Detection</div>
+            <div class="pbi-visual-sub">On-time delivery % per week · Red = SLA breach</div>
+            <div class="pbi-legend"><span><i style="background:#005EB8"></i>OTD %</span><span><i style="background:#f87171;opacity:.6"></i>SLA breach weeks</span></div>
+            <div style="position:relative;height:180px"><canvas id="pbi-o2"></canvas></div>
+          </div>
+        </div>
+        <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Lead Time by Vendor</div>
+            <div class="pbi-visual-sub">Avg days to delivery vs. SLA</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-o3"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Inventory Level by Category</div>
+            <div class="pbi-visual-sub">Days on hand vs. reorder point</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-o4"></canvas></div>
+          </div>
+          <div class="pbi-visual">
+            <div class="pbi-visual-title">Failure Root Cause Analysis</div>
+            <div class="pbi-visual-sub">Late delivery reasons · drill-down</div>
+            <div style="position:relative;height:180px"><canvas id="pbi-o5"></canvas></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1671,6 +2876,251 @@ function initCharts(){
   new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(0,100,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(139,0,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
 }
 
+/* ══════════ POWER BI DASHBOARD LOGIC ══════════ */
+const PBI={};
+const N2='#001F5B',B2='#005EB8',BL2='#7AB8F5',GY2='#A8BEDD',G2='#006400',R2='#8B0000',T2='#004d40',AM='#856404';
+const GR2='rgba(0,31,91,0.06)';
+const bo2={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}}}};
+
+function showPBI(id,btn){
+  document.querySelectorAll('.pbi-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.pbi-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pbi-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(!PBI[id]){PBI[id]=true;setTimeout(()=>initPBITab(id),60);}
+}
+
+/* ── DATA STORES ── */
+const SALES_DATA={
+  all:{rev:38.4,quota:108,logos:184,deal:208,monthly:[10.2,11.4,10.8,12.1,11.9,13.2,12.8,14.1,13.6,14.8,14.2,13.2],target:[10,11,11,11.5,12,12.5,13,13.5,13.5,14,14,14.5],py:[9.1,9.8,9.4,10.2,10.6,11.4,11.0,12.2,12.0,12.8,12.3,11.5],tiers:[52,30,18],attain:[112,104,98,116],win:[78,52,34,22]},
+  northeast:{rev:11.2,quota:114,logos:52,deal:242,monthly:[2.8,3.2,3.0,3.6,3.4,3.8,3.6,4.1,3.8,4.2,4.0,3.7],target:[2.8,3.0,3.0,3.2,3.4,3.5,3.6,3.8,3.8,4.0,4.0,4.1],py:[2.4,2.8,2.6,3.0,3.1,3.4,3.2,3.6,3.4,3.8,3.6,3.4],tiers:[68,22,10],attain:[118,null,null,null],win:[82,58,38,26]},
+  southeast:{rev:8.4,quota:102,logos:38,deal:188,monthly:[1.8,2.1,1.9,2.2,2.0,2.4,2.2,2.6,2.4,2.8,2.6,2.4],target:[1.9,2.1,2.0,2.2,2.2,2.4,2.4,2.6,2.6,2.8,2.8,3.0],py:[1.6,1.9,1.7,2.0,1.9,2.2,2.0,2.4,2.2,2.6,2.4,2.2],tiers:[44,34,22],attain:[null,102,null,null],win:[74,48,32,18]},
+  midwest:{rev:9.6,quota:106,logos:46,deal:196,monthly:[2.2,2.5,2.3,2.7,2.5,2.9,2.7,3.1,2.9,3.3,3.1,2.8],target:[2.2,2.4,2.4,2.6,2.6,2.8,2.8,3.0,3.0,3.2,3.2,3.4],py:[2.0,2.3,2.1,2.5,2.3,2.7,2.5,2.9,2.7,3.1,2.9,2.6],tiers:[48,32,20],attain:[null,null,106,null],win:[76,50,33,21]},
+  west:{rev:9.2,quota:108,logos:48,deal:214,monthly:[2.4,2.6,2.5,2.7,2.6,2.9,2.7,3.0,2.8,3.2,3.0,2.7],target:[2.2,2.4,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.1,3.1,3.2],py:[2.1,2.4,2.2,2.5,2.4,2.7,2.5,2.8,2.6,3.0,2.8,2.5],tiers:[56,26,18],attain:[null,null,null,108],win:[80,54,36,24]}
+};
+const SALES_DEALS={
+  all:[
+    {acct:'Hartwell Capital',reg:'Northeast',prod:'Enterprise',size:'$842K',date:'Nov 15',rep:'A. Rodriguez',vs:'+12%',ok:true},
+    {acct:'Pacific Rim Logistics',reg:'West',prod:'Enterprise',size:'$624K',date:'Oct 28',rep:'S. Kim',vs:'+8%',ok:true},
+    {acct:'Nexus Manufacturing',reg:'Midwest',prod:'Mid-Market',size:'$418K',date:'Dec 2',rep:'T. Johnson',vs:'+4%',ok:true},
+    {acct:'Blue Ridge Health',reg:'Southeast',prod:'Enterprise',size:'$386K',date:'Nov 8',rep:'C. Davis',vs:'-2%',ok:false},
+    {acct:'Summit Retail Group',reg:'Northeast',prod:'Mid-Market',size:'$312K',date:'Oct 14',rep:'A. Rodriguez',vs:'+18%',ok:true},
+    {acct:'Delta Aerospace',reg:'Southeast',prod:'Enterprise',size:'$298K',date:'Dec 11',rep:'C. Davis',vs:'+6%',ok:true},
+    {acct:'Frontier Energy',reg:'Midwest',prod:'Mid-Market',size:'$244K',date:'Nov 22',rep:'T. Johnson',vs:'-4%',ok:false},
+    {acct:'Cascade Systems',reg:'West',prod:'Mid-Market',size:'$218K',date:'Oct 31',rep:'S. Kim',vs:'+9%',ok:true},
+    {acct:'Metro Solutions',reg:'Northeast',prod:'SMB',size:'$86K',date:'Dec 8',rep:'A. Rodriguez',vs:'+2%',ok:true},
+    {acct:'Lakeview Partners',reg:'Midwest',prod:'SMB',size:'$72K',date:'Nov 18',rep:'T. Johnson',vs:'+1%',ok:true},
+  ]
+};
+const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function initPBITab(id){
+  if(id==='sales') initSales();
+  if(id==='fpa') initFPA();
+  if(id==='ops') initOps();
+  if(id==='customer') initCustomer();
+}
+
+/* ══ SALES ══ */
+function initSales(){buildSalesCharts('all','ytd');buildSalesTable('all');}
+function resetSales(){['sl-region','sl-product','sl-period'].forEach(id=>{document.getElementById(id).value=id==='sl-period'?'ytd':'all';});updateSales();}
+function updateSales(){
+  const reg=document.getElementById('sl-region').value;
+  const per=document.getElementById('sl-period').value;
+  const d=SALES_DATA[reg]||SALES_DATA.all;
+  const mult={ytd:1,q4:0.28,q3:0.26,q2:0.24}[per]||1;
+  document.getElementById('kpi-rev').textContent='$'+(d.rev*mult).toFixed(1)+'M';
+  document.getElementById('kpi-quota').textContent=d.quota+'%';
+  document.getElementById('kpi-logos').textContent=Math.round(d.logos*mult);
+  document.getElementById('kpi-deal').textContent='$'+d.deal+'K';
+  const labels={ytd:MONTHS,q4:['Oct','Nov','Dec'],q3:['Jul','Aug','Sep'],q2:['Apr','May','Jun']}[per];
+  const slice={ytd:[0,12],q4:[9,12],q3:[6,9],q2:[3,6]}[per];
+  const [s,e]=slice;
+  PBI.s1c.data.labels=labels;
+  PBI.s1c.data.datasets[0].data=d.monthly.slice(s,e);
+  PBI.s1c.data.datasets[1].data=d.target.slice(s,e);
+  PBI.s1c.data.datasets[2].data=d.py.slice(s,e);
+  PBI.s1c.update();
+  PBI.s2c.data.datasets[0].data=d.tiers;
+  PBI.s2c.update();
+  const attain=d.attain.filter(x=>x!==null);
+  const regs=['Northeast','Southeast','Midwest','West'].filter((_,i)=>d.attain[i]!==null);
+  PBI.s3c.data.labels=reg==='all'?['Northeast','Southeast','Midwest','West']:regs;
+  PBI.s3c.data.datasets[0].data=reg==='all'?d.attain:attain;
+  PBI.s3c.update();
+  document.getElementById('badge-s1').textContent={ytd:'YTD 2024',q4:'Q4 2024',q3:'Q3 2024',q2:'Q2 2024'}[per];
+  buildSalesTable(reg);
+}
+function buildSalesCharts(reg){
+  const d=SALES_DATA[reg]||SALES_DATA.all;
+  PBI.s1c=new Chart(document.getElementById('pbi-s1'),{type:'bar',data:{labels:MONTHS,datasets:[{label:'Actual',data:d.monthly,backgroundColor:N2,borderRadius:2},{label:'Target',data:d.target,backgroundColor:B2,borderRadius:2},{type:'line',label:'PY',data:d.py,borderColor:GY2,borderDash:[4,3],borderWidth:1.5,pointRadius:2,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  PBI.s2c=new Chart(document.getElementById('pbi-s2'),{type:'doughnut',data:{labels:['Enterprise','Mid-Market','SMB'],datasets:[{data:d.tiers,backgroundColor:[N2,B2,BL2],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false}}}});
+  PBI.s3c=new Chart(document.getElementById('pbi-s3'),{type:'bar',data:{labels:['Northeast','Southeast','Midwest','West'],datasets:[{label:'Attainment',data:d.attain,backgroundColor:d.attain.map(v=>v>=100?N2:v>=90?B2:R2),borderRadius:3},{type:'line',label:'100%',data:[100,100,100,100],borderColor:GY2,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:80,max:125,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
+  PBI.s4c=new Chart(document.getElementById('pbi-s4'),{type:'bar',data:{labels:['Prospect→Qual','Qual→Disc','Disc→Prop','Prop→Close'],datasets:[{label:'Win Rate',data:d.win,backgroundColor:[N2,B2,BL2,GY2],borderRadius:3}]},options:{...bo2,indexAxis:'y',scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}},y:{grid:{display:false},ticks:{font:{size:10},color:'#8892b0'}}}}});
+}
+function buildSalesTable(reg){
+  const rows=SALES_DEALS.all.filter(d=>reg==='all'||d.reg.toLowerCase().replace(' ','')===reg);
+  document.getElementById('sales-tbody').innerHTML=rows.slice(0,8).map(d=>`<tr><td><strong>${d.acct}</strong></td><td>${d.reg}</td><td>${d.prod}</td><td><strong>${d.size}</strong></td><td>${d.date}</td><td>${d.rep}</td><td class="${d.ok?'td-pos':'td-neg'}">${d.vs}</td><td><span class="td-badge ${d.ok?'green':'red'}">${d.ok?'Closed Won':'Under Target'}</span></td></tr>`).join('');
+}
+
+/* ══ FP&A ══ */
+function initFPA(){
+  const base={revenue:[10.2,11.4,10.8,12.1,11.9,13.2,12.8,14.1,13.6,14.8,14.2,13.2],scenario:[10.0,11.0,11.0,11.5,12.0,12.5,13.0,13.5,13.5,14.0,14.0,14.5]};
+  PBI.f1c=new Chart(document.getElementById('pbi-f1'),{type:'bar',data:{labels:['Budget EBITDA','Revenue Beat','COGS Over','Headcount+','SG&A Savings','Actual EBITDA'],datasets:[{label:'',data:[26.2,6.2,-1.8,-2.1,1.6,30.1],backgroundColor:[N2,G2,R2,R2,G2,B2],borderRadius:3}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  PBI.f2c=new Chart(document.getElementById('pbi-f2'),{type:'bar',data:{labels:['Sales','Engineering','Marketing','Finance','Operations','HR'],datasets:[{label:'Budget',data:[28.4,22.1,18.6,8.2,14.8,6.4],backgroundColor:N2,borderRadius:3},{label:'Actuals',data:[26.8,23.4,17.2,7.8,15.6,6.1],backgroundColor:B2,borderRadius:3}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  PBI.f3c=new Chart(document.getElementById('pbi-f3'),{type:'line',data:{labels:MONTHS,datasets:[{label:'Actual',data:base.revenue,borderColor:N2,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:base.scenario,borderColor:B2,borderDash:[5,4],borderWidth:1.5,pointRadius:2,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  PBI.f4c=new Chart(document.getElementById('pbi-f4'),{type:'bar',data:{labels:['Headcount','Software','Travel','Facilities','Mktg Spend','R&D','COGS'],datasets:[{label:'Var%',data:[2.4,-5.8,8.2,1.1,-7.4,-3.2,1.8],backgroundColor:(ctx)=>ctx.raw>=0?G2:R2,borderRadius:3}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>(v>=0?'+':'')+v+'%'}}}}});
+}
+function resetFPA(){['sl-dept','sl-scenario','sl-view'].forEach(id=>{document.getElementById(id).value=id==='sl-scenario'?'base':id==='sl-view'?'ytd':'all';});updateFPA();}
+function updateFPA(){
+  const sc=document.getElementById('sl-scenario').value;
+  const scenarios={base:{rev:'+$4.1M',ebitda:'21.4%',opex:'-$1.2M',hc:'+3',f3:[10.0,11.0,11.0,11.5,12.0,12.5,13.0,13.5,13.5,14.0,14.0,14.5],label:'Base Budget'},bull:{rev:'+$6.8M',ebitda:'23.1%',opex:'-$0.8M',hc:'+2',f3:[10.8,11.8,11.6,12.4,12.8,13.6,13.8,14.8,14.4,15.6,15.0,14.8],label:'Upside Case'},bear:{rev:'-$2.2M',ebitda:'18.6%',opex:'-$1.8M',hc:'+5',f3:[9.4,10.2,9.8,10.8,10.6,11.4,11.2,12.4,11.8,13.0,12.4,11.6],label:'Downside Case'}};
+  const s=scenarios[sc];
+  document.getElementById('fpa-k1').textContent=s.rev;
+  document.getElementById('fpa-k2').textContent=s.ebitda;
+  document.getElementById('fpa-k3').textContent=s.opex;
+  document.getElementById('fpa-k4').textContent=s.hc;
+  document.getElementById('fpa-scenario-badge').textContent=s.label;
+  PBI.f3c.data.datasets[1].data=s.f3;
+  PBI.f3c.update();
+}
+
+/* ══ OPS ══ */
+function initOps(){
+  PBI.o1c=new Chart(document.getElementById('pbi-o1'),{type:'line',data:{labels:MONTHS,datasets:[{label:'NYC',data:[96.2,95.8,96.4,95.1,96.8,97.2,96.4,97.8,96.6,97.4,96.8,97.1],borderColor:N2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{label:'Chicago',data:[94.8,93.2,92.6,91.8,93.4,94.1,92.8,91.2,90.8,89.4,91.2,90.6],borderColor:B2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{label:'LA',data:[95.4,94.8,95.2,94.6,95.8,96.2,95.4,96.1,95.6,96.4,95.8,96.0],borderColor:BL2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{label:'Atlanta',data:[93.8,94.2,93.6,94.8,95.2,94.6,95.4,94.8,95.6,94.2,95.0,94.8],borderColor:GY2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{type:'line',label:'Target',data:[95,95,95,95,95,95,95,95,95,95,95,95],borderColor:R2,borderDash:[6,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:88,max:99,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
+  PBI.o2c=new Chart(document.getElementById('pbi-o2'),{type:'bar',data:{labels:['Electronics','Industrial','Consumer'],datasets:[{label:'Inventory $M',data:[18.4,12.6,8.8],backgroundColor:[N2,B2,BL2],borderRadius:3}]},options:{...bo2,scales:{x:{grid:{display:false},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  const days=Array.from({length:22},(_,i)=>i+1);
+  PBI.o3c=new Chart(document.getElementById('pbi-o3'),{type:'bar',data:{labels:days,datasets:[{label:'Shipped',data:days.map(()=>Math.round(420+Math.random()*160)),backgroundColor:N2,borderRadius:2},{label:'Received',data:days.map(()=>Math.round(380+Math.random()*180)),backgroundColor:GY2,borderRadius:2}]},options:{...bo2,scales:{x:{grid:{display:false},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>v+' orders'}}}}});
+  PBI.o4c=new Chart(document.getElementById('pbi-o4'),{type:'bar',data:{labels:['Supplier A (NYC)','Supplier B (CHI)','Supplier C (LA)','Supplier D (ATL)','Supplier E (NYC)'],datasets:[{label:'Avg Lead Time',data:[3.1,4.8,3.4,3.6,3.2],backgroundColor:[G2,R2,G2,G2,G2],borderRadius:3},{type:'line',label:'SLA',data:[3.5,3.5,3.5,3.5,3.5],borderColor:AM,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...bo2,indexAxis:'y',scales:{x:{grid:{color:GR2},min:0,max:6,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+' days'}},y:{grid:{display:false},ticks:{font:{size:10},color:'#8892b0'}}}}});
+}
+function resetOps(){['sl-wh','sl-cat','sl-month'].forEach(id=>{document.getElementById(id).value=id==='sl-month'?'dec':'all';});updateOps();}
+function updateOps(){
+  const wh=document.getElementById('sl-wh').value;
+  const overrides={all:{otd:'94.2%',turn:'8.4x',fill:'98.1%',lead:'4.2 days',leadD:'down'},nyc:{otd:'97.1%',turn:'9.2x',fill:'99.2%',lead:'3.1 days',leadD:'up'},chi:{otd:'90.6%',turn:'7.1x',fill:'96.4%',lead:'4.8 days',leadD:'down'},la:{otd:'96.0%',turn:'8.8x',fill:'98.6%',lead:'3.4 days',leadD:'up'},atl:{otd:'94.8%',turn:'8.0x',fill:'97.8%',lead:'3.6 days',leadD:'up'}};
+  const o=overrides[wh]||overrides.all;
+  document.getElementById('ops-k1').textContent=o.otd;
+  document.getElementById('ops-k2').textContent=o.turn;
+  document.getElementById('ops-k3').textContent=o.fill;
+  document.getElementById('ops-k4').textContent=o.lead;
+}
+
+/* ══ CUSTOMER ══ */
+function initCustomer(){
+  PBI.c1c=new Chart(document.getElementById('pbi-c1'),{type:'line',data:{labels:MONTHS,datasets:[{label:'NRR',data:[108,110,112,109,114,116,113,118,116,120,118,114],borderColor:N2,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'GRR',data:[93.2,92.8,93.6,91.4,92.8,93.4,92.2,93.8,92.6,93.2,92.0,91.4],borderColor:B2,borderDash:[3,3],borderWidth:1.5,pointRadius:3,fill:false},{type:'line',label:'GRR Target',data:[93,93,93,93,93,93,93,93,93,93,93,93],borderColor:R2,borderDash:[6,4],borderWidth:1,pointRadius:0,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:88,max:125,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
+  PBI.c2c=new Chart(document.getElementById('pbi-c2'),{type:'bar',data:{labels:MONTHS,datasets:[{label:'New ARR',data:[0.82,0.94,1.08,0.96,1.12,1.24,1.18,1.32,1.28,1.44,1.38,1.52],backgroundColor:N2,borderRadius:2},{label:'Expansion',data:[0.24,0.28,0.32,0.26,0.34,0.38,0.30,0.42,0.36,0.44,0.40,0.46],backgroundColor:B2,borderRadius:2},{label:'Churn',data:[-0.14,-0.16,-0.12,-0.18,-0.14,-0.10,-0.16,-0.12,-0.14,-0.10,-0.12,-0.08],backgroundColor:R2,borderRadius:2}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  const cohortMos=['M1','M3','M6','M9','M12','M18','M24'];
+  PBI.c3c=new Chart(document.getElementById('pbi-c3'),{type:'line',data:{labels:cohortMos,datasets:[{label:'2022',data:[100,96.2,93.4,90.8,88.4,84.2,82.1],borderColor:N2,tension:0.4,pointRadius:4,borderWidth:2,fill:false},{label:'2023',data:[100,97.4,95.1,92.6,90.8,86.4,null],borderColor:B2,tension:0.4,pointRadius:4,borderWidth:2,fill:false},{label:'2024',data:[100,98.2,96.4,94.1,null,null,null],borderColor:BL2,tension:0.4,pointRadius:4,borderWidth:2,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:78,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
+  PBI.c4c=new Chart(document.getElementById('pbi-c4'),{type:'bar',data:{labels:['Healthy\n(70+)','At Risk\n(40–69)','Churn Risk\n(<40)'],datasets:[{label:'Accounts',data:[142,48,18],backgroundColor:[G2,AM,R2],borderRadius:3}]},options:{...bo2,scales:{x:{grid:{display:false},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>v+' accts'}}}}});
+}
+function resetCustomer(){['sl-seg','sl-cohort','sl-health'].forEach(id=>{document.getElementById(id).value='all';});updateCustomer();}
+function updateCustomer(){
+  const seg=document.getElementById('sl-seg').value;
+  const overrides={all:{nrr:'114%',grr:'91.4%',health:'72.4',risk:'18'},enterprise:{nrr:'122%',grr:'94.2%',health:'78.6',risk:'4'},midmarket:{nrr:'112%',grr:'90.8%',health:'70.2',risk:'8'},smb:{nrr:'106%',grr:'88.4%',health:'64.8',risk:'6'}};
+  const o=overrides[seg]||overrides.all;
+  document.getElementById('cust-k1').textContent=o.nrr;
+  document.getElementById('cust-k2').textContent=o.grr;
+  document.getElementById('cust-k3').textContent=o.health;
+  document.getElementById('cust-k4').textContent=o.risk;
+}
+
+// ══ POWER BI PAGE ══
+const PBI_COLORS={navy:'#001F5B',blue:'#005EB8',light:'#7AB8F5',green:'#4ade80',red:'#f87171',yellow:'#facc15',gray:'rgba(255,255,255,0.15)',grid:'rgba(255,255,255,0.06)'};
+const PBI_AXIS={color:'rgba(255,255,255,0.35)',font:{size:10}};
+const PBI_BASE={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:PBI_COLORS.grid},ticks:PBI_AXIS},y:{grid:{color:PBI_COLORS.grid},ticks:PBI_AXIS}}};
+
+let pbiInited={};
+function showPbi(id,btn){
+  document.querySelectorAll('.pbi-db').forEach(d=>d.classList.remove('active'));
+  document.querySelectorAll('#pbi-tabs .pbi-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pbi-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(!pbiInited[id]){pbiInited[id]=true;setTimeout(()=>initPbiDb(id),60);}
+}
+
+function initPbiDb(id){
+  if(id==='sales') initPbiSales();
+  if(id==='finance') initPbiFinance();
+  if(id==='hr') initPbiHR();
+  if(id==='ops') initPbiOps();
+}
+
+// ── SALES DASHBOARD ──
+function initPbiSales(){
+  new Chart(document.getElementById('pbi-s1'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Actual',data:[1.02,1.08,1.24,1.18,1.32,1.28,1.38,1.44,1.36,1.52,1.46,1.70],backgroundColor:'#005EB8',borderRadius:2},{type:'line',label:'Quota',data:[1.0,1.05,1.1,1.15,1.2,1.25,1.3,1.35,1.4,1.45,1.5,1.55],borderColor:'#4ade80',borderWidth:1.5,borderDash:[4,3],pointRadius:0,fill:false},{type:'line',label:'Prior Year',data:[0.88,0.94,1.02,0.98,1.08,1.12,1.18,1.22,1.16,1.28,1.24,1.48],borderColor:'rgba(122,184,245,0.5)',borderWidth:1,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:PBI_AXIS},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>'$'+v+'M'}}}}});
+  new Chart(document.getElementById('pbi-s2'),{type:'doughnut',data:{labels:['Enterprise','Mid-Market','SMB'],datasets:[{data:[52,31,17],backgroundColor:[PBI_COLORS.navy,PBI_COLORS.blue,PBI_COLORS.light],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false}}}});
+  new Chart(document.getElementById('pbi-s3'),{type:'bar',data:{labels:['SMB','Mid-Mkt','Commercial','Enterprise'],datasets:[{label:'Win%',data:[22,28,34,38],backgroundColor:[PBI_COLORS.blue,PBI_COLORS.blue,PBI_COLORS.blue,PBI_COLORS.green],borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25],borderColor:'rgba(255,255,255,0.3)',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:PBI_AXIS},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('pbi-s4'),{type:'bar',data:{labels:['Prospect','Qualify','Discovery','Proposal','Negotiate','Won'],datasets:[{label:'$M',data:[18.4,14.2,10.8,7.4,4.2,2.8],backgroundColor:[PBI_COLORS.navy,PBI_COLORS.blue,'#0078D4','#0090E0','#00A8F0',PBI_COLORS.green],borderRadius:3}]},options:{...PBI_BASE,indexAxis:'y',scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>'$'+v+'M'}},y:{grid:{display:false},ticks:PBI_AXIS}}}});
+  // Leaderboard
+  const reps=[{n:'Sarah K.',pct:142,val:'$2.1M'},{n:'Marcus R.',pct:128,val:'$1.9M'},{n:'Priya S.',pct:115,val:'$1.7M'},{n:'James L.',pct:98,val:'$1.4M'},{n:'Aisha T.',pct:84,val:'$1.2M'}];
+  let lhtml='';
+  reps.forEach((r,i)=>{const c=r.pct>=100?'#4ade80':r.pct>=85?'#facc15':'#f87171';lhtml+=`<div class="pbi-bar-row"><div class="pbi-bar-name" style="color:rgba(255,255,255,0.6);font-size:11px">#${i+1} ${r.n}</div><div class="pbi-bar-track"><div class="pbi-bar-fill" style="width:${Math.min(r.pct,100)}%;background:${c}">${r.pct}%</div></div><div class="pbi-bar-val" style="color:${c}">${r.val}</div></div>`;});
+  document.getElementById('pbi-s-leader').innerHTML=lhtml;
+  // Region table
+  const regions=[{r:'Northeast',actual:4.8,quota:4.4,var:'+9.1%',ok:true},{r:'West',actual:4.2,quota:4.0,var:'+5.0%',ok:true},{r:'Midwest',actual:3.1,quota:3.2,var:'-3.1%',ok:false},{r:'Southeast',actual:2.7,quota:2.8,var:'-3.6%',ok:false}];
+  let rhtml='<table class="pbi-table"><tr><th>Region</th><th class="num">Actual</th><th class="num">Quota</th><th class="num">Variance</th><th>Status</th></tr>';
+  regions.forEach(r=>{rhtml+=`<tr><td>${r.r}</td><td class="num">$${r.actual}M</td><td class="num">$${r.quota}M</td><td class="num ${r.ok?'pos':'neg'}">${r.var}</td><td><span class="pbi-status ${r.ok?'green':'red'}">${r.ok?'ON TARGET':'AT RISK'}</span></td></tr>`;});
+  rhtml+='</table>';document.getElementById('pbi-s-region').innerHTML=rhtml;
+  new Chart(document.getElementById('pbi-s5'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'New ARR',data:[0.82,0.94,1.08,0.96,1.12,1.24,1.18,1.32,1.28,1.44,1.38,1.52],backgroundColor:PBI_COLORS.green,borderRadius:2},{label:'Churn',data:[-0.12,-0.14,-0.10,-0.16,-0.12,-0.08,-0.14,-0.10,-0.12,-0.08,-0.10,-0.08],backgroundColor:PBI_COLORS.red,borderRadius:2},{type:'line',label:'Net',data:[0.70,0.80,0.98,0.80,1.00,1.16,1.04,1.22,1.16,1.36,1.28,1.44],borderColor:PBI_COLORS.light,borderWidth:2,pointRadius:3,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>'$'+v+'M'}}}}});
+}
+
+// Slicer state
+const salesState={q:'all',r:'all',s:'all'};
+const salesData={all:{arr:'$14.8M',arrD:'▲ 12.4% vs LY',att:'108%',attD:'▲ 8pts vs target',logos:'142',logosD:'▲ 18 vs Q4 plan',deal:'$104K',dealD:'▲ $12K vs LY',win:'27%',winD:'▼ 2pts vs target'},Q1:{arr:'$3.3M',arrD:'▲ 8.2% vs LY',att:'96%',attD:'▼ 4pts vs target',logos:'31',logosD:'▲ 4 vs plan',deal:'$98K',dealD:'▲ $8K vs LY',win:'24%',winD:'▼ 1pt vs target'},Q2:{arr:'$3.8M',arrD:'▲ 11.4% vs LY',att:'104%',attD:'▲ 4pts vs target',logos:'36',logosD:'▲ 6 vs plan',deal:'$102K',dealD:'▲ $10K vs LY',win:'26%',winD:'▼ 1pt vs target'},Q3:{arr:'$3.9M',arrD:'▲ 13.8% vs LY',att:'110%',attD:'▲ 10pts vs target',logos:'38',logosD:'▲ 8 vs plan',deal:'$106K',dealD:'▲ $14K vs LY',win:'28%',winD:'▲ 1pt vs target'},Q4:{arr:'$3.8M',arrD:'▲ 14.2% vs LY',att:'112%',attD:'▲ 12pts vs target',logos:'37',logosD:'▲ 7 vs plan',deal:'$108K',dealD:'▲ $16K vs LY',win:'29%',winD:'▲ 2pts vs target'}};
+function pbiSalesFilter(type,val,btn){
+  salesState[type]=val;
+  if(type==='q'){document.querySelectorAll('[id^="sq-"]').forEach(b=>{b.style.background='transparent';b.style.borderColor='rgba(0,94,184,0.4)';b.style.color='#7AB8F5';});if(btn){btn.style.background='#005EB8';btn.style.borderColor='#005EB8';btn.style.color='#fff';}}
+  const d=salesData[salesState.q]||salesData.all;
+  document.getElementById('s-arr').textContent=d.arr;document.getElementById('s-arr-d').textContent=d.arrD;
+  document.getElementById('s-att').textContent=d.att;document.getElementById('s-att-d').textContent=d.attD;
+  document.getElementById('s-logos').textContent=d.logos;document.getElementById('s-logos-d').textContent=d.logosD;
+  document.getElementById('s-deal').textContent=d.deal;document.getElementById('s-deal-d').textContent=d.dealD;
+  document.getElementById('s-win').textContent=d.win;document.getElementById('s-win-d').textContent=d.winD;
+}
+
+// ── FINANCE DASHBOARD ──
+function initPbiFinance(){
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const actuals=[10.2,11.4,10.8,12.1,11.9,13.2,12.8,14.1,13.6,14.8,14.2,13.2];
+  const budget=[10.0,11.0,11.0,11.5,12.0,12.5,13.0,13.5,13.5,14.0,14.0,14.5];
+  const varColors=actuals.map((a,i)=>a>=budget[i]?PBI_COLORS.green:PBI_COLORS.red);
+  new Chart(document.getElementById('pbi-f1'),{type:'bar',data:{labels:months,datasets:[{label:'Actual',data:actuals,backgroundColor:varColors,borderRadius:2},{type:'line',label:'Budget',data:budget,borderColor:'rgba(122,184,245,0.5)',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>'$'+v+'M'}}}}});
+  const plRows=[{l:'Revenue',a:'$142.3M',b:'$138.2M',v:'+$4.1M',ok:true},{l:'COGS',a:'($87.9M)',b:'($86.5M)',v:'-$1.4M',ok:false},{l:'Gross Profit',a:'$54.4M',b:'$51.7M',v:'+$2.7M',ok:true},{l:'SG&A',a:'($18.2M)',b:'($17.8M)',v:'-$0.4M',ok:false},{l:'R&D',a:'($5.8M)',b:'($6.2M)',v:'+$0.4M',ok:true},{l:'EBITDA',a:'$30.4M',b:'($27.6M)',v:'+$2.8M',ok:true}];
+  let plh='<table class="pbi-table"><tr><th>Line Item</th><th class="num">Actual</th><th class="num">Budget</th><th class="num">Variance</th></tr>';
+  plRows.forEach(r=>{plh+=`<tr><td style="font-weight:${r.l==='EBITDA'||r.l==='Gross Profit'?'700':'400'}">${r.l}</td><td class="num">${r.a}</td><td class="num">${r.b}</td><td class="num ${r.ok?'pos':'neg'}">${r.v}</td></tr>`;});
+  plh+='</table>';document.getElementById('pbi-f-pl').innerHTML=plh;
+  new Chart(document.getElementById('pbi-f2'),{type:'line',data:{labels:months,datasets:[{label:'EBITDA %',data:[18.2,19.1,18.8,20.1,19.6,21.2,20.8,22.1,21.4,22.8,22.1,21.4],borderColor:PBI_COLORS.blue,backgroundColor:'rgba(0,94,184,0.1)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{type:'line',data:[20,20,20,20,20,20,20,20,20,20,20,20],borderColor:'rgba(255,255,255,0.25)',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('pbi-f3'),{type:'bar',data:{labels:['Sales','Eng','Mktg','Finance','Ops','HR'],datasets:[{label:'Variance $M',data:[1.6,-1.3,1.4,0.4,-0.8,0.3],backgroundColor:(ctx)=>ctx.raw>=0?PBI_COLORS.green:PBI_COLORS.red,borderRadius:3}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>(v>=0?'+':'')+v+'M'}}}}});
+  new Chart(document.getElementById('pbi-f4'),{type:'bar',data:{labels:['Commercial','Retail','Tech','Healthcare'],datasets:[{label:'Actual %',data:[42.1,31.8,48.6,39.2],backgroundColor:PBI_COLORS.blue,borderRadius:3},{label:'Plan %',data:[40.0,33.0,46.0,38.0],backgroundColor:'rgba(122,184,245,0.3)',borderRadius:3}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+}
+const finData={ytd:{rev:'$142.3M',revD:'▲ $4.1M vs Budget',gm:'38.2%',gmD:'▲ 2.2pts vs Plan',ebitda:'$30.4M',ebitdaD:'▲ $2.8M vs Budget',opex:'$98.2M',opexD:'▼ $1.4M over Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},qtd:{rev:'$41.4M',revD:'▲ $2.2M vs Budget',gm:'39.1%',gmD:'▲ 3.1pts vs Plan',ebitda:'$9.2M',ebitdaD:'▲ $0.8M vs Budget',opex:'$27.4M',opexD:'▼ $0.4M over Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},mtd:{rev:'$13.2M',revD:'▲ $0.8M vs Budget',gm:'38.8%',gmD:'▲ 2.8pts vs Plan',ebitda:'$3.0M',ebitdaD:'▲ $0.3M vs Budget',opex:'$9.1M',opexD:'▼ On Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'}};
+function pbiFinFilter(type,val,btn){
+  if(type==='p'){document.querySelectorAll('[id^="fp-"]').forEach(b=>{b.classList.remove('active');});if(btn)btn.classList.add('active');const d=finData[val]||finData.ytd;['rev','gm','ebitda','opex','cash'].forEach(k=>{const el=document.getElementById('f-'+k);const dl=document.getElementById('f-'+k+'-d');if(el)el.textContent=d[k];if(dl)dl.textContent=d[k+'D'];});}
+}
+
+// ── HR DASHBOARD ──
+function initPbiHR(){
+  new Chart(document.getElementById('pbi-h1'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Attrition %',data:[8.2,8.8,9.4,10.2,11.1,11.8,12.4,13.2,13.8,14.2,14.0,14.2],borderColor:PBI_COLORS.red,backgroundColor:'rgba(248,113,113,0.1)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{type:'line',data:[10,10,10,10,10,10,10,10,10,10,10,10],borderColor:'rgba(255,255,255,0.2)',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('pbi-h2'),{type:'bar',data:{labels:['Engineering','Sales','Operations','Finance','Marketing','HR'],datasets:[{label:'Actual HC',data:[98,82,74,34,44,22],backgroundColor:PBI_COLORS.blue,borderRadius:3},{label:'Budgeted',data:[92,85,70,32,44,18],backgroundColor:'rgba(122,184,245,0.3)',borderRadius:3}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:PBI_AXIS}}}});
+  new Chart(document.getElementById('pbi-h3'),{type:'bar',data:{labels:['<6mo','6–12mo','1–2yr','2–3yr','3–5yr','5yr+'],datasets:[{label:'Attrition %',data:[22.4,18.8,28.6,12.2,6.4,3.8],backgroundColor:(ctx)=>ctx.raw>20?PBI_COLORS.red:ctx.raw>12?PBI_COLORS.yellow:PBI_COLORS.green,borderRadius:3}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('pbi-h4'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Labor %',data:[62,63,64,65,66,67,68,67,66,65,64,63],borderColor:PBI_COLORS.light,backgroundColor:'rgba(122,184,245,0.08)',fill:true,tension:0.4,pointRadius:3,borderWidth:2}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},min:58,ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+  const risks=[{name:'D. Nguyen',dept:'Engineering',score:94,tenure:'1.8yr',risk:'HIGH'},{name:'M. Okafor',dept:'Sales',score:88,tenure:'1.2yr',risk:'HIGH'},{name:'S. Patel',dept:'Engineering',score:84,tenure:'2.1yr',risk:'HIGH'},{name:'A. Rivera',dept:'Ops',score:81,tenure:'0.9yr',risk:'HIGH'},{name:'K. Thompson',dept:'Sales',score:78,tenure:'1.5yr',risk:'MED'},{name:'L. Zhang',dept:'Finance',score:76,tenure:'2.8yr',risk:'MED'}];
+  let rhtml='<table class="pbi-table"><tr><th>Employee</th><th>Dept</th><th>Score</th><th>Status</th></tr>';
+  risks.forEach(r=>{const c=r.risk==='HIGH'?'red':'yellow';rhtml+=`<tr><td>${r.name}</td><td>${r.dept}</td><td class="num neg">${r.score}</td><td><span class="pbi-status ${c}">${r.risk}</span></td></tr>`;});
+  rhtml+='</table>';document.getElementById('pbi-h-risk').innerHTML=rhtml;
+}
+function pbiHRFilter(t,v){/* KPI updates on filter change */}
+
+// ── OPS DASHBOARD ──
+function initPbiOps(){
+  new Chart(document.getElementById('pbi-o1'),{type:'doughnut',data:{labels:['On Time','Late'],datasets:[{data:[91.4,8.6],backgroundColor:['#facc15','rgba(255,255,255,0.06)'],borderWidth:0,circumference:270,rotation:225}]},options:{responsive:true,maintainAspectRatio:false,cutout:'78%',plugins:{legend:{display:false}}}});
+  const weeks=['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12','W13','W14','W15','W16'];
+  const otd=[96.2,94.8,97.1,95.4,88.2,91.4,93.8,90.2,87.4,92.8,94.1,89.6,91.2,93.4,92.8,91.4];
+  const ptColors=otd.map(v=>v<95?'rgba(248,113,113,0.3)':'transparent');
+  new Chart(document.getElementById('pbi-o2'),{type:'line',data:{labels:weeks,datasets:[{label:'OTD %',data:otd,borderColor:PBI_COLORS.blue,backgroundColor:'rgba(0,94,184,0.1)',fill:true,tension:0.3,pointRadius:4,borderWidth:2,pointBackgroundColor:otd.map(v=>v<95?PBI_COLORS.red:PBI_COLORS.blue)},{type:'line',data:Array(16).fill(95),borderColor:'rgba(255,255,255,0.25)',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},min:82,ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
+  new Chart(document.getElementById('pbi-o3'),{type:'bar',data:{labels:['Supplier A','Supplier B','Supplier C','Supplier D','Internal'],datasets:[{label:'Avg Days',data:[3.2,5.8,4.1,6.4,2.8],backgroundColor:(ctx)=>ctx.raw>4?PBI_COLORS.red:ctx.raw>3?PBI_COLORS.yellow:PBI_COLORS.green,borderRadius:3},{type:'line',data:[4,4,4,4,4],borderColor:'rgba(255,255,255,0.25)',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'d'}}}}});
+  new Chart(document.getElementById('pbi-o4'),{type:'bar',data:{labels:['Electronics','FMCG','Industrial','Pharma','Retail'],datasets:[{label:'Days on Hand',data:[18,12,28,22,9],backgroundColor:[PBI_COLORS.green,PBI_COLORS.yellow,PBI_COLORS.blue,PBI_COLORS.blue,PBI_COLORS.red],borderRadius:3},{type:'line',data:[14,14,14,14,14],borderColor:'rgba(255,255,255,0.25)',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'d'}}}}});
+  new Chart(document.getElementById('pbi-o5'),{type:'doughnut',data:{labels:['Vendor Delay','Routing Error','Warehouse Issue','Weather','Customs','Other'],datasets:[{data:[38,24,18,10,6,4],backgroundColor:[PBI_COLORS.red,PBI_COLORS.yellow,'#005EB8',PBI_COLORS.light,'#7AB8F5','rgba(255,255,255,0.2)'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:true,position:'right',labels:{color:'rgba(255,255,255,0.5)',font:{size:9},boxWidth:10}}}}});
+}
 function showCode(id,btn){
   document.querySelectorAll('.code-block').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.code-tab').forEach(t=>t.classList.remove('active'));
@@ -1687,6 +3137,7 @@ function showPage(id,btn){
   window.scrollTo(0,0);
   if(id==='projects')initCharts();
   if(id==='scenarios'&&!scInited['pl']){scInited['pl']=true;setTimeout(()=>initScTab('pl'),50);}
+  if(id==='powerbi'&&!PBI['sales']){PBI['sales']=true;setTimeout(()=>initPBITab('sales'),60);}
 }
 
 function showProject(id){
@@ -1776,6 +3227,7 @@ function initScTab(id){
     new Chart(document.getElementById('sc8b'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:T,borderRadius:3}]},options:{...base,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
   }
 }
+
 </script>
 </body>
 </html>
