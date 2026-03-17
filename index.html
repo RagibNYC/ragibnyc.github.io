@@ -253,6 +253,32 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .tools-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:.75rem}
 .tool-badge{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow)}
 
+
+/* ══ SITE FOOTER ══ */
+.site-footer{
+  background:var(--navy);
+  border-top:2px solid var(--blue);
+  padding:20px 2rem;
+  margin-top:0;
+}
+.site-footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  font-size:12px;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:0.02em;
+  font-weight:500;
+}
+.site-footer a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.15s;}
+.site-footer a:hover{color:#fff;}
+.footer-name{color:rgba(255,255,255,0.9);font-weight:700;letter-spacing:0.02em;}
+.footer-sep{color:rgba(255,255,255,0.25);font-size:10px;}
+
 /* ══ PRINT / PDF DOWNLOAD ══ */
 @media print{
   .topbar,.site-footer,.section-header,.resume-download-bar{display:none!important}
@@ -561,9 +587,7 @@ textarea.form-input{resize:vertical;min-height:120px}
       <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
       <button class="topnav-btn" onclick="showPage('skills',this)">Skills</button>
       <button class="topnav-btn" onclick="showPage('resume',this)">Resume</button>
-      <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
       <button class="topnav-btn" onclick="showPage('contact',this)">Contact</button>
-      <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
     </nav>
     <button class="topbar-contact" onclick="showPage('contact')">Hire Me →</button>
   </div>
@@ -975,11 +999,10 @@ ActiveScenario_Revenue =
           <div class="about-name">Ragib Shikder</div>
           <div class="about-role">Financial & Data Analyst</div>
           <ul class="about-contact-list">
-            <li><span class="contact-label">Email</span> ragibnyc@gmail.com</li>
+            <li><span class="contact-label">Email</span> <a href="mailto:ragibnyc@gmail.com" style="color:var(--blue);text-decoration:none;font-weight:600">ragibnyc@gmail.com</a></li>
             <li><span class="contact-label">Location</span> New York City, NY</li>
-            <li><span class="contact-label">LinkedIn</span> ragib-shikder</li>
+            <li><span class="contact-label">LinkedIn</span> <a href="https://linkedin.com/in/ragib-shikder" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:600">ragib-shikder</a></li>
             <li><span class="contact-label">Phone</span> +1 (347) 801-3756</li>
-            <li><span class="contact-label">Status</span> Open to work</li>
           </ul>
         </div>
       </div>
@@ -1283,351 +1306,6 @@ ActiveScenario_Revenue =
 </div>
 
 <!-- ══════════════════════════ SKILLS PAGE ══════════════════════════ -->
-<!-- ══════════════════════════ POWER BI PAGE ══════════════════════════ -->
-<div id="page-powerbi" class="page pbi-page">
-
-  <!-- Hero -->
-  <div class="pbi-hero">
-    <div class="pbi-hero-inner">
-      <div class="pbi-hero-left">
-        <div class="pbi-eyebrow">Interactive Dashboards · Power BI Showcase</div>
-        <div class="pbi-hero-title">Power BI & DAX Portfolio</div>
-        <div class="pbi-hero-sub">Four fully interactive dashboards — each built around a realistic business scenario. Slicers, cross-filtering, time intelligence, drill-down tables, and KPI scorecards. Everything you'd see in a real Power BI report, live in the browser.</div>
-        <div class="pbi-skill-badges">
-          <span class="pbi-skill-badge">CALCULATE()</span>
-          <span class="pbi-skill-badge">DATESINPERIOD()</span>
-          <span class="pbi-skill-badge">SAMEPERIODLASTYEAR()</span>
-          <span class="pbi-skill-badge">RANKX()</span>
-          <span class="pbi-skill-badge">SWITCH(TRUE())</span>
-          <span class="pbi-skill-badge">Star Schema</span>
-          <span class="pbi-skill-badge">Row-Level Security</span>
-          <span class="pbi-skill-badge">Power Query M</span>
-        </div>
-      </div>
-      <div class="pbi-hero-stats">
-        <div class="pbi-hstat"><span class="pbi-hstat-num">4</span><span class="pbi-hstat-label">Live Dashboards</span></div>
-        <div class="pbi-hstat"><span class="pbi-hstat-num">22+</span><span class="pbi-hstat-label">DAX Measures</span></div>
-        <div class="pbi-hstat"><span class="pbi-hstat-num">100%</span><span class="pbi-hstat-label">Data Accuracy</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Dashboard tabs -->
-  <div class="pbi-tabs">
-    <button class="pbi-tab active" onclick="showPBI('exec',this)">
-      <span class="pbi-tab-dot"></span>Executive Revenue
-    </button>
-    <button class="pbi-tab" onclick="showPBI('sales',this)">
-      <span class="pbi-tab-dot"></span>Sales Performance
-    </button>
-    <button class="pbi-tab" onclick="showPBI('ops',this)">
-      <span class="pbi-tab-dot"></span>Operations KPI
-    </button>
-    <button class="pbi-tab" onclick="showPBI('finance',this)">
-      <span class="pbi-tab-dot"></span>Financial P&L
-    </button>
-  </div>
-
-  <!-- ══ DASHBOARD 1: Executive Revenue ══ -->
-  <div id="pbi-exec" class="pbi-panel active">
-    <div class="slicer-bar">
-      <span class="slicer-label">Period</span>
-      <button class="slicer-btn active" onclick="pbiFilter('exec','period','ytd',this)">YTD 2024</button>
-      <button class="slicer-btn" onclick="pbiFilter('exec','period','q4',this)">Q4 2024</button>
-      <button class="slicer-btn" onclick="pbiFilter('exec','period','q3',this)">Q3 2024</button>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Region</span>
-      <button class="slicer-btn active" onclick="pbiFilter('exec','region','all',this)">All Regions</button>
-      <button class="slicer-btn" onclick="pbiFilter('exec','region','ne',this)">Northeast</button>
-      <button class="slicer-btn" onclick="pbiFilter('exec','region','se',this)">Southeast</button>
-      <button class="slicer-btn" onclick="pbiFilter('exec','region','west',this)">West</button>
-      <span class="last-refresh">⟳ Last refresh: Today 6:00 AM  ·  Scheduled daily</span>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario:</strong> The CFO of a $142M B2B SaaS company needs a single executive view before the board meeting. Six teams were sending separate reports — and none agreed on ARR. This dashboard replaced all of them. <strong>Built with:</strong> Star schema (FactRevenue + DimDate + DimCustomer + DimRep), CALCULATE time intelligence, SWITCH(TRUE()) for dynamic KPI status.
-      </div>
-      <!-- KPI Row -->
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue">
-          <div class="kpi-title">Total Revenue</div>
-          <div class="kpi-val" id="exec-rev">$142.3M</div>
-          <div class="kpi-delta up" id="exec-rev-d">▲ +12.4% vs. Prior Year</div>
-        </div>
-        <div class="kpi-card c-green">
-          <div class="kpi-title">New ARR</div>
-          <div class="kpi-val" id="exec-arr">$14.8M</div>
-          <div class="kpi-delta up" id="exec-arr-d">▲ +18.2% vs. Prior Year</div>
-        </div>
-        <div class="kpi-card c-navy">
-          <div class="kpi-title">Gross Margin</div>
-          <div class="kpi-val" id="exec-gm">38.2%</div>
-          <div class="kpi-delta up" id="exec-gm-d">▲ +2.1pp vs. Budget</div>
-        </div>
-        <div class="kpi-card c-teal">
-          <div class="kpi-title">Net Revenue Retention</div>
-          <div class="kpi-val" id="exec-nrr">118%</div>
-          <div class="kpi-delta up" id="exec-nrr-d">▲ +6pp vs. Prior Year</div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2-1" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-header"><div><div class="cc-title">Monthly Revenue — Actual vs. Budget vs. Prior Year</div><div class="cc-sub">$M · with YoY growth line</div></div><span class="cc-badge ytd">YTD</span></div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#A8BEDD"></i>Budget</span><span><i style="background:#005EB8;opacity:.5"></i>Prior Year</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi1a"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-header"><div><div class="cc-title">Revenue by Region</div><div class="cc-sub">% share of total</div></div></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi1b"></canvas></div>
-          <div id="pbi1b-legend" style="margin-top:8px;font-size:11px;font-family:system-ui;color:var(--text-3)"></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-3" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Gross Margin % Trend</div>
-          <div class="cc-sub">Monthly with 20% target line</div>
-          <div style="position:relative;width:100%;height:180px"><canvas id="pbi1c"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Customer Count — New vs. Churned</div>
-          <div class="cc-sub">Net customer adds per quarter</div>
-          <div style="position:relative;width:100%;height:180px"><canvas id="pbi1d"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">ARR Waterfall</div>
-          <div class="cc-sub">Beginning → New → Expansion → Churn → Ending</div>
-          <div style="position:relative;width:100%;height:180px"><canvas id="pbi1e"></canvas></div>
-        </div>
-      </div>
-      <!-- Drill-down table -->
-      <div class="chart-card">
-        <div class="cc-title">Revenue by Account — Top 10 Drill-Down</div>
-        <div class="cc-sub">Click a row to filter all visuals · sorted by revenue descending</div>
-        <table class="db-table" id="exec-table"></table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DASHBOARD 2: Sales Performance ══ -->
-  <div id="pbi-sales" class="pbi-panel">
-    <div class="slicer-bar">
-      <span class="slicer-label">Rep</span>
-      <select class="slicer-select" onchange="pbiSelectFilter('sales','rep',this.value)">
-        <option value="all">All Reps</option>
-        <option value="alex">Alex Torres</option>
-        <option value="priya">Priya Nair</option>
-        <option value="marcus">Marcus Webb</option>
-        <option value="sarah">Sarah Kim</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Product</span>
-      <button class="slicer-btn active" onclick="pbiFilter('sales','prod','all',this)">All</button>
-      <button class="slicer-btn" onclick="pbiFilter('sales','prod','ent',this)">Enterprise</button>
-      <button class="slicer-btn" onclick="pbiFilter('sales','prod','mid',this)">Mid-Market</button>
-      <button class="slicer-btn" onclick="pbiFilter('sales','prod','smb',this)">SMB</button>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Stage</span>
-      <select class="slicer-select" onchange="pbiSelectFilter('sales','stage',this.value)">
-        <option value="all">All Stages</option>
-        <option value="closed">Closed Won</option>
-        <option value="negotiation">Negotiation</option>
-        <option value="proposal">Proposal</option>
-      </select>
-      <span class="last-refresh">⟳ Synced from CRM · 15 min ago</span>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario:</strong> The VP of Sales and Finance were getting into arguments at every QBR — Sales said pipeline was $18M, Finance modeled $14.2M. A $400K enterprise churn had never been logged. This dashboard became the single source of truth. <strong>Built with:</strong> RANKX() for rep leaderboard, CALCULATE + FILTER for segment slicing, DATESYTD for attainment, conditional formatting via SWITCH(TRUE()) for RAG status.
-      </div>
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue">
-          <div class="kpi-title">Pipeline Value</div>
-          <div class="kpi-val">$18.4M</div>
-          <div class="kpi-delta up">▲ 3.2x coverage ratio</div>
-        </div>
-        <div class="kpi-card c-green">
-          <div class="kpi-title">Closed Won YTD</div>
-          <div class="kpi-val">$5.74M</div>
-          <div class="kpi-delta up">▲ 108% of $5.3M target</div>
-        </div>
-        <div class="kpi-card c-navy">
-          <div class="kpi-title">Avg. Win Rate</div>
-          <div class="kpi-val">24%</div>
-          <div class="kpi-delta flat">— on target (25%)</div>
-        </div>
-        <div class="kpi-card c-teal">
-          <div class="kpi-title">Avg. Sales Cycle</div>
-          <div class="kpi-val">42 days</div>
-          <div class="kpi-delta down">▼ 7 days vs. target</div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Sales Funnel — Deal Count & Value by Stage</div>
-          <div class="cc-sub">Dual axis: count (bars) + pipeline $M (line)</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Deal count</span><span><i style="background:#005EB8"></i>Pipeline $M</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi2a"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Monthly Bookings — New ARR vs. Churn</div>
-          <div class="cc-sub">Net new ARR waterfall · $M</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>New ARR</span><span><i style="background:#8B0000"></i>Churn</span><span><i style="background:#004d40"></i>Net ARR</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi2b"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Win Rate by Deal Segment</div>
-          <div class="cc-sub">Actual % vs. 25% target</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi2c"></canvas></div>
-          <div class="pbi-insight">Enterprise deals ($500K+) win at <strong>38%</strong> but take 74 days. SMB closes in 18 days at 22%. <strong>Insight: reps are over-investing time in SMB relative to revenue contribution.</strong></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Rep Leaderboard — Quota Attainment</div>
-          <div class="cc-sub">YTD closed vs. annual quota · RANKX() sorted</div>
-          <div id="rep-leaderboard" style="margin-top:8px"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DASHBOARD 3: Operations KPI ══ -->
-  <div id="pbi-ops" class="pbi-panel">
-    <div class="slicer-bar">
-      <span class="slicer-label">Department</span>
-      <button class="slicer-btn active" onclick="pbiFilter('ops','dept','all',this)">All</button>
-      <button class="slicer-btn" onclick="pbiFilter('ops','dept','eng',this)">Engineering</button>
-      <button class="slicer-btn" onclick="pbiFilter('ops','dept','ops',this)">Operations</button>
-      <button class="slicer-btn" onclick="pbiFilter('ops','dept','cs',this)">Customer Success</button>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Timeframe</span>
-      <button class="slicer-btn active" onclick="pbiFilter('ops','time','mtd',this)">MTD</button>
-      <button class="slicer-btn" onclick="pbiFilter('ops','time','qtd',this)">QTD</button>
-      <button class="slicer-btn" onclick="pbiFilter('ops','time','ytd',this)">YTD</button>
-      <span class="last-refresh">⟳ Live · refreshes every 30 min</span>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario:</strong> The COO was running 6 separate Excel reports every Monday — one per team — and spending the first 20 minutes of the standup reconciling numbers. On-time delivery had slipped from 96% to 94% and nobody knew why until 3 weeks after it happened. This dashboard replaced all 6 reports with one view that updates automatically. <strong>Built with:</strong> Power BI Service scheduled refresh, row-level security by department, conditional formatting for RAG status, CALCULATE + ALL() for cross-filter context.
-      </div>
-      <!-- KPI scorecard -->
-      <div id="ops-scorecard" style="margin-bottom:14px"></div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">On-Time Delivery % — 12-Month Trend</div>
-          <div class="cc-sub">With 95% SLA target line</div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi3a"></canvas></div>
-          <div class="pbi-insight">OTD dropped from <strong>96.2%</strong> in Jan to <strong>93.8%</strong> in Aug after headcount reduction. Recovered to <strong>94.8%</strong> after process automation in Sept. Still <strong>below 95% SLA</strong> — flagged for Q4 remediation.</div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Revenue per Employee — Monthly</div>
-          <div class="cc-sub">vs. $260K annual target ($21.7K/month)</div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi3b"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-3" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Working Capital — DSO vs. DPO vs. DIO</div>
-          <div class="cc-sub">Days outstanding · actual vs. target</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi3c"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Support Ticket Resolution</div>
-          <div class="cc-sub">Avg. hours to close · by priority tier</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi3d"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Headcount & Utilization</div>
-          <div class="cc-sub">FTE count vs. utilization rate %</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi3e"></canvas></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DASHBOARD 4: Financial P&L ══ -->
-  <div id="pbi-finance" class="pbi-panel">
-    <div class="slicer-bar">
-      <span class="slicer-label">Business Unit</span>
-      <button class="slicer-btn active" onclick="pbiFilter('fin','bu','all',this)">Consolidated</button>
-      <button class="slicer-btn" onclick="pbiFilter('fin','bu','commercial',this)">Commercial</button>
-      <button class="slicer-btn" onclick="pbiFilter('fin','bu','retail',this)">Retail</button>
-      <button class="slicer-btn" onclick="pbiFilter('fin','bu','tech',this)">Tech</button>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">View</span>
-      <button class="slicer-btn active" onclick="pbiFilter('fin','view','actual',this)">Actual</button>
-      <button class="slicer-btn" onclick="pbiFilter('fin','view','budget',this)">vs. Budget</button>
-      <button class="slicer-btn" onclick="pbiFilter('fin','view','py',this)">vs. Prior Year</button>
-      <span class="last-refresh">⟳ Month-end close · locked Nov 30</span>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario:</strong> The board asked at Q3 review: "Revenue beat by $4.1M — but is it structural or one-time?" Engineering was $1.3M over budget. Marketing underspent by $1.4M because two campaigns slipped. None of this was visible in the top-line numbers. This P&L dashboard drills from consolidated to BU to line-item in three clicks. <strong>Built with:</strong> SAMEPERIODLASTYEAR() for prior year bridge, CALCULATE + FILTER for BU isolation, DIVIDE() with zero-check for margin %, dynamic title via SELECTEDVALUE().
-      </div>
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue">
-          <div class="kpi-title">Total Revenue YTD</div>
-          <div class="kpi-val">$142.3M</div>
-          <div class="kpi-delta up">▲ +$4.1M vs. budget</div>
-        </div>
-        <div class="kpi-card c-green">
-          <div class="kpi-title">Gross Margin</div>
-          <div class="kpi-val">38.2%</div>
-          <div class="kpi-delta up">▲ +2.1pp vs. budget</div>
-        </div>
-        <div class="kpi-card c-navy">
-          <div class="kpi-title">EBITDA</div>
-          <div class="kpi-val">$30.5M</div>
-          <div class="kpi-delta up">▲ 21.4% margin</div>
-        </div>
-        <div class="kpi-card c-teal">
-          <div class="kpi-title">Operating Expense</div>
-          <div class="kpi-val">$111.8M</div>
-          <div class="kpi-delta down">▼ +$0.3M vs. budget</div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">P&L Waterfall — Budget to Actual Bridge</div>
-          <div class="cc-sub">Variance drivers: what moved EBITDA from budget to actual ($M)</div>
-          <div class="pbi-legend"><span><i style="background:#006400"></i>Favorable</span><span><i style="background:#8B0000"></i>Unfavorable</span><span><i style="background:#001F5B"></i>Total</span></div>
-          <div style="position:relative;width:100%;height:240px"><canvas id="pbi4a"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Revenue — Actual vs. Budget vs. Prior Year</div>
-          <div class="cc-sub">Monthly $M · 12-month view</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#005EB8"></i>Budget</span><span><i style="background:#A8BEDD"></i>Prior Year</span></div>
-          <div style="position:relative;width:100%;height:240px"><canvas id="pbi4b"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-3" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Gross Margin by Business Unit</div>
-          <div class="cc-sub">Actual % vs. plan % · current quarter</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi4c"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">OpEx Variance by Department</div>
-          <div class="cc-sub">Over/under budget % · green = under</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi4d"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">EBITDA Margin Trend</div>
-          <div class="cc-sub">Rolling 12M with 20% target band</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi4e"></canvas></div>
-        </div>
-      </div>
-      <!-- P&L drill-down table -->
-      <div class="chart-card">
-        <div class="cc-title">Income Statement Drill-Down — Line Item Detail</div>
-        <div class="cc-sub">Actual vs. Budget vs. Prior Year · with variance % and RAG status</div>
-        <table class="db-table" id="pl-table"></table>
-      </div>
-    </div>
-  </div>
-
-</div>
-<!-- ══ END POWER BI PAGE ══ -->
 
 <div id="page-skills" class="page">
   <div class="section-wrap">
@@ -2144,333 +1822,6 @@ ActiveScenario_Revenue =
   </div>
 </div>
 
-<!-- ══════════════════════════ POWER BI PAGE ══════════════════════════ -->
-<div id="page-powerbi" class="page">
-
-  <div class="pbi-hero">
-    <div class="pbi-hero-inner">
-      <div class="pbi-hero-left">
-        <div class="pbi-eyebrow">Interactive Power BI Dashboards</div>
-        <div class="pbi-hero-title">Live Analytics Suite</div>
-        <div class="pbi-hero-sub">Four fully interactive dashboards with working slicers, drill-downs, and real business data. Every filter actually changes the charts — exactly how Power BI works in production.</div>
-        <div class="pbi-skill-badges">
-          <span class="pbi-skill-badge">DAX</span><span class="pbi-skill-badge">CALCULATE</span><span class="pbi-skill-badge">SUMX</span><span class="pbi-skill-badge">YTD/MTD</span><span class="pbi-skill-badge">Rolling 12M</span><span class="pbi-skill-badge">Star Schema</span><span class="pbi-skill-badge">Power Query</span><span class="pbi-skill-badge">Row-Level Security</span>
-        </div>
-      </div>
-      <div class="pbi-hero-stats">
-        <div class="pbi-hstat"><span class="pbi-hstat-num">4</span><span class="pbi-hstat-label">Live Dashboards</span></div>
-        <div class="pbi-hstat"><span class="pbi-hstat-num">24+</span><span class="pbi-hstat-label">Chart Types</span></div>
-        <div class="pbi-hstat"><span class="pbi-hstat-num">100%</span><span class="pbi-hstat-label">Interactive</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DASHBOARD TABS -->
-  <div class="pbi-tabs" id="pbi-tabs">
-    <button class="pbi-tab active" onclick="showPBI('sales',this)"><span class="pbi-tab-dot"></span>Sales Performance</button>
-    <button class="pbi-tab" onclick="showPBI('fpa',this)"><span class="pbi-tab-dot"></span>FP&A — Budget vs. Actuals</button>
-    <button class="pbi-tab" onclick="showPBI('ops',this)"><span class="pbi-tab-dot"></span>Operations & Supply Chain</button>
-    <button class="pbi-tab" onclick="showPBI('customer',this)"><span class="pbi-tab-dot"></span>Customer & Retention</button>
-  </div>
-
-  <!-- ══ DASHBOARD 1: SALES PERFORMANCE ══ -->
-  <div id="pbi-sales" class="pbi-panel active">
-    <div class="slicer-bar">
-      <span class="slicer-label">Region</span>
-      <select class="slicer-select" id="sl-region" onchange="updateSales()">
-        <option value="all">All Regions</option>
-        <option value="northeast">Northeast</option>
-        <option value="southeast">Southeast</option>
-        <option value="midwest">Midwest</option>
-        <option value="west">West</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Product</span>
-      <select class="slicer-select" id="sl-product" onchange="updateSales()">
-        <option value="all">All Products</option>
-        <option value="enterprise">Enterprise</option>
-        <option value="midmarket">Mid-Market</option>
-        <option value="smb">SMB</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Period</span>
-      <select class="slicer-select" id="sl-period" onchange="updateSales()">
-        <option value="ytd">YTD 2024</option>
-        <option value="q4">Q4 2024</option>
-        <option value="q3">Q3 2024</option>
-        <option value="q2">Q2 2024</option>
-      </select>
-      <button class="refresh-btn" onclick="resetSales()">↺ Reset Filters</button>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario — Nexus Software Inc.:</strong> The VP of Sales asked for a dashboard to monitor rep performance, pipeline health, and quota attainment by region and product tier ahead of the Q4 board review. The slicers above filter every chart simultaneously — exactly how Power BI slicers work with relationships across fact and dimension tables.
-      </div>
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue"><div class="kpi-title">Total Revenue</div><div class="kpi-val" id="kpi-rev">$38.4M</div><div class="kpi-delta up" id="kpi-rev-d">▲ +12.3% vs prior year</div></div>
-        <div class="kpi-card c-navy"><div class="kpi-title">Quota Attainment</div><div class="kpi-val" id="kpi-quota">108%</div><div class="kpi-delta up" id="kpi-quota-d">▲ +8pts vs target</div></div>
-        <div class="kpi-card c-green"><div class="kpi-title">New Logos</div><div class="kpi-val" id="kpi-logos">184</div><div class="kpi-delta up" id="kpi-logos-d">▲ +22 vs last year</div></div>
-        <div class="kpi-card c-teal"><div class="kpi-title">Avg Deal Size</div><div class="kpi-val" id="kpi-deal">$208K</div><div class="kpi-delta up" id="kpi-deal-d">▲ +$18K vs last year</div></div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-header"><div><div class="cc-title">Monthly Revenue — Actual vs. Target vs. Prior Year</div><div class="cc-sub">$M · filtered by selection above</div></div><span class="cc-badge ytd" id="badge-s1">YTD 2024</span></div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#005EB8"></i>Target</span><span><i style="background:#A8BEDD"></i>Prior Year</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-s1"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-header"><div><div class="cc-title">Revenue by Product Tier</div><div class="cc-sub">Share of total revenue — current period</div></div></div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Enterprise</span><span><i style="background:#005EB8"></i>Mid-Market</span><span><i style="background:#7AB8F5"></i>SMB</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-s2"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2-1" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Rep Quota Attainment — by Region</div>
-          <div class="cc-sub">% of annual quota achieved · current filter selection</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-s3"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Win Rate by Deal Stage</div>
-          <div class="cc-sub">Conversion % · funnel efficiency</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-s4"></canvas></div>
-        </div>
-      </div>
-      <div class="chart-card">
-        <div class="cc-title">Top 10 Deals — Drill-Down Table</div>
-        <div class="cc-sub">Largest closed deals · filtered by current slicer selection</div>
-        <div style="overflow-x:auto;margin-top:8px">
-          <table class="db-table" id="sales-table">
-            <thead><tr><th>Account</th><th>Region</th><th>Product</th><th>Deal Size</th><th>Close Date</th><th>Rep</th><th>vs. Target</th><th>Status</th></tr></thead>
-            <tbody id="sales-tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DASHBOARD 2: FP&A ══ -->
-  <div id="pbi-fpa" class="pbi-panel">
-    <div class="slicer-bar">
-      <span class="slicer-label">Department</span>
-      <select class="slicer-select" id="sl-dept" onchange="updateFPA()">
-        <option value="all">All Departments</option>
-        <option value="sales">Sales</option>
-        <option value="eng">Engineering</option>
-        <option value="mktg">Marketing</option>
-        <option value="ops">Operations</option>
-        <option value="hr">HR & G&A</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Scenario</span>
-      <select class="slicer-select" id="sl-scenario" onchange="updateFPA()">
-        <option value="base">Base Budget</option>
-        <option value="bull">Upside Case</option>
-        <option value="bear">Downside Case</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">View</span>
-      <select class="slicer-select" id="sl-view" onchange="updateFPA()">
-        <option value="ytd">YTD</option>
-        <option value="q4">Q4 Only</option>
-        <option value="fy">Full Year</option>
-      </select>
-      <button class="refresh-btn" onclick="resetFPA()">↺ Reset</button>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario — Nexus Software Inc. CFO Dashboard:</strong> The CFO needs a single view of budget vs. actuals across all departments before the Q4 board pack. The scenario slicer switches the entire model between base, upside, and downside assumptions — a key FP&A skill showing connected DAX measures across a star schema data model.
-      </div>
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue"><div class="kpi-title">Revenue vs. Budget</div><div class="kpi-val" id="fpa-k1">+$4.1M</div><div class="kpi-delta up">▲ 108% attainment</div></div>
-        <div class="kpi-card c-navy"><div class="kpi-title">EBITDA Margin</div><div class="kpi-val" id="fpa-k2">21.4%</div><div class="kpi-delta up">▲ +1.4pts vs budget</div></div>
-        <div class="kpi-card c-green"><div class="kpi-title">OpEx vs. Budget</div><div class="kpi-val" id="fpa-k3">-$1.2M</div><div class="kpi-delta up">▲ Under budget</div></div>
-        <div class="kpi-card c-teal"><div class="kpi-title">Headcount Variance</div><div class="kpi-val" id="fpa-k4">+3</div><div class="kpi-delta down">▼ 3 above plan</div></div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-header"><div><div class="cc-title">P&L Bridge — Budget to Actual</div><div class="cc-sub">Variance drivers by category ($M)</div></div><span class="cc-badge live" id="fpa-scenario-badge">Base Budget</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-f1"></canvas></div>
-          <div style="font-size:11px;color:var(--text-3);font-family:system-ui;margin-top:8px">Revenue beat offset by Engineering headcount overage and increased travel spend. Net: +$4.1M favorable.</div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-header"><div><div class="cc-title">Department Spend — Budget vs. Actuals</div><div class="cc-sub">$M · current department selection</div></div></div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Budget</span><span><i style="background:#005EB8"></i>Actuals</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-f2"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Monthly Revenue — Scenario Comparison</div>
-          <div class="cc-sub">Actual vs. selected scenario forecast ($M)</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Actual</span><span><i style="background:#A8BEDD;border:1px dashed #005EB8"></i>Scenario</span></div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-f3"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Variance % by Cost Category</div>
-          <div class="cc-sub">Over/under budget · positive = under budget</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-f4"></canvas></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DASHBOARD 3: OPERATIONS ══ -->
-  <div id="pbi-ops" class="pbi-panel">
-    <div class="slicer-bar">
-      <span class="slicer-label">Warehouse</span>
-      <select class="slicer-select" id="sl-wh" onchange="updateOps()">
-        <option value="all">All Warehouses</option>
-        <option value="nyc">New York (HQ)</option>
-        <option value="chi">Chicago</option>
-        <option value="la">Los Angeles</option>
-        <option value="atl">Atlanta</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Category</span>
-      <select class="slicer-select" id="sl-cat" onchange="updateOps()">
-        <option value="all">All Categories</option>
-        <option value="electronics">Electronics</option>
-        <option value="industrial">Industrial</option>
-        <option value="consumer">Consumer</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Month</span>
-      <select class="slicer-select" id="sl-month" onchange="updateOps()">
-        <option value="dec">December 2024</option>
-        <option value="nov">November 2024</option>
-        <option value="oct">October 2024</option>
-      </select>
-      <button class="refresh-btn" onclick="resetOps()">↺ Reset</button>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario — Atlas Distribution Co.:</strong> The COO needs real-time visibility into warehouse efficiency, order fulfillment, and inventory turns. A supplier in Chicago is running 4 days behind on delivery. The dashboard should surface that immediately — which is what the On-Time Delivery and Lead Time charts are designed to catch.
-      </div>
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue"><div class="kpi-title">On-Time Delivery</div><div class="kpi-val" id="ops-k1">94.2%</div><div class="kpi-delta down">▼ -0.8pts vs target (95%)</div></div>
-        <div class="kpi-card c-navy"><div class="kpi-title">Inventory Turnover</div><div class="kpi-val" id="ops-k2">8.4x</div><div class="kpi-delta up">▲ +0.6x vs last month</div></div>
-        <div class="kpi-card c-green"><div class="kpi-title">Order Fill Rate</div><div class="kpi-val" id="ops-k3">98.1%</div><div class="kpi-delta up">▲ On target</div></div>
-        <div class="kpi-card c-red"><div class="kpi-title">Avg Lead Time</div><div class="kpi-val" id="ops-k4">4.2 days</div><div class="kpi-delta down">▼ +0.4 days vs target</div></div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">On-Time Delivery % by Warehouse — Monthly Trend</div>
-          <div class="cc-sub">Target: 95% · Red line shows threshold</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>NYC</span><span><i style="background:#005EB8"></i>Chicago</span><span><i style="background:#7AB8F5"></i>LA</span><span><i style="background:#A8BEDD"></i>Atlanta</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-o1"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Inventory Value by Category</div>
-          <div class="cc-sub">Current on-hand value ($M) · with turnover rate</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Electronics</span><span><i style="background:#005EB8"></i>Industrial</span><span><i style="background:#7AB8F5"></i>Consumer</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-o2"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-1-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Order Volume — Daily</div>
-          <div class="cc-sub">Orders shipped vs. received this month</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>Shipped</span><span><i style="background:#A8BEDD"></i>Received</span></div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-o3"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Supplier Performance — Lead Time vs. SLA</div>
-          <div class="cc-sub">Avg days to delivery by supplier · target 3.5 days</div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-o4"></canvas></div>
-          <div style="font-size:11px;color:#8B0000;font-family:system-ui;margin-top:8px;font-weight:600">⚠ Chicago Supplier B is 4.8 days avg — 1.3 days over SLA. Escalation recommended.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DASHBOARD 4: CUSTOMER ══ -->
-  <div id="pbi-customer" class="pbi-panel">
-    <div class="slicer-bar">
-      <span class="slicer-label">Segment</span>
-      <select class="slicer-select" id="sl-seg" onchange="updateCustomer()">
-        <option value="all">All Segments</option>
-        <option value="enterprise">Enterprise</option>
-        <option value="midmarket">Mid-Market</option>
-        <option value="smb">SMB</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Cohort Year</span>
-      <select class="slicer-select" id="sl-cohort" onchange="updateCustomer()">
-        <option value="all">All Cohorts</option>
-        <option value="2022">2022 Cohort</option>
-        <option value="2023">2023 Cohort</option>
-        <option value="2024">2024 Cohort</option>
-      </select>
-      <div class="slicer-sep"></div>
-      <span class="slicer-label">Health Score</span>
-      <select class="slicer-select" id="sl-health" onchange="updateCustomer()">
-        <option value="all">All</option>
-        <option value="healthy">Healthy (70+)</option>
-        <option value="risk">At Risk (40–69)</option>
-        <option value="churn">Churn Risk (&lt;40)</option>
-      </select>
-      <button class="refresh-btn" onclick="resetCustomer()">↺ Reset</button>
-    </div>
-    <div class="db-wrap">
-      <div class="db-story">
-        <strong>Scenario — Nexus Software Inc. Customer Success:</strong> The Head of Customer Success flagged that Q3 NRR dropped from 118% to 112% — a 6-point decline that went unnoticed for two months. This dashboard was built to surface churn signals early, track cohort retention, and show which segments are expanding vs. contracting before it hits revenue.
-      </div>
-      <div class="db-grid db-row-4" style="margin-bottom:14px">
-        <div class="kpi-card c-blue"><div class="kpi-title">Net Revenue Retention</div><div class="kpi-val" id="cust-k1">114%</div><div class="kpi-delta up">▲ +2pts vs last quarter</div></div>
-        <div class="kpi-card c-navy"><div class="kpi-title">Gross Retention</div><div class="kpi-val" id="cust-k2">91.4%</div><div class="kpi-delta down">▼ -1.2pts vs target (93%)</div></div>
-        <div class="kpi-card c-green"><div class="kpi-title">Avg Health Score</div><div class="kpi-val" id="cust-k3">72.4</div><div class="kpi-delta up">▲ +4.2 pts this quarter</div></div>
-        <div class="kpi-card c-red"><div class="kpi-title">Churn Risk Accounts</div><div class="kpi-val" id="cust-k4">18</div><div class="kpi-delta down">▼ $2.4M ARR at risk</div></div>
-      </div>
-      <div class="db-grid db-row-2" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">NRR vs. GRR — Monthly Trend</div>
-          <div class="cc-sub">Net & Gross Revenue Retention % · rolling 12 months</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>NRR %</span><span><i style="background:#005EB8"></i>GRR %</span><span><i style="background:#A8BEDD;border:1px dashed #8B0000"></i>GRR Target (93%)</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-c1"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Revenue Waterfall — Expansion vs. Churn</div>
-          <div class="cc-sub">Monthly new ARR + expansion − churn ($M)</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>New ARR</span><span><i style="background:#005EB8"></i>Expansion</span><span><i style="background:#8B0000"></i>Churn</span></div>
-          <div style="position:relative;width:100%;height:220px"><canvas id="pbi-c2"></canvas></div>
-        </div>
-      </div>
-      <div class="db-grid db-row-2-1" style="margin-bottom:14px">
-        <div class="chart-card">
-          <div class="cc-title">Cohort Retention Analysis</div>
-          <div class="cc-sub">% of original ARR retained by months since signup</div>
-          <div class="pbi-legend"><span><i style="background:#001F5B"></i>2022 Cohort</span><span><i style="background:#005EB8"></i>2023 Cohort</span><span><i style="background:#7AB8F5"></i>2024 Cohort</span></div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-c3"></canvas></div>
-        </div>
-        <div class="chart-card">
-          <div class="cc-title">Health Score Distribution</div>
-          <div class="cc-sub">Accounts by health band · current filter</div>
-          <div class="pbi-legend"><span><i style="background:#006400"></i>Healthy 70+</span><span><i style="background:#856404"></i>At Risk 40–69</span><span><i style="background:#8B0000"></i>Churn Risk &lt;40</span></div>
-          <div style="position:relative;width:100%;height:200px"><canvas id="pbi-c4"></canvas></div>
-        </div>
-      </div>
-      <div class="chart-card">
-        <div class="cc-title">At-Risk Account List — Drill Down</div>
-        <div class="cc-sub">Accounts below health score 40 · sorted by ARR at risk</div>
-        <div style="overflow-x:auto;margin-top:8px">
-          <table class="db-table">
-            <thead><tr><th>Account</th><th>Segment</th><th>ARR</th><th>Health Score</th><th>Last Login</th><th>Support Tickets</th><th>CSM</th><th>Risk Level</th></tr></thead>
-            <tbody>
-              <tr><td>Meridian Group</td><td>Enterprise</td><td>$480K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:28px;background:#8B0000"></div>28</div></td><td>47 days ago</td><td>8 open</td><td>J. Chen</td><td><span class="td-badge red">Critical</span></td></tr>
-              <tr><td>Cascade Logistics</td><td>Mid-Market</td><td>$220K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:32px;background:#8B0000"></div>32</div></td><td>31 days ago</td><td>4 open</td><td>M. Torres</td><td><span class="td-badge red">Critical</span></td></tr>
-              <tr><td>Vantage Retail</td><td>Mid-Market</td><td>$185K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:36px;background:#856404"></div>36</div></td><td>18 days ago</td><td>2 open</td><td>J. Chen</td><td><span class="td-badge amber">High</span></td></tr>
-              <tr><td>Summit Financial</td><td>SMB</td><td>$92K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:30px;background:#8B0000"></div>30</div></td><td>62 days ago</td><td>0 open</td><td>R. Park</td><td><span class="td-badge red">Critical</span></td></tr>
-              <tr><td>Apex Industries</td><td>SMB</td><td>$68K</td><td><div class="td-bar-wrap"><div class="td-bar" style="width:38px;background:#856404"></div>38</div></td><td>24 days ago</td><td>1 open</td><td>M. Torres</td><td><span class="td-badge amber">High</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
 <!-- ══════════════════════════ CONTACT PAGE ══════════════════════════ -->
 <div id="page-contact" class="page">
   <div class="section-wrap">
@@ -2846,7 +2197,15 @@ ActiveScenario_Revenue =
 </div>
 
 <footer class="site-footer">
-  Ragib Shikder &nbsp;·&nbsp; <a href="mailto:ragibnyc@gmail.com">ragibnyc@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/ragib-shikder" target="_blank">LinkedIn</a> &nbsp;·&nbsp; New York City, NY
+  <div class="site-footer-inner">
+    <span class="footer-name">Ragib Shikder</span>
+    <span class="footer-sep">·</span>
+    <a href="mailto:ragibnyc@gmail.com">ragibnyc@gmail.com</a>
+    <span class="footer-sep">·</span>
+    <a href="https://linkedin.com/in/ragib-shikder" target="_blank">LinkedIn</a>
+    <span class="footer-sep">·</span>
+    <span>New York City, NY</span>
+  </div>
 </footer>
 
 <script>
@@ -3137,7 +2496,7 @@ function showPage(id,btn){
   window.scrollTo(0,0);
   if(id==='projects')initCharts();
   if(id==='scenarios'&&!scInited['pl']){scInited['pl']=true;setTimeout(()=>initScTab('pl'),50);}
-  if(id==='powerbi'&&!PBI['sales']){PBI['sales']=true;setTimeout(()=>initPBITab('sales'),60);}
+  if(id==='powerbi'&&!pbiInited['sales']){pbiInited['sales']=true;setTimeout(()=>initPbiDb('sales'),60);}
 }
 
 function showProject(id){
