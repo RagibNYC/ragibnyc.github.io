@@ -83,7 +83,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .impact-num{font-size:3rem;font-weight:900;color:#fff;letter-spacing:-0.04em;line-height:1;display:block}
 .impact-num.blue{color:#7AB8F5}
 .impact-label{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:8px;font-weight:600;display:block}
-.impact-sublabel{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;font-size:11px}
+.impact-sublabel{font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px}
 
 /* ══ UPGRADED PROJECT CARDS ══ */
 .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
@@ -571,6 +571,19 @@ textarea.form-input{resize:vertical;min-height:120px}
   .db-row-2,.db-row-2-1,.db-row-1-2{grid-template-columns:1fr}
   .pbi-hero-stats{display:none}
 }
+
+/* ══ MOBILE HAMBURGER ══ */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:8px}
+.hamburger-bar{width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.25s}
+.hamburger.open .hamburger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open .hamburger-bar:nth-child(2){opacity:0}
+.hamburger.open .hamburger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .topnav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--border);flex-direction:column;gap:4px;padding:8px 12px;z-index:999;box-shadow:var(--shadow-md)}
+  .topnav.open{display:flex}
+  .topnav-btn{text-align:left;padding:10px 14px;font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -589,6 +602,7 @@ textarea.form-input{resize:vertical;min-height:120px}
       <button class="topnav-btn" onclick="showPage('resume',this)">Resume</button>
       <button class="topnav-btn" onclick="showPage('contact',this)">Contact</button>
     </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="toggleNav()" aria-label="Menu"><div class="hamburger-bar"></div><div class="hamburger-bar"></div><div class="hamburger-bar"></div></button>
     <button class="topbar-contact" onclick="showPage('contact')">Hire Me →</button>
   </div>
 </header>
@@ -607,7 +621,7 @@ textarea.form-input{resize:vertical;min-height:120px}
       <div class="hero-badges">
         <span class="hero-badge">✦ Goldman Sachs Trained</span>
         <span class="hero-badge">✦ JPMorgan Trained</span>
-        <span class="hero-badge">✦ $100K+ Revenue Generated</span>
+        <span class="hero-badge">✦ $200K+ Revenue Generated</span>
         <span class="hero-badge">✦ $5B Fund Accounting</span>
         <span class="hero-badge">✦ MS AI & Business Analytics @ Baruch</span>
       </div>
@@ -618,7 +632,7 @@ textarea.form-input{resize:vertical;min-height:120px}
   <div class="impact-stats">
     <div class="impact-stats-inner">
       <div class="impact-stat">
-        <span class="impact-num blue" id="cnt1">$100K+</span>
+        <span class="impact-num blue" id="cnt1">$200K+</span>
         <span class="impact-label">Capital Generated</span>
         <div class="impact-sublabel">Premium Merchant Funding · 8 weeks</div>
       </div>
@@ -658,7 +672,7 @@ textarea.form-input{resize:vertical;min-height:120px}
         <div class="value-card">
           <div class="value-day">Month 1+</div>
           <div class="value-title">Model the business, not just the data</div>
-          <div class="value-desc">I connect analytics to decisions — variance analysis, DCF models, scenario planning, pipeline forecasting. At PMF I built the financial model that drove $100K+ in funded capital in 8 weeks flat.</div>
+          <div class="value-desc">I connect analytics to decisions — variance analysis, DCF models, scenario planning, pipeline forecasting. At PMF I built the financial model that drove $200K+ in funded capital in 8 weeks flat.</div>
         </div>
       </div>
     </div>
@@ -673,12 +687,12 @@ textarea.form-input{resize:vertical;min-height:120px}
       <div class="project-card" onclick="showProject('pmf')">
         <div class="card-eyebrow">Sales & Revenue Analytics</div>
         <div class="card-metrics">
-          <div><div class="card-metric">$100K+</div><div class="card-metric-label">Capital Funded</div></div>
+          <div><div class="card-metric">$200K+</div><div class="card-metric-label">Capital Funded</div></div>
           <div><div class="card-metric">10+</div><div class="card-metric-label">Clients Closed</div></div>
           <div><div class="card-metric">+88%</div><div class="card-metric-label">Above Target</div></div>
         </div>
         <div class="card-title">Pipeline Operations & Revenue Analytics System</div>
-        <div class="card-desc">Built Excel pipeline tracker with XLOOKUP scenario modeling and rolling budget vs. actuals from scratch — drove $100K+ in funded capital in 8 weeks.</div>
+        <div class="card-desc">Built Excel pipeline tracker with XLOOKUP scenario modeling and rolling budget vs. actuals from scratch — drove $200K+ in funded capital in 8 weeks.</div>
         <div class="card-tags"><span class="card-tag">Advanced Excel</span><span class="card-tag">Financial Modeling</span><span class="card-tag">FP&A</span><span class="card-tag">Pipeline Ops</span></div>
         <div class="card-arrow">→</div>
       </div>
@@ -906,7 +920,7 @@ KPI_Status =
         <span class="str">'peak_week'</span>:       <span class="fn">f</span><span class="str">"${best_week['funded_amount']:,.0f} ({best_week['week']})"</span>,
         <span class="str">'attainment_pct'</span>:  <span class="fn">f</span><span class="str">"{total_funded / (len(df) * 25000) * 100:.1f}%"</span>
     }</pre></div>
-        <div class="code-insight"><strong>What this did:</strong> Automated the weekly pipeline report that was previously built by hand every Friday. Output was emailed directly to senior leadership with variance flags highlighted. Final 8-week result: $112K funded, 112% attainment vs. $100K target.</div>
+        <div class="code-insight"><strong>What this did:</strong> Automated the weekly pipeline report that was previously built by hand every Friday. Output was emailed directly to senior leadership with variance flags highlighted. Final 8-week result: $258K funded, 129% attainment vs. $200K period target.</div>
       </div>
 
       <div id="code-excel" class="code-block">
@@ -1011,7 +1025,7 @@ ActiveScenario_Revenue =
           <div class="about-section-title">Bio</div>
           <div class="about-bio">
             <p>I'm a Financial and Data Analyst based in New York City, specializing in building the systems and tools that turn raw financial data into decisions that matter. My work sits at the intersection of analytics, operations, and finance — I'm equally comfortable writing a SQL ETL pipeline, building a Power BI dashboard with DAX time intelligence, and constructing a DCF model for a $1B EBITDA acquisition target.</p>
-            <p>My background spans investment banking analysis (JPMorgan), fund accounting (Goldman Sachs), pipeline operations and revenue analytics (Premium Merchant Funding), and full-stack data engineering (ProACE International). In total I've generated $100,000+ in capital funding, managed analytics for a $5 billion fund, and built automation systems that cut reporting cycle times from 5 days to 1.</p>
+            <p>My background spans investment banking analysis (JPMorgan), fund accounting (Goldman Sachs), pipeline operations and revenue analytics (Premium Merchant Funding), and full-stack data engineering (ProACE International). In total I've generated $200,000+ in capital funding, managed analytics for a $5 billion fund, and built automation systems that cut reporting cycle times from 5 days to 1.</p>
             <p>I'm currently pursuing an MS in AI and Business Analytics at Baruch College, Zicklin School of Business — focused on applying machine learning and AI tooling to real operational and financial problems. I'm a high-agency builder: I find broken things, redesign them, and ship the fix fast.</p>
           </div>
         </div>
@@ -1022,7 +1036,7 @@ ActiveScenario_Revenue =
               <div class="timeline-title">Business Development Analyst</div>
               <div class="timeline-company">Premium Merchant Funding</div>
               <div class="timeline-date">Jul 2025 – Aug 2025 · Manhattan, NY</div>
-              <div class="timeline-desc">Secured $100,000+ in capital funding through structured financial modeling and pipeline operations. Built a $100K+ monthly pipeline tracker in Advanced Excel from scratch.</div>
+              <div class="timeline-desc">Secured $200,000+ in capital funding through structured financial modeling and pipeline operations. Built a $100K+ monthly pipeline tracker in Advanced Excel from scratch.</div>
             </li>
             <li class="timeline-item">
               <div class="timeline-title">Data Analyst – Reporting & KPI Analytics</div>
@@ -1100,7 +1114,7 @@ ActiveScenario_Revenue =
         <div class="proj-hero-title">Pipeline Operations & Revenue Analytics System</div>
         <div class="proj-hero-company">Business Development Analyst · Premium Merchant Funding · Manhattan, NY</div>
         <div class="proj-hero-metrics">
-          <div><div class="phm-val">$100K+</div><div class="phm-label">Capital Funded</div></div>
+          <div><div class="phm-val">$200K+</div><div class="phm-label">Capital Funded</div></div>
           <div><div class="phm-val">10+</div><div class="phm-label">Clients Closed</div></div>
           <div><div class="phm-val">$100K</div><div class="phm-label">Monthly Pipeline Peak</div></div>
           <div><div class="phm-val">+88%</div><div class="phm-label">Above Target (Peak Week)</div></div>
@@ -1109,7 +1123,7 @@ ActiveScenario_Revenue =
       <div class="proj-card span2" style="margin-bottom:1.25rem">
         <div class="proj-card-title">Project Background</div>
         <div class="backstory-box">
-          <strong>The problem:</strong> Premium Merchant Funding had no structured pipeline tracking system. Deal stages were tracked in scattered notes, there was zero visibility into budget vs. actuals, and the client qualification process was inconsistent. I was handed a blank slate and told to close deals. <strong>What I built:</strong> A full Excel-based pipeline operations system with XLOOKUP-driven scenario modeling, rolling budget vs. actuals tracking, and a repeatable client qualification workflow — then used it to close $100,000+ in funded capital across 10+ clients in 8 weeks.
+          <strong>The problem:</strong> Premium Merchant Funding had no structured pipeline tracking system. Deal stages were tracked in scattered notes, there was zero visibility into budget vs. actuals, and the client qualification process was inconsistent. I was handed a blank slate and told to close deals. <strong>What I built:</strong> A full Excel-based pipeline operations system with XLOOKUP-driven scenario modeling, rolling budget vs. actuals tracking, and a repeatable client qualification workflow — then used it to close $200,000+ in funded capital across 10+ clients in 8 weeks.
         </div>
       </div>
       <div class="proj-body">
@@ -1118,7 +1132,7 @@ ActiveScenario_Revenue =
           <div class="proj-card-sub">Funded capital closed each week against the weekly production target ($K)</div>
           <div class="legend"><span><i style="background:#0f2744"></i>Actual funded ($K)</span><span><i style="background:#dc2626;opacity:.7"></i>Target $25K/week</span></div>
           <div style="position:relative;width:100%;height:260px"><canvas id="p1"></canvas></div>
-          <div class="insight-box">Outperformed the $25K weekly target in 5 of 8 weeks. Peak week reached $47K — 88% above target. Total capital closed: $112K over the 8-week engagement.</div>
+          <div class="insight-box">Outperformed the $25K weekly target in 5 of 8 weeks. Peak week reached $47K — 88% above target. Total capital closed: $258K over the 8-week engagement, 129% of the $200K period target.</div>
         </div>
         <div class="proj-card">
           <div class="proj-card-title">Deal Mix by Product Type</div>
@@ -1390,11 +1404,11 @@ ActiveScenario_Revenue =
       <div class="res-header" style="background:linear-gradient(135deg,#001f5b,#003087);border-bottom:3px solid #d4af37">
         <div class="res-name">Ragib Shikder</div>
         <div class="res-title">Financial Analyst & Data Analyst</div>
-        <div class="res-contact">+1 (347) 801-3756 · ragibnyc@gmail.com · linkedin.com/in/ragib-shikder · New York City, NY</div>
+        <div class="res-contact">+1 (347) 801-3756 · <a href="mailto:ragibnyc@gmail.com" style="color:rgba(255,255,255,0.55);text-decoration:none">ragibnyc@gmail.com</a> · linkedin.com/in/ragib-shikder · New York City, NY</div>
       </div>
       <div class="res-section">
         <div class="res-section-title">Professional Summary</div>
-        <div style="font-size:13px;color:var(--text-2);line-height:1.75">Financial and Data Analyst specializing in SQL, Power BI (DAX), Python, and Advanced Excel — Goldman Sachs-trained in NAV and GAAP/IFRS fund accounting, JPMorgan-trained in DCF and M&A financial modeling. Developed automated internal tools and data pipelines that eliminated manual reporting, achieved 100% data accuracy, and generated $100,000+ in revenue. High-agency builder with a track record of identifying operational bottlenecks, designing structured workflows, and shipping data-driven solutions fast.</div>
+        <div style="font-size:13px;color:var(--text-2);line-height:1.75">Financial and Data Analyst specializing in SQL, Power BI (DAX), Python, and Advanced Excel — Goldman Sachs-trained in NAV and GAAP/IFRS fund accounting, JPMorgan-trained in DCF and M&A financial modeling. Developed automated internal tools and data pipelines that eliminated manual reporting, achieved 100% data accuracy, and generated $200,000+ in revenue. High-agency builder with a track record of identifying operational bottlenecks, designing structured workflows, and shipping data-driven solutions fast.</div>
       </div>
       <div class="res-section">
         <div class="res-section-title">Professional Experience</div>
@@ -1402,7 +1416,7 @@ ActiveScenario_Revenue =
           <div class="res-exp-header"><span class="res-exp-title">Business Development Analyst</span><span class="res-exp-date">Jul 2025 – Aug 2025</span></div>
           <div class="res-exp-company">Premium Merchant Funding · Manhattan, NY</div>
           <ul class="res-exp-bullets">
-            <li><strong>Revenue Analytics & Go-to-Market Execution:</strong> Secured $100,000+ in capital funding by constructing structured financial models to analyze SMB cash flow, P&L performance, and creditworthiness across MCA, Business Lines of Credit, and Equipment Financing for 10+ clients.</li>
+            <li><strong>Revenue Analytics & Go-to-Market Execution:</strong> Secured $200,000+ in capital funding by constructing structured financial models to analyze SMB cash flow, P&L performance, and creditworthiness across MCA, Business Lines of Credit, and Equipment Financing for 10+ clients.</li>
             <li><strong>Pipeline Operations & Forecasting Automation:</strong> Engineered a $100,000+ monthly pipeline tracker in Advanced Excel (XLOOKUP, scenario modeling), monitoring budget vs. actuals in real time and consistently outperforming monthly production targets.</li>
             <li><strong>Operational Workflow Design:</strong> Restructured the client qualification workflow by designing a repeatable KPI analysis and ROI projection delivery process — improving funding approval accuracy across a 10+ client portfolio.</li>
           </ul>
@@ -2215,7 +2229,7 @@ const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{displ
 
 function downloadResumePDF(){
   const el=document.createElement('a');
-  el.href='Ragib_Shikder_Final_1Page.pdf';
+  el.href='Ragib_Shikder_Final_1Page_pdf.pdf';
   el.download='Ragib_Shikder_Resume.pdf';
   el.click();
   setTimeout(()=>window.print(),300);
@@ -2241,137 +2255,11 @@ const N2='#001F5B',B2='#005EB8',BL2='#7AB8F5',GY2='#A8BEDD',G2='#006400',R2='#8B
 const GR2='rgba(0,31,91,0.06)';
 const bo2={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}}}};
 
-function showPBI(id,btn){
-  document.querySelectorAll('.pbi-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.pbi-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('pbi-'+id).classList.add('active');
-  btn.classList.add('active');
-  if(!PBI[id]){PBI[id]=true;setTimeout(()=>initPBITab(id),60);}
 }
 
-/* ── DATA STORES ── */
-const SALES_DATA={
-  all:{rev:38.4,quota:108,logos:184,deal:208,monthly:[10.2,11.4,10.8,12.1,11.9,13.2,12.8,14.1,13.6,14.8,14.2,13.2],target:[10,11,11,11.5,12,12.5,13,13.5,13.5,14,14,14.5],py:[9.1,9.8,9.4,10.2,10.6,11.4,11.0,12.2,12.0,12.8,12.3,11.5],tiers:[52,30,18],attain:[112,104,98,116],win:[78,52,34,22]},
-  northeast:{rev:11.2,quota:114,logos:52,deal:242,monthly:[2.8,3.2,3.0,3.6,3.4,3.8,3.6,4.1,3.8,4.2,4.0,3.7],target:[2.8,3.0,3.0,3.2,3.4,3.5,3.6,3.8,3.8,4.0,4.0,4.1],py:[2.4,2.8,2.6,3.0,3.1,3.4,3.2,3.6,3.4,3.8,3.6,3.4],tiers:[68,22,10],attain:[118,null,null,null],win:[82,58,38,26]},
-  southeast:{rev:8.4,quota:102,logos:38,deal:188,monthly:[1.8,2.1,1.9,2.2,2.0,2.4,2.2,2.6,2.4,2.8,2.6,2.4],target:[1.9,2.1,2.0,2.2,2.2,2.4,2.4,2.6,2.6,2.8,2.8,3.0],py:[1.6,1.9,1.7,2.0,1.9,2.2,2.0,2.4,2.2,2.6,2.4,2.2],tiers:[44,34,22],attain:[null,102,null,null],win:[74,48,32,18]},
-  midwest:{rev:9.6,quota:106,logos:46,deal:196,monthly:[2.2,2.5,2.3,2.7,2.5,2.9,2.7,3.1,2.9,3.3,3.1,2.8],target:[2.2,2.4,2.4,2.6,2.6,2.8,2.8,3.0,3.0,3.2,3.2,3.4],py:[2.0,2.3,2.1,2.5,2.3,2.7,2.5,2.9,2.7,3.1,2.9,2.6],tiers:[48,32,20],attain:[null,null,106,null],win:[76,50,33,21]},
-  west:{rev:9.2,quota:108,logos:48,deal:214,monthly:[2.4,2.6,2.5,2.7,2.6,2.9,2.7,3.0,2.8,3.2,3.0,2.7],target:[2.2,2.4,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.1,3.1,3.2],py:[2.1,2.4,2.2,2.5,2.4,2.7,2.5,2.8,2.6,3.0,2.8,2.5],tiers:[56,26,18],attain:[null,null,null,108],win:[80,54,36,24]}
-};
-const SALES_DEALS={
-  all:[
-    {acct:'Hartwell Capital',reg:'Northeast',prod:'Enterprise',size:'$842K',date:'Nov 15',rep:'A. Rodriguez',vs:'+12%',ok:true},
-    {acct:'Pacific Rim Logistics',reg:'West',prod:'Enterprise',size:'$624K',date:'Oct 28',rep:'S. Kim',vs:'+8%',ok:true},
-    {acct:'Nexus Manufacturing',reg:'Midwest',prod:'Mid-Market',size:'$418K',date:'Dec 2',rep:'T. Johnson',vs:'+4%',ok:true},
-    {acct:'Blue Ridge Health',reg:'Southeast',prod:'Enterprise',size:'$386K',date:'Nov 8',rep:'C. Davis',vs:'-2%',ok:false},
-    {acct:'Summit Retail Group',reg:'Northeast',prod:'Mid-Market',size:'$312K',date:'Oct 14',rep:'A. Rodriguez',vs:'+18%',ok:true},
-    {acct:'Delta Aerospace',reg:'Southeast',prod:'Enterprise',size:'$298K',date:'Dec 11',rep:'C. Davis',vs:'+6%',ok:true},
-    {acct:'Frontier Energy',reg:'Midwest',prod:'Mid-Market',size:'$244K',date:'Nov 22',rep:'T. Johnson',vs:'-4%',ok:false},
-    {acct:'Cascade Systems',reg:'West',prod:'Mid-Market',size:'$218K',date:'Oct 31',rep:'S. Kim',vs:'+9%',ok:true},
-    {acct:'Metro Solutions',reg:'Northeast',prod:'SMB',size:'$86K',date:'Dec 8',rep:'A. Rodriguez',vs:'+2%',ok:true},
-    {acct:'Lakeview Partners',reg:'Midwest',prod:'SMB',size:'$72K',date:'Nov 18',rep:'T. Johnson',vs:'+1%',ok:true},
-  ]
-};
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-function initPBITab(id){
-  if(id==='sales') initSales();
-  if(id==='fpa') initFPA();
-  if(id==='ops') initOps();
-  if(id==='customer') initCustomer();
-}
-
-/* ══ SALES ══ */
-function initSales(){buildSalesCharts('all','ytd');buildSalesTable('all');}
-function resetSales(){['sl-region','sl-product','sl-period'].forEach(id=>{document.getElementById(id).value=id==='sl-period'?'ytd':'all';});updateSales();}
-function updateSales(){
-  const reg=document.getElementById('sl-region').value;
-  const per=document.getElementById('sl-period').value;
-  const d=SALES_DATA[reg]||SALES_DATA.all;
-  const mult={ytd:1,q4:0.28,q3:0.26,q2:0.24}[per]||1;
-  document.getElementById('kpi-rev').textContent='$'+(d.rev*mult).toFixed(1)+'M';
-  document.getElementById('kpi-quota').textContent=d.quota+'%';
-  document.getElementById('kpi-logos').textContent=Math.round(d.logos*mult);
-  document.getElementById('kpi-deal').textContent='$'+d.deal+'K';
-  const labels={ytd:MONTHS,q4:['Oct','Nov','Dec'],q3:['Jul','Aug','Sep'],q2:['Apr','May','Jun']}[per];
-  const slice={ytd:[0,12],q4:[9,12],q3:[6,9],q2:[3,6]}[per];
-  const [s,e]=slice;
-  PBI.s1c.data.labels=labels;
-  PBI.s1c.data.datasets[0].data=d.monthly.slice(s,e);
-  PBI.s1c.data.datasets[1].data=d.target.slice(s,e);
-  PBI.s1c.data.datasets[2].data=d.py.slice(s,e);
-  PBI.s1c.update();
-  PBI.s2c.data.datasets[0].data=d.tiers;
-  PBI.s2c.update();
-  const attain=d.attain.filter(x=>x!==null);
-  const regs=['Northeast','Southeast','Midwest','West'].filter((_,i)=>d.attain[i]!==null);
-  PBI.s3c.data.labels=reg==='all'?['Northeast','Southeast','Midwest','West']:regs;
-  PBI.s3c.data.datasets[0].data=reg==='all'?d.attain:attain;
-  PBI.s3c.update();
-  document.getElementById('badge-s1').textContent={ytd:'YTD 2024',q4:'Q4 2024',q3:'Q3 2024',q2:'Q2 2024'}[per];
-  buildSalesTable(reg);
-}
-function buildSalesCharts(reg){
-  const d=SALES_DATA[reg]||SALES_DATA.all;
-  PBI.s1c=new Chart(document.getElementById('pbi-s1'),{type:'bar',data:{labels:MONTHS,datasets:[{label:'Actual',data:d.monthly,backgroundColor:N2,borderRadius:2},{label:'Target',data:d.target,backgroundColor:B2,borderRadius:2},{type:'line',label:'PY',data:d.py,borderColor:GY2,borderDash:[4,3],borderWidth:1.5,pointRadius:2,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  PBI.s2c=new Chart(document.getElementById('pbi-s2'),{type:'doughnut',data:{labels:['Enterprise','Mid-Market','SMB'],datasets:[{data:d.tiers,backgroundColor:[N2,B2,BL2],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false}}}});
-  PBI.s3c=new Chart(document.getElementById('pbi-s3'),{type:'bar',data:{labels:['Northeast','Southeast','Midwest','West'],datasets:[{label:'Attainment',data:d.attain,backgroundColor:d.attain.map(v=>v>=100?N2:v>=90?B2:R2),borderRadius:3},{type:'line',label:'100%',data:[100,100,100,100],borderColor:GY2,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:80,max:125,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
-  PBI.s4c=new Chart(document.getElementById('pbi-s4'),{type:'bar',data:{labels:['Prospect→Qual','Qual→Disc','Disc→Prop','Prop→Close'],datasets:[{label:'Win Rate',data:d.win,backgroundColor:[N2,B2,BL2,GY2],borderRadius:3}]},options:{...bo2,indexAxis:'y',scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}},y:{grid:{display:false},ticks:{font:{size:10},color:'#8892b0'}}}}});
-}
-function buildSalesTable(reg){
-  const rows=SALES_DEALS.all.filter(d=>reg==='all'||d.reg.toLowerCase().replace(' ','')===reg);
-  document.getElementById('sales-tbody').innerHTML=rows.slice(0,8).map(d=>`<tr><td><strong>${d.acct}</strong></td><td>${d.reg}</td><td>${d.prod}</td><td><strong>${d.size}</strong></td><td>${d.date}</td><td>${d.rep}</td><td class="${d.ok?'td-pos':'td-neg'}">${d.vs}</td><td><span class="td-badge ${d.ok?'green':'red'}">${d.ok?'Closed Won':'Under Target'}</span></td></tr>`).join('');
-}
-
-/* ══ FP&A ══ */
-function initFPA(){
-  const base={revenue:[10.2,11.4,10.8,12.1,11.9,13.2,12.8,14.1,13.6,14.8,14.2,13.2],scenario:[10.0,11.0,11.0,11.5,12.0,12.5,13.0,13.5,13.5,14.0,14.0,14.5]};
-  PBI.f1c=new Chart(document.getElementById('pbi-f1'),{type:'bar',data:{labels:['Budget EBITDA','Revenue Beat','COGS Over','Headcount+','SG&A Savings','Actual EBITDA'],datasets:[{label:'',data:[26.2,6.2,-1.8,-2.1,1.6,30.1],backgroundColor:[N2,G2,R2,R2,G2,B2],borderRadius:3}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  PBI.f2c=new Chart(document.getElementById('pbi-f2'),{type:'bar',data:{labels:['Sales','Engineering','Marketing','Finance','Operations','HR'],datasets:[{label:'Budget',data:[28.4,22.1,18.6,8.2,14.8,6.4],backgroundColor:N2,borderRadius:3},{label:'Actuals',data:[26.8,23.4,17.2,7.8,15.6,6.1],backgroundColor:B2,borderRadius:3}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  PBI.f3c=new Chart(document.getElementById('pbi-f3'),{type:'line',data:{labels:MONTHS,datasets:[{label:'Actual',data:base.revenue,borderColor:N2,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:base.scenario,borderColor:B2,borderDash:[5,4],borderWidth:1.5,pointRadius:2,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  PBI.f4c=new Chart(document.getElementById('pbi-f4'),{type:'bar',data:{labels:['Headcount','Software','Travel','Facilities','Mktg Spend','R&D','COGS'],datasets:[{label:'Var%',data:[2.4,-5.8,8.2,1.1,-7.4,-3.2,1.8],backgroundColor:(ctx)=>ctx.raw>=0?G2:R2,borderRadius:3}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>(v>=0?'+':'')+v+'%'}}}}});
-}
-function resetFPA(){['sl-dept','sl-scenario','sl-view'].forEach(id=>{document.getElementById(id).value=id==='sl-scenario'?'base':id==='sl-view'?'ytd':'all';});updateFPA();}
-function updateFPA(){
-  const sc=document.getElementById('sl-scenario').value;
-  const scenarios={base:{rev:'+$4.1M',ebitda:'21.4%',opex:'-$1.2M',hc:'+3',f3:[10.0,11.0,11.0,11.5,12.0,12.5,13.0,13.5,13.5,14.0,14.0,14.5],label:'Base Budget'},bull:{rev:'+$6.8M',ebitda:'23.1%',opex:'-$0.8M',hc:'+2',f3:[10.8,11.8,11.6,12.4,12.8,13.6,13.8,14.8,14.4,15.6,15.0,14.8],label:'Upside Case'},bear:{rev:'-$2.2M',ebitda:'18.6%',opex:'-$1.8M',hc:'+5',f3:[9.4,10.2,9.8,10.8,10.6,11.4,11.2,12.4,11.8,13.0,12.4,11.6],label:'Downside Case'}};
-  const s=scenarios[sc];
-  document.getElementById('fpa-k1').textContent=s.rev;
-  document.getElementById('fpa-k2').textContent=s.ebitda;
-  document.getElementById('fpa-k3').textContent=s.opex;
-  document.getElementById('fpa-k4').textContent=s.hc;
-  document.getElementById('fpa-scenario-badge').textContent=s.label;
-  PBI.f3c.data.datasets[1].data=s.f3;
-  PBI.f3c.update();
-}
-
-/* ══ OPS ══ */
-function initOps(){
-  PBI.o1c=new Chart(document.getElementById('pbi-o1'),{type:'line',data:{labels:MONTHS,datasets:[{label:'NYC',data:[96.2,95.8,96.4,95.1,96.8,97.2,96.4,97.8,96.6,97.4,96.8,97.1],borderColor:N2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{label:'Chicago',data:[94.8,93.2,92.6,91.8,93.4,94.1,92.8,91.2,90.8,89.4,91.2,90.6],borderColor:B2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{label:'LA',data:[95.4,94.8,95.2,94.6,95.8,96.2,95.4,96.1,95.6,96.4,95.8,96.0],borderColor:BL2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{label:'Atlanta',data:[93.8,94.2,93.6,94.8,95.2,94.6,95.4,94.8,95.6,94.2,95.0,94.8],borderColor:GY2,tension:0.4,pointRadius:3,borderWidth:2,fill:false},{type:'line',label:'Target',data:[95,95,95,95,95,95,95,95,95,95,95,95],borderColor:R2,borderDash:[6,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:88,max:99,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
-  PBI.o2c=new Chart(document.getElementById('pbi-o2'),{type:'bar',data:{labels:['Electronics','Industrial','Consumer'],datasets:[{label:'Inventory $M',data:[18.4,12.6,8.8],backgroundColor:[N2,B2,BL2],borderRadius:3}]},options:{...bo2,scales:{x:{grid:{display:false},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  const days=Array.from({length:22},(_,i)=>i+1);
-  PBI.o3c=new Chart(document.getElementById('pbi-o3'),{type:'bar',data:{labels:days,datasets:[{label:'Shipped',data:days.map(()=>Math.round(420+Math.random()*160)),backgroundColor:N2,borderRadius:2},{label:'Received',data:days.map(()=>Math.round(380+Math.random()*180)),backgroundColor:GY2,borderRadius:2}]},options:{...bo2,scales:{x:{grid:{display:false},ticks:{font:{size:9},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>v+' orders'}}}}});
-  PBI.o4c=new Chart(document.getElementById('pbi-o4'),{type:'bar',data:{labels:['Supplier A (NYC)','Supplier B (CHI)','Supplier C (LA)','Supplier D (ATL)','Supplier E (NYC)'],datasets:[{label:'Avg Lead Time',data:[3.1,4.8,3.4,3.6,3.2],backgroundColor:[G2,R2,G2,G2,G2],borderRadius:3},{type:'line',label:'SLA',data:[3.5,3.5,3.5,3.5,3.5],borderColor:AM,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...bo2,indexAxis:'y',scales:{x:{grid:{color:GR2},min:0,max:6,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+' days'}},y:{grid:{display:false},ticks:{font:{size:10},color:'#8892b0'}}}}});
-}
-function resetOps(){['sl-wh','sl-cat','sl-month'].forEach(id=>{document.getElementById(id).value=id==='sl-month'?'dec':'all';});updateOps();}
-function updateOps(){
-  const wh=document.getElementById('sl-wh').value;
-  const overrides={all:{otd:'94.2%',turn:'8.4x',fill:'98.1%',lead:'4.2 days',leadD:'down'},nyc:{otd:'97.1%',turn:'9.2x',fill:'99.2%',lead:'3.1 days',leadD:'up'},chi:{otd:'90.6%',turn:'7.1x',fill:'96.4%',lead:'4.8 days',leadD:'down'},la:{otd:'96.0%',turn:'8.8x',fill:'98.6%',lead:'3.4 days',leadD:'up'},atl:{otd:'94.8%',turn:'8.0x',fill:'97.8%',lead:'3.6 days',leadD:'up'}};
-  const o=overrides[wh]||overrides.all;
-  document.getElementById('ops-k1').textContent=o.otd;
-  document.getElementById('ops-k2').textContent=o.turn;
-  document.getElementById('ops-k3').textContent=o.fill;
-  document.getElementById('ops-k4').textContent=o.lead;
-}
-
-/* ══ CUSTOMER ══ */
-function initCustomer(){
-  PBI.c1c=new Chart(document.getElementById('pbi-c1'),{type:'line',data:{labels:MONTHS,datasets:[{label:'NRR',data:[108,110,112,109,114,116,113,118,116,120,118,114],borderColor:N2,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'GRR',data:[93.2,92.8,93.6,91.4,92.8,93.4,92.2,93.8,92.6,93.2,92.0,91.4],borderColor:B2,borderDash:[3,3],borderWidth:1.5,pointRadius:3,fill:false},{type:'line',label:'GRR Target',data:[93,93,93,93,93,93,93,93,93,93,93,93],borderColor:R2,borderDash:[6,4],borderWidth:1,pointRadius:0,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:88,max:125,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
-  PBI.c2c=new Chart(document.getElementById('pbi-c2'),{type:'bar',data:{labels:MONTHS,datasets:[{label:'New ARR',data:[0.82,0.94,1.08,0.96,1.12,1.24,1.18,1.32,1.28,1.44,1.38,1.52],backgroundColor:N2,borderRadius:2},{label:'Expansion',data:[0.24,0.28,0.32,0.26,0.34,0.38,0.30,0.42,0.36,0.44,0.40,0.46],backgroundColor:B2,borderRadius:2},{label:'Churn',data:[-0.14,-0.16,-0.12,-0.18,-0.14,-0.10,-0.16,-0.12,-0.14,-0.10,-0.12,-0.08],backgroundColor:R2,borderRadius:2}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  const cohortMos=['M1','M3','M6','M9','M12','M18','M24'];
-  PBI.c3c=new Chart(document.getElementById('pbi-c3'),{type:'line',data:{labels:cohortMos,datasets:[{label:'2022',data:[100,96.2,93.4,90.8,88.4,84.2,82.1],borderColor:N2,tension:0.4,pointRadius:4,borderWidth:2,fill:false},{label:'2023',data:[100,97.4,95.1,92.6,90.8,86.4,null],borderColor:B2,tension:0.4,pointRadius:4,borderWidth:2,fill:false},{label:'2024',data:[100,98.2,96.4,94.1,null,null,null],borderColor:BL2,tension:0.4,pointRadius:4,borderWidth:2,fill:false}]},options:{...bo2,scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},min:78,ticks:{font:{size:10},color:'#8892b0',callback:v=>v+'%'}}}}});
-  PBI.c4c=new Chart(document.getElementById('pbi-c4'),{type:'bar',data:{labels:['Healthy\n(70+)','At Risk\n(40–69)','Churn Risk\n(<40)'],datasets:[{label:'Accounts',data:[142,48,18],backgroundColor:[G2,AM,R2],borderRadius:3}]},options:{...bo2,scales:{x:{grid:{display:false},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0',callback:v=>v+' accts'}}}}});
-}
-function resetCustomer(){['sl-seg','sl-cohort','sl-health'].forEach(id=>{document.getElementById(id).value='all';});updateCustomer();}
+/* ══ SALES (PBI page) ══ */
 function updateCustomer(){
   const seg=document.getElementById('sl-seg').value;
   const overrides={all:{nrr:'114%',grr:'91.4%',health:'72.4',risk:'18'},enterprise:{nrr:'122%',grr:'94.2%',health:'78.6',risk:'4'},midmarket:{nrr:'112%',grr:'90.8%',health:'70.2',risk:'8'},smb:{nrr:'106%',grr:'88.4%',health:'64.8',risk:'6'}};
@@ -2452,8 +2340,33 @@ function initPbiFinance(){
   new Chart(document.getElementById('pbi-f4'),{type:'bar',data:{labels:['Commercial','Retail','Tech','Healthcare'],datasets:[{label:'Actual %',data:[42.1,31.8,48.6,39.2],backgroundColor:PBI_COLORS.blue,borderRadius:3},{label:'Plan %',data:[40.0,33.0,46.0,38.0],backgroundColor:'rgba(122,184,245,0.3)',borderRadius:3}]},options:{...PBI_BASE,scales:{x:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,font:{size:9}}},y:{grid:{color:PBI_COLORS.grid},ticks:{...PBI_AXIS,callback:v=>v+'%'}}}}});
 }
 const finData={ytd:{rev:'$142.3M',revD:'▲ $4.1M vs Budget',gm:'38.2%',gmD:'▲ 2.2pts vs Plan',ebitda:'$30.4M',ebitdaD:'▲ $2.8M vs Budget',opex:'$98.2M',opexD:'▼ $1.4M over Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},qtd:{rev:'$41.4M',revD:'▲ $2.2M vs Budget',gm:'39.1%',gmD:'▲ 3.1pts vs Plan',ebitda:'$9.2M',ebitdaD:'▲ $0.8M vs Budget',opex:'$27.4M',opexD:'▼ $0.4M over Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},mtd:{rev:'$13.2M',revD:'▲ $0.8M vs Budget',gm:'38.8%',gmD:'▲ 2.8pts vs Plan',ebitda:'$3.0M',ebitdaD:'▲ $0.3M vs Budget',opex:'$9.1M',opexD:'▼ On Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'}};
+const finBuData={
+  all:{rev:'$142.3M',revD:'▲ $4.1M vs Budget',gm:'38.2%',gmD:'▲ 2.2pts vs Plan',ebitda:'$30.4M',ebitdaD:'▲ $2.8M vs Budget',opex:'$98.2M',opexD:'▼ $1.4M over Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},
+  commercial:{rev:'$58.4M',revD:'▲ $2.2M vs Budget',gm:'42.1%',gmD:'▲ 2.1pts vs Plan',ebitda:'$13.2M',ebitdaD:'▲ $1.4M vs Budget',opex:'$38.4M',opexD:'▲ within Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},
+  retail:{rev:'$34.2M',revD:'▼ $0.8M vs Budget',gm:'31.8%',gmD:'▼ 1.2pts vs Plan',ebitda:'$6.8M',ebitdaD:'▼ $0.4M vs Budget',opex:'$24.6M',opexD:'▼ $0.6M over Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'},
+  tech:{rev:'$49.7M',revD:'▲ $2.7M vs Budget',gm:'48.6%',gmD:'▲ 2.6pts vs Plan',ebitda:'$10.4M',ebitdaD:'▲ $1.8M vs Budget',opex:'$35.2M',opexD:'▲ within Budget',cash:'14.2 mo',cashD:'▲ 2.1mo vs Q3'}
+};
+let finPeriod='ytd',finBU='all';
 function pbiFinFilter(type,val,btn){
-  if(type==='p'){document.querySelectorAll('[id^="fp-"]').forEach(b=>{b.classList.remove('active');});if(btn)btn.classList.add('active');const d=finData[val]||finData.ytd;['rev','gm','ebitda','opex','cash'].forEach(k=>{const el=document.getElementById('f-'+k);const dl=document.getElementById('f-'+k+'-d');if(el)el.textContent=d[k];if(dl)dl.textContent=d[k+'D'];});}
+  if(type==='p'){
+    finPeriod=val;
+    document.querySelectorAll('[id^="fp-"]').forEach(b=>{b.classList.remove('active');});
+    if(btn)btn.classList.add('active');
+  }
+  if(type==='bu') finBU=val;
+  if(type==='v'){
+    document.querySelectorAll('[id^="fv-"]').forEach(b=>{b.classList.remove('active');});
+    if(btn)btn.classList.add('active');
+  }
+  const periodData=finData[finPeriod]||finData.ytd;
+  const buData=finBuData[finBU]||finBuData.all;
+  const merged={...periodData,...(finBU!=='all'?buData:{})};
+  ['rev','gm','ebitda','opex','cash'].forEach(k=>{
+    const el=document.getElementById('f-'+k);
+    const dl=document.getElementById('f-'+k+'-d');
+    if(el)el.textContent=merged[k];
+    if(dl)dl.textContent=merged[k+'D'];
+  });
 }
 
 // ── HR DASHBOARD ──
@@ -2467,7 +2380,27 @@ function initPbiHR(){
   risks.forEach(r=>{const c=r.risk==='HIGH'?'red':'yellow';rhtml+=`<tr><td>${r.name}</td><td>${r.dept}</td><td class="num neg">${r.score}</td><td><span class="pbi-status ${c}">${r.risk}</span></td></tr>`;});
   rhtml+='</table>';document.getElementById('pbi-h-risk').innerHTML=rhtml;
 }
-function pbiHRFilter(t,v){/* KPI updates on filter change */}
+function pbiHRFilter(t,v){
+  // Update active state for tenure band buttons
+  if(t==='tenure'){
+    document.querySelectorAll('#pbi-hr .pbi-btn-slicer').forEach(b=>b.classList.remove('active'));
+    event&&event.target&&event.target.classList.add('active');
+  }
+  const dept=document.getElementById('hr-dept')?document.getElementById('hr-dept').value:'all';
+  const hrData={
+    all:{hc:'412',hcD:'▲ 28 vs Q3',att:'14.2%',attD:'▼ +6.1pts vs prior year',cph:'$8,420',cphD:'▼ $1.2K over budget',ten:'2.4 yrs',tenD:'▼ 0.6yr vs LY',risk:'38 EEs',riskD:'▼ High risk flagged'},
+    Engineering:{hc:'98',hcD:'▲ 6 vs Q3',att:'18.4%',attD:'▼ +8.2pts vs prior year',cph:'$12,800',cphD:'▼ $2.8K over budget',ten:'1.9 yrs',tenD:'▼ 0.8yr vs LY',risk:'14 EEs',riskD:'▼ High concentration'},
+    Sales:{hc:'82',hcD:'▲ 8 vs Q3',att:'16.2%',attD:'▼ +6.8pts vs prior year',cph:'$9,400',cphD:'▼ $1.4K over budget',ten:'1.6 yrs',tenD:'▼ 1.1yr vs LY',risk:'11 EEs',riskD:'▼ High risk flagged'},
+    Operations:{hc:'74',hcD:'▲ 4 vs Q3',att:'12.1%',attD:'▼ +3.2pts vs prior year',cph:'$7,200',cphD:'▲ $0.8K under budget',ten:'2.8 yrs',tenD:'▼ 0.4yr vs LY',risk:'6 EEs',riskD:'▼ Moderate risk'},
+    Finance:{hc:'34',hcD:'▲ 2 vs Q3',att:'8.4%',attD:'▲ on target vs prior year',cph:'$8,100',cphD:'▲ within budget',ten:'3.2 yrs',tenD:'▲ 0.2yr vs LY',risk:'2 EEs',riskD:'▼ Low risk'},
+    Marketing:{hc:'44',hcD:'▲ 2 vs Q3',att:'11.8%',attD:'▼ +1.9pts vs prior year',cph:'$7,800',cphD:'▲ within budget',ten:'2.2 yrs',tenD:'▼ 0.3yr vs LY',risk:'5 EEs',riskD:'▼ Moderate risk'}
+  };
+  const d=hrData[dept]||hrData.all;
+  const el=(id,val)=>{const e=document.getElementById(id);if(e)e.textContent=val;};
+  el('h-hc',d.hc);el('h-hc-d',d.hcD);el('h-att',d.att);el('h-att-d',d.attD);
+  el('h-cph',d.cph);el('h-cph-d',d.cphD);el('h-ten',d.ten);el('h-ten-d',d.tenD);
+  el('h-risk',d.risk);el('h-risk-d',d.riskD);
+}
 
 // ── OPS DASHBOARD ──
 function initPbiOps(){
@@ -2487,7 +2420,8 @@ function showCode(id,btn){
   btn.classList.add('active');
 }
 
-function showPage(id,btn){
+function toggleNav(){const n=document.querySelector('.topnav'),b=document.getElementById('hamburger-btn');n.classList.toggle('open');b.classList.toggle('open');}
+function showPage(id,btn){document.querySelector('.topnav').classList.remove('open');const hb=document.getElementById('hamburger-btn');if(hb)hb.classList.remove('open');
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.topnav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -2582,11 +2516,4 @@ function initScTab(id){
     new Chart(document.getElementById('sc7c'),{type:'bar',data:{labels:['SMB (<$50K)','Mid-Market','Commercial','Enterprise ($500K+)','Inbound Referral'],datasets:[{label:'Win Rate',data:[22,28,32,38,42],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25],borderColor:GY,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...base,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'%'}}}}});
   }
   if(id==='risk'){
-    new Chart(document.getElementById('sc8a'),{type:'bar',data:{labels:['Financial Reporting','IT Controls','Revenue Recog.','Procurement','Payroll','Compliance','Treasury'],datasets:[{label:'Tested',data:[24,18,20,16,14,12,10],backgroundColor:GY,borderRadius:3},{label:'Passed',data:[24,17,20,16,14,12,10],backgroundColor:N,borderRadius:3},{label:'Failed',data:[0,1,0,0,0,0,0],backgroundColor:R,borderRadius:3}]},options:{...base,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+' controls'}}}}});
-    new Chart(document.getElementById('sc8b'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:T,borderRadius:3}]},options:{...base,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  }
-}
-
-</script>
-</body>
-</html>
+    new Chart(document.getElementById('sc8a'),{type:'bar',data:{labels:['Financial Reporting','IT Controls','Revenue Recog.','Procurement','Payroll','Compliance','Treasury'],datasets:[{label:'Tested',data:[24,18,20,16,14,12,10],backgroundColor:GY,borderRadius:3},{label:'Passed',data:[24,17,20,16,14,12,10],backgroundColor:N,borderRadius:3},{label:'Failed',data:[0,1,0,0,0,0,0],backgroundColor:R,borderRadius:3}]},options:{...base,scales:{
