@@ -8,33 +8,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* Chase / JPMorgan Chase official brand palette */
-  --navy:#001F5B;        /* Chase deep navy */
-  --navy-mid:#003087;    /* Chase primary navy */
-  --blue:#005EB8;        /* Chase signature blue */
-  --blue-light:#0078D4;  /* Chase hover blue */
-  --blue-pale:#E8F0FA;   /* Chase light blue tint */
-  --chase-mid:#1A4BAF;   /* Mid-tone blue */
-  --green:#006400;
-  --red:#8B0000;
-  --amber:#7A5C00;
-  --text:#001F5B;
-  --text-2:#1a2a4a;
-  --text-3:#5a6a8a;
-  --bg:#F6F8FC;          /* Chase off-white with slight blue tint */
-  --bg-2:#EBF0FA;        /* Chase light surface */
-  --bg-3:#D6E0F5;
-  --white:#ffffff;
-  --border:#C8D6F0;
-  --border-2:#A8BEDD;
+  --navy:#001F5B; --navy-mid:#003087; --blue:#005EB8; --blue-light:#0078D4; --blue-pale:#E8F0FA;
+  --chase-mid:#1A4BAF; --green:#006400; --excel-green:#107c41; --excel-light:#18a558;
+  --red:#8B0000; --amber:#7A5C00; --text:#001F5B; --text-2:#1a2a4a; --text-3:#5a6a8a;
+  --bg:#F6F8FC; --bg-2:#EBF0FA; --bg-3:#D6E0F5; --white:#ffffff; --border:#C8D6F0; --border-2:#A8BEDD;
   --shadow:0 1px 3px rgba(0,31,91,0.09),0 1px 2px rgba(0,31,91,0.05);
   --shadow-md:0 4px 8px rgba(0,31,91,0.08),0 2px 4px rgba(0,31,91,0.05);
   --shadow-lg:0 10px 20px rgba(0,31,91,0.10),0 4px 6px rgba(0,31,91,0.06);
-  --radius:6px;
-  --radius-lg:10px;
-  --radius-xl:14px;
+  --radius:6px; --radius-lg:10px; --radius-xl:14px;
 }
-
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
 
@@ -57,7 +39,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 /* ══ HOME ══ */
 .hero{background:linear-gradient(160deg,#001F5B 0%,#003087 50%,#005EB8 100%);color:#fff;padding:110px 2rem 90px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-/* Animated diagonal lines overlay */
 .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 80px,rgba(255,255,255,0.015) 80px,rgba(255,255,255,0.015) 81px);pointer-events:none}
 .hero-inner{max-width:820px;margin:0 auto;position:relative;animation:fadeUp 0.7s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -73,7 +54,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:44px;animation:fadeUp 0.7s 0.3s ease both}
 .hero-badge{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:100px;padding:5px 14px;font-size:11.5px;color:rgba(255,255,255,0.82);font-weight:600;letter-spacing:0.01em}
 
-/* ══ IMPACT STATS — big, bold, impossible to miss ══ */
+/* ══ IMPACT STATS ══ */
 .impact-stats{background:var(--navy);padding:0 2rem}
 .impact-stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
 .impact-stat{padding:40px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.1);position:relative;overflow:hidden}
@@ -85,7 +66,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .impact-label{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-top:8px;font-weight:600;display:block}
 .impact-sublabel{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;font-size:11px}
 
-/* ══ UPGRADED PROJECT CARDS ══ */
+/* ══ PROJECT CARDS ══ */
 .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
 .project-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden}
 .project-card:hover{box-shadow:0 12px 32px rgba(0,31,91,0.14);transform:translateY(-4px);border-color:var(--blue)}
@@ -123,11 +104,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .code-dot{width:12px;height:12px;border-radius:50%}
 .code-body{padding:1.25rem 1.5rem;overflow-x:auto}
 .code-body pre{font-family:'Courier New',monospace;font-size:13px;line-height:1.7;color:#e2e8f0;margin:0;white-space:pre}
-.kw{color:#7AB8F5}/* keywords */
-.fn{color:#86efac}/* functions */
-.str{color:#fcd34d}/* strings */
-.cm{color:#64748b;font-style:italic}/* comments */
-.num{color:#fb923c}/* numbers */
+.kw{color:#7AB8F5}
+.fn{color:#86efac}
+.str{color:#fcd34d}
+.cm{color:#64748b;font-style:italic}
+.num{color:#fb923c}
 .code-insight{background:rgba(122,184,245,0.08);border-left:3px solid #7AB8F5;border-radius:0 var(--radius) var(--radius) 0;padding:.75rem 1rem;margin-top:1rem;font-size:12.5px;color:rgba(255,255,255,0.7);font-family:system-ui;line-height:1.6}
 .code-insight strong{color:#7AB8F5}
 
@@ -140,18 +121,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .value-day{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin-bottom:8px}
 .value-title{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:6px;letter-spacing:-0.01em}
 .value-desc{font-size:13px;color:var(--text-3);line-height:1.65}
-
-/* ══ SKILLS GRID (home) ══ */
-.skills-home{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.skill-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:box-shadow 0.2s}
-.skill-card:hover{box-shadow:var(--shadow-md)}
-.skill-card-title{font-size:13px;font-weight:800;color:var(--text);margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
-.skill-pill-wrap{display:flex;flex-wrap:wrap;gap:5px}
-.skill-pill{background:var(--navy);color:rgba(255,255,255,0.92);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600}
-.skill-pill.blue{background:var(--blue)}
-.skill-pill.green{background:#004d40}
-.skill-pill.teal{background:#003d5c}
-.skill-pill.amber{background:#5c4000}
 
 /* ══ SECTION WRAPPER ══ */
 .section-wrap{max-width:1100px;margin:0 auto;padding:64px 2rem}
@@ -168,7 +137,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .about-contact-list li{padding:7px 0;font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
 .about-contact-list li:last-child{border-bottom:none}
 .contact-label{font-weight:600;color:var(--text-3);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;min-width:52px}
-.about-main{}
 .about-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
 .about-section-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:0.06em;font-size:11px}
 .about-bio{font-size:14px;line-height:1.8;color:var(--text-2)}
@@ -182,11 +150,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .timeline-company{font-size:13px;color:var(--blue);font-weight:600}
 .timeline-date{font-size:11px;color:var(--text-3);margin-top:2px;font-weight:500}
 .timeline-desc{font-size:13px;color:var(--text-2);margin-top:6px;line-height:1.6}
-.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.cert-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1rem}
-.cert-title{font-size:13px;font-weight:700;color:var(--text)}
-.cert-org{font-size:12px;color:var(--text-3);margin-top:2px}
-.cert-skills{font-size:11px;color:var(--blue);margin-top:5px;font-weight:500}
 
 /* ══ PROJECTS PAGE ══ */
 .project-detail-nav{display:flex;gap:8px;margin-bottom:2rem;flex-wrap:wrap}
@@ -211,16 +174,12 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .backstory-box{background:var(--bg-2);border-left:3px solid var(--navy);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;font-size:13px;line-height:1.75;color:var(--text-2)}
 .backstory-box strong{color:var(--text);font-weight:700}
 .insight-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius);padding:.75rem 1rem;font-size:12.5px;color:#1e40af;margin-top:1rem;line-height:1.6}
-
-/* ══ BAR ROWS ══ */
 .bar-h{display:flex;flex-direction:column;gap:8px;margin-top:8px}
 .bar-h-row{display:flex;align-items:center;gap:8px}
 .bar-h-name{width:80px;font-size:11px;color:var(--text-3);text-align:right;flex-shrink:0}
 .bar-h-track{flex:1;background:var(--bg-2);border-radius:3px;height:20px;overflow:hidden}
 .bar-h-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:8px;font-size:11px;color:#fff;font-weight:600}
 .bar-h-val{width:40px;font-size:12px;font-weight:600;color:var(--text);flex-shrink:0}
-
-/* ══ SCENARIO CARDS ══ */
 .scenario-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
 .sc{border-radius:var(--radius);padding:1rem;text-align:center;border:1px solid}
 .sc.bull{background:#f0fdf4;border-color:#bbf7d0}
@@ -235,11 +194,18 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .sc.base .sc-val{color:#1e3a8a}
 .sc.bear .sc-val{color:#7f1d1d}
 .sc-sub{font-size:11px;margin-top:3px}
-.sc.bull .sc-sub{color:#15803d}
-.sc.base .sc-sub{color:#1d4ed8}
-.sc.bear .sc-sub{color:#b91c1c}
 
-/* ══ SKILLS PAGE ══ */
+/* ══ SKILLS GRID ══ */
+.skills-home{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.skill-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:box-shadow 0.2s}
+.skill-card:hover{box-shadow:var(--shadow-md)}
+.skill-card-title{font-size:13px;font-weight:800;color:var(--text);margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
+.skill-pill-wrap{display:flex;flex-wrap:wrap;gap:5px}
+.skill-pill{background:var(--navy);color:rgba(255,255,255,0.92);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600}
+.skill-pill.blue{background:var(--blue)}
+.skill-pill.green{background:#004d40}
+.skill-pill.teal{background:#003d5c}
+.skill-pill.amber{background:#5c4000}
 .skills-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .skill-category{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;box-shadow:var(--shadow)}
 .skill-cat-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
@@ -248,100 +214,46 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .skill-name{font-size:13px;font-weight:600;color:var(--text)}
 .skill-bar-wrap{width:100px;height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden}
 .skill-bar{height:100%;border-radius:3px;background:var(--navy)}
-.proficiency-label{font-size:10px;color:var(--text-3);margin-top:2px;text-align:right}
 .tools-section{margin-top:2rem}
 .tools-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:.75rem}
 .tool-badge{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--text-2);box-shadow:var(--shadow)}
 
-
-/* ══ SITE FOOTER ══ */
-.site-footer{
-  background:var(--navy);
-  border-top:2px solid var(--blue);
-  padding:20px 2rem;
-  margin-top:0;
-}
-.site-footer-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  font-size:12px;
-  color:rgba(255,255,255,0.55);
-  letter-spacing:0.02em;
-  font-weight:500;
-}
-.site-footer a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.15s;}
-.site-footer a:hover{color:#fff;}
-.footer-name{color:rgba(255,255,255,0.9);font-weight:700;letter-spacing:0.02em;}
-.footer-sep{color:rgba(255,255,255,0.25);font-size:10px;}
-
-/* ══ PRINT / PDF DOWNLOAD ══ */
-@media print{
-  .topbar,.site-footer,.section-header,.resume-download-bar{display:none!important}
-  .page{display:block!important;padding-top:0}
-  #page-home,#page-about,#page-projects,#page-skills,#page-contact{display:none!important}
-  #page-resume{display:block!important}
-  body{background:#fff;font-size:12px}
-  .resume-wrap{max-width:100%;margin:0;padding:0}
-  .res-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .res-section{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid}
-}
-
-/* ══ RESUME DOWNLOAD BAR ══ */
-.resume-download-bar{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--blue-pale);border:1px solid var(--border);
-  border-radius:var(--radius-lg);padding:1rem 1.5rem;
-  margin-bottom:1.5rem;
-}
+/* ══ RESUME PDF MATCH STYLING ══ */
+.resume-download-bar{display:flex;align-items:center;justify-content:space-between;background:var(--blue-pale);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.5rem;margin-bottom:1.5rem}
 .resume-download-text{font-size:13px;color:var(--text-2)}
 .resume-download-text strong{color:var(--navy);font-weight:700}
 .resume-download-btns{display:flex;gap:10px}
-.btn-dl-pdf{
-  background:var(--navy);color:#fff;border:none;
-  padding:9px 20px;border-radius:var(--radius);
-  font-size:13px;font-weight:700;cursor:pointer;
-  transition:background 0.15s;display:flex;align-items:center;gap:6px;
-}
+.btn-dl-pdf{background:var(--navy);color:#fff;border:none;padding:9px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;transition:background 0.15s;display:flex;align-items:center;gap:6px}
 .btn-dl-pdf:hover{background:var(--navy-mid)}
-.btn-dl-print{
-  background:var(--white);color:var(--navy);
-  border:1.5px solid var(--navy);
-  padding:9px 20px;border-radius:var(--radius);
-  font-size:13px;font-weight:700;cursor:pointer;
-  transition:all 0.15s;display:flex;align-items:center;gap:6px;
-}
+.btn-dl-print{background:var(--white);color:var(--navy);border:1.5px solid var(--navy);padding:9px 20px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;gap:6px}
 .btn-dl-print:hover{background:var(--bg-2)}
-.res-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1rem;box-shadow:var(--shadow)}
-.res-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
-.res-header{text-align:center;padding:2rem;background:var(--navy);color:#fff;border-radius:var(--radius-lg);margin-bottom:1rem}
-.res-name{font-size:2rem;font-weight:800;letter-spacing:-0.02em}
-.res-title{font-size:14px;color:rgba(255,255,255,0.65);margin-top:4px}
-.res-contact{font-size:12px;color:rgba(255,255,255,0.55);margin-top:8px}
-.res-exp-item{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
-.res-exp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.res-exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
-.res-exp-title{font-size:14px;font-weight:700;color:var(--text)}
-.res-exp-date{font-size:12px;color:var(--text-3);font-weight:500;white-space:nowrap}
-.res-exp-company{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:.5rem}
-.res-exp-bullets{list-style:none;padding-left:0}
-.res-exp-bullets li{font-size:13px;color:var(--text-2);padding:3px 0 3px 1.25rem;position:relative;line-height:1.6}
-.res-exp-bullets li::before{content:'·';position:absolute;left:4px;color:var(--navy);font-weight:700;font-size:1rem}
-.res-skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
-.res-skill-item{font-size:13px;color:var(--text-2);padding:4px 0;display:flex;align-items:center;gap:6px}
-.res-skill-item::before{content:'';width:6px;height:6px;background:var(--navy);border-radius:50%;flex-shrink:0}
-.res-edu-item{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem}
-.res-edu-item:last-child{margin-bottom:0}
-.res-edu-degree{font-size:14px;font-weight:700;color:var(--text)}
-.res-edu-school{font-size:13px;color:var(--blue);font-weight:500}
-.res-edu-date{font-size:12px;color:var(--text-3);white-space:nowrap}
+.res-container {background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow-md);max-width:850px;margin:0 auto}
+.res-header {text-align:center;border-bottom:2px solid var(--navy);padding-bottom:1rem;margin-bottom:1.5rem}
+.res-name {font-size:2.2rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em;margin-bottom:4px}
+.res-title-bar {font-size:14px;font-weight:600;color:var(--text-2);margin-bottom:6px}
+.res-contact-bar {font-size:13px;color:var(--text-3)}
+.res-contact-bar a {color:var(--blue);text-decoration:none;font-weight:500}
+.res-contact-bar a:hover {text-decoration:underline}
+.res-section-title {font-size:14px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;padding-bottom:4px;border-bottom:1px solid var(--border-2)}
+.res-text-block {font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:1.5rem}
+.res-exp-block {margin-bottom:1.25rem}
+.res-exp-header {display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.res-exp-role {font-size:14px;font-weight:700;color:var(--text)}
+.res-exp-company {font-weight:600;color:var(--blue)}
+.res-exp-date {font-size:13px;color:var(--text-3);font-weight:500;text-align:right}
+.res-exp-location {font-size:12px;color:var(--text-3);display:block;margin-top:2px}
+.res-exp-list {list-style:none;padding-left:1rem;margin-top:6px}
+.res-exp-list li {font-size:13px;color:var(--text-2);line-height:1.6;position:relative;margin-bottom:6px}
+.res-exp-list li::before {content:'\2022';position:absolute;left:-12px;color:var(--navy);font-weight:bold;font-size:14px}
+.res-skills-wrap {display:grid;grid-template-columns:repeat(2, 1fr);gap:8px 24px;margin-bottom:1.5rem}
+.res-skill {font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:6px}
+.res-skill::before {content:'';width:4px;height:4px;background:var(--blue);border-radius:50%}
+.res-edu-block {margin-bottom:1rem}
+.res-edu-school {font-size:14px;font-weight:700;color:var(--text)}
+.res-edu-degree {font-size:13px;color:var(--text-2);margin-top:2px}
+.res-edu-date {font-size:13px;color:var(--text-3);font-weight:500}
 
 /* ══ CONTACT PAGE ══ */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
 .contact-info{background:var(--navy);color:#fff;border-radius:var(--radius-xl);padding:2.5rem}
 .contact-info h2{font-size:1.4rem;font-weight:800;margin-bottom:8px}
 .contact-info p{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:2rem;line-height:1.7}
@@ -350,18 +262,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .contact-link-icon{width:36px;height:36px;background:rgba(255,255,255,0.12);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .contact-link-label{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em}
 .contact-link-val{font-size:13px;font-weight:600;color:#fff;margin-top:1px}
-.contact-form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem;box-shadow:var(--shadow-md)}
-.contact-form h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1.5rem}
-.form-group{margin-bottom:1rem}
-.form-label{display:block;font-size:12px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
-.form-input{width:100%;padding:10px 14px;border:1px solid var(--border-2);border-radius:var(--radius);font-size:14px;color:var(--text);background:var(--bg);font-family:inherit;transition:border-color 0.15s}
-.form-input:focus{outline:none;border-color:var(--blue);background:var(--white)}
-textarea.form-input{resize:vertical;min-height:120px}
-.form-submit{width:100%;background:var(--navy);color:#fff;border:none;padding:12px;border-radius:var(--radius);font-size:14px;font-weight:700;cursor:pointer;transition:background 0.15s;margin-top:.5rem}
-.form-submit:hover{background:#1e3a6e}
-.form-note{font-size:12px;color:var(--text-3);text-align:center;margin-top:8px}
 
-/* ══ FOOTER ══ */
 /* ══ POWER BI PAGE ══ */
 .pbi-page{background:#1a1a2e;min-height:100vh}
 .pbi-header{background:linear-gradient(135deg,#001F5B 0%,#003087 60%,#005EB8 100%);padding:48px 2rem 40px;text-align:center}
@@ -371,37 +272,25 @@ textarea.form-input{resize:vertical;min-height:120px}
 .pbi-tab{padding:9px 20px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);font-size:12px;font-weight:700;cursor:pointer;color:rgba(255,255,255,0.65);transition:all 0.15s;font-family:system-ui;letter-spacing:0.02em}
 .pbi-tab.active{background:#005EB8;border-color:#005EB8;color:#fff}
 .pbi-tab:hover:not(.active){background:rgba(255,255,255,0.12);color:#fff}
-
-/* Dashboard container */
 .pbi-db{display:none;padding:20px}
 .pbi-db.active{display:block}
 .pbi-db-inner{max-width:1200px;margin:0 auto}
-
-/* Scenario card */
 .pbi-scenario{background:#0d1b3e;border:1px solid rgba(255,255,255,0.08);border-left:3px solid #005EB8;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;font-family:system-ui}
 .pbi-scenario strong{color:#7AB8F5}
 .pbi-scenario .sc-tag{display:inline-block;background:rgba(0,94,184,0.25);border:1px solid rgba(0,94,184,0.5);color:#7AB8F5;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:6px;margin-bottom:4px;letter-spacing:0.05em}
-
-/* Power BI chrome */
 .pbi-chrome{background:#1e1e2e;border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.4)}
 .pbi-chrome-bar{background:#252535;padding:8px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .pbi-chrome-dots{display:flex;gap:6px}
 .pbi-chrome-dot{width:10px;height:10px;border-radius:50%}
 .pbi-chrome-title{font-size:12px;color:rgba(255,255,255,0.4);font-family:system-ui;font-weight:600;letter-spacing:0.02em;flex:1;text-align:center}
 .pbi-chrome-badge{font-size:10px;background:rgba(0,94,184,0.3);color:#7AB8F5;border:1px solid rgba(0,94,184,0.4);padding:2px 8px;border-radius:4px;font-weight:700;font-family:system-ui}
-
-/* Dashboard layout inside chrome */
-.pbi-layout{display:grid;gap:0}
 .pbi-top-bar{background:#1a1a2e;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
 .pbi-slicer-label{font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;font-family:system-ui}
 .pbi-slicer{background:#252535;border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#fff;font-size:11px;font-family:system-ui;padding:5px 10px;cursor:pointer;font-weight:600}
-.pbi-slicer:focus{outline:none;border-color:#005EB8}
 .pbi-slicer-sep{width:1px;height:20px;background:rgba(255,255,255,0.08);margin:0 4px}
 .pbi-btn-slicer{background:rgba(0,94,184,0.2);border:1px solid rgba(0,94,184,0.4);border-radius:4px;color:#7AB8F5;font-size:10px;font-family:system-ui;padding:4px 10px;cursor:pointer;font-weight:700;transition:all 0.15s}
 .pbi-btn-slicer.active,.pbi-btn-slicer:hover{background:#005EB8;color:#fff;border-color:#005EB8}
-
-/* KPI card row */
-.pbi-kpi-row{display:grid;gap:1px;background:rgba(255,255,255,0.04)}
+.pbi-kpi-row{display:grid;gap:1px;background:rgba(255,255,255,0.04);grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
 .pbi-kpi{background:#1e1e2e;padding:14px 18px;position:relative}
 .pbi-kpi-label{font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;font-family:system-ui;margin-bottom:6px}
 .pbi-kpi-val{font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1}
@@ -411,9 +300,6 @@ textarea.form-input{resize:vertical;min-height:120px}
 .pbi-kpi-delta{font-size:11px;font-family:system-ui;margin-top:5px;font-weight:700}
 .pbi-kpi-delta.up{color:#4ade80}
 .pbi-kpi-delta.down{color:#f87171}
-.pbi-kpi-sparkline{position:absolute;right:12px;bottom:12px;opacity:0.5}
-
-/* Chart grid */
 .pbi-chart-grid{display:grid;gap:1px;background:rgba(255,255,255,0.04)}
 .pbi-visual{background:#1e1e2e;padding:14px 16px}
 .pbi-visual-title{font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);font-family:system-ui;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.06em}
@@ -421,47 +307,58 @@ textarea.form-input{resize:vertical;min-height:120px}
 .pbi-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
 .pbi-legend span{display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(255,255,255,0.5);font-family:system-ui}
 .pbi-legend i{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0}
-
-/* Status badges in tables */
-.pbi-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;font-family:system-ui}
-.pbi-status.green{background:rgba(74,222,128,0.15);color:#4ade80;border:1px solid rgba(74,222,128,0.3)}
-.pbi-status.red{background:rgba(248,113,113,0.15);color:#f87171;border:1px solid rgba(248,113,113,0.3)}
-.pbi-status.yellow{background:rgba(250,204,21,0.15);color:#facc15;border:1px solid rgba(250,204,21,0.3)}
-.pbi-status.blue{background:rgba(122,184,245,0.15);color:#7AB8F5;border:1px solid rgba(122,184,245,0.3)}
-
-/* Table inside PBI */
-.pbi-table{width:100%;border-collapse:collapse;font-family:system-ui;font-size:11px}
-.pbi-table th{color:rgba(255,255,255,0.35);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:left;font-size:10px}
-.pbi-table td{color:rgba(255,255,255,0.75);padding:7px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.pbi-table tr:hover td{background:rgba(255,255,255,0.03)}
-.pbi-table .num{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
-.pbi-table .pos{color:#4ade80}
-.pbi-table .neg{color:#f87171}
-
-/* Gauge / donut overlay */
 .gauge-wrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
 .gauge-center{position:absolute;text-align:center}
 .gauge-val{font-size:1.4rem;font-weight:900;color:#fff;display:block}
 .gauge-label{font-size:10px;color:rgba(255,255,255,0.4);font-family:system-ui;display:block;margin-top:2px}
 
-/* Progress bar in PBI */
-.pbi-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
-.pbi-bar-name{font-size:11px;color:rgba(255,255,255,0.6);font-family:system-ui;width:100px;flex-shrink:0;text-align:right}
-.pbi-bar-track{flex:1;background:rgba(255,255,255,0.08);border-radius:2px;height:16px;overflow:hidden}
-.pbi-bar-fill{height:100%;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:10px;font-weight:700;color:#fff;font-family:system-ui;transition:width 0.6s ease}
-.pbi-bar-val{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);font-family:system-ui;width:50px;flex-shrink:0}
+/* ══ EXCEL PAGE ══ */
+.excel-page {background:#f3f2f1;min-height:100vh}
+.excel-header {background:linear-gradient(135deg, #0f4c23 0%, #107c41 60%, #18a558 100%);padding:48px 2rem 40px;text-align:center}
+.xl-scenario {background:#e6f4ea;border:1px solid #cce8d6;border-left:3px solid #107c41;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:13px;color:#202124;line-height:1.7;font-family:system-ui}
+.xl-scenario strong {color:#107c41}
+.xl-scenario .sc-tag {display:inline-block;background:rgba(16,124,65,0.15);border:1px solid rgba(16,124,65,0.3);color:#0f4c23;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:6px;margin-bottom:4px;letter-spacing:0.05em}
+.xl-chrome {background:#fff;border:1px solid #e1dfdd;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);margin-bottom:2rem}
+.xl-ribbon {background:#f3f2f1;border-bottom:1px solid #e1dfdd;padding:8px 16px;display:flex;align-items:center;gap:12px}
+.xl-ribbon-title {font-size:13px;color:#323130;font-family:system-ui;font-weight:600;flex:1;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+.xl-formula-bar {background:#fff;border-bottom:1px solid #e1dfdd;padding:6px 16px;display:flex;align-items:center;gap:10px;font-family:'Courier New', monospace;font-size:13px}
+.xl-fx {color:#605e5c;font-weight:700;font-family:system-ui;font-style:italic}
+.xl-formula {color:#323130;flex:1;background:#fff;border:1px solid #edebe9;padding:4px 8px}
+.xl-formula span.func {color:#005EB8;font-weight:bold}
+.xl-formula span.str {color:#A4262C}
+.xl-grid {width:100%;border-collapse:collapse;font-family:system-ui;font-size:12px;background:#fff}
+.xl-grid th {background:#f3f2f1;border:1px solid #e1dfdd;color:#605e5c;font-weight:600;text-align:center;padding:4px 8px;font-size:11px}
+.xl-grid td {border:1px solid #e1dfdd;padding:6px 10px;color:#323130;position:relative}
+.xl-grid td.num {text-align:right;font-variant-numeric:tabular-nums}
+.xl-grid td.header-row {background:#f3f2f1;font-weight:700;text-align:left;border-bottom:2px solid #107c41}
+.xl-grid td.bold {font-weight:700}
+.xl-grid td.indent {padding-left:20px}
+.xl-grid td.fill-blue {background:#E8F0FA;color:#003087;font-weight:700}
+.xl-grid td.fill-green {background:#e6f4ea;color:#107c41;font-weight:700}
+.xl-grid td.fill-red {background:#fdf2f2;color:#a4262c;font-weight:700}
+.xl-grid td.calc {color:#005EB8;background:#fcfcfc}
 
 /* ══ SITE FOOTER ══ */
+.site-footer{background:var(--navy);border-top:2px solid var(--blue);padding:20px 2rem;margin-top:0;}
+.site-footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.02em;font-weight:500;}
+.site-footer a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.15s;}
+.site-footer a:hover{color:#fff;}
+.footer-name{color:rgba(255,255,255,0.9);font-weight:700;letter-spacing:0.02em;}
+.footer-sep{color:rgba(255,255,255,0.25);font-size:10px;}
 
-/* ══ LEGEND ══ */
-.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px}
-.legend span{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3)}
-.legend i{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
-
-/* ══ RESPONSIVE ══ */
+@media print{
+  .topbar,.site-footer,.section-header,.resume-download-bar{display:none!important}
+  .page{display:block!important;padding-top:0}
+  #page-home,#page-about,#page-projects,#page-skills,#page-contact,#page-scenarios,#page-powerbi,#page-excel{display:none!important}
+  #page-resume{display:block!important}
+  body{background:#fff;font-size:12px}
+  .resume-wrap{max-width:100%;margin:0;padding:0}
+  .res-container{box-shadow:none;border:none;padding:0}
+  .res-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 @media(max-width:768px){
   .hero h1{font-size:2rem}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .impact-stats-inner{grid-template-columns:repeat(2,1fr)}
   .project-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .about-sidebar{position:static}
@@ -469,107 +366,10 @@ textarea.form-input{resize:vertical;min-height:120px}
   .proj-body .span2{grid-column:1}
   .skills-page-grid{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr}
-  .res-skills-grid{grid-template-columns:1fr}
+  .res-skills-wrap{grid-template-columns:1fr}
   .topnav{display:none}
-}
-/* ══ POWER BI PAGE ══ */
-.pbi-hero{background:linear-gradient(160deg,#001F5B 0%,#003087 60%,#005EB8 100%);padding:60px 2rem 50px;color:#fff}
-.pbi-hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.pbi-hero-left{}
-.pbi-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px;font-weight:700}
-.pbi-hero-title{font-size:2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:8px}
-.pbi-hero-sub{font-size:14px;color:rgba(255,255,255,0.65);max-width:500px;line-height:1.7}
-.pbi-skill-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.pbi-skill-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:4px 12px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);font-family:monospace}
-.pbi-hero-stats{display:flex;gap:2rem;flex-shrink:0}
-.pbi-hstat{text-align:center}
-.pbi-hstat-num{font-size:2.2rem;font-weight:900;color:#7AB8F5;letter-spacing:-0.03em;display:block}
-.pbi-hstat-label{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
-
-/* Dashboard tabs */
-.pbi-tabs{display:flex;background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem;overflow-x:auto;scrollbar-width:none;position:sticky;top:60px;z-index:50}
-.pbi-tabs::-webkit-scrollbar{display:none}
-.pbi-tab{padding:14px 20px;font-size:13px;font-weight:700;border:none;background:transparent;cursor:pointer;color:var(--text-3);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;font-family:system-ui;transition:all 0.15s;display:flex;align-items:center;gap:7px}
-.pbi-tab:hover{color:var(--text)}
-.pbi-tab.active{color:var(--navy);border-bottom-color:var(--blue)}
-.pbi-tab-dot{width:8px;height:8px;border-radius:50%;background:var(--bg-3);flex-shrink:0}
-.pbi-tab.active .pbi-tab-dot{background:var(--blue)}
-
-/* Dashboard panels */
-.pbi-panel{display:none;padding:0}
-.pbi-panel.active{display:block}
-
-/* Control bar (slicer row) */
-.slicer-bar{background:var(--bg-2);border-bottom:1px solid var(--border);padding:10px 2rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.slicer-label{font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap}
-.slicer-select{padding:5px 10px;border:1px solid var(--border-2);border-radius:var(--radius);font-size:12px;font-weight:600;color:var(--text);background:var(--white);cursor:pointer;font-family:system-ui;min-width:110px}
-.slicer-select:focus{outline:none;border-color:var(--blue)}
-.slicer-sep{width:1px;height:24px;background:var(--border-2);flex-shrink:0}
-.slicer-date{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text);background:var(--white);border:1px solid var(--border-2);border-radius:var(--radius);padding:5px 10px}
-.refresh-btn{margin-left:auto;background:var(--navy);color:#fff;border:none;padding:6px 14px;border-radius:var(--radius);font-size:11px;font-weight:700;cursor:pointer;font-family:system-ui;display:flex;align-items:center;gap:5px;transition:background 0.15s}
-.refresh-btn:hover{background:var(--blue)}
-
-/* Dashboard grid */
-.db-wrap{max-width:1100px;margin:0 auto;padding:20px 2rem 40px}
-.db-grid{display:grid;gap:14px}
-.db-row-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.db-row-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.db-row-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.db-row-2-1{grid-template-columns:2fr 1fr}
-.db-row-1-2{grid-template-columns:1fr 2fr}
-
-/* KPI Cards */
-.kpi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;position:relative;overflow:hidden;transition:box-shadow 0.2s}
-.kpi-card:hover{box-shadow:var(--shadow-md)}
-.kpi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-.kpi-card.c-blue::after{background:var(--blue)}
-.kpi-card.c-navy::after{background:var(--navy)}
-.kpi-card.c-green::after{background:#006400}
-.kpi-card.c-red::after{background:#8B0000}
-.kpi-card.c-teal::after{background:#006670}
-.kpi-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:6px;font-family:system-ui}
-.kpi-val{font-size:1.9rem;font-weight:900;color:var(--navy);letter-spacing:-0.03em;line-height:1}
-.kpi-sub{font-size:11px;color:var(--text-3);margin-top:5px;font-family:system-ui}
-.kpi-delta{font-size:11px;font-weight:700;margin-top:4px;font-family:system-ui}
-.kpi-delta.up{color:#006400}
-.kpi-delta.down{color:#8B0000}
-
-/* Chart cards */
-.chart-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:box-shadow 0.2s}
-.chart-card:hover{box-shadow:var(--shadow-md)}
-.cc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
-.cc-title{font-size:12px;font-weight:800;color:var(--text);font-family:system-ui;letter-spacing:-0.01em}
-.cc-sub{font-size:10px;color:var(--text-3);font-family:system-ui;margin-bottom:.75rem}
-.cc-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;font-family:system-ui}
-.cc-badge.live{background:#e8f5e9;color:#2e7d32}
-.cc-badge.ytd{background:#e8f0fa;color:#1a3a8a}
-.pbi-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
-.pbi-legend span{display:flex;align-items:center;gap:4px;font-size:10px;font-family:system-ui;color:var(--text-3)}
-.pbi-legend i{width:10px;height:10px;border-radius:2px;flex-shrink:0}
-
-/* Drill-down table */
-.db-table{width:100%;border-collapse:collapse;font-size:12px;font-family:system-ui}
-.db-table th{background:var(--bg-2);padding:7px 10px;text-align:left;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-3);border-bottom:2px solid var(--border)}
-.db-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text-2)}
-.db-table tr:hover td{background:var(--bg-2)}
-.db-table tr:last-child td{border-bottom:none}
-.td-bar-wrap{display:flex;align-items:center;gap:8px}
-.td-bar{height:6px;border-radius:3px;background:var(--navy);flex-shrink:0}
-.td-pos{color:#006400;font-weight:700}
-.td-neg{color:#8B0000;font-weight:700}
-.td-badge{padding:2px 7px;border-radius:3px;font-size:10px;font-weight:700}
-.td-badge.green{background:#e8f5e9;color:#2e7d32}
-.td-badge.red{background:#fce8e8;color:#8B0000}
-.td-badge.amber{background:#fff8e1;color:#856404}
-
-/* Scenario story box */
-.db-story{background:var(--blue-pale);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:1rem 1.25rem;margin-bottom:16px;font-size:13px;font-family:system-ui;line-height:1.7;color:var(--text-2)}
-.db-story strong{color:var(--navy)}
-
-@media(max-width:768px){
-  .db-row-4,.db-row-3{grid-template-columns:1fr 1fr}
-  .db-row-2,.db-row-2-1,.db-row-1-2{grid-template-columns:1fr}
-  .pbi-hero-stats{display:none}
+  .xl-grid {font-size:10px;}
+  .xl-formula {font-size:11px; overflow-x:auto;}
 }
 </style>
 </head>
@@ -577,16 +377,17 @@ textarea.form-input{resize:vertical;min-height:120px}
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="topbar-brand" onclick="showPage('home')">Ragib <span>Shikder</span></div>
+    <div class="topbar-brand" data-page="home" onclick="showPage('home')">Ragib <span>Shikder</span></div>
     <nav class="topnav">
-      <button class="topnav-btn active" onclick="showPage('home',this)">Home</button>
-      <button class="topnav-btn" onclick="showPage('about',this)">About</button>
-      <button class="topnav-btn" onclick="showPage('projects',this)">Projects</button>
-      <button class="topnav-btn" onclick="showPage('scenarios',this)">Scenarios</button>
-      <button class="topnav-btn" onclick="showPage('powerbi',this)">Power BI</button>
-      <button class="topnav-btn" onclick="showPage('skills',this)">Skills</button>
-      <button class="topnav-btn" onclick="showPage('resume',this)">Resume</button>
-      <button class="topnav-btn" onclick="showPage('contact',this)">Contact</button>
+      <button class="topnav-btn active" data-page="home" onclick="showPage('home',this)">Home</button>
+      <button class="topnav-btn" data-page="about" onclick="showPage('about',this)">About</button>
+      <button class="topnav-btn" data-page="projects" onclick="showPage('projects',this)">Projects</button>
+      <button class="topnav-btn" data-page="scenarios" onclick="showPage('scenarios',this)">Scenarios</button>
+      <button class="topnav-btn" data-page="powerbi" onclick="showPage('powerbi',this)">Power BI</button>
+      <button class="topnav-btn" data-page="excel" onclick="showPage('excel',this)">Excel</button>
+      <button class="topnav-btn" data-page="skills" onclick="showPage('skills',this)">Skills</button>
+      <button class="topnav-btn" data-page="resume" onclick="showPage('resume',this)">Resume</button>
+      <button class="topnav-btn" data-page="contact" onclick="showPage('contact',this)">Contact</button>
     </nav>
     <button class="topbar-contact" onclick="showPage('contact')">Hire Me →</button>
   </div>
@@ -600,7 +401,7 @@ textarea.form-input{resize:vertical;min-height:120px}
       <p class="hero-sub">Goldman Sachs & JPMorgan trained. I build SQL pipelines, Power BI dashboards, and financial models that replace guesswork with numbers — and manual work with automation.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('projects')">See My Work →</button>
-        <button class="btn-outline" onclick="showPage('scenarios')">View Live Dashboards</button>
+        <button class="btn-outline" onclick="showPage('excel')">View Advanced Excel</button>
       </div>
       <div class="hero-badges">
         <span class="hero-badge">✦ Goldman Sachs Trained</span>
@@ -1019,20 +820,26 @@ ActiveScenario_Revenue =
               <div class="timeline-desc">Secured $200,000+ in capital funding through structured financial modeling and pipeline operations. Built a $200K+ pipeline tracker in Advanced Excel from scratch.</div>
             </li>
             <li class="timeline-item">
-              <div class="timeline-title">Data Analyst – Reporting & KPI Analytics</div>
+              <div class="timeline-title">Data Analyst</div>
               <div class="timeline-company">ProACE International</div>
               <div class="timeline-date">Mar 2024 – Apr 2024 · Remote</div>
               <div class="timeline-desc">Architected an end-to-end SQL ETL pipeline and automated Power BI dashboards, achieving 100% data accuracy and cutting reporting cycle from 5 days to 1.</div>
             </li>
             <li class="timeline-item">
               <div class="timeline-title">Fund Accounting Analyst</div>
-              <div class="timeline-company">Goldman Sachs · Virtual Experience Program</div>
+              <div class="timeline-company">Goldman Sachs</div>
               <div class="timeline-date">Virtual Experience Program</div>
-              <div class="timeline-desc">Computed NAV for a $5 billion fund with GAAP and IFRS compliance. Devised HTD ratio analysis frameworks to proactively surface discrepancies.</div>
+              <div class="timeline-desc">Computed NAV for a $5 billion fund with GAAP and IFRS compliance, and devised HTD ratio analysis frameworks to proactively surface discrepancies.</div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-title">Private Bank Analyst</div>
+              <div class="timeline-company">Bank of America The Private Bank</div>
+              <div class="timeline-date">Virtual Experience Program</div>
+              <div class="timeline-desc">Curated tailored wealth management strategies for High-Net-Worth clients across Sustainable Investing (ESG), Retirement Planning, and Education Funding, drafting structured, client-facing financial action plans.</div>
             </li>
             <li class="timeline-item">
               <div class="timeline-title">Junior Investment Banking Analyst</div>
-              <div class="timeline-company">J.P. Morgan · Virtual Experience Program</div>
+              <div class="timeline-company">J.P. Morgan</div>
               <div class="timeline-date">Virtual Experience Program</div>
               <div class="timeline-desc">Constructed a full DCF and three-statement financial model to value a $1B EBITDA target, with WACC sensitivity analysis and M&A presentation materials.</div>
             </li>
@@ -1043,30 +850,15 @@ ActiveScenario_Revenue =
           <ul class="timeline">
             <li class="timeline-item">
               <div class="timeline-title">Master of Science — AI and Business Analytics</div>
-              <div class="timeline-company">Baruch College, Zicklin School of Business (CUNY)</div>
+              <div class="timeline-company">CUNY - Baruch College, Zicklin School of Business</div>
               <div class="timeline-date">Sep 2026 – Jun 2028</div>
             </li>
             <li class="timeline-item">
               <div class="timeline-title">Bachelor of Science — Computer Science & Information Systems</div>
-              <div class="timeline-company">John Jay College of Criminal Justice (CUNY)</div>
+              <div class="timeline-company">CUNY - John Jay College</div>
               <div class="timeline-date">Jan 2024 – Jul 2025</div>
             </li>
           </ul>
-        </div>
-        <div class="about-section">
-          <div class="about-section-title">Certifications</div>
-          <div class="cert-grid">
-            <div class="cert-item">
-              <div class="cert-title">Investment Banking Job Simulation</div>
-              <div class="cert-org">J.P. Morgan · Forage</div>
-              <div class="cert-skills">DCF Modeling · M&A Analysis · Financial Modeling</div>
-            </div>
-            <div class="cert-item">
-              <div class="cert-title">Controllers Job Simulation</div>
-              <div class="cert-org">Goldman Sachs · Forage</div>
-              <div class="cert-skills">NAV Calculation · Fund Accounting · GAAP/IFRS</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1294,163 +1086,6 @@ ActiveScenario_Revenue =
   </div>
 </div>
 
-<div id="page-skills" class="page">
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-title">Skills & Proficiencies</div>
-      <div class="section-sub">Technical toolkit organized by category with proficiency levels</div>
-    </div>
-    <div class="skills-page-grid">
-      <div class="skill-category">
-        <div class="skill-cat-title">SQL & Data Engineering</div>
-        <div class="skill-item"><span class="skill-name">SQL (JOINs, CTEs, Window Fns)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">ETL Pipeline Development</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Stored Procedures & Views</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Data Validation & Reconciliation</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Multi-Source Data Integration</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Power BI & Data Visualization</div>
-        <div class="skill-item"><span class="skill-name">Power BI Dashboard Development</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">DAX (CALCULATE, SUMX, Time Intel.)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Power Query (M Language)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Star Schema Data Modeling</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Power BI Service & Scheduled Refresh</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div></div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Advanced Excel</div>
-        <div class="skill-item"><span class="skill-name">XLOOKUP, INDEX/MATCH, SUMIFS</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Pivot Tables & Pivot Charts</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Scenario Manager & What-If</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">VBA / Macro Automation</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Dynamic Arrays (FILTER, SORT)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Financial Analysis</div>
-        <div class="skill-item"><span class="skill-name">Financial Modeling & DCF</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">FP&A, Budgeting & Forecasting</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Variance & Budget vs. Actuals</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">NAV & Fund Accounting</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">GAAP / IFRS Compliance</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Python & Automation</div>
-        <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Data Cleaning & Preprocessing</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Claude AI & LLM Tooling</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Workflow Automation</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Process Redesign & Optimization</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div></div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">M&A & Investment Banking</div>
-        <div class="skill-item"><span class="skill-name">DCF & Three-Statement Modeling</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">WACC & Sensitivity Analysis</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Scenario Modeling (Bear/Base/Bull)</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">M&A Due Diligence</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div></div>
-        <div class="skill-item"><span class="skill-name">Executive Presentations & IC Memos</span><div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div></div>
-      </div>
-    </div>
-    <div class="tools-section">
-      <div class="section-title" style="font-size:1.1rem;margin-bottom:4px">Tools & Platforms</div>
-      <div class="tools-grid">
-        <span class="tool-badge">Microsoft Power BI</span><span class="tool-badge">Advanced Excel</span><span class="tool-badge">SQL Server</span><span class="tool-badge">Python</span><span class="tool-badge">Claude AI</span><span class="tool-badge">Power Query</span><span class="tool-badge">DAX Studio</span><span class="tool-badge">Pandas</span><span class="tool-badge">NumPy</span><span class="tool-badge">Power Automate</span><span class="tool-badge">ERP Systems</span><span class="tool-badge">Forage (GS + JPM)</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="page-resume" class="page">
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-title">Resume</div>
-      <div class="section-sub">Full work history, education, and technical skills</div>
-    </div>
-    <div class="resume-wrap">
-      <div class="resume-download-bar">
-        <div class="resume-download-text"><strong>Ragib Shikder — Resume</strong> &nbsp;·&nbsp; Financial & Data Analyst &nbsp;·&nbsp; Updated 2025</div>
-        <div class="resume-download-btns">
-          <button class="btn-dl-pdf" onclick="downloadResumePDF()">⬇ Download PDF</button>
-          <button class="btn-dl-print" onclick="window.print()">🖨 Print</button>
-        </div>
-      </div>
-      <div class="res-header" style="background:linear-gradient(135deg,#001f5b,#003087);border-bottom:3px solid #d4af37">
-        <div class="res-name">Ragib Shikder</div>
-        <div class="res-title">Financial Analyst & Data Analyst</div>
-        <div class="res-contact">+1 (347) 801-3756 · ragibnyc@gmail.com · linkedin.com/in/ragib-shikder · New York City, NY</div>
-      </div>
-      <div class="res-section">
-        <div class="res-section-title">Professional Summary</div>
-        <div style="font-size:13px;color:var(--text-2);line-height:1.75">Financial and Data Analyst specializing in SQL, Power BI (DAX), Python, and Advanced Excel — Goldman Sachs-trained in NAV and GAAP/IFRS fund accounting, JPMorgan-trained in DCF and M&A financial modeling. Developed automated internal tools and data pipelines that eliminated manual reporting, achieved 100% data accuracy, and generated $200,000+ in revenue. High-agency builder with a track record of identifying operational bottlenecks, designing structured workflows, and shipping data-driven solutions fast.</div>
-      </div>
-      <div class="res-section">
-        <div class="res-section-title">Professional Experience</div>
-        <div class="res-exp-item">
-          <div class="res-exp-header"><span class="res-exp-title">Business Development Analyst</span><span class="res-exp-date">Jul 2025 – Aug 2025</span></div>
-          <div class="res-exp-company">Premium Merchant Funding · Manhattan, NY</div>
-          <ul class="res-exp-bullets">
-            <li><strong>Revenue Analytics & Go-to-Market Execution:</strong> Secured $200,000+ in capital funding by constructing structured financial models to analyze SMB cash flow, P&L performance, and creditworthiness across MCA, Business Lines of Credit, and Equipment Financing for 10+ clients.</li>
-            <li><strong>Pipeline Operations & Forecasting Automation:</strong> Engineered a $200,000+ monthly pipeline tracker in Advanced Excel (XLOOKUP, scenario modeling), monitoring budget vs. actuals in real time and consistently outperforming monthly production targets.</li>
-            <li><strong>Operational Workflow Design:</strong> Restructured the client qualification workflow by designing a repeatable KPI analysis and ROI projection delivery process — improving funding approval accuracy across a 10+ client portfolio.</li>
-          </ul>
-        </div>
-        <div class="res-exp-item">
-          <div class="res-exp-header"><span class="res-exp-title">Data Analyst – Reporting & KPI Analytics</span><span class="res-exp-date">Mar 2024 – Apr 2024</span></div>
-          <div class="res-exp-company">ProACE International · Remote</div>
-          <ul class="res-exp-bullets">
-            <li><strong>Power BI Dashboard Development:</strong> Designed and deployed automated Power BI dashboards using DAX (CALCULATE, SUMX, YTD/MTD time intelligence), star-schema data modeling, and Power Query (M language).</li>
-            <li><strong>SQL Data Pipeline & ETL Automation:</strong> Architected an end-to-end ETL pipeline in SQL to extract and validate revenue data across 4 source systems — achieving 100% financial data accuracy for senior leadership.</li>
-            <li><strong>Bottleneck Identification & AI-Assisted Automation:</strong> Audited existing workflows, eliminated redundant manual steps, and leveraged Claude AI to accelerate ad hoc analysis and automate report summarization.</li>
-          </ul>
-        </div>
-        <div class="res-exp-item">
-          <div class="res-exp-header"><span class="res-exp-title">Fund Accounting Analyst</span><span class="res-exp-date">Virtual Experience Program</span></div>
-          <div class="res-exp-company">Goldman Sachs</div>
-          <ul class="res-exp-bullets">
-            <li>Computed NAV for a $5 Billion fund by unitizing HTD financial activity across Class A/C commitments — ensuring full GAAP and IFRS compliance and delivering month-end close reporting.</li>
-            <li>Devised HTD ratio analysis and Excel-based trend modeling frameworks to proactively surface fund discrepancies before reporting deadlines.</li>
-          </ul>
-        </div>
-        <div class="res-exp-item">
-          <div class="res-exp-header"><span class="res-exp-title">Junior Investment Banking Analyst</span><span class="res-exp-date">Virtual Experience Program</span></div>
-          <div class="res-exp-company">J.P. Morgan</div>
-          <ul class="res-exp-bullets">
-            <li>Constructed a full DCF and three-statement model in Advanced Excel to value a $1B EBITDA target — integrating 5-year forecasts, WACC analysis, and dynamic scenario/sensitivity tables.</li>
-            <li>Formulated investor-facing company profiles and deal presentations mapping the full M&A auction process from non-binding indicative bids through final stakeholder frameworks.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="res-section">
-        <div class="res-section-title">Education</div>
-        <div class="res-edu-item">
-          <div><div class="res-edu-degree">Master of Science — AI and Business Analytics</div><div class="res-edu-school">Baruch College, Zicklin School of Business (CUNY)</div></div>
-          <div class="res-edu-date">Sep 2026 – Jun 2028</div>
-        </div>
-        <div class="res-edu-item" style="margin-top:.75rem">
-          <div><div class="res-edu-degree">Bachelor of Science — Computer Science & Information Systems</div><div class="res-edu-school">John Jay College of Criminal Justice (CUNY)</div></div>
-          <div class="res-edu-date">Jan 2024 – Jul 2025</div>
-        </div>
-      </div>
-      <div class="res-section">
-        <div class="res-section-title">Technical Skills</div>
-        <div class="res-skills-grid">
-          <div class="res-skill-item">SQL & ETL Pipeline Development</div>
-          <div class="res-skill-item">Power BI & DAX Dashboard Tooling</div>
-          <div class="res-skill-item">Python (Pandas, NumPy, Automation)</div>
-          <div class="res-skill-item">Advanced Excel (XLOOKUP, Pivots, VBA)</div>
-          <div class="res-skill-item">Financial Modeling, DCF & WACC</div>
-          <div class="res-skill-item">FP&A, Budgeting & Forecasting</div>
-          <div class="res-skill-item">Variance & Budget vs. Actuals</div>
-          <div class="res-skill-item">GAAP / IFRS & Fund Accounting</div>
-          <div class="res-skill-item">NAV Calculation & Month-End Close</div>
-          <div class="res-skill-item">Claude AI & LLM Tooling</div>
-          <div class="res-skill-item">Power Query (M Language)</div>
-          <div class="res-skill-item">Go-to-Market & Revenue Analytics</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div id="page-scenarios" class="page">
   <div class="section-wrap">
     <div class="section-header">
@@ -1614,7 +1249,7 @@ ActiveScenario_Revenue =
         <div class="proj-card">
           <div class="proj-card-title">WACC × Terminal Growth Rate Sensitivity Matrix</div>
           <div class="proj-card-sub">Implied Enterprise Value ($B) — heat map</div>
-          <div id="wacc-matrix" style="margin-top:8px;font-family:system-ui;font-size:12px"></div>
+          <div id="wacc-matrix" style="margin-top:8px;font-family:system-ui;font-size:12px;background:var(--bg-2);padding:20px;text-align:center;border-radius:6px;color:var(--text-3)">Dynamic sensitivity matrix output visual loaded here in Power BI. Base case EV: $14.1B</div>
           <div class="insight-box" style="margin-top:10px">Base case EV of $14.1B at 9% WACC / 3% TGR. A 100bps WACC increase reduces EV by ~$1.2B. Terminal growth assumptions drive significant spread at lower discount rates.</div>
         </div>
         <div class="proj-card">
@@ -1648,7 +1283,7 @@ ActiveScenario_Revenue =
         <div class="proj-card" style="grid-column:1/-1">
           <div class="proj-card-title">KPI Scorecard — Actual vs. Target (Current Month)</div>
           <div class="proj-card-sub">Traffic light status: green = on/above target · red = below target</div>
-          <div id="kpi-scorecard" style="margin-top:8px"></div>
+          <div id="kpi-scorecard" style="margin-top:8px;background:var(--bg-2);padding:20px;text-align:center;border-radius:6px;color:var(--text-3)">Traffic-light KPI scorecard loaded here.</div>
         </div>
         <div class="proj-card">
           <div class="proj-card-title">Revenue KPIs — Monthly Trend</div>
@@ -1798,37 +1433,6 @@ ActiveScenario_Revenue =
   </div>
 </div>
 
-<div id="page-contact" class="page">
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-title">Get In Touch</div>
-      <div class="section-sub">Open to full-time analyst and operations roles in NYC or remote</div>
-    </div>
-    <div style="max-width:520px;margin:0 auto">
-      <div class="contact-info" style="background:linear-gradient(160deg,#001f5b 0%,#003087 100%)">
-        <h2>Let's Connect</h2>
-        <p>I'm actively looking for Financial Analyst, Data Analyst, and Revenue Operations roles. If you're building something interesting, I'd love to hear about it.</p>
-        <a class="contact-link" href="mailto:ragibnyc@gmail.com">
-          <div class="contact-link-icon">✉</div>
-          <div><div class="contact-link-label">Email</div><div class="contact-link-val">ragibnyc@gmail.com</div></div>
-        </a>
-        <a class="contact-link" href="https://linkedin.com/in/ragib-shikder" target="_blank">
-          <div class="contact-link-icon">in</div>
-          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">linkedin.com/in/ragib-shikder</div></div>
-        </a>
-        <a class="contact-link" href="tel:+13478013756">
-          <div class="contact-link-icon">☎</div>
-          <div><div class="contact-link-label">Phone</div><div class="contact-link-val">+1 (347) 801-3756</div></div>
-        </a>
-        <div class="contact-link" style="cursor:default">
-          <div class="contact-link-icon">📍</div>
-          <div><div class="contact-link-label">Location</div><div class="contact-link-val">New York City, NY</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div id="page-powerbi" class="page pbi-page">
   <div class="pbi-header">
     <div class="pbi-header-title">Power BI Dashboard Portfolio</div>
@@ -1855,7 +1459,7 @@ ActiveScenario_Revenue =
         </div>
         <div class="pbi-top-bar">
           <span class="pbi-slicer-label">Quarter</span>
-          <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','all',this)" id="sq-all" style="background:#005EB8;border-color:#005EB8;color:#fff">All</button>
+          <button class="pbi-btn-slicer active" onclick="pbiSalesFilter('q','all',this)" id="sq-all">All</button>
           <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q1',this)" id="sq-Q1">Q1</button>
           <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q2',this)" id="sq-Q2">Q2</button>
           <button class="pbi-btn-slicer" onclick="pbiSalesFilter('q','Q3',this)" id="sq-Q3">Q3</button>
@@ -1913,14 +1517,27 @@ ActiveScenario_Revenue =
           <div class="pbi-visual">
             <div class="pbi-visual-title">Rep Leaderboard</div>
             <div class="pbi-visual-sub">Quota attainment % · Top 5</div>
-            <div style="margin-top:8px" id="pbi-s-leader"></div>
+            <div style="margin-top:8px" id="pbi-s-leader">
+              <div class="pbi-bar-row"><div class="pbi-bar-name">A. Rodriguez</div><div class="pbi-bar-track"><div class="pbi-bar-fill" style="width:100%;background:#005EB8">118%</div></div></div>
+              <div class="pbi-bar-row"><div class="pbi-bar-name">S. Kim</div><div class="pbi-bar-track"><div class="pbi-bar-fill" style="width:92%;background:#005EB8">108%</div></div></div>
+              <div class="pbi-bar-row"><div class="pbi-bar-name">T. Johnson</div><div class="pbi-bar-track"><div class="pbi-bar-fill" style="width:89%;background:#005EB8">106%</div></div></div>
+              <div class="pbi-bar-row"><div class="pbi-bar-name">C. Davis</div><div class="pbi-bar-track"><div class="pbi-bar-fill" style="width:85%;background:#005EB8">102%</div></div></div>
+            </div>
           </div>
         </div>
         <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr">
           <div class="pbi-visual">
             <div class="pbi-visual-title">Revenue by Region — Heatmap</div>
             <div class="pbi-visual-sub">ARR $M vs. regional quota · variance highlighted</div>
-            <div id="pbi-s-region" style="margin-top:8px"></div>
+            <div id="pbi-s-region" style="margin-top:8px">
+              <table class="pbi-table">
+                <tr><th>Region</th><th class="num">ARR ($M)</th><th class="num">Quota</th><th class="num">Attain %</th></tr>
+                <tr><td>Northeast</td><td class="num">11.2</td><td class="num">9.5</td><td class="num"><span class="pbi-status green">118%</span></td></tr>
+                <tr><td>West</td><td class="num">9.2</td><td class="num">8.5</td><td class="num"><span class="pbi-status green">108%</span></td></tr>
+                <tr><td>Midwest</td><td class="num">9.6</td><td class="num">9.0</td><td class="num"><span class="pbi-status green">106%</span></td></tr>
+                <tr><td>Southeast</td><td class="num">8.4</td><td class="num">8.2</td><td class="num"><span class="pbi-status yellow">102%</span></td></tr>
+              </table>
+            </div>
           </div>
           <div class="pbi-visual">
             <div class="pbi-visual-title">Churn & Expansion ARR</div>
@@ -1980,7 +1597,15 @@ ActiveScenario_Revenue =
           <div class="pbi-visual">
             <div class="pbi-visual-title">P&L Summary</div>
             <div class="pbi-visual-sub">Actual vs. Budget by line item</div>
-            <div id="pbi-f-pl" style="margin-top:4px"></div>
+            <div id="pbi-f-pl" style="margin-top:4px">
+              <table class="pbi-table">
+                <tr><th>Category</th><th class="num">Actual ($M)</th><th class="num">Budget</th><th class="num">Var %</th></tr>
+                <tr><td>Revenue</td><td class="num">142.3</td><td class="num">138.2</td><td class="num"><span class="pbi-status green">+2.9%</span></td></tr>
+                <tr><td>COGS</td><td class="num">88.0</td><td class="num">86.2</td><td class="num"><span class="pbi-status red">-2.1%</span></td></tr>
+                <tr><td>Gross Profit</td><td class="num">54.3</td><td class="num">52.0</td><td class="num"><span class="pbi-status green">+4.4%</span></td></tr>
+                <tr><td>SG&A</td><td class="num">23.9</td><td class="num">24.4</td><td class="num"><span class="pbi-status green">+2.0%</span></td></tr>
+              </table>
+            </div>
           </div>
         </div>
         <div class="pbi-chart-grid" style="grid-template-columns:1fr 1fr 1fr">
@@ -2075,7 +1700,15 @@ ActiveScenario_Revenue =
           <div class="pbi-visual">
             <div class="pbi-visual-title">Flight Risk Register</div>
             <div class="pbi-visual-sub">Top 6 at-risk profiles · score &gt;75</div>
-            <div id="pbi-h-risk" style="margin-top:6px"></div>
+            <div id="pbi-h-risk" style="margin-top:6px">
+              <table class="pbi-table">
+                <tr><th>Role</th><th>Dept</th><th>Score</th></tr>
+                <tr><td>Sr. Engineer</td><td>Eng</td><td><span class="pbi-status red">88</span></td></tr>
+                <tr><td>Acct Exec</td><td>Sales</td><td><span class="pbi-status red">85</span></td></tr>
+                <tr><td>Data Analyst</td><td>Ops</td><td><span class="pbi-status yellow">81</span></td></tr>
+                <tr><td>Product Mgr</td><td>Prod</td><td><span class="pbi-status yellow">78</span></td></tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -2163,24 +1796,443 @@ ActiveScenario_Revenue =
   </div>
 </div>
 
+<div id="page-resume" class="page">
+  <div class="section-wrap resume-wrap">
+    <div class="resume-download-bar">
+      <div class="resume-download-text"><strong>Ragib_Shikder_Resume.pdf</strong> · 120 KB</div>
+      <div class="resume-download-btns">
+        <button class="btn-dl-print" onclick="window.print()">Print</button>
+        <button class="btn-dl-pdf" onclick="downloadResumePDF()">Download PDF</button>
+      </div>
+    </div>
+    <div class="res-container">
+      <div class="res-header">
+        <div class="res-name">Ragib Shikder</div>
+        <div class="res-title-bar">Data Analyst | Finance Analyst</div>
+        <div class="res-contact-bar">
+          <a href="mailto:Ragibnyc@gmail.com">Ragibnyc@gmail.com</a> | (347)-801-3756 | New York | <a href="https://linkedin.com/in/ragib-shikder">LinkedIn</a>
+        </div>
+      </div>
+      
+      <div class="res-section-title">Professional Summary</div>
+      <div class="res-text-block">Data and Finance Analyst specializing in SQL, Python, Power BI dashboards, and Advanced Excel, with virtual experience certifications from J.P. Morgan, Goldman Sachs, and Bank of America Private Bank. Generated $200,000+ in capital funding across 10+ SMB clients, averaging $100,000+/month through data-driven financial modeling and credit analysis. Automated Power BI reports and consistently delivered KPI tracking, variance analysis, and milestone reporting to senior leadership and stakeholders. Currently pursuing a Master's in AI and Business Analytics at Baruch College's Zicklin School of Business.</div>
+      
+      <div class="res-section-title">Professional Experience</div>
+      <div class="res-exp-block">
+        <div class="res-exp-header">
+          <div>
+            <span class="res-exp-role">Business Development Analyst</span>
+            <span style="margin:0 6px">•</span>
+            <span class="res-exp-company">Premium Merchant Funding</span>
+          </div>
+          <div class="res-exp-date">Jul 2025 – Aug 2025</div>
+        </div>
+        <div class="res-exp-location">Manhattan, NY</div>
+        <ul class="res-exp-list">
+          <li>Generated $200,000+ in capital deployed across 10+ SMB clients by conducting quantitative credit analysis and financial modeling; evaluated cash flow statements, P&L performance, and creditworthiness data to produce data-driven funding recommendations across MCA, Business Lines of Credit, and Equipment Financing products.</li>
+          <li>Engineered $100,000+ delivered monthly by designing a pipeline forecasting system in Advanced Excel utilizing XLOOKUP-driven scenario modeling, rolling budget vs. actuals tracking, and weekly KPI reporting to senior leadership, replacing a fully manual process in 8 weeks.</li>
+          <li>Improved funding approval accuracy across a 10+ client portfolio by redesigning the client qualification process into a standardized 3-step analytical framework; implemented repeatable KPI analysis and ROI projection methodology that eliminated deal cycle friction and reduced time-to-decision end-to-end.</li>
+        </ul>
+      </div>
+      
+      <div class="res-exp-block">
+        <div class="res-exp-header">
+          <div>
+            <span class="res-exp-role">Data Analyst</span>
+            <span style="margin:0 6px">•</span>
+            <span class="res-exp-company">ProACE International</span>
+          </div>
+          <div class="res-exp-date">Mar 2024 – Apr 2024</div>
+        </div>
+        <div class="res-exp-location">Remote</div>
+        <ul class="res-exp-list">
+          <li>Designed an end-to-end SQL ETL pipeline to consolidate revenue data across 4 business units into a single source; automated data extraction, transformation, and validation (JOINs, CTEs, aggregations), improving cross-functional data quality from 67% to 100% and reducing the management reporting cycle from 5 days to 1.</li>
+          <li>Developed Power BI reporting for department leads and senior leadership; built DAX measures for KPI tracking, YTD/MTD variance analysis, and trend analysis across revenue and project milestones.</li>
+          <li>Identified and eliminated reporting bottlenecks through root cause analysis of existing KPI and project milestone workflows; automated report generation and summarization using AI tooling, converting a fully ad hoc analytical process into a scheduled, repeatable monthly variance reporting system that reduced analyst turnaround time end-to-end.</li>
+        </ul>
+      </div>
+
+      <div class="res-section-title">Virtual Experience Programs</div>
+      
+      <div class="res-exp-block">
+        <div class="res-exp-header">
+          <div>
+            <span class="res-exp-role">Fund Accounting Analyst</span>
+            <span style="margin:0 6px">•</span>
+            <span class="res-exp-company">Goldman Sachs</span>
+          </div>
+        </div>
+        <ul class="res-exp-list">
+          <li>Computed NAV for a $5 billion fund with GAAP and IFRS compliance, and devised HTD ratio analysis frameworks to proactively surface discrepancies.</li>
+        </ul>
+      </div>
+
+      <div class="res-exp-block">
+        <div class="res-exp-header">
+          <div>
+            <span class="res-exp-role">Junior Investment Banking Analyst</span>
+            <span style="margin:0 6px">•</span>
+            <span class="res-exp-company">J.P. Morgan</span>
+          </div>
+        </div>
+        <ul class="res-exp-list">
+          <li>Constructed a full DCF and three-statement financial model to value a $1B EBITDA target, with WACC sensitivity analysis and M&A presentation materials.</li>
+        </ul>
+      </div>
+
+      <div class="res-exp-block">
+        <div class="res-exp-header">
+          <div>
+            <span class="res-exp-role">Private Bank Analyst</span>
+            <span style="margin:0 6px">•</span>
+            <span class="res-exp-company">Bank of America The Private Bank</span>
+          </div>
+        </div>
+        <ul class="res-exp-list">
+          <li>Curated tailored wealth management strategies for High-Net-Worth clients across Sustainable Investing (ESG), Retirement Planning, and Education Funding, drafting structured, client-facing financial action plans.</li>
+        </ul>
+      </div>
+
+      <div class="res-section-title">Skills</div>
+      <div class="res-skills-wrap">
+        <div class="res-skill"><strong>Languages & Databases:</strong> SQL, Python (Pandas, NumPy, Automation)</div>
+        <div class="res-skill"><strong>Analytics:</strong> Power BI & DAX, Advanced Excel (XLOOKUP, Pivots), Power Query</div>
+        <div class="res-skill"><strong>Finance:</strong> Financial Modeling, DCF & WACC, GAAP / IFRS & Fund Accounting</div>
+        <div class="res-skill"><strong>Operations:</strong> Automation & Process Redesign, AI & LLM Tooling, KPI Reporting</div>
+      </div>
+
+      <div class="res-section-title">Education</div>
+      <div class="res-edu-block">
+        <div class="res-exp-header">
+          <div class="res-edu-school">CUNY - Baruch College, Zicklin School of Business</div>
+          <div class="res-edu-date">Sep 2026 – Jun 2028</div>
+        </div>
+        <div class="res-edu-degree">Master of Science - AI and Business Analytics</div>
+      </div>
+      <div class="res-edu-block">
+        <div class="res-exp-header">
+          <div class="res-edu-school">CUNY - John Jay College</div>
+          <div class="res-edu-date">Jan 2024 – Jul 2025</div>
+        </div>
+        <div class="res-edu-degree">Bachelor of Science - Computer Science and Information Systems</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="page-excel" class="page excel-page">
+  <div class="excel-header">
+    <div class="pbi-header-title">Advanced Excel & Financial Modeling</div>
+    <div class="pbi-header-sub">Interactive views of financial models, fund accounting reconciliation, and pipeline operations</div>
+    <div class="pbi-db-tabs" id="xl-tabs" style="margin-top: 1.5rem;">
+      <button class="pbi-tab active" onclick="showExcel('dcf',this)" style="background:rgba(255,255,255,0.2);color:#fff;border-color:#fff">J.P. Morgan: DCF Model</button>
+      <button class="pbi-tab" onclick="showExcel('nav',this)" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);border-color:transparent">Goldman Sachs: Fund NAV</button>
+      <button class="pbi-tab" onclick="showExcel('pipeline',this)" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);border-color:transparent">PMF: Pipeline Ops</button>
+      <button class="pbi-tab" onclick="showExcel('variance',this)" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);border-color:transparent">ProACE: P&L Variance</button>
+    </div>
+  </div>
+  <div class="section-wrap" style="padding-top:2rem">
+    
+    <!-- MODEL 1: J.P. MORGAN DCF -->
+    <div id="xl-dcf" class="pbi-db active" style="padding:0">
+      <div class="xl-scenario">
+        <strong>SCENARIO · M&A VALUATION:</strong> A full DCF model built to value a $1B EBITDA target. The WACC sensitivity matrix (bottom right of the grid) calculates 25 different enterprise valuations dynamically based on varying discount and terminal growth rates without hardcoded values.
+      </div>
+      <div class="xl-chrome">
+        <div class="xl-ribbon">
+          <div class="xl-ribbon-title"><span style="color:#107c41;font-weight:800">X</span> JPM_DCF_Model_Final.xlsx</div>
+        </div>
+        <div class="xl-formula-bar">
+          <span class="xl-fx">fx</span>
+          <div class="xl-formula">=SUM(PV_FCFF_Y1:PV_FCFF_Y5) + PV_TV</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="xl-grid">
+            <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
+            <tr><td class="num">1</td><td class="header-row" colspan="6">Discounted Cash Flow Analysis ($M)</td></tr>
+            <tr><td class="num">2</td><td class="bold">Forecast Year</td><td class="bold num fill-blue">Year 1</td><td class="bold num fill-blue">Year 2</td><td class="bold num fill-blue">Year 3</td><td class="bold num fill-blue">Year 4</td><td class="bold num fill-blue">Year 5</td></tr>
+            <tr><td class="num">3</td><td class="bold">Revenue (Base Case)</td><td class="num calc">842.0</td><td class="num calc">915.0</td><td class="num calc">1,012.0</td><td class="num calc">1,124.0</td><td class="num calc">1,250.0</td></tr>
+            <tr><td class="num">4</td><td class="indent">YoY Growth %</td><td class="num calc">8.5%</td><td class="num calc">8.7%</td><td class="num calc">10.6%</td><td class="num calc">11.1%</td><td class="num calc">11.2%</td></tr>
+            <tr><td class="num">5</td><td class="bold">EBITDA</td><td class="num calc">172.4</td><td class="num calc">188.5</td><td class="num calc">210.5</td><td class="num calc">235.8</td><td class="num calc">264.4</td></tr>
+            <tr><td class="num">6</td><td class="indent">EBITDA Margin %</td><td class="num fill-blue">20.5%</td><td class="num fill-blue">20.6%</td><td class="num fill-blue">20.8%</td><td class="num fill-blue">21.0%</td><td class="num fill-blue">21.2%</td></tr>
+            <tr><td class="num">7</td><td colspan="6"></td></tr>
+            <tr><td class="num">8</td><td class="bold">Less: Taxes (21%)</td><td class="num calc">(28.4)</td><td class="num calc">(31.2)</td><td class="num calc">(35.0)</td><td class="num calc">(39.4)</td><td class="num calc">(44.4)</td></tr>
+            <tr><td class="num">9</td><td class="bold">Less: CapEx</td><td class="num calc">(42.1)</td><td class="num calc">(45.8)</td><td class="num calc">(50.6)</td><td class="num calc">(56.2)</td><td class="num calc">(62.5)</td></tr>
+            <tr><td class="num">10</td><td class="bold">Less: Change in NWC</td><td class="num calc">(12.4)</td><td class="num calc">(14.1)</td><td class="num calc">(16.5)</td><td class="num calc">(18.2)</td><td class="num calc">(20.1)</td></tr>
+            <tr><td class="num">11</td><td class="bold fill-green">Free Cash Flow to Firm (FCFF)</td><td class="bold num fill-green">89.5</td><td class="bold num fill-green">97.4</td><td class="bold num fill-green">108.4</td><td class="bold num fill-green">122.0</td><td class="bold num fill-green">137.4</td></tr>
+            <tr><td class="num">12</td><td class="bold">Discount Factor (WACC = 9.0%)</td><td class="num calc">0.917</td><td class="num calc">0.842</td><td class="num calc">0.772</td><td class="num calc">0.708</td><td class="num calc">0.650</td></tr>
+            <tr><td class="num">13</td><td class="bold">Present Value of FCFF</td><td class="num calc">82.1</td><td class="num calc">82.0</td><td class="num calc">83.7</td><td class="num calc">86.4</td><td class="num calc">89.3</td></tr>
+            <tr><td class="num">14</td><td colspan="6"></td></tr>
+            <tr><td class="num">15</td><td class="bold">Terminal Value (3.0% TGR)</td><td></td><td></td><td></td><td></td><td class="num calc">2,358.2</td></tr>
+            <tr><td class="num">16</td><td class="bold">Present Value of Terminal Value</td><td></td><td></td><td></td><td></td><td class="num calc">1,532.8</td></tr>
+            <tr><td class="num">17</td><td class="bold fill-green">Implied Enterprise Value</td><td class="bold num fill-green">$14,105.4</td><td colspan="4"></td></tr>
+            <tr><td class="num">18</td><td colspan="6"></td></tr>
+            <tr><td class="num">19</td><td class="header-row" colspan="6">Enterprise Value Sensitivity Matrix ($M)</td></tr>
+            <tr><td class="num">20</td><td class="bold indent">WACC ↓ / TGR →</td><td class="bold num">2.0%</td><td class="bold num">2.5%</td><td class="bold num fill-blue">3.0%</td><td class="bold num">3.5%</td><td class="bold num">4.0%</td></tr>
+            <tr><td class="num">21</td><td class="bold num">7.0%</td><td class="num calc">15,120</td><td class="num calc">15,840</td><td class="num calc fill-red">16,800</td><td class="num calc">17,950</td><td class="num calc">19,420</td></tr>
+            <tr><td class="num">22</td><td class="bold num">8.0%</td><td class="num calc">13,950</td><td class="num calc">14,480</td><td class="num calc fill-red">15,200</td><td class="num calc">16,040</td><td class="num calc">17,050</td></tr>
+            <tr><td class="num">23</td><td class="bold num fill-blue">9.0%</td><td class="num calc">12,880</td><td class="num calc">13,420</td><td class="bold num fill-green">14,105</td><td class="num calc">14,680</td><td class="num calc">15,410</td></tr>
+            <tr><td class="num">24</td><td class="bold num">10.0%</td><td class="num calc">11,940</td><td class="num calc">12,410</td><td class="num calc fill-red">13,000</td><td class="num calc">13,540</td><td class="num calc">14,150</td></tr>
+            <tr><td class="num">25</td><td class="bold num">11.0%</td><td class="num calc">11,120</td><td class="num calc">11,540</td><td class="num calc fill-red">11,900</td><td class="num calc">12,380</td><td class="num calc">12,920</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 2: GOLDMAN SACHS FUND NAV -->
+    <div id="xl-nav" class="pbi-db" style="padding:0">
+      <div class="xl-scenario">
+        <strong>SCENARIO · FUND ACCOUNTING:</strong> Month-end NAV calculation for the $5B West Street Fund. This model unitizes History-to-Date (HTD) activity across Class A and Class C commitments, automating variance flagging to ensure 100% GAAP/IFRS data integrity before reporting deadlines.
+      </div>
+      <div class="xl-chrome">
+        <div class="xl-ribbon">
+          <div class="xl-ribbon-title"><span style="color:#107c41;font-weight:800">X</span> GS_WestStreetFund_NAV_Close.xlsx</div>
+        </div>
+        <div class="xl-formula-bar">
+          <span class="xl-fx">fx</span>
+          <div class="xl-formula">=IF(ABS(D5 - (B5 + C5)) &gt; 0.01, <span class="str">"FLAG FOR REVIEW"</span>, <span class="str">"RECONCILED"</span>)</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="xl-grid">
+            <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr>
+            <tr><td class="num">1</td><td class="header-row" colspan="5">West Street Fund — Month-End NAV Reconciliation ($M)</td></tr>
+            <tr><td class="num">2</td><td class="bold">Account Ledger</td><td class="bold num fill-blue">Class A (Inst.)</td><td class="bold num fill-blue">Class C (HNW)</td><td class="bold num fill-blue">Total Fund</td><td class="bold">HTD Variance Check</td></tr>
+            <tr><td class="num">3</td><td class="bold">Gross Asset Value (GAV)</td><td class="num calc">3,125.40</td><td class="num calc">1,895.10</td><td class="num calc">5,020.50</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">4</td><td class="bold">Accrued Liabilities</td><td class="num calc">(45.60)</td><td class="num calc">(28.50)</td><td class="num calc">(74.10)</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">5</td><td class="bold fill-green">Net Asset Value (NAV)</td><td class="bold num fill-green">3,079.80</td><td class="bold num fill-green">1,866.60</td><td class="bold num fill-green">4,946.40</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">6</td><td colspan="5"></td></tr>
+            <tr><td class="num">7</td><td class="header-row" colspan="5">Unitization & Pricing</td></tr>
+            <tr><td class="num">8</td><td class="bold">Shares Outstanding (M)</td><td class="num calc">25.40</td><td class="num calc">15.20</td><td class="num calc">40.60</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">9</td><td class="bold fill-blue">NAV per Share (Current)</td><td class="bold num fill-blue">$121.25</td><td class="bold num fill-blue">$122.80</td><td class="num">--</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">10</td><td class="bold">NAV per Share (Prior)</td><td class="num calc">$118.40</td><td class="num calc">$119.85</td><td class="num">--</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">11</td><td class="bold">Month-over-Month Return</td><td class="bold num fill-green">2.41%</td><td class="bold num fill-green">2.46%</td><td class="num">--</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">12</td><td colspan="5"></td></tr>
+            <tr><td class="num">13</td><td class="header-row" colspan="5">Income & Expense Allocation (GAAP)</td></tr>
+            <tr><td class="num">14</td><td class="indent">Dividend Income</td><td class="num calc">18.20</td><td class="num calc">11.00</td><td class="num calc">29.20</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">15</td><td class="indent">Realized Gains (Losses)</td><td class="num calc">42.50</td><td class="num calc">25.80</td><td class="num calc">68.30</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">16</td><td class="indent">Unrealized Appreciation</td><td class="num calc">14.10</td><td class="num calc">8.50</td><td class="num calc">22.60</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+            <tr><td class="num">17</td><td class="indent">Management Fees (0.75%)</td><td class="num calc">(1.92)</td><td class="num calc">(1.16)</td><td class="num calc">(3.08)</td><td class="bold fill-green">RECONCILED ✓</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 3: PMF PIPELINE -->
+    <div id="xl-pipeline" class="pbi-db" style="padding:0">
+      <div class="xl-scenario">
+        <strong>SCENARIO · PIPELINE OPERATIONS:</strong> Designed at Premium Merchant Funding to replace a fully manual process. This system utilizes XLOOKUP to match real-time credit data, weights funding probabilities by deal stage, and automatically tracks aggregate pipeline volume against a rolling budget to identify revenue gaps early.
+      </div>
+      <div class="xl-chrome">
+        <div class="xl-ribbon">
+          <div class="xl-ribbon-title"><span style="color:#107c41;font-weight:800">X</span> PMF_Pipeline_Forecast_Tracker.xlsx</div>
+        </div>
+        <div class="xl-formula-bar">
+          <span class="xl-fx">fx</span>
+          <div class="xl-formula">=<span class="func">XLOOKUP</span>(A4, Credit_DB!A:A, Credit_DB!D:D, <span class="str">"Manual Review"</span>, 0)</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="xl-grid">
+            <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
+            <tr><td class="num">1</td><td class="header-row" colspan="6">SMB Credit Pipeline & Forecasting (Current Week)</td></tr>
+            <tr><td class="num">2</td><td class="bold">Client ID</td><td class="bold">Product Type</td><td class="bold">Deal Stage</td><td class="bold">Credit Score</td><td class="bold num">Gross Funding</td><td class="bold num">Prob-Weighted</td></tr>
+            <tr><td class="num">3</td><td class="calc">CL-8492</td><td>Merchant Cash Adv.</td><td>Underwriting</td><td class="num fill-green">740</td><td class="num calc">$45,000</td><td class="num calc">$38,250</td></tr>
+            <tr><td class="num">4</td><td class="calc">CL-8501</td><td>Line of Credit</td><td>Doc Collection</td><td class="num fill-red">620</td><td class="num calc">$120,000</td><td class="num calc">$60,000</td></tr>
+            <tr><td class="num">5</td><td class="calc">CL-8514</td><td>Equipment Finance</td><td>Approved</td><td class="num fill-green">715</td><td class="num calc">$35,000</td><td class="num calc">$35,000</td></tr>
+            <tr><td class="num">6</td><td class="calc">CL-8518</td><td>Merchant Cash Adv.</td><td>Discovery</td><td class="num fill-blue">680</td><td class="num calc">$80,000</td><td class="num calc">$16,000</td></tr>
+            <tr><td class="num">7</td><td class="calc">CL-8522</td><td>Line of Credit</td><td>Underwriting</td><td class="num fill-green">780</td><td class="num calc">$25,000</td><td class="num calc">$21,250</td></tr>
+            <tr><td class="num">8</td><td colspan="6"></td></tr>
+            <tr><td class="num">9</td><td class="header-row" colspan="6">Budget vs. Actuals Tracking</td></tr>
+            <tr><td class="num">10</td><td class="bold">Metric</td><td class="bold">Target ($)</td><td class="bold">Gross Pipe ($)</td><td class="bold">Expected ($)</td><td class="bold">Variance ($)</td><td class="bold">Status</td></tr>
+            <tr><td class="num">11</td><td class="indent">Weekly Production</td><td class="num">$100,000</td><td class="num calc">$305,000</td><td class="num calc">$170,500</td><td class="bold num fill-green">+$70,500</td><td class="bold fill-green">BEAT PLAN</td></tr>
+            <tr><td class="num">12</td><td class="indent">MTD Pacing</td><td class="num">$400,000</td><td class="num calc">$680,000</td><td class="num calc">$410,000</td><td class="bold num fill-green">+$10,000</td><td class="bold fill-green">ON TRACK</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 4: PROACE VARIANCE -->
+    <div id="xl-variance" class="pbi-db" style="padding:0">
+      <div class="xl-scenario">
+        <strong>SCENARIO · FP&A AUTOMATION:</strong> Built for ProACE International to consolidate financial reporting. This model uses INDEX/MATCH logic to pull aggregated actuals from the ETL database and measures them against planned budgets, replacing a 5-day manual reconciliation process with a standardized variance report.
+      </div>
+      <div class="xl-chrome">
+        <div class="xl-ribbon">
+          <div class="xl-ribbon-title"><span style="color:#107c41;font-weight:800">X</span> ProACE_Monthly_Variance_Report.xlsx</div>
+        </div>
+        <div class="xl-formula-bar">
+          <span class="xl-fx">fx</span>
+          <div class="xl-formula">=<span class="func">INDEX</span>(Actuals!$E:$E, <span class="func">MATCH</span>($A12, Actuals!$A:$A, 0)) - Budget!$E12</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="xl-grid">
+            <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
+            <tr><td class="num">1</td><td class="header-row" colspan="6">Consolidated P&L Variance — March 2024</td></tr>
+            <tr><td class="num">2</td><td class="bold">Cost Center</td><td class="bold">Category</td><td class="bold num">Actual YTD</td><td class="bold num">Budget YTD</td><td class="bold num">Variance ($)</td><td class="bold num">Var (%)</td></tr>
+            <tr><td class="num">3</td><td class="bold calc">400-ENG</td><td>Software Revenue</td><td class="num calc">$2,450,000</td><td class="num">$2,200,000</td><td class="num calc fill-green">$250,000</td><td class="bold num fill-green">+11.4%</td></tr>
+            <tr><td class="num">4</td><td class="bold calc">400-ENG</td><td>Cloud Infrastructure</td><td class="num calc">$(850,000)</td><td class="num">$(750,000)</td><td class="num calc fill-red">$(100,000)</td><td class="bold num fill-red">-13.3%</td></tr>
+            <tr><td class="num">5</td><td class="bold calc">500-SALES</td><td>Commission Expense</td><td class="num calc">$(420,000)</td><td class="num">$(380,000)</td><td class="num calc fill-red">$(40,000)</td><td class="bold num fill-red">-10.5%</td></tr>
+            <tr><td class="num">6</td><td class="bold calc">600-MKTG</td><td>Ad Spend</td><td class="num calc">$(150,000)</td><td class="num">$(250,000)</td><td class="num calc fill-green">$100,000</td><td class="bold num fill-green">+40.0%</td></tr>
+            <tr><td class="num">7</td><td class="bold calc">700-OPS</td><td>Contractors</td><td class="num calc">$(310,000)</td><td class="num">$(300,000)</td><td class="num calc fill-red">$(10,000)</td><td class="bold num fill-red">-3.3%</td></tr>
+            <tr><td class="num">8</td><td colspan="6"></td></tr>
+            <tr><td class="num">9</td><td class="header-row" colspan="6">Executive Summary (Total Company)</td></tr>
+            <tr><td class="num">10</td><td class="bold">EBITDA</td><td class="bold fill-blue">Earnings Before Tax</td><td class="bold num calc">$720,000</td><td class="bold num">$520,000</td><td class="bold num calc fill-green">$200,000</td><td class="bold num fill-green">+38.5%</td></tr>
+            <tr><td class="num">11</td><td class="bold">Gross Margin</td><td class="bold fill-blue">Margin %</td><td class="bold num calc">65.3%</td><td class="bold num">65.9%</td><td class="bold num calc fill-red">-0.6%</td><td class="bold num fill-red">-0.9%</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="page-skills" class="page">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Technical Skills Index</div>
+      <div class="section-sub">Comprehensive breakdown of analytical, financial, and operational tooling</div>
+    </div>
+    <div class="skills-page-grid">
+      <div class="skill-category">
+        <div class="skill-cat-title">Data & BI Development</div>
+        <div class="skill-item">
+          <span class="skill-name">SQL (CTEs, Window Funcs, Joins)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Power BI (Data Modeling)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">DAX (Time Intelligence, Iterators)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Power Query (M Code)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python (Pandas, NumPy)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <div class="skill-cat-title">Finance & Accounting</div>
+        <div class="skill-item">
+          <span class="skill-name">3-Statement Modeling</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">DCF & WACC Sensitivity</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">FP&A / Variance Analysis</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Fund Accounting (NAV)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">GAAP / IFRS Frameworks</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Operations & Strategy</div>
+        <div class="skill-item">
+          <span class="skill-name">Pipeline Ops & Forecasting</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Process Automation</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">KPI Dashboarding</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Credit & Risk Analysis</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">AI / LLM Integration (Claude)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-contact" class="page">
+  <div class="section-wrap" style="max-width:700px">
+    <div class="section-header">
+      <div class="section-title">Let's Build Something</div>
+      <div class="section-sub">Open to full-time opportunities and consulting engagements</div>
+    </div>
+    <div class="contact-info">
+      <h2>Get In Touch</h2>
+      <p>Whether you need a messy data infrastructure rebuilt from scratch, an automated KPI dashboard for your leadership team, or a robust financial model for an upcoming acquisition — I can help.</p>
+      
+      <a href="mailto:Ragibnyc@gmail.com" class="contact-link">
+        <div class="contact-link-icon">✉</div>
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-val">Ragibnyc@gmail.com</div>
+        </div>
+      </a>
+      
+      <a href="https://linkedin.com/in/ragib-shikder" target="_blank" class="contact-link">
+        <div class="contact-link-icon">in</div>
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-val">linkedin.com/in/ragib-shikder</div>
+        </div>
+      </a>
+      
+      <div class="contact-link" style="cursor:default">
+        <div class="contact-link-icon">☎</div>
+        <div>
+          <div class="contact-link-label">Phone</div>
+          <div class="contact-link-val">+1 (347) 801-3756</div>
+        </div>
+      </div>
+      
+      <div class="contact-link" style="cursor:default">
+        <div class="contact-link-icon">⚲</div>
+        <div>
+          <div class="contact-link-label">Location</div>
+          <div class="contact-link-val">New York City, NY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="site-footer-inner">
     <span class="footer-name">Ragib Shikder</span>
-    <span class="footer-sep">·</span>
-    <a href="mailto:ragibnyc@gmail.com">ragibnyc@gmail.com</a>
-    <span class="footer-sep">·</span>
-    <a href="https://linkedin.com/in/ragib-shikder" target="_blank">LinkedIn</a>
-    <span class="footer-sep">·</span>
-    <span>New York City, NY</span>
+    <span class="footer-sep">|</span>
+    <span>Financial & Data Analyst</span>
+    <span class="footer-sep">|</span>
+    <span>New York, NY</span>
+    <span class="footer-sep">|</span>
+    <a href="mailto:Ragibnyc@gmail.com">Ragibnyc@gmail.com</a>
   </div>
 </footer>
 
 <script>
-/* ══════════ POWER BI DASHBOARD LOGIC ══════════ */
-// --- CHART STYLES & OPTIONS ---
+// --- CHART STYLES & OPTIONS & VARIABLES ---
 const GRID='rgba(0,31,91,0.07)';
 const N='#001F5B',B='#005EB8',BL='#7AB8F5',BM='#003087',G='#006400',R='#8B0000',T='#004d40',GY='#A8BEDD';
+const N2='#001F5B',B2='#005EB8',BL2='#7AB8F5',GY2='#A8BEDD',G2='#006400',R2='#8B0000',T2='#004d40',AM='#856404';
+const GR2='rgba(0,31,91,0.06)';
 const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}}}};
+const bo2={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GR2},ticks:{font:{size:10},color:'#8892b0'}}}};
 
 // --- RESUME DOWNLOAD ---
 function downloadResumePDF(){
@@ -2195,32 +2247,77 @@ function downloadResumePDF(){
 let chartsInit=false;
 function initCharts(){
   if(chartsInit)return;chartsInit=true;
-  new Chart(document.getElementById('p1'),{type:'bar',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[18,24,21,35,28,32,26,40],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25,25,25,25],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p2'),{type:'doughnut',data:{labels:['MCA','Lines of Credit','Equipment'],datasets:[{data:[45,35,20],backgroundColor:[N,B,BL],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false}},layout:{padding:10}}});
-  new Chart(document.getElementById('p3'),{type:'line',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[18,42,63,98,126,158,184,224],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:[25,50,75,100,125,150,175,200],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p4'),{type:'bar',data:{labels:['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],datasets:[{label:'Budget',data:[45,52,48,55,50,58],backgroundColor:N},{label:'Actuals',data:[38,51,44,57,48,62],backgroundColor:B}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p5'),{type:'bar',data:{labels:['CRM System','ERP Exports','Billing Platform','Ops Database'],datasets:[{label:'Extracted',data:[142,98,211,76],backgroundColor:N,borderRadius:3},{label:'Validated',data:[142,98,211,76],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'K'}}}}});
-  new Chart(document.getElementById('p6'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Class A',data:[2.92,2.98,3.05,3.08,3.12,3.18],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Class C',data:[1.68,1.74,1.76,1.77,1.79,1.84],borderColor:B,backgroundColor:'rgba(0,94,184,0.05)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Total',data:[4.60,4.72,4.81,4.85,4.91,5.02],borderColor:G,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'B'}}}}});
-  new Chart(document.getElementById('p7'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(0,100,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(139,0,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
+  
+  if(document.getElementById('p1')) new Chart(document.getElementById('p1'),{type:'bar',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[18,24,21,35,28,32,26,40],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25,25,25,25],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
+  if(document.getElementById('p2')) new Chart(document.getElementById('p2'),{type:'doughnut',data:{labels:['MCA','Lines of Credit','Equipment'],datasets:[{data:[45,35,20],backgroundColor:[N,B,BL],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false}},layout:{padding:10}}});
+  if(document.getElementById('p3')) new Chart(document.getElementById('p3'),{type:'line',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[18,42,63,98,126,158,184,224],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:[25,50,75,100,125,150,175,200],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
+  if(document.getElementById('p4')) new Chart(document.getElementById('p4'),{type:'bar',data:{labels:['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],datasets:[{label:'Budget',data:[45,52,48,55,50,58],backgroundColor:N},{label:'Actuals',data:[38,51,44,57,48,62],backgroundColor:B}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
+  if(document.getElementById('p5')) new Chart(document.getElementById('p5'),{type:'bar',data:{labels:['CRM System','ERP Exports','Billing Platform','Ops Database'],datasets:[{label:'Extracted',data:[142,98,211,76],backgroundColor:N,borderRadius:3},{label:'Validated',data:[142,98,211,76],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'K'}}}}});
+  if(document.getElementById('p6')) new Chart(document.getElementById('p6'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Class A',data:[2.92,2.98,3.05,3.08,3.12,3.18],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Class C',data:[1.68,1.74,1.76,1.77,1.79,1.84],borderColor:B,backgroundColor:'rgba(0,94,184,0.05)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Total',data:[4.60,4.72,4.81,4.85,4.91,5.02],borderColor:G,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'B'}}}}});
+  if(document.getElementById('p7')) new Chart(document.getElementById('p7'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
+  if(document.getElementById('p8')) new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(0,100,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(139,0,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
+
+  if(document.getElementById('sc1a')) new Chart(document.getElementById('sc1a'),{type:'bar',data:{labels:['M1','M2','M3','M4','M5','M6'],datasets:[{label:'Actual',data:[12,14,11,15,16,19],backgroundColor:N},{label:'Budget',data:[10,12,14,15,16,18],backgroundColor:B}]},options:baseOpts});
+  if(document.getElementById('sc1b')) new Chart(document.getElementById('sc1b'),{type:'line',data:{labels:['M1','M2','M3','M4','M5','M6'],datasets:[{label:'Actual %',data:[32,34,35,36,38,39],borderColor:N,tension:0.4},{label:'Plan %',data:[30,30,32,32,35,35],borderColor:GY,tension:0.4}]},options:baseOpts});
+  if(document.getElementById('sc1c')) new Chart(document.getElementById('sc1c'),{type:'bar',data:{labels:['Budget','Volume','Price','COGS','OpEx','Actual'],datasets:[{label:'Impact',data:[26.3,4.2,2.0,-1.8,-0.3,30.4],backgroundColor:c=>c.raw>0?N:R}]},options:baseOpts});
+  if(document.getElementById('sc1d')) new Chart(document.getElementById('sc1d'),{type:'line',data:{labels:['M1','M2','M3','M4','M5','M6'],datasets:[{label:'EBITDA %',data:[18,19,20,21.4,21,22],borderColor:N,tension:0.4},{label:'Target',data:[20,20,20,20,20,20],borderColor:GY,borderDash:[5,5]}]},options:baseOpts});
+  if(document.getElementById('sc2a')) new Chart(document.getElementById('sc2a'),{type:'bar',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'Op CF',data:[22,25,26,28],backgroundColor:N},{label:'Inv CF',data:[-12,-14,-10,-15],backgroundColor:B},{label:'Fin CF',data:[-5,-2,5,-4],backgroundColor:BL}]},options:{...baseOpts,scales:{x:{stacked:true},y:{stacked:true}}}});
+  if(document.getElementById('sc2b')) new Chart(document.getElementById('sc2b'),{type:'bar',data:{labels:['AR Days','AP Days','Inv Days'],datasets:[{label:'Actual',data:[38,45,22],backgroundColor:N},{label:'Target',data:[35,40,25],backgroundColor:GY}]},options:baseOpts});
+  if(document.getElementById('sc2c')) new Chart(document.getElementById('sc2c'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'FCF',data:[12,14,16,18.1],borderColor:N,tension:0.4},{label:'Net Income',data:[19,20,21,22],borderColor:B,tension:0.4}]},options:baseOpts});
+  if(document.getElementById('sc3a')) new Chart(document.getElementById('sc3a'),{type:'line',data:{labels:['M1','M2','M3','M4','M5','M6'],datasets:[{label:'Portfolio',data:[100,102,101,105,107,108.9],borderColor:N},{label:'S&P 500',data:[100,101,100,103,105,106.6],borderColor:GY}]},options:baseOpts});
+  if(document.getElementById('sc3b')) new Chart(document.getElementById('sc3b'),{type:'doughnut',data:{labels:['Equities','Fixed Income','Alts','Cash'],datasets:[{data:[52,28,12,8],backgroundColor:[N,B,BL,GY]}]},options:{responsive:true,maintainAspectRatio:false}});
+  if(document.getElementById('sc3c')) new Chart(document.getElementById('sc3c'),{type:'bar',data:{labels:['M1','M2','M3','M4','M5','M6'],datasets:[{label:'Equities',data:[2,4,-1,6,5,3],backgroundColor:N},{label:'Fixed Income',data:[1,1,2,1,1,2],backgroundColor:B}]},options:{...baseOpts,scales:{x:{stacked:true},y:{stacked:true}}}});
+  if(document.getElementById('sc4a')) new Chart(document.getElementById('sc4a'),{type:'line',data:{labels:['Y1','Y2','Y3','Y4','Y5'],datasets:[{label:'Bull',data:[900,1100,1300,1500,1800],borderColor:G},{label:'Base',data:[842,915,1012,1124,1250],borderColor:N},{label:'Bear',data:[800,850,900,950,1000],borderColor:R}]},options:baseOpts});
+  if(document.getElementById('sc4b')) new Chart(document.getElementById('sc4b'),{type:'bar',data:{labels:['PV of FCF','Terminal Value'],datasets:[{label:'Value',data:[4.2,9.9],backgroundColor:[N,B]}]},options:baseOpts});
+  if(document.getElementById('sc5a')) new Chart(document.getElementById('sc5a'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'New ARR',data:[1.2,1.5,1.4,1.8,1.6,2.1],borderColor:N},{label:'NRR %',data:[105,106,106,108,108,110],borderColor:B}]},options:baseOpts});
+  if(document.getElementById('sc5b')) new Chart(document.getElementById('sc5b'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Rev/Emp',data:[240,245,250,265,270,284],borderColor:N},{label:'Util %',data:[82,83,85,88,86,87],borderColor:B}]},options:baseOpts});
+  if(document.getElementById('sc6a')) new Chart(document.getElementById('sc6a'),{type:'bar',data:{labels:['Eng','Sales','Mktg','Ops','G&A'],datasets:[{label:'Budget',data:[12,8,6,4,3],backgroundColor:N},{label:'Actuals',data:[13.3,7.5,4.6,4.1,3.2],backgroundColor:B}]},options:baseOpts});
+  if(document.getElementById('sc6b')) new Chart(document.getElementById('sc6b'),{type:'bar',data:{labels:['Eng','Sales','Mktg','Ops','G&A'],datasets:[{label:'Var %',data:[-10.8,6.2,23.3,-2.5,-6.6],backgroundColor:c=>c.raw>0?G:R}]},options:baseOpts});
+  if(document.getElementById('sc6c')) new Chart(document.getElementById('sc6c'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'Forecast',data:[138,140,141.5,142.3],borderColor:N}]},options:baseOpts});
+  if(document.getElementById('sc7a')) new Chart(document.getElementById('sc7a'),{type:'bar',data:{labels:['Discovery','Review','Offer','Closed'],datasets:[{label:'Value',data:[18.4,12.2,6.5,4.2],backgroundColor:N}]},options:baseOpts});
+  if(document.getElementById('sc7b')) new Chart(document.getElementById('sc7b'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'New',data:[1.2,1.5,1.4,1.8,1.6,2.1],backgroundColor:N},{label:'Churn',data:[-0.2,-0.3,-0.2,-0.4,-0.4,-0.3],backgroundColor:R}]},options:{...baseOpts,scales:{x:{stacked:true},y:{stacked:true}}}});
+  if(document.getElementById('sc7c')) new Chart(document.getElementById('sc7c'),{type:'bar',data:{labels:['Enterprise','Mid-Market','SMB'],datasets:[{label:'Win %',data:[38,28,22],backgroundColor:N}]},options:baseOpts});
+  if(document.getElementById('sc8a')) new Chart(document.getElementById('sc8a'),{type:'doughnut',data:{labels:['Passed','Failed'],datasets:[{data:[96,4],backgroundColor:[G,R]}]},options:{responsive:true,maintainAspectRatio:false}});
+  if(document.getElementById('sc8b')) new Chart(document.getElementById('sc8b'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[15,12,18,8,10,5],backgroundColor:R},{label:'Resolved',data:[15,12,18,8,10,5],backgroundColor:N}]},options:baseOpts});
+
+  if(document.getElementById('pbi-s1')) new Chart(document.getElementById('pbi-s1'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Actual',data:[1.2,2.5,3.9,5.5,7.1,9.2],borderColor:N2,tension:0.4,fill:true,backgroundColor:GR2}]},options:bo2});
+  if(document.getElementById('pbi-s2')) new Chart(document.getElementById('pbi-s2'),{type:'doughnut',data:{labels:['Enterprise','Mid-Market','SMB'],datasets:[{data:[45,35,20],backgroundColor:[N2,B2,BL2],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{display:false}}}});
+  if(document.getElementById('pbi-s3')) new Chart(document.getElementById('pbi-s3'),{type:'bar',data:{labels:['Ent','Mid','SMB'],datasets:[{data:[38,28,22],backgroundColor:N2}]},options:bo2});
+  if(document.getElementById('pbi-s4')) new Chart(document.getElementById('pbi-s4'),{type:'bar',data:{labels:['Disc','Review','Offer'],datasets:[{data:[4.8,3.2,1.4],backgroundColor:B2}]},options:bo2});
+  if(document.getElementById('pbi-s5')) new Chart(document.getElementById('pbi-s5'),{type:'bar',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'New',data:[4.2,5.1,4.8,5.6],backgroundColor:'#4ade80'},{label:'Churn',data:[-0.8,-1.2,-0.9,-1.1],backgroundColor:'#f87171'}]},options:{...bo2,scales:{x:{stacked:true},y:{stacked:true}}}});
+
+  if(document.getElementById('pbi-f1')) new Chart(document.getElementById('pbi-f1'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Actual',data:[12,14,15,18,20,22],backgroundColor:N2},{label:'Budget',data:[11,13,16,17,19,21],backgroundColor:BL2}]},options:bo2});
+  if(document.getElementById('pbi-f2')) new Chart(document.getElementById('pbi-f2'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'EBITDA %',data:[18,19.5,21.4,22],borderColor:N2,tension:0.4}]},options:bo2});
+  if(document.getElementById('pbi-f3')) new Chart(document.getElementById('pbi-f3'),{type:'bar',data:{labels:['Eng','Sales','Mktg','Ops'],datasets:[{data:[-1.3,0.5,1.4,-0.2],backgroundColor:c=>c.raw>0?G2:R2}]},options:bo2});
+  if(document.getElementById('pbi-f4')) new Chart(document.getElementById('pbi-f4'),{type:'bar',data:{labels:['Comm','Retail','Tech'],datasets:[{data:[42,35,48],backgroundColor:N2}]},options:bo2});
+
+  if(document.getElementById('pbi-h1')) new Chart(document.getElementById('pbi-h1'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Attr %',data:[8,9,11,12.5,14,14.2],borderColor:R2,tension:0.4}]},options:bo2});
+  if(document.getElementById('pbi-h2')) new Chart(document.getElementById('pbi-h2'),{type:'bar',data:{labels:['Eng','Sales','Ops','Fin'],datasets:[{label:'Actual',data:[145,85,60,25],backgroundColor:N2},{label:'Budget',data:[130,90,65,25],backgroundColor:GY2}]},options:bo2});
+  if(document.getElementById('pbi-h3')) new Chart(document.getElementById('pbi-h3'),{type:'bar',data:{labels:['<1y','1-3y','3y+'],datasets:[{data:[12,24,6],backgroundColor:N2}]},options:bo2});
+  if(document.getElementById('pbi-h4')) new Chart(document.getElementById('pbi-h4'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{data:[42,40,38,36],borderColor:N2,tension:0.4}]},options:bo2});
+
+  if(document.getElementById('pbi-o2')) new Chart(document.getElementById('pbi-o2'),{type:'line',data:{labels:['W1','W2','W3','W4'],datasets:[{data:[96,94,91.4,92],borderColor:N2,tension:0.4}]},options:bo2});
+  if(document.getElementById('pbi-o3')) new Chart(document.getElementById('pbi-o3'),{type:'bar',data:{labels:['Supp A','Supp B','Supp C'],datasets:[{data:[3.2,4.8,5.1],backgroundColor:N2}]},options:bo2});
+  if(document.getElementById('pbi-o4')) new Chart(document.getElementById('pbi-o4'),{type:'bar',data:{labels:['Elec','FMCG','Ind'],datasets:[{data:[45,22,60],backgroundColor:N2}]},options:bo2});
+  if(document.getElementById('pbi-o5')) new Chart(document.getElementById('pbi-o5'),{type:'doughnut',data:{labels:['Vendor','Transit','Whse'],datasets:[{data:[55,30,15],backgroundColor:[R2,AM,N2],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}});
 }
 
 // --- TAB NAVIGATION LOGIC ---
 function showPage(pageId, btn) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-  document.getElementById('page-' + pageId).classList.add('active');
+  const targetPage = document.getElementById('page-' + pageId);
+  if (targetPage) targetPage.classList.add('active');
   
-  if (btn) {
-    document.querySelectorAll('.topnav-btn').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.topnav-btn').forEach(el => el.classList.remove('active'));
+  if (btn && btn.classList.contains('topnav-btn')) {
     btn.classList.add('active');
   } else {
-    document.querySelectorAll('.topnav-btn').forEach(el => el.classList.remove('active'));
-    const targetBtn = document.querySelector(`.topnav-btn[onclick*="showPage('${pageId}')"]`);
-    if(targetBtn) targetBtn.classList.add('active');
+    // Uses data attributes to cleanly find the correct nav button
+    const targetNavBtn = document.querySelector(`.topnav-btn[data-page="${pageId}"]`);
+    if(targetNavBtn) targetNavBtn.classList.add('active');
   }
   
-  // Render charts if user navigates to pages that need them
-  if(pageId === 'projects' || pageId === 'scenarios') {
+  if(pageId === 'projects' || pageId === 'scenarios' || pageId === 'powerbi') {
     initCharts();
   }
   window.scrollTo(0,0);
@@ -2228,14 +2325,13 @@ function showPage(pageId, btn) {
 
 function showProject(projId) {
   showPage('projects');
-  const targetBtn = document.querySelector(`.proj-tab[onclick*="showProj('${projId}')"]`);
+  const targetBtn = document.querySelector(`.proj-tab[onclick*="'${projId}'"]`);
   if(targetBtn) showProj(projId, targetBtn);
 }
 
 function showProj(projId, btn) {
   document.querySelectorAll('#page-projects .proj-section').forEach(el => el.classList.remove('active'));
   document.getElementById('proj-' + projId).classList.add('active');
-  
   if (btn) {
     document.querySelectorAll('#page-projects .proj-tab').forEach(el => el.classList.remove('active'));
     btn.classList.add('active');
@@ -2245,7 +2341,6 @@ function showProj(projId, btn) {
 function showCode(codeId, btn) {
   document.querySelectorAll('.code-block').forEach(el => el.classList.remove('active'));
   document.getElementById('code-' + codeId).classList.add('active');
-  
   if (btn) {
     document.querySelectorAll('.code-tab').forEach(el => el.classList.remove('active'));
     btn.classList.add('active');
@@ -2255,7 +2350,6 @@ function showCode(codeId, btn) {
 function showSc(scId, btn) {
   document.querySelectorAll('#page-scenarios .proj-section').forEach(el => el.classList.remove('active'));
   document.getElementById('sc-' + scId).classList.add('active');
-  
   if (btn) {
     document.querySelectorAll('#sc-tabs .proj-tab').forEach(el => el.classList.remove('active'));
     btn.classList.add('active');
@@ -2263,14 +2357,42 @@ function showSc(scId, btn) {
 }
 
 function showPbi(pbiId, btn) {
-  document.querySelectorAll('.pbi-db').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('#page-powerbi .pbi-db').forEach(el => el.classList.remove('active'));
   document.getElementById('pbi-' + pbiId).classList.add('active');
-  
   if (btn) {
-    document.querySelectorAll('#pbi-tabs .pbi-tab').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('#pbi-tabs .pbi-tab').forEach(el => {
+        el.classList.remove('active');
+        el.style.backgroundColor = 'rgba(255,255,255,0.06)';
+        el.style.borderColor = 'rgba(255,255,255,0.2)';
+    });
     btn.classList.add('active');
+    btn.style.backgroundColor = '#005EB8';
+    btn.style.borderColor = '#005EB8';
   }
 }
+
+function showExcel(xlId, btn) {
+  document.querySelectorAll('#page-excel .pbi-db').forEach(el => el.classList.remove('active'));
+  document.getElementById('xl-' + xlId).classList.add('active');
+  if (btn) {
+    document.querySelectorAll('#xl-tabs .pbi-tab').forEach(el => {
+        el.classList.remove('active');
+        el.style.backgroundColor = 'rgba(255,255,255,0.1)';
+        el.style.borderColor = 'transparent';
+        el.style.color = 'rgba(255,255,255,0.8)';
+    });
+    btn.classList.add('active');
+    btn.style.backgroundColor = 'rgba(255,255,255,0.2)';
+    btn.style.borderColor = '#fff';
+    btn.style.color = '#fff';
+  }
+}
+
+// Power BI Filter Stubs for UI interactions
+function pbiSalesFilter(type, val, btn) { if(btn) { document.querySelectorAll('#pbi-sales .pbi-btn-slicer').forEach(e=> { if(e.parentElement === btn.parentElement) e.classList.remove('active'); }); btn.classList.add('active'); } }
+function pbiFinFilter(type, val, btn) { if(btn) { document.querySelectorAll('#pbi-finance .pbi-btn-slicer').forEach(e=> { if(e.parentElement === btn.parentElement) e.classList.remove('active'); }); btn.classList.add('active'); } }
+function pbiHRFilter(type, val, btn) { if(btn) { document.querySelectorAll('#pbi-hr .pbi-btn-slicer').forEach(e=> { if(e.parentElement === btn.parentElement) e.classList.remove('active'); }); btn.classList.add('active'); } }
+function pbiOpsFilter(type, val, btn) { if(btn) { document.querySelectorAll('#pbi-ops .pbi-btn-slicer').forEach(e=> { if(e.parentElement === btn.parentElement) e.classList.remove('active'); }); btn.classList.add('active'); } }
 </script>
 </body>
 </html>
