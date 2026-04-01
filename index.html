@@ -2176,33 +2176,6 @@ ActiveScenario_Revenue =
 </footer>
 
 <script>
-const GRID='rgba(0,31,91,0.07)';
-const N='#001F5B',B='#005EB8',BL='#7AB8F5',BM='#003087',G='#006400',R='#8B0000',T='#004d40',GY='#A8BEDD';
-const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}}}};
-
-function downloadResumePDF(){
-  const el=document.createElement('a');
-  el.href='Ragib_Shikder_Final_1Page.pdf';
-  el.download='Ragib_Shikder_Resume.pdf';
-  el.click();
-  setTimeout(()=>window.print(),300);
-}
-
-let chartsInit=false;
-
-function initCharts(){
-  if(chartsInit)return;chartsInit=true;
-  new Chart(document.getElementById('p1'),{type:'bar',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[18,24,21,35,28,32,26,40],backgroundColor:N,borderRadius:3},{type:'line',label:'Target',data:[25,25,25,25,25,25,25,25],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p2'),{type:'doughnut',data:{labels:['MCA','Lines of Credit','Equipment'],datasets:[{data:[45,35,20],backgroundColor:[N,B,BL],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:false}},layout:{padding:10}}});
-  new Chart(document.getElementById('p3'),{type:'line',data:{labels:['Wk 1','Wk 2','Wk 3','Wk 4','Wk 5','Wk 6','Wk 7','Wk 8'],datasets:[{label:'Actual',data:[18,42,63,98,126,158,184,224],borderColor:N,backgroundColor:'rgba(0,31,91,0.07)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Budget',data:[25,50,75,100,125,150,175,200],borderColor:R,borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p4'),{type:'bar',data:{labels:['Revenue','Cost Alloc','Milestones','KPIs','Reporting','Audit'],datasets:[{label:'Budget',data:[45,52,48,55,50,58],backgroundColor:N},{label:'Actuals',data:[38,51,44,57,48,62],backgroundColor:B}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:10},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'K'}}}}});
-  new Chart(document.getElementById('p5'),{type:'bar',data:{labels:['CRM System','ERP Exports','Billing Platform','Ops Database'],datasets:[{label:'Extracted',data:[142,98,211,76],backgroundColor:N,borderRadius:3},{label:'Validated',data:[142,98,211,76],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>v+'K'}}}}});
-  new Chart(document.getElementById('p6'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Class A',data:[2.92,2.98,3.05,3.08,3.12,3.18],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Class C',data:[1.68,1.74,1.76,1.77,1.79,1.84],borderColor:B,backgroundColor:'rgba(0,94,184,0.05)',fill:true,tension:0.4,pointRadius:3,borderWidth:2},{label:'Total',data:[4.60,4.72,4.81,4.85,4.91,5.02],borderColor:G,borderDash:[4,3],borderWidth:1.5,pointRadius:3,fill:false}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'B'}}}}});
-  new Chart(document.getElementById('p7'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Flagged',data:[12,8,15,6,10,4],backgroundColor:R,borderRadius:3},{label:'Resolved',data:[12,8,15,6,10,4],backgroundColor:G,borderRadius:3}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v+'M'}}}}});
-  new Chart(document.getElementById('p8'),{type:'line',data:{labels:['Year 1','Year 2','Year 3','Year 4','Year 5'],datasets:[{label:'Bull',data:[1.00,1.20,1.44,1.73,2.07],borderColor:G,backgroundColor:'rgba(0,100,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Base',data:[1.00,1.12,1.26,1.41,1.58],borderColor:N,backgroundColor:'rgba(0,31,91,0.06)',fill:true,tension:0.4,pointRadius:4,borderWidth:2},{label:'Bear',data:[1.00,1.05,1.10,1.16,1.22],borderColor:R,backgroundColor:'rgba(139,0,0,0.05)',fill:true,tension:0.4,pointRadius:4,borderWidth:2}]},options:{...baseOpts,scales:{x:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0'}},y:{grid:{color:GRID},ticks:{font:{size:11},color:'#8892b0',callback:v=>'$'+v.toFixed(2)+'B'}}}}});
-}
-
-<script>
 /* ══════════ POWER BI DASHBOARD LOGIC ══════════ */
 // --- CHART STYLES & OPTIONS ---
 const GRID='rgba(0,31,91,0.07)';
@@ -2242,7 +2215,7 @@ function showPage(pageId, btn) {
     btn.classList.add('active');
   } else {
     document.querySelectorAll('.topnav-btn').forEach(el => el.classList.remove('active'));
-    const targetBtn = document.querySelector(`.topnav-btn[onclick*="showPage('${pageId}'"]`);
+    const targetBtn = document.querySelector(`.topnav-btn[onclick*="showPage('${pageId}')"]`);
     if(targetBtn) targetBtn.classList.add('active');
   }
   
@@ -2255,7 +2228,7 @@ function showPage(pageId, btn) {
 
 function showProject(projId) {
   showPage('projects');
-  const targetBtn = document.querySelector(`.proj-tab[onclick*="showProj('${projId}'"]`);
+  const targetBtn = document.querySelector(`.proj-tab[onclick*="showProj('${projId}')"]`);
   if(targetBtn) showProj(projId, targetBtn);
 }
 
@@ -2299,3 +2272,5 @@ function showPbi(pbiId, btn) {
   }
 }
 </script>
+</body>
+</html>
